@@ -9,13 +9,11 @@
 </head>
 
 <script type="text/javascript">
-
 	function openTab(text, url, iconCls) {
 		if ($("#tabs").tabs("exists", text)) {
 			$("#tabs").tabs("select", text);
 		} else {
-			var content = "<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='${basePath}/admin/"
-					+ url + "'></iframe>";
+			var content = "<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='${basePath}/admin/" + url + "'></iframe>";
 			$("#tabs").tabs("add", {
 				title : text,
 				iconCls : iconCls,
@@ -24,7 +22,6 @@
 			});
 		}
 	}
-	
 </script>
 
 <body class="easyui-layout">
@@ -46,55 +43,66 @@
 		<div class="easyui-accordion" data-options="fit:true,border:false">
 			<div title="常用操作" data-options="selected:true,iconCls:'icon-item'"
 				style="padding: 10px">
-				<a href="javascript:openTab('写博客','writeBlog.jsp','icon-writeblog')" class="easyui-linkbutton"
+				<a href="javascript:openTab('写博客','writeBlog.jsp','icon-writeblog')"
+					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-writeblog',width:'150px'"
-					style="text-align: left;">写博客</a> <a href="javascript:openTab('评论审核','commentReview.jsp','icon-review')"
+					style="text-align: left;">写博客</a> <a
+					href="javascript:openTab('评论审核','commentReview.jsp','icon-review')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-review',width:'150px'"
 					style="text-align: left;">评论审核</a>
 			</div>
 			<div title="博客管理" data-options="selected:true,iconCls:'icon-bkgl'"
 				style="padding: 10px;">
-				<a href="javascript:openTab('写博客','writeBlog.jsp','icon-writeblog')" class="easyui-linkbutton"
+				<a href="javascript:openTab('写博客','writeBlog.jsp','icon-writeblog')"
+					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-writeblog',width:'150px'"
-					style="text-align: left;">写博客</a> <a href="javascript:openTab('博客信息管理','blogManage.jsp','icon-bkgl')"
+					style="text-align: left;">写博客</a> <a
+					href="javascript:openTab('博客信息管理','blogManage.jsp','icon-bkgl')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-bkgl',width:'150px'"
 					style="text-align: left;">博客信息管理</a>
 			</div>
 			<div title="博客类别管理" data-options="iconCls:'icon-bklb'"
 				style="padding: 10px">
-				<a href="javascript:openTab('博客类别信息管理','blogTypeManage.jsp','icon-bklb')" class="easyui-linkbutton"
+				<a
+					href="javascript:openTab('博客类别信息管理','blogTypeManage.jsp','icon-bklb')"
+					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-bklb',width:'150px'"
 					style="text-align: left;">博客类别信息管理</a>
 			</div>
 			<div title="评论管理" data-options="iconCls:'icon-plgl'"
 				style="padding: 10px">
-				<a href="javascript:openTab('评论审核','commentReview.jsp','icon-review')" class="easyui-linkbutton"
+				<a
+					href="javascript:openTab('评论审核','commentReview.jsp','icon-review')"
+					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-review',width:'150px'"
-					style="text-align: left;">评论审核</a> <a href="javascript:openTab('评论信息管理','commentManage.jsp','icon-plgl')"
+					style="text-align: left;">评论审核</a> <a
+					href="javascript:openTab('评论信息管理','commentManage.jsp','icon-plgl')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-plgl',width:'150px'"
 					style="text-align: left;">评论信息管理</a>
 			</div>
 			<div title="个人信息管理" data-options="iconCls:'icon-grxx'"
 				style="padding: 10px">
-				<a href="javascript:openTab('修改个人信息','','')" class="easyui-linkbutton"
+				<a href="javascript:openTab('修改个人信息','','')"
+					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-grxxxg',width:'150px'"
 					style="text-align: left;">修改个人信息</a>
 			</div>
 			<div title="系统管理" data-options="iconCls:'icon-system'"
 				style="padding: 10px">
-				<a href="javascript:openTab('友情链接管理','','')" class="easyui-linkbutton"
+				<a href="javascript:openTab('友情链接管理','','')"
+					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-link',width:'150px'"
-					style="text-align: left;">友情链接管理</a> <a href="javascript:openTab('修改密码','','')"
-					class="easyui-linkbutton"
+					style="text-align: left;">友情链接管理</a> <a
+					href="javascript:openTab('修改密码','','')" class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-modifyPassword',width:'150px'"
-					style="text-align: left;">修改密码</a> <a href="javascript:openTab('刷新系统缓存','','')"
-					class="easyui-linkbutton"
+					style="text-align: left;">修改密码</a> <a
+					href="javascript:openTab('刷新系统缓存','','')" class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-refresh',width:'150px'"
-					style="text-align: left;">刷新系统缓存</a> <a href="javascript:openTab('安全退出','','')"
-					class="easyui-linkbutton"
+					style="text-align: left;">刷新系统缓存</a> <a
+					href="javascript:openTab('安全退出','','')" class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-exit',width:'150px'"
 					style="text-align: left;">安全退出</a>
 			</div>
