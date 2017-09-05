@@ -12,7 +12,7 @@ import com.github.pagehelper.PageInfo;
 import com.lix.dao.BlogTypeDao;
 import com.lix.pojo.BlogType;
 import com.lix.service.BlogTypeService;
-import com.lix.util.EasyUIResult;
+import com.lix.utils.EasyUIResult;
 
 @Service
 public class BlogTypeServiceImpl extends BaseService<BlogType> implements BlogTypeService {

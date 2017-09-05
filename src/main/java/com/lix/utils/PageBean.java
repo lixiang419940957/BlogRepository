@@ -1,4 +1,4 @@
-package com.lix.util;
+package com.lix.utils;
 
 /**
  * ��ҳModel��

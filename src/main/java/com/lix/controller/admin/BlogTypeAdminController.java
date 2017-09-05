@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.lix.pojo.BlogType;
 import com.lix.service.BlogService;
 import com.lix.service.BlogTypeService;
-import com.lix.util.EasyUIResult;
+import com.lix.utils.EasyUIResult;
 
 @RequestMapping("/admin/blogType")
 @Controller

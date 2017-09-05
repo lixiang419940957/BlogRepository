@@ -1,7 +1,7 @@
 package com.lix.service;
 
 import com.lix.pojo.Link;
-import com.lix.util.EasyUIResult;
+import com.lix.utils.EasyUIResult;
 
 public interface LinkService {
     

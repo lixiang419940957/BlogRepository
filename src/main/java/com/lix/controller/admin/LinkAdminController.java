@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lix.pojo.Link;
 import com.lix.service.LinkService;
-import com.lix.util.EasyUIResult;
+import com.lix.utils.EasyUIResult;
 
 @RequestMapping("/admin/link")
 @Controller

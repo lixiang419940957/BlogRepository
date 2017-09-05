@@ -163,7 +163,7 @@
 			</div>
 			<div title="个人信息管理" data-options="iconCls:'icon-grxx'"
 				style="padding: 10px">
-				<a href="javascript:openTab('修改个人信息','','')"
+				<a href="javascript:openTab('修改个人信息','modifyBlogger.jsp','icon-grxxxg')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-grxxxg',width:'150px'"
 					style="text-align: left;">修改个人信息</a>

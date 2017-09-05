@@ -15,7 +15,7 @@ import com.github.pagehelper.PageInfo;
 import com.lix.dao.LinkDao;
 import com.lix.pojo.Link;
 import com.lix.service.LinkService;
-import com.lix.util.EasyUIResult;
+import com.lix.utils.EasyUIResult;
 
 @Service
 public class LinkServiceImpl extends BaseService<Link> implements LinkService {

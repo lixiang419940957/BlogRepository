@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lix.pojo.Blog;
 import com.lix.service.BlogService;
-import com.lix.util.EasyUIResult;
-import com.lix.util.PageBean;
+import com.lix.utils.EasyUIResult;
+import com.lix.utils.PageBean;
 
 @RequestMapping("/admin/blog")
 @Controller

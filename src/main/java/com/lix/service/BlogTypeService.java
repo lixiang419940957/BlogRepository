@@ -3,7 +3,7 @@ package com.lix.service;
 import java.util.List;
 
 import com.lix.pojo.BlogType;
-import com.lix.util.EasyUIResult;
+import com.lix.utils.EasyUIResult;
 
 public interface BlogTypeService {
 
