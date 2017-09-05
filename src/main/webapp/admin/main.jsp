@@ -9,9 +9,87 @@
 </head>
 
 <script type="text/javascript">
+	$(function() {
+		//监听右键事件，创建右键菜单
+		$("#tabs").tabs({
+			onContextMenu : function(e, title, index) {
+				e.preventDefault();
+				if (index > 0) {
+					$("#mm").menu('show', {
+						left : e.pageX,
+						top : e.pageY
+					}).data("tabTitle", title);
+				}
+			}
+		});
+		//右键菜单click
+		$("#mm").menu({
+			onClick : function(item) {
+				closeTab(this, item.name);
+			}
+		});
+	});
+
+	//删除Tabs
+	function closeTab(menu, type) {
+		var allTabs = $("#tabs").tabs('tabs');
+		var allTabtitle = [];
+		$.each(allTabs, function(i, n) {
+			var opt = $(n).panel('options');
+			if (opt.closable)
+				allTabtitle.push(opt.title);
+		});
+		var curTabTitle = $(menu).data("tabTitle");
+		var curTabIndex = $("#tabs").tabs("getTabIndex", $("#tabs").tabs("getTab", curTabTitle));
+		switch (type) {
+		case 1://关闭
+			$("#tabs").tabs("close", curTabIndex);
+			return false;
+			break;
+		case 2://全部关闭
+			for (var i = 0; i < allTabtitle.length; i++) {
+				$("#tabs").tabs('close', allTabtitle[i]);
+			}
+			break;
+		case 3://除此之外全部关闭
+			for (var i = 0; i < allTabtitle.length; i++) {
+				if (curTabTitle != allTabtitle[i])
+					$("#tabs").tabs('close', allTabtitle[i]);
+			}
+			$("#tabs").tabs('select', curTabTitle);
+			break;
+		case 4://当前页右侧全部关闭
+			for (var i = curTabIndex; i < allTabtitle.length; i++) {
+				$("#tabs").tabs('close', allTabtitle[i]);
+			}
+			$("#tabs").tabs('select', curTabTitle);
+			break;
+		case 5://当前页左侧全部关闭
+			for (var i = 0; i < curTabIndex - 1; i++) {
+				$("#tabs").tabs('close', allTabtitle[i]);
+			}
+			$("#tabs").tabs('select', curTabTitle);
+			break;
+		case 6: //刷新
+			var panel = $("#tabs").tabs("getTab", curTabTitle).panel("refresh");
+			break;
+		}
+	}
+
 	function openTab(text, url, iconCls) {
 		if ($("#tabs").tabs("exists", text)) {
 			$("#tabs").tabs("select", text);
+
+			// 刷新面板
+			var tab = $("#tabs").tabs('getTab', text); // 获取选择的面板
+			var content = "<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='${basePath}/admin/" + url + "'></iframe>";
+			$("#tabs").tabs('update', {
+				tab : tab,
+				options : {
+					content : content
+				}
+			});
+
 		} else {
 			var content = "<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='${basePath}/admin/" + url + "'></iframe>";
 			$("#tabs").tabs("add", {
@@ -92,7 +170,7 @@
 			</div>
 			<div title="系统管理" data-options="iconCls:'icon-system'"
 				style="padding: 10px">
-				<a href="javascript:openTab('友情链接管理','','')"
+				<a href="javascript:openTab('友情链接管理','linkManage.jsp','icon-link')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-link',width:'150px'"
 					style="text-align: left;">友情链接管理</a> <a
@@ -120,6 +198,17 @@
 		</div>
 
 	</div>
+
+	<div id="mm" class="easyui-menu" style="width: 120px;">
+<!-- 		<div id="mm-tabclosrefresh" data-options="name:6">刷新</div> -->
+		<div id="mm-tabclose" data-options="name:1">关闭</div>
+		<div id="mm-tabcloseall" data-options="name:2">全部关闭</div>
+		<div id="mm-tabcloseother" data-options="name:3">除此之外全部关闭</div>
+		<div class="menu-sep"></div>
+		<div id="mm-tabcloseright" data-options="name:4">当前页右侧全部关闭</div>
+		<div id="mm-tabcloseleft" data-options="name:5">当前页左侧全部关闭</div>
+	</div>
+
 	<div region="south" style="height: 25px; padding: 5px" align="center">
 		© 2017-? 考拉的究极开发团队 博客系统 版权所有</div>
 
