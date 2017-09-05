@@ -1,5 +1,6 @@
 package com.lix.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,4 +53,12 @@ public class BlogServiceImpl extends BaseService<Blog> implements BlogService {
         return count == 1;
     }
 
+    public Boolean deleteBlog(String[] ids) {
+        List<Object> list = new ArrayList<Object>();
+        for (int i = 0; i < ids.length; i++) {
+            list.add(ids[i]);
+        }
+        Integer count = super.deleteByIds(Blog.class, "id", list);
+        return count == ids.length;
+    }
 }

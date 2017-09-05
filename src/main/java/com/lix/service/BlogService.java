@@ -19,4 +19,5 @@ public interface BlogService {
 
     public Boolean updateBlog(Blog blog);
 
+    public Boolean deleteBlog(String[] ids);
 }

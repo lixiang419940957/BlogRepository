@@ -87,6 +87,33 @@
 		var row = selectedRows[0];
 		window.parent.openTab('修改博客', 'modifyBlog.jsp?id=' + row.id, 'icon-writeblog');
 	}
+
+	function deleteBlog() {
+		var selectedRows = $("#blogGrid").datagrid("getSelections");
+		if (selectedRows.length == 0) {
+			$.messager.alert("系统提示", "请选择要删除的数据！", "info");
+			return;
+		}
+		var strIds = [];
+		for (var i = 0; i < selectedRows.length; i++) {
+			strIds.push(selectedRows[i].id);
+		}
+		var ids = strIds.join(",");
+		$.messager.confirm("系统提示", "您确定要删除这<font color=red>" + selectedRows.length + "</font>条数据吗？", function(r) {
+			if (r) {
+				$.post("${basePath}/admin/blog/delete.do", {
+					ids : ids
+				}, function(result) {
+					if (result.success) {
+						$.messager.alert("系统提示", "数据已成功删除！", "info");
+						$("#blogGrid").datagrid("reload");
+					} else {
+						$.messager.alert("系统提示", "数据删除失败！", "info");
+					}
+				}, "json");
+			}
+		});
+	}
 </script>
 
 </head>

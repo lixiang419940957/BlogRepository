@@ -161,7 +161,7 @@
 <body style = "margin: 10px">
 	<table id="blogTypeGrid"></table>
 	<div id="dlg" class="easyui-dialog" inline="true"
-		style="width: 600px; height: 180px; padding: 10px 20px" closed="true"
+		style="width: 600px; height: 180px; padding: 10px 20px" closed="true" modal="true"
 		buttons="#dlg-buttons">
 		<form id="fm" method="post">
 			<table cellspacing="8px" style="font-size: 13px;">

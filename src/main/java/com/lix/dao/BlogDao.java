@@ -22,4 +22,5 @@ public interface BlogDao extends Mapper<Blog> {
     public Blog queryBlogById(@Param("id") String id);
     
     public Integer updateBlog(Blog blog);
+    
 }

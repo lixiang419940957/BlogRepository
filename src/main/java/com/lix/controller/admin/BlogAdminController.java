@@ -57,12 +57,22 @@ public class BlogAdminController {
 
         return new EasyUIResult(total, list);
     }
-    
+
     @RequestMapping(value = "/queryBlogById", method = RequestMethod.GET)
     @ResponseBody
-    public Blog queryBlogById(@RequestParam(value = "id", required = false) String id){
+    public Blog queryBlogById(@RequestParam(value = "id", required = false) String id) {
         Blog blog = this.blogService.queryBlogById(id);
         return blog;
     }
-    
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> deleteBlog(@RequestParam("ids") String ids) {
+        String[] idsStr = ids.split(",");
+        HashMap<String, Object> result = new HashMap<String, Object>();
+        Boolean flag = this.blogService.deleteBlog(idsStr);
+        result.put("success", flag);
+        return result;
+    }
+
 }
