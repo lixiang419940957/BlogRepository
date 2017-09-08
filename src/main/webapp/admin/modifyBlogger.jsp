@@ -9,7 +9,12 @@
 <title>修改个人信息页面</title>
 
 <script type="text/javascript">
-	function saveLink() {
+	function submitData() {
+		var proFile = UE.getEditor('proFile').getContent();
+		if (proFile == null || proFile == '') {
+			$.messager.alert("系统提示", "请输入个性简介！", "info");
+			return;
+		}
 		$("#fm").form("submit", {
 			url : "${basePath}/admin/blogger/save.do",
 			onSubmit : function() {
@@ -19,6 +24,8 @@
 				var result = eval('(' + result + ')');
 				if (result.success) {
 					$.messager.alert("系统提示", "保存成功！", "info");
+				} else if (result.isLegal) {
+					$.messager.alert("系统提示", "图片格式非法！", "info");
 				} else {
 					$.messager.alert("系统提示", "保存失败！", "info");
 					return;
@@ -32,27 +39,31 @@
 <body style="margin: 10px">
 	<div id="p" class="easyui-panel" title="修改个人信息" style="padding: 10px">
 		<form id="fm" method="post" enctype="multipart/form-data">
-			<table cellspacing="20px">
+			<table cellspacing="20px" style="font-size: 13px;">
 				<tr>
 					<td width="80px">用户名：</td>
 					<td><input type="hidden" id="id" name="id"
-						value="${currentUser.id }" /> <input type="text" id="userName"
+						value="${currentUser.id }" /> <input id="userName"
+						class="easyui-validatebox" data-options="required:true"
 						name="userName" style="width: 200px;"
 						value="${currentUser.userName }" readonly="readonly" /></td>
 				</tr>
 				<tr>
 					<td>昵称：</td>
-					<td><input type="text" id="nickName" name="nickName"
+					<td><input id="nickName" name="nickName"
+						class="easyui-validatebox" data-options="required:true"
 						style="width: 200px;" /></td>
 				</tr>
 				<tr>
 					<td>个性签名：</td>
-					<td><input type="text" id="sign" name="sign"
-						 style="width: 400px;" /></td>
+					<td><input id="sign" name="sign" class="easyui-validatebox"
+						data-options="required:true" style="width: 400px;" /></td>
 				</tr>
 				<tr>
 					<td>个人头像：</td>
-					<td><input type="file" id="imageFile" name="imageFile"
+					<td><input class="easyui-filebox" id="imageFile"
+						name="imageFile"
+						data-options="required:true,buttonText:'选择个人头像',accept:'.bmp,.jpg,.jpeg,.gif,.png '"
 						style="width: 400px;" /></td>
 				</tr>
 				<tr>
@@ -78,10 +89,8 @@
 
 		ue.addListener("ready", function() {
 			//通过ajax请求数据
-			UE.ajax.request(
-			// 					"${pageContext.request.contextPath}/admin/blogger/find.do",
-			{
-				method : "post",
+			UE.ajax.request("${basePath}/admin/blogger/find.do", {
+				method : "get",
 				async : false,
 				data : {},
 				onsuccess : function(result) {

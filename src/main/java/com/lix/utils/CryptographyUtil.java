@@ -22,7 +22,7 @@ public class CryptographyUtil {
     }
 
     public static void main(String[] args) {
-        String password = "java1234";
+        String password = "admin";
 
         System.out.println("Md5加密：" + CryptographyUtil.md5(password, "Myblog"));
     }
