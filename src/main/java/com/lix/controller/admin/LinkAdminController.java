@@ -45,6 +45,7 @@ public class LinkAdminController {
         result.put("success", flag);
         return result;
     }
+
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> deleteLink(@RequestParam("ids") String ids) {

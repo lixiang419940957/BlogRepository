@@ -25,8 +25,8 @@ public class Blogger {
     @Column(name = "sign")
     private String sign; // 个性签名
 
-    @Column(name = "proFile")
-    private String proFile; // 博主信息
+    @Column(name = "profile")
+    private String profile; // 博主信息
 
     @Column(name = "imageName")
     private String imageName; // 博主头像
@@ -36,14 +36,14 @@ public class Blogger {
     }
 
     public Blogger(Integer id, String userName, String password, String nickName, String sign,
-            String proFile, String imageName) {
+            String profile, String imageName) {
         super();
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.nickName = nickName;
         this.sign = sign;
-        this.proFile = proFile;
+        this.profile = profile;
         this.imageName = imageName;
     }
 
@@ -87,12 +87,12 @@ public class Blogger {
         this.sign = sign;
     }
 
-    public String getProFile() {
-        return proFile;
+    public String getProfile() {
+        return profile;
     }
 
-    public void setProFile(String proFile) {
-        this.proFile = proFile;
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 
     public String getImageName() {
@@ -106,7 +106,7 @@ public class Blogger {
     @Override
     public String toString() {
         return "Blogger [id=" + id + ", userName=" + userName + ", password=" + password + ", nickName="
-                + nickName + ", sign=" + sign + ", proFile=" + proFile + ", imageName=" + imageName + "]";
+                + nickName + ", sign=" + sign + ", profile=" + profile + ", imageName=" + imageName + "]";
     }
 
 }

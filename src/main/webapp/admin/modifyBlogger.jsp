@@ -15,6 +15,7 @@
 			$.messager.alert("系统提示", "请输入个性简介！", "info");
 			return;
 		}
+		$("#pf").val(proFile);
 		$("#fm").form("submit", {
 			url : "${basePath}/admin/blogger/save.do",
 			onSubmit : function() {
@@ -70,7 +71,7 @@
 					<td valign="top">个人简介：</td>
 					<td><script id="proFile" type="text/plain"
 							style="width:100%;height:500px;"></script> <input type="hidden"
-						id="pF" name="proFile" /></td>
+						id="pf" name="profile" /></td>
 				</tr>
 				<tr>
 					<td></td>
