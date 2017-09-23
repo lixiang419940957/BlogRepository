@@ -42,29 +42,29 @@
 		var curTabTitle = $(menu).data("tabTitle");
 		var curTabIndex = $("#tabs").tabs("getTabIndex", $("#tabs").tabs("getTab", curTabTitle));
 		switch (type) {
-		case 1://关闭
+		case 1: //关闭
 			$("#tabs").tabs("close", curTabIndex);
 			return false;
 			break;
-		case 2://全部关闭
+		case 2: //全部关闭
 			for (var i = 0; i < allTabtitle.length; i++) {
 				$("#tabs").tabs('close', allTabtitle[i]);
 			}
 			break;
-		case 3://除此之外全部关闭
+		case 3: //除此之外全部关闭
 			for (var i = 0; i < allTabtitle.length; i++) {
 				if (curTabTitle != allTabtitle[i])
 					$("#tabs").tabs('close', allTabtitle[i]);
 			}
 			$("#tabs").tabs('select', curTabTitle);
 			break;
-		case 4://当前页右侧全部关闭
+		case 4: //当前页右侧全部关闭
 			for (var i = curTabIndex; i < allTabtitle.length; i++) {
 				$("#tabs").tabs('close', allTabtitle[i]);
 			}
 			$("#tabs").tabs('select', curTabTitle);
 			break;
-		case 5://当前页左侧全部关闭
+		case 5: //当前页左侧全部关闭
 			for (var i = 0; i < curTabIndex - 1; i++) {
 				$("#tabs").tabs('close', allTabtitle[i]);
 			}
@@ -139,7 +139,7 @@
 					href="javascript:openTab('博客信息管理','blogManage.jsp','icon-bkgl')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-bkgl',width:'150px'"
-					style="text-align: left;">博客信息管理</a>
+					style="text-align: left;">博客信息管理 </a>
 			</div>
 			<div title="博客类别管理" data-options="iconCls:'icon-bklb'"
 				style="padding: 10px">
@@ -163,7 +163,8 @@
 			</div>
 			<div title="个人信息管理" data-options="iconCls:'icon-grxx'"
 				style="padding: 10px">
-				<a href="javascript:openTab('修改个人信息','modifyBlogger.jsp','icon-grxxxg')"
+				<a
+					href="javascript:openTab('修改个人信息','modifyBlogger.jsp','icon-grxxxg')"
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-grxxxg',width:'150px'"
 					style="text-align: left;">修改个人信息</a>
@@ -200,7 +201,7 @@
 	</div>
 
 	<div id="mm" class="easyui-menu" style="width: 120px;">
-<!-- 		<div id="mm-tabclosrefresh" data-options="name:6">刷新</div> -->
+		<!-- 		<div id="mm-tabclosrefresh" data-options="name:6">刷新</div> -->
 		<div id="mm-tabclose" data-options="name:1">关闭</div>
 		<div id="mm-tabcloseall" data-options="name:2">全部关闭</div>
 		<div id="mm-tabcloseother" data-options="name:3">除此之外全部关闭</div>

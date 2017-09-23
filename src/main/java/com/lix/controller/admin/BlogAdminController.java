@@ -20,59 +20,59 @@ import com.lix.utils.PageBean;
 @Controller
 public class BlogAdminController {
 
-    @Autowired
-    private BlogService blogService;
+	@Autowired
+	private BlogService blogService;
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
-    @ResponseBody
-    public Map<String, Object> save(Blog blog) {
-        Boolean flag = null; // 保存或更新成功标识
-        if (blog.getId() == null) {
-            flag = this.blogService.saveBlog(blog);
-        } else {
-            flag = this.blogService.updateBlog(blog);
-        }
-        HashMap<String, Object> result = new HashMap<String, Object>();
-        if (flag) {
-            result.put("success", true);
-        } else {
-            result.put("false", false);
-        }
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> save(Blog blog) {
+		Boolean flag = null; // 保存或更新成功标识
+		if (blog.getId() == null) {
+			flag = this.blogService.saveBlog(blog);
+		} else {
+			flag = this.blogService.updateBlog(blog);
+		}
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		if (flag) {
+			result.put("success", true);
+		} else {
+			result.put("false", false);
+		}
 
-        return result;
-    }
+		return result;
+	}
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    @ResponseBody
-    public EasyUIResult queryBlogList(@RequestParam(value = "page", required = false) String page,
-            @RequestParam(value = "rows", required = false) String rows, Blog s_blog) {
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@ResponseBody
+	public EasyUIResult queryBlogList(@RequestParam(value = "page", required = false) String page,
+			@RequestParam(value = "rows", required = false) String rows, Blog s_blog) {
 
-        PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("title", s_blog.getTitle());
-        map.put("start", pageBean.getStart());
-        map.put("size", pageBean.getPageSize());
-        List<Blog> list = this.blogService.queryBlogList(map);
-        Integer total = this.blogService.queryBlogListTotal(map);
+		PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("title", s_blog.getTitle());
+		map.put("start", pageBean.getStart());
+		map.put("size", pageBean.getPageSize());
+		List<Blog> list = this.blogService.queryBlogList(map);
+		Integer total = this.blogService.queryBlogListTotal(map);
 
-        return new EasyUIResult(total, list);
-    }
+		return new EasyUIResult(total, list);
+	}
 
-    @RequestMapping(value = "/queryBlogById", method = RequestMethod.GET)
-    @ResponseBody
-    public Blog queryBlogById(@RequestParam(value = "id", required = false) String id) {
-        Blog blog = this.blogService.queryBlogById(id);
-        return blog;
-    }
+	@RequestMapping(value = "/queryBlogById", method = RequestMethod.GET)
+	@ResponseBody
+	public Blog queryBlogById(@RequestParam(value = "id", required = false) String id) {
+		Blog blog = this.blogService.queryBlogById(id);
+		return blog;
+	}
 
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    @ResponseBody
-    public Map<String, Object> deleteBlog(@RequestParam("ids") String ids) {
-        String[] idsStr = ids.split(",");
-        HashMap<String, Object> result = new HashMap<String, Object>();
-        Boolean flag = this.blogService.deleteBlog(idsStr);
-        result.put("success", flag);
-        return result;
-    }
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> deleteBlog(@RequestParam("ids") String ids) {
+		String[] idsStr = ids.split(",");
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		Boolean flag = this.blogService.deleteBlog(idsStr);
+		result.put("success", flag);
+		return result;
+	}
 
 }
