@@ -17,6 +17,8 @@
 <script src="${basePath}/static/bootstrap3/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+	<div class="container">
+		<jsp:include page="/foreground/common/head.jsp" />
+	</div>
 </body>
 </html>
