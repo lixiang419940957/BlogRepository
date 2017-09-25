@@ -21,7 +21,7 @@
 			//载入提示信息
 			loadMsg : 'loading...',
 			//水平自动展开，如果设置此属性，则不会有水平滚动条，演示冻结列时，该参数不要设置
-			fitColumns : false,
+			fitColumns : true,
 			//数据多的时候不换行
 			nowrap : true,
 			//设置分页
