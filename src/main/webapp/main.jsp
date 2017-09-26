@@ -16,9 +16,11 @@
 <script src="${basePath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
 <script src="${basePath}/static/bootstrap3/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="padding-top: 10px; padding-bottom: 40px;">
 	<div class="container">
 		<jsp:include page="/foreground/common/head.jsp" />
+		<jsp:include page="/foreground/common/menu.jsp" />
+		<jsp:include page="/foreground/common/foot.jsp" />
 	</div>
 </body>
 </html>
