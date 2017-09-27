@@ -64,4 +64,9 @@ public class BlogTypeServiceImpl extends BaseService<BlogType> implements BlogTy
         return this.blogTypeDao.selectByExample(example);
     }
 
+	@Override
+	public List<BlogType> queryCountList() {
+		return this.blogTypeDao.queryCountList();
+	}
+
 }

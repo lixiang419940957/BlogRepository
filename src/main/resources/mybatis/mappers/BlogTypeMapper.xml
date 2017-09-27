@@ -11,9 +11,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="orderNum" column="orderNum" />
 	</resultMap>
 
-	<select id="queryBlogTypeById" parameterType="Integer" resultMap="BlogTypeResult">
+	<select id="queryBlogTypeById" parameterType="Integer"
+		resultMap="BlogTypeResult">
 		select *
 		from t_blogType where id=#{id}
 	</select>
-
+	<!-- 获取所有博客类型名称及其相关数量，并按照博客类别排序编码正序排序 -->
+	<select id="countList" resultMap="BlogTypeResult">
+		SELECT
+		t2.id,t2.typeName,COUNT(t1.id) AS blogCount FROM t_blog t1 RIGHT JOIN
+		t_blogType t2 ON t1.typeId=t2.id GROUP BY t2.typeName order by
+		t2.orderNum ASC;
+	</select>
 </mapper> 
