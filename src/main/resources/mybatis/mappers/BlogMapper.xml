@@ -91,4 +91,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</set>
 		where id=#{id}
 	</update>
+
+	<!-- 按日期分类博客并统计其数量 -->
+	<select id="queryCountList" resultMap="BlogResult">
+
+		SELECT
+		DATE_FORMAT(releaseDate,'%Y年%m月') AS
+		releaseDateStr ,COUNT(*) AS
+		blogCount FROM t_blog GROUP BY
+		DATE_FORMAT(releaseDate,'%Y年%m月') ORDER
+		BY
+		DATE_FORMAT(releaseDate,'%Y年%m月') DESC;
+
+	</select>
+
 </mapper> 
