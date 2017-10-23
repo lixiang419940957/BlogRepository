@@ -11,7 +11,7 @@
 	href="${basePath}/static/bootstrap3/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="${basePath}/static/bootstrap3/css/bootstrap-theme.min.css">
-<%-- <link rel="stylesheet" href="${basePath}/static/css/blog.css"> --%>
+<link rel="stylesheet" href="${basePath}/static/css/blog.css">
 <!-- <link href="http://blog.java1234.com/favicon.ico" rel="SHORTCUT ICON"> -->
 <script src="${basePath}/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
 <script src="${basePath}/static/bootstrap3/js/bootstrap.min.js"></script>
@@ -28,13 +28,13 @@
 				<div class="data_list">
 					<div class="data_list_title">
 						<img
-							src="${pageContext.request.contextPath}/static/images/user_icon.png" />
+							src="${basePath}/static/images/user_icon.png" />
 						博主信息
 					</div>
-					<div class="user_image">
-						<img
-							src="${pageContext.request.contextPath}/static/userImages/${blogger.imageName }" />
-					</div>
+<!-- 					<div class="user_image"> -->
+<!-- 						<img -->
+<%-- 							src="${pageContext.request.contextPath}/static/userImages/${blogger.imageName }" /> --%>
+<!-- 					</div> -->
 					<div class="nickName">${blogger.nickName }</div>
 					<div class="userSign">(${blogger.sign })</div>
 				</div>
@@ -79,7 +79,7 @@
 					</div>
 					<div class="datas">
 						<ul>
-							<c:forEach var="link" items="${linkList }">
+							<c:forEach var="link" items="${linkCountList }">
 								<li><span><a href="${link.linkUrl }" target="_blank">${link.linkName }</a></span></li>
 							</c:forEach>
 						</ul>

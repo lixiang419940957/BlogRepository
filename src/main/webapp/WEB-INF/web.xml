@@ -31,9 +31,9 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!-- <listener> -->
-	<!-- <listener-class>com.java1234.service.impl.InitComponent</listener-class> -->
-	<!-- </listener> -->
+	<listener>
+		<listener-class>com.lix.service.impl.InitComponent</listener-class>
+	</listener>
 
 	<!-- 编码过滤器，以UTF8编码 只能解决POST请求 -->
 	<filter>
@@ -70,7 +70,8 @@
 		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-		<welcome-file>hello.jsp</welcome-file>
+<!-- 		<welcome-file>hello.jsp</welcome-file> -->
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 
 </web-app>

@@ -49,7 +49,7 @@
 						$.messager.alert('系统提示', '博客发布成功！', 'info');
 						//重置数据
 						$("#title").val(null);
-						$("#title").validatebox('enableValidation',true);	
+						$("#title").validatebox('enableValidation', true);
 						$("#blogType").combobox("setValue", "");
 						UE.getEditor('editor').setContent("");
 						$("#keyWord").textbox("setValue", "");
