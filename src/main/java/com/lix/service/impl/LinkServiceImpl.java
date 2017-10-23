@@ -56,4 +56,12 @@ public class LinkServiceImpl extends BaseService<Link> implements LinkService {
         return count == ids.length;
     }
 
+	@Override
+	public List<Link> queryCountList() {
+		Example example = new Example(Link.class);
+		example.setOrderByClause("orderNo ASC");
+		List<Link> linkCountList = this.linkDao.selectByExample(example);
+		return linkCountList;
+	}
+
 }

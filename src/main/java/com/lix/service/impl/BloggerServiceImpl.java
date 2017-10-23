@@ -1,5 +1,7 @@
 package com.lix.service.impl;
 
+import static org.hamcrest.CoreMatchers.allOf;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

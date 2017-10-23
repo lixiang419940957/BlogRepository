@@ -23,4 +23,6 @@ public interface BlogDao extends Mapper<Blog> {
     
     public Integer updateBlog(Blog blog);
     
+    public List<Blog> queryCountList();
+    
 }
