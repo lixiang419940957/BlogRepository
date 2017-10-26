@@ -36,7 +36,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from t_blog
 		<where>
 			<if test="title!=null and title!=''">
-				title like CONCAT('%',#{title},'%')
+				and title like CONCAT('%',#{title},'%')
+			</if>
+			<if test="typeId!=null and typeId!='' ">
+				and typeId = #{typeId}
+			</if>
+			<if test="releaseDateStr!=null and releaseDateStr!='' ">
+				and DATE_FORMAT(releaseDate,'%Y年%m月') = #{releaseDateStr}
 			</if>
 		</where>
 		order by releaseDate
