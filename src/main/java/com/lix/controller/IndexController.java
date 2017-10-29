@@ -75,7 +75,7 @@ public class IndexController {
         modelMap.addAttribute("pageCode", PageUtil.genPagination(request.getContextPath() + "/index.html",
                 blogService.queryBlogListTotal(map), Integer.parseInt(page), 10, param.toString()));
         modelMap.addAttribute("mainPage", "foreground/blog/list.jsp");
-        modelMap.addAttribute("pageTitle", "Java开源博客系统");
+        modelMap.addAttribute("pageTitle", "Java博客系统");
         return "main";
     }
 

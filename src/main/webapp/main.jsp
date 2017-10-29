@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>${pageTitle}</title>
 <link rel="stylesheet"
 	href="${basePath}/static/bootstrap3/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -23,27 +23,25 @@
 
 		<div class="row">
 
-			<div class="col-md-9">1</div>
+			<div class="col-md-9">
+				<jsp:include page="${mainPage }"></jsp:include>
+			</div>
 			<div class="col-md-3">
 				<div class="data_list">
 					<div class="data_list_title">
-						<img
-							src="${basePath}/static/images/user_icon.png" />
-						博主信息
+						<img src="${basePath}/static/images/user_icon.png" /> 博主信息
 					</div>
-<!-- 					<div class="user_image"> -->
-<!-- 						<img -->
-<%-- 							src="${pageContext.request.contextPath}/static/userImages/${blogger.imageName }" /> --%>
-<!-- 					</div> -->
+					<!-- 					<div class="user_image"> -->
+					<!-- 						<img -->
+					<%-- 							src="${pageContext.request.contextPath}/static/userImages/${blogger.imageName }" /> --%>
+					<!-- 					</div> -->
 					<div class="nickName">${blogger.nickName }</div>
 					<div class="userSign">(${blogger.sign })</div>
 				</div>
 
 				<div class="data_list">
 					<div class="data_list_title">
-						<img
-							src="${pageContext.request.contextPath}/static/images/byType_icon.png" />
-						按日志类别
+						<img src="${basePath}/static/images/byType_icon.png" /> 按日志类别
 					</div>
 					<div class="datas">
 						<ul>
@@ -57,15 +55,13 @@
 
 				<div class="data_list">
 					<div class="data_list_title">
-						<img
-							src="${pageContext.request.contextPath}/static/images/byDate_icon.png" />
-						按日志日期
+						<img src="${basePath}/static/images/byDate_icon.png" /> 按日志日期
 					</div>
 					<div class="datas">
 						<ul>
 							<c:forEach var="blogCount" items="${blogCountList }">
 								<li><span><a
-										href="${pageContext.request.contextPath}/index.html?releaseDateStr=${blogCount.releaseDateStr }">${blogCount.releaseDateStr }(${blogCount.blogCount })</a></span></li>
+										href="${basePath}/index.html?releaseDateStr=${blogCount.releaseDateStr }">${blogCount.releaseDateStr }(${blogCount.blogCount })</a></span></li>
 							</c:forEach>
 						</ul>
 					</div>
@@ -73,9 +69,7 @@
 
 				<div class="data_list">
 					<div class="data_list_title">
-						<img
-							src="${pageContext.request.contextPath}/static/images/link_icon.png" />
-						友情链接
+						<img src="${basePath}/static/images/link_icon.png" /> 友情链接
 					</div>
 					<div class="datas">
 						<ul>
@@ -90,6 +84,12 @@
 
 		<jsp:include page="/foreground/common/foot.jsp" />
 	</div>
+	<!-- 	color: 线条颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分割 -->
+	<!-- 	opacity: 线条透明度（0~1）, 默认: 0.5 -->
+	<!-- 	count: 线条的总数量, 默认: 150 -->
+	<!-- 	zIndex: 背景的z-index属性，css属性用于控制所在层的位置, 默认: -1 -->
+	<script type="text/javascript" color="0,104,183" opacity='1' count="66"
+		zIndex="-2" src="${basePath}/static/js/canvas-nest.js"></script>
 
 </body>
 </html>
