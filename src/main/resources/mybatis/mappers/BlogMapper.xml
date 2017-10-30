@@ -116,5 +116,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DATE_FORMAT(releaseDate,'%Y年%m月') DESC;
 
 	</select>
-
+	<!-- 查询上一篇博客 -->
+	<select id="queryLastBlog" resultMap="BlogResult"> 
+		<![CDATA[
+			select * from t_blog where id < #{id} ORDER BY id DESC LIMIT 1 
+		]]>
+	</select>
+	<!-- 查询下一篇博客 -->
+	<select id="queryNextBlog" resultMap="BlogResult">
+		<![CDATA[
+			select * from t_blog where id > #{id} ORDER BY id ASC LIMIT 1 
+		]]>
+	</select>
 </mapper> 

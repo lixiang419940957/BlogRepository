@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="basePath" value="${pageContext.request.contextPath }" />
 <script type="text/javascript">
 	function checkData() {
 		var q = document.getElementById("q").value.trim();
@@ -26,14 +28,14 @@
 							class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand"
-						href="${pageContext.request.contextPath}/index.html"><font
+						href="${basePath}/index.html"><font
 						color="black"><strong>首页</strong></font></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
-					<form action="${pageContext.request.contextPath}/blog/q.html"
+					<form action="${basePath}/blog/q.html"
 						class="navbar-form navbar-right" role="search" method="post"
 						onsubmit="return checkData()">
 						<div class="form-group">

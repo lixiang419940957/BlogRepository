@@ -1,27 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="basePath" value="${pageContext.request.contextPath }" />
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <div class="data_list">
 	<div class="data_list_title">
 		<img
-			src="${pageContext.request.contextPath}/static/images/list_icon.png" />
+			src="${basePath}/static/images/list_icon.png" />
 		最新博客
 	</div>
 	<div class="datas">
 		<ul>
 			<c:forEach var="blog" items="${blogList}">
 				<li style="margin-bottom: 30px"><span class="date"><a
-						href="${pageContext.request.contextPath}/blog/articles/${blog.id}.html"><fmt:formatDate
+						href="${basePath}/blog/articles/${blog.id}.html"><fmt:formatDate
 								value="${blog.releaseDate }" type="date" pattern="yyyy年MM月dd日" /></a></span>
 					<span class="title"><a
-						href="${pageContext.request.contextPath}/blog/articles/${blog.id}.html">${blog.title }</a></span>
+						href="${basePath}/blog/articles/${blog.id}.html">${blog.title }</a></span>
 					<span class="summary">摘要: ${blog.summary }...</span> <span
 					class="img"> <c:forEach var="image"
 							items="${blog.imagesList }">
 							<a
-								href="${pageContext.request.contextPath}/blog/articles/${blog.id}.html">${image }</a>
+								href="${basePath}/blog/articles/${blog.id}.html">${image }</a>
 					  		&nbsp;&nbsp;
 				  		</c:forEach>
 				</span> <span class="info">发表于 <fmt:formatDate

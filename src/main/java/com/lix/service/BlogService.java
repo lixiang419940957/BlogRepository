@@ -7,20 +7,24 @@ import com.lix.pojo.Blog;
 
 public interface BlogService {
 
-    public Integer queryBlogCountByTypeId(Integer BlogTypeId);
+	public Integer queryBlogCountByTypeId(Integer BlogTypeId);
 
-    public Boolean saveBlog(Blog blog);
+	public Boolean saveBlog(Blog blog);
 
-    public List<Blog> queryBlogList(Map<String, Object> map);
+	public List<Blog> queryBlogList(Map<String, Object> map);
 
-    public Integer queryBlogListTotal(Map<String, Object> map);
+	public Integer queryBlogListTotal(Map<String, Object> map);
 
-    public Blog queryBlogById(String id);
+	public Blog queryBlogById(String id);
 
-    public Boolean updateBlog(Blog blog);
+	public Boolean updateBlog(Blog blog);
 
-    public Boolean deleteBlog(String[] ids);
-    
-    public List<Blog> queryCountList();
-    
+	public Boolean deleteBlog(String[] ids);
+
+	public List<Blog> queryCountList();
+
+	public Blog queryLastBlog(Integer id);
+
+	public Blog queryNextBlog(Integer id);
+
 }

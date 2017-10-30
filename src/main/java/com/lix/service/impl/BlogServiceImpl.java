@@ -66,4 +66,13 @@ public class BlogServiceImpl extends BaseService<Blog> implements BlogService {
 		return this.blogDao.queryCountList();
 	}
 
+	@Override
+	public Blog queryLastBlog(Integer id) {
+		return this.blogDao.queryLastBlog(id);
+	}
+
+	@Override
+	public Blog queryNextBlog(Integer id) {
+		return this.blogDao.queryNextBlog(id);
+	}
 }
