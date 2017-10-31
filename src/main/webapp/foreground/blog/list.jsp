@@ -6,9 +6,7 @@
 
 <div class="data_list">
 	<div class="data_list_title">
-		<img
-			src="${basePath}/static/images/list_icon.png" />
-		最新博客
+		<img src="${basePath}/static/images/list_icon.png" /> 最新博客
 	</div>
 	<div class="datas">
 		<ul>
@@ -21,8 +19,7 @@
 					<span class="summary">摘要: ${blog.summary }...</span> <span
 					class="img"> <c:forEach var="image"
 							items="${blog.imagesList }">
-							<a
-								href="${basePath}/blog/articles/${blog.id}.html">${image }</a>
+							<a href="${basePath}/blog/articles/${blog.id}.html">${image }</a>
 					  		&nbsp;&nbsp;
 				  		</c:forEach>
 				</span> <span class="info">发表于 <fmt:formatDate
@@ -31,7 +28,7 @@
 						评论(${blog.replyHit})
 				</span></li>
 				<hr
-					style="height:5px;border:none;border-top:1px dashed gray;padding-bottom:  10px;" />
+					style="height: 5px; border: none; border-top: 1px dashed gray; padding-bottom: 10px;" />
 			</c:forEach>
 		</ul>
 	</div>
@@ -39,7 +36,7 @@
 
 <div>
 	<nav>
-	<ul class="pagination pagination-sm">${pageCode }
-	</ul>
+		<ul class="pagination pagination-sm">${pageCode }
+		</ul>
 	</nav>
 </div>

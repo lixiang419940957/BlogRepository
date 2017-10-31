@@ -84,10 +84,12 @@
 
 		<jsp:include page="/foreground/common/foot.jsp" />
 	</div>
-	<!-- 	color: 线条颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分割 -->
-	<!-- 	opacity: 线条透明度（0~1）, 默认: 0.5 -->
-	<!-- 	count: 线条的总数量, 默认: 150 -->
-	<!-- 	zIndex: 背景的z-index属性，css属性用于控制所在层的位置, 默认: -1 -->
+	<%-- 
+	 	color: 线条颜色, 默认: '0,0,0' ；三个数字分别为(R,G,B)，注意用,分割 
+	 	opacity: 线条透明度（0~1）, 默认: 0.5 
+	 	count: 线条的总数量, 默认: 150 
+	 	zIndex: 背景的z-index属性，css属性用于控制所在层的位置, 默认: -1 
+	--%>
 	<script type="text/javascript" color="0,104,183" opacity='1' count="66"
 		zIndex="-2" src="${basePath}/static/js/canvas-nest.js"></script>
 

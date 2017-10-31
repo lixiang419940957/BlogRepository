@@ -27,8 +27,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand"
-						href="${basePath}/index.html"><font
+					<a class="navbar-brand" href="${basePath}/index.html"><font
 						color="black"><strong>首页</strong></font></a>
 				</div>
 

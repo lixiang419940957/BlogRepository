@@ -46,9 +46,7 @@
 </script>
 <div class="data_list">
 	<div class="data_list_title">
-		<img
-			src="${basePath}/static/images/blog_show_icon.png" />
-		博客信息
+		<img src="${basePath}/static/images/blog_show_icon.png" /> 博客信息
 	</div>
 	<div>
 		<div class="blog_title">
@@ -57,7 +55,7 @@
 			</h3>
 		</div>
 		<div
-			style="padding-left: 330px;padding-bottom: 20px;padding-top: 10px">
+			style="padding-left: 330px; padding-bottom: 20px; padding-top: 10px">
 			<div class="bshare-custom">
 				<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博"
 					class="bshare-sinaminiblog"></a><a title="分享到人人网"
@@ -87,8 +85,7 @@
 				</c:when>
 				<c:otherwise>
 					<c:forEach var="keyWord" items="${keyWords }">
-						&nbsp;&nbsp;<a
-							href="${basePath}/blog/q.html?q=${keyWord}"
+						&nbsp;&nbsp;<a href="${basePath}/blog/q.html?q=${keyWord}"
 							target="_blank">${keyWord }</a>&nbsp;&nbsp;
 					</c:forEach>
 				</c:otherwise>

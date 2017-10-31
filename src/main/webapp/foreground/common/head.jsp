@@ -5,8 +5,7 @@
 <div class="row">
 
 	<div class="col-md-4">
-		<img alt="java博客系统"
-			src="${basePath}/static/images/logo.png"
+		<img alt="java博客系统" src="${basePath}/static/images/logo.png"
 			width="326px" height="60px">
 	</div>
 	<div class="col-md-8">
