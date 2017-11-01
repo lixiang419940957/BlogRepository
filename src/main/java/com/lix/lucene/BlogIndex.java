@@ -115,18 +115,25 @@ public class BlogIndex {
      * @throws Exception
      */
     public List<Blog> searchBlog(String q) throws Exception {
+        // 得到读取索引文件的路径
         dir = FSDirectory.open(Paths.get("D://lucene"));
-        IndexReader reader = DirectoryReader.open(dir);
-        IndexSearcher is = new IndexSearcher(reader);
-        BooleanQuery.Builder booleanQuery = new BooleanQuery.Builder();
+        // 通过dir得到的路径下的所有的文件
+        IndexReader indexReader = DirectoryReader.open(dir);
+        // 建立索引查询器
+        IndexSearcher indexSearcher = new IndexSearcher(indexReader);
+        // 中文分词器
         SmartChineseAnalyzer analyzer = new SmartChineseAnalyzer();
         QueryParser parser = new QueryParser("title", analyzer);
         Query query = parser.parse(q);
         QueryParser parser2 = new QueryParser("content", analyzer);
         Query query2 = parser2.parse(q);
+        // BooleanClause.Occur.MUST（必须包括此关键字）
+        // BooleanClause.Occur.MUST_NOT（必须不包括此关键字）
+        // BooleanClause.Occur.SHOULD（可以包含）
+        BooleanQuery.Builder booleanQuery = new BooleanQuery.Builder();
         booleanQuery.add(query, BooleanClause.Occur.SHOULD);
         booleanQuery.add(query2, BooleanClause.Occur.SHOULD);
-        TopDocs hits = is.search(booleanQuery.build(), 100);
+        TopDocs hits = indexSearcher.search(booleanQuery.build(), 100);
         QueryScorer scorer = new QueryScorer(query);
         Fragmenter fragmenter = new SimpleSpanFragmenter(scorer);
         SimpleHTMLFormatter simpleHTMLFormatter = new SimpleHTMLFormatter("<b><font color='red'>",
@@ -135,7 +142,7 @@ public class BlogIndex {
         highlighter.setTextFragmenter(fragmenter);
         List<Blog> blogList = new LinkedList<Blog>();
         for (ScoreDoc scoreDoc : hits.scoreDocs) {
-            Document doc = is.doc(scoreDoc.doc);
+            Document doc = indexSearcher.doc(scoreDoc.doc);
             Blog blog = new Blog();
             blog.setId(Integer.parseInt(doc.get(("id"))));
             blog.setReleaseDateStr(doc.get(("releaseDate")));
