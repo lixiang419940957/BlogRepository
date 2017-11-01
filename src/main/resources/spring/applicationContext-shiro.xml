@@ -22,12 +22,12 @@
 		<!-- 身份认证失败，则跳转到登录页面的配置 -->
 		<property name="loginUrl" value="/login.jsp" />
 		<!-- Shiro连接约束配置,即过滤链的定义 -->
-		<!-- <property name="filterChainDefinitions"> -->
-		<!-- <value> -->
-		<!-- /login=anon -->
-		<!-- /admin/**=authc -->
-		<!-- </value> -->
-		<!-- </property> -->
+		<property name="filterChainDefinitions">
+			<value>
+				/login=anon
+				/admin/**=authc
+			</value>
+		</property>
 	</bean>
 
 	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->

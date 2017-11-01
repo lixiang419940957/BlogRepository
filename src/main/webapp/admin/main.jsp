@@ -100,6 +100,22 @@
 			});
 		}
 	}
+	function refreshSystem() {
+		$.ajax({
+			type : "POST",
+			url : "${basePath}/admin/system/refreshSystem.do",
+			data : {
+			},
+			dataType : "json",
+			success : function(result) {
+				if (result.success) {
+					$.messager.alert('系统提示', '已成功刷新系统缓存！', 'info');
+				} else {
+					$.messager.alert('系统提示', '刷新系统缓存失败！', 'info');
+				}
+			}
+		});
+	}
 </script>
 
 <body class="easyui-layout">
@@ -178,7 +194,7 @@
 					href="javascript:openTab('修改密码','','')" class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-modifyPassword',width:'150px'"
 					style="text-align: left;">修改密码</a> <a
-					href="javascript:openTab('刷新系统缓存','','')" class="easyui-linkbutton"
+					href="javascript:refreshSystem()" class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-refresh',width:'150px'"
 					style="text-align: left;">刷新系统缓存</a> <a
 					href="javascript:openTab('安全退出','','')" class="easyui-linkbutton"
