@@ -27,46 +27,45 @@ import com.lix.service.LinkService;
 @Controller
 public class SystemAdminController {
 
-    @Autowired
-    private BloggerService bloggerService;
+	@Autowired
+	private BloggerService bloggerService;
 
-    @Autowired
-    private BlogTypeService blogTypeService;
+	@Autowired
+	private BlogTypeService blogTypeService;
 
-    @Autowired
-    private BlogService blogService;
+	@Autowired
+	private BlogService blogService;
 
-    @Autowired
-    private LinkService linkService;
+	@Autowired
+	private LinkService linkService;
 
-    @RequestMapping(value = "/refreshSystem", method = RequestMethod.POST)
-    @ResponseBody
-    public Map<String, Object> refreshSystem(HttpServletRequest request) {
+	@RequestMapping(value = "/refreshSystem", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> refreshSystem(HttpServletRequest request) {
 
-        ServletContext application = RequestContextUtils.getWebApplicationContext(request)
-                .getServletContext();
+		ServletContext application = RequestContextUtils.getWebApplicationContext(request).getServletContext();
 
-        Map<String, Object> result = new HashMap<String, Object>();
-        try {
-            Blogger blogger = bloggerService.queryBlogger(); // 查询博主信息
-            blogger.setPassword(null);
-            application.setAttribute("blogger", blogger);
+		Map<String, Object> result = new HashMap<String, Object>();
+		try {
+			Blogger blogger = bloggerService.queryBlogger(); // 查询博主信息
+			blogger.setPassword(null);
+			application.setAttribute("blogger", blogger);
 
-            List<BlogType> blogTypeCountList = blogTypeService.queryCountList(); // 查询博客类别以及博客的数量
-            application.setAttribute("blogTypeCountList", blogTypeCountList);
+			List<BlogType> blogTypeCountList = blogTypeService.queryCountList(); // 查询博客类别以及博客的数量
+			application.setAttribute("blogTypeCountList", blogTypeCountList);
 
-            List<Blog> blogCountList = blogService.queryCountList(); // 根据日期分组查询博客
-            application.setAttribute("blogCountList", blogCountList);
+			List<Blog> blogCountList = blogService.queryCountList(); // 根据日期分组查询博客
+			application.setAttribute("blogCountList", blogCountList);
 
-            List<Link> linkList = linkService.queryCountList();// 获取所有友情链接
-            application.setAttribute("linkList", linkList);
-        } catch (Exception e) {
-            result.put("success", false);
-            e.printStackTrace();
-            return result;
-        }
-        result.put("success", true);
-        return result;
-    }
+			List<Link> linkList = linkService.queryCountList();// 获取所有友情链接
+			application.setAttribute("linkList", linkList);
+		} catch (Exception e) {
+			result.put("success", false);
+			e.printStackTrace();
+			return result;
+		}
+		result.put("success", true);
+		return result;
+	}
 
 }

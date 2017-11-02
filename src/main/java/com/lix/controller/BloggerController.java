@@ -16,26 +16,26 @@ import com.lix.utils.CryptographyUtil;
 @Controller
 public class BloggerController {
 
-    @RequestMapping(value = "/hello")
-    @ResponseBody
-    public String hello() {
-        return "hello12";
-    }
+	@RequestMapping(value = "/hello")
+	@ResponseBody
+	public String hello() {
+		return "hello12";
+	}
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(Blogger blogger, ModelMap map) {
-        Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(blogger.getUserName(), CryptographyUtil.md5(
-                blogger.getPassword(), "Myblog"));
-        try {
-            subject.login(token); // 登录验证
-            return "redirect:/admin/main.jsp";
-        } catch (Exception e) {
-            e.printStackTrace();
-            map.put("blogger", blogger);
-            map.put("errorInfo", "用户名或密码错误！");
-            return "login";
-        }
-    }
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(Blogger blogger, ModelMap map) {
+		Subject subject = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken(blogger.getUserName(),
+				CryptographyUtil.md5(blogger.getPassword(), "Myblog"));
+		try {
+			subject.login(token); // 登录验证
+			return "redirect:/admin/main.jsp";
+		} catch (Exception e) {
+			e.printStackTrace();
+			map.put("blogger", blogger);
+			map.put("errorInfo", "用户名或密码错误！");
+			return "login";
+		}
+	}
 
 }

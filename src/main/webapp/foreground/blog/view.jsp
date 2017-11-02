@@ -13,36 +13,36 @@
 </script>
 
 <script type="text/javascript">
-	function loadimage() {
-		document.getElementById("randImage").src = "${basePath}/image.jsp?" + Math.random();
-	}
+// 	function loadimage() {
+// 		document.getElementById("randImage").src = "${basePath}/image.jsp?" + Math.random();
+// 	}
 
-	function submitData() {
-		var content = $("#content").val();
-		var imageCode = $("#imageCode").val();
-		if (content == null || content == '') {
-			alert("请输入评论内容！");
-		} else if (imageCode == null || imageCode == '') {
-			alert("请填写验证码！");
-		} else {
-			$.post("${basePath}/comment/save.do", {
-				'content' : content,
-				'imageCode' : imageCode,
-				'blog.id' : '${blog.id}'
-			}, function(result) {
-				if (result.success) {
-					window.location.reload();
-					alert("评论已提交成功，审核通过后显示！");
-				} else {
-					alert(result.errorInfo);
-				}
-			}, "json");
-		}
-	}
+// 	function submitData() {
+// 		var content = $("#content").val();
+// 		var imageCode = $("#imageCode").val();
+// 		if (content == null || content == '') {
+// 			alert("请输入评论内容！");
+// 		} else if (imageCode == null || imageCode == '') {
+// 			alert("请填写验证码！");
+// 		} else {
+// 			$.post("${basePath}/comment/save.do", {
+// 				'content' : content,
+// 				'imageCode' : imageCode,
+// 				'blog.id' : '${blog.id}'
+// 			}, function(result) {
+// 				if (result.success) {
+// 					window.location.reload();
+// 					alert("评论已提交成功，审核通过后显示！");
+// 				} else {
+// 					alert(result.errorInfo);
+// 				}
+// 			}, "json");
+// 		}
+// 	}
 
-	function showOtherComment() {
-		$('.otherComment').show();
-	}
+// 	function showOtherComment() {
+// 		$('.otherComment').show();
+// 	}
 </script>
 <div class="data_list">
 	<div class="data_list_title">

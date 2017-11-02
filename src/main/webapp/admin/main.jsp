@@ -116,6 +116,53 @@
 			}
 		});
 	}
+	function openPasswordModifyDialog() {
+		$("#newPassword").val("");
+		$("#newPassword2").val("");
+		$("#dlg").dialog("open").dialog("setTitle", "修改密码");
+	}
+	function modifyPassword() {
+		$("#fm").form("submit", {
+			url : "${basePath}/admin/blogger/modifyPassword.do?id=${currentUser.id}",
+			onSubmit : function() {
+				var newPassword = $("#newPassword").val();
+				var newPassword2 = $("#newPassword2").val();
+				if (!$(this).form("validate")) {
+					return false;
+				}
+				if (newPassword != newPassword2) {
+					$.messager.alert("系统提示", "输入的密码不一致！", "info");
+					return false;
+				}
+				return true;
+			},
+			success : function(result) {
+				var result = eval('(' + result + ')');
+				if (result.success) {
+					$.messager.alert("系统提示", "密码修改成功，下一次登录生效！", "info");
+					$("#newPassword").val("");
+					$("#newPassword2").val("");
+					$("#dlg").dialog("close");
+				} else {
+					$.messager.alert("系统提示", "密码修改失败！", "info");
+					return;
+				}
+			}
+		});
+	}
+
+	function closePasswordModifyDialog() {
+		$("#newPassword").val("");
+		$("#newPassword2").val("");
+		$("#dlg").dialog("close");
+	}
+	function logout() {
+		$.messager.confirm("系统提示", "您确定要退出系统吗？", function(r) {
+			if (r) {
+				window.location.href = '${basePath}/admin/blogger/logout.do';
+			}
+		});
+	}
 </script>
 
 <body class="easyui-layout">
@@ -126,7 +173,7 @@
 				<td width="50%">
 					<h1>博客后台系统</h1>
 				</td>
-				<td valign="bottom" align="right" width="50%"><font size="3">&nbsp;&nbsp;<strong>欢迎：</strong>XXX
+				<td valign="bottom" align="right" width="50%"><font size="3">&nbsp;&nbsp;<strong>欢迎：</strong>${currentUser.userName }
 				</font></td>
 			</tr>
 		</table>
@@ -191,13 +238,14 @@
 					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-link',width:'150px'"
 					style="text-align: left;">友情链接管理</a> <a
-					href="javascript:openTab('修改密码','','')" class="easyui-linkbutton"
+					href="javascript:openPasswordModifyDialog()"
+					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-modifyPassword',width:'150px'"
 					style="text-align: left;">修改密码</a> <a
 					href="javascript:refreshSystem()" class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-refresh',width:'150px'"
-					style="text-align: left;">刷新系统缓存</a> <a
-					href="javascript:openTab('安全退出','','')" class="easyui-linkbutton"
+					style="text-align: left;">刷新系统缓存</a> <a href="javascript:logout()"
+					class="easyui-linkbutton"
 					data-options="plain:true,iconCls:'icon-exit',width:'150px'"
 					style="text-align: left;">安全退出</a>
 			</div>
@@ -215,7 +263,39 @@
 		</div>
 
 	</div>
+	<div id="dlg" class="easyui-dialog"
+		style="width:400px;height:200px;padding: 10px 20px" closed="true"
+		buttons="#dlg-buttons">
 
+		<form id="fm" method="post">
+			<table cellspacing="8px">
+				<tr>
+					<td>用户名：</td>
+					<td><input type="text" id="userName" name="userName"
+						readonly="readonly" value="${currentUser.userName }"
+						style="width: 200px" /></td>
+				</tr>
+				<tr>
+					<td>新密码：</td>
+					<td><input type="password" id="newPassword" name="newPassword"
+						class="easyui-validatebox" required="true" style="width: 200px" /></td>
+				</tr>
+				<tr>
+					<td>确认新密码：</td>
+					<td><input type="password" id="newPassword2"
+						name="newPassword2" class="easyui-validatebox" required="true"
+						style="width: 200px" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<div id="dlg-buttons">
+		<a href="javascript:modifyPassword()" class="easyui-linkbutton"
+			iconCls="icon-ok">保存</a> <a
+			href="javascript:closePasswordModifyDialog()"
+			class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+	</div>
 	<div id="mm" class="easyui-menu" style="width: 120px;">
 		<!-- 		<div id="mm-tabclosrefresh" data-options="name:6">刷新</div> -->
 		<div id="mm-tabclose" data-options="name:1">关闭</div>
