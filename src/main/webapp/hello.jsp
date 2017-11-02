@@ -37,7 +37,7 @@
 	}
 </script>
 <body>
-<!-- 	<h1>Hello,myblog!</h1> -->
+	<!-- 	<h1>Hello,myblog!</h1> -->
 	<input type="text" id="abc"></input>
 	<input type="button" onclick="a()" value="测试"></input>
 </body>

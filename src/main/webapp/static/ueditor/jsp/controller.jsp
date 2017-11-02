@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=gbk"
-	import="com.baidu.ueditor.ActionEnter"
-    pageEncoding="gbk"%>
-<%@ page trimDirectiveWhitespaces="true" %>
+	import="com.baidu.ueditor.ActionEnter" pageEncoding="gbk"%>
+<%@ page trimDirectiveWhitespaces="true"%>
 <%
 
     request.setCharacterEncoding( "gbk" );

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>Row Editing DataGrid - jQuery EasyUI Mobile Demo</title>
-	<link rel="stylesheet" type="text/css" href="../../themes/metro/easyui.css">
-	<link rel="stylesheet" type="text/css" href="../../themes/mobile.css">
-	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
-	<script type="text/javascript" src="../../jquery.min.js"></script>
-	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="../../jquery.easyui.mobile.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Row Editing DataGrid - jQuery EasyUI Mobile Demo</title>
+<link rel="stylesheet" type="text/css"
+	href="../../themes/metro/easyui.css">
+<link rel="stylesheet" type="text/css" href="../../themes/mobile.css">
+<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+<script type="text/javascript" src="../../jquery.min.js"></script>
+<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../jquery.easyui.mobile.js"></script>
 </head>
 <body>
-	<table id="dg" data-options="
+	<table id="dg"
+		data-options="
 				header:'#hh',
 				iconCls: 'icon-edit',
 				singleSelect: true,
@@ -27,8 +30,12 @@
 			<tr>
 				<th data-options="field:'itemid',width:80">Item ID</th>
 				<th data-options="field:'productid',width:100,editor:'textbox'">Product</th>
-				<th data-options="field:'listprice',width:80,align:'right',editor:{type:'numberbox',options:{precision:1}}">List Price</th>
-				<th data-options="field:'unitcost',width:80,align:'right',editor:'numberbox'">Unit Cost</th>
+				<th
+					data-options="field:'listprice',width:80,align:'right',editor:{type:'numberbox',options:{precision:1}}">List
+					Price</th>
+				<th
+					data-options="field:'unitcost',width:80,align:'right',editor:'numberbox'">Unit
+					Cost</th>
 			</tr>
 		</thead>
 	</table>
@@ -36,13 +43,17 @@
 		<div class="m-toolbar">
 			<div class="m-title">Row Editing</div>
 			<div class="m-right">
-				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()"></a>
-				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()"></a>
-				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()"></a>
+				<a href="javascript:void(0)" class="easyui-linkbutton"
+					data-options="iconCls:'icon-remove',plain:true"
+					onclick="removeit()"></a> <a href="javascript:void(0)"
+					class="easyui-linkbutton"
+					data-options="iconCls:'icon-save',plain:true" onclick="accept()"></a>
+				<a href="javascript:void(0)" class="easyui-linkbutton"
+					data-options="iconCls:'icon-undo',plain:true" onclick="reject()"></a>
 			</div>
 		</div>
 	</div>
-	
+
 	<script type="text/javascript">
 		var data = 	[
 			{"productid":"FI-SW-01","productname":"Koi","unitcost":10.00,"status":"P","listprice":36.50,"attr1":"Large","itemid":"EST-1"},
