@@ -58,7 +58,7 @@ public class SystemAdminController {
 			application.setAttribute("blogCountList", blogCountList);
 
 			List<Link> linkList = linkService.queryCountList();// 获取所有友情链接
-			application.setAttribute("linkList", linkList);
+			application.setAttribute("linkCountList", linkList);
 		} catch (Exception e) {
 			result.put("success", false);
 			e.printStackTrace();
