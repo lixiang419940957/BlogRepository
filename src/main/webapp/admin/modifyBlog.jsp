@@ -60,7 +60,7 @@
 <body style="margin: 10px">
 	<div id="p" class="easyui-panel" title="编写博客" style="padding: 10px;">
 
-		<table style="font-size: 13px;" cellspacing="20px">
+		<table style="font-size: 13px;width: 100%" cellspacing="20px">
 
 			<tr>
 				<td width="80px">博客标题：</td>
@@ -96,7 +96,7 @@
 		//实例化编辑器
 		//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
 		var ue = UE.getEditor('editor');
-
+	
 		ue.addListener("ready", function() {
 			//通过ajax请求数据
 			UE.ajax.request("${basePath}/admin/blog/queryBlogById.do", {
