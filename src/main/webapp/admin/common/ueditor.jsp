@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="gbk"%>
-<!-- ÏÂÃæÊÇ¸»ÎÄ±¾±à¼­Æ÷µÄ»·¾³ -->
-<script type="text/javascript" charset="gbk"
+	pageEncoding="UTF-8"%>
+<!-- ä¸‹é¢æ˜¯å¯Œæ–‡æœ¬ç¼–è¾‘å™¨çš„çŽ¯å¢ƒ -->
+<script type="text/javascript" charset="UTF-8"
 	src="${pageContext.request.contextPath}/static/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="gbk"
+<script type="text/javascript" charset="UTF-8"
 	src="${pageContext.request.contextPath}/static/ueditor/ueditor.all.min.js"> </script>
-<!--½¨ÒéÊÖ¶¯¼ÓÔÚÓïÑÔ£¬±ÜÃâÔÚieÏÂÓÐÊ±ÒòÎª¼ÓÔØÓïÑÔÊ§°Üµ¼ÖÂ±à¼­Æ÷¼ÓÔØÊ§°Ü-->
-<!--ÕâÀï¼ÓÔØµÄÓïÑÔÎÄ¼þ»á¸²¸ÇÄãÔÚÅäÖÃÏîÄ¿ÀïÌí¼ÓµÄÓïÑÔÀàÐÍ£¬±ÈÈçÄãÔÚÅäÖÃÏîÄ¿ÀïÅäÖÃµÄÊÇÓ¢ÎÄ£¬ÕâÀï¼ÓÔØµÄÖÐÎÄ£¬ÄÇ×îºó¾ÍÊÇÖÐÎÄ-->
-<script type="text/javascript" charset="gbk"
+<!--å»ºè®®æ‰‹åŠ¨åŠ åœ¨è¯­è¨€ï¼Œé¿å…åœ¨ieä¸‹æœ‰æ—¶å› ä¸ºåŠ è½½è¯­è¨€å¤±è´¥å¯¼è‡´ç¼–è¾‘å™¨åŠ è½½å¤±è´¥-->
+<!--è¿™é‡ŒåŠ è½½çš„è¯­è¨€æ–‡ä»¶ä¼šè¦†ç›–ä½ åœ¨é…ç½®é¡¹ç›®é‡Œæ·»åŠ çš„è¯­è¨€ç±»åž‹ï¼Œæ¯”å¦‚ä½ åœ¨é…ç½®é¡¹ç›®é‡Œé…ç½®çš„æ˜¯è‹±æ–‡ï¼Œè¿™é‡ŒåŠ è½½çš„ä¸­æ–‡ï¼Œé‚£æœ€åŽå°±æ˜¯ä¸­æ–‡-->
+<script type="text/javascript" charset="UTF-8"
 	src="${pageContext.request.contextPath}/static/ueditor/lang/zh-cn/zh-cn.js"></script>

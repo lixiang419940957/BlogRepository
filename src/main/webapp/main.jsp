@@ -31,10 +31,10 @@
 					<div class="data_list_title">
 						<img src="${basePath}/static/images/user_icon.png" /> 博主信息
 					</div>
-					<!-- 					<div class="user_image"> -->
-					<!-- 						<img -->
-					<%-- 							src="${pageContext.request.contextPath}/static/userImages/${blogger.imageName }" /> --%>
-					<!-- 					</div> -->
+					<div class="user_image">
+						<%-- 						<img src="${basePath}/static/userImages/${blogger.imageName }" /> --%>
+						<img src="${basePath}/static/userImages/lbxn.jpg" />
+					</div>
 					<div class="nickName">${blogger.nickName }</div>
 					<div class="userSign">(${blogger.sign })</div>
 				</div>
@@ -47,7 +47,7 @@
 						<ul>
 							<c:forEach var="blogTypeCount" items="${blogTypeCountList }">
 								<li><span><a
-										href="${pageContext.request.contextPath}/index.html?typeId=${blogTypeCount.id }">${blogTypeCount.typeName }(${blogTypeCount.blogCount })</a></span></li>
+										href="${basePath}/index.html?typeId=${blogTypeCount.id }">${blogTypeCount.typeName }(${blogTypeCount.blogCount })</a></span></li>
 							</c:forEach>
 						</ul>
 					</div>

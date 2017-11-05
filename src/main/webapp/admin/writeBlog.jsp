@@ -65,7 +65,7 @@
 <body style="margin: 10px">
 	<div id="p" class="easyui-panel" title="编写博客" style="padding: 10px;">
 
-		<table style="font-size: 13px;" cellspacing="20px">
+		<table style="font-size: 13px;width: 100%" cellspacing="20px">
 
 			<tr>
 				<td width="80px">博客标题：</td>
