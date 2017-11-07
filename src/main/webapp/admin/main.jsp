@@ -104,8 +104,7 @@
 		$.ajax({
 			type : "POST",
 			url : "${basePath}/admin/system/refreshSystem.do",
-			data : {
-			},
+			data : {},
 			dataType : "json",
 			success : function(result) {
 				if (result.success) {
@@ -264,8 +263,8 @@
 
 	</div>
 	<div id="dlg" class="easyui-dialog"
-		style="width:400px;height:200px;padding: 10px 20px" closed="true"
-		buttons="#dlg-buttons">
+		style="width: 400px; height: 200px; padding: 10px 20px" closed="true"
+		modal="true" buttons="#dlg-buttons">
 
 		<form id="fm" method="post">
 			<table cellspacing="8px">
