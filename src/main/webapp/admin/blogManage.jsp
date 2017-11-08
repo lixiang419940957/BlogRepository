@@ -50,7 +50,10 @@
 				field : 'title',
 				title : '标题',
 				align : 'center',
-				width : 600
+				width : 600,
+				formatter : function(value, row, index) {
+					return "<a target='_blank' href='${basePath}/blog/articles/"+row.id+".html'>" + value + "</a>"
+				}
 			}, {
 				field : 'releaseDate',
 				title : '发布日期',
