@@ -94,7 +94,7 @@ public class BlogIndex {
     }
 
     /**
-     * 删除指定博客的索引
+     * 删除指定博客的索引 *
      * 
      * @param blogId
      * @throws Exception

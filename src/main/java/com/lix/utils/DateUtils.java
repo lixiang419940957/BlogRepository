@@ -45,10 +45,4 @@ public class DateUtils {
         return new SimpleDateFormat(format).format(new Date());
     }
 
-    public static void main(String[] args) {
-        // String str = DateUtils.dateToStr(new Date(), "yyyy-MM-dd HH:mm:ss");
-        Date str = DateUtils.strToDate("2017-03-28 17:24:21", "yyyy-MM-dd hh:mm:ss");
-        System.out.println(DateUtils.NowDateToStr("yyyy-MM-dd HH:mm:ss"));
-    }
-
 }
