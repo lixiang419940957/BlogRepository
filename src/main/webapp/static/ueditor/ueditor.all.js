@@ -32,6 +32,7 @@ var dom = UE.dom = {};
 // core/browser.js
 /**
  * 浏览器判断模块
+ * 
  * @file
  * @module UE.browser
  * @since 1.2.6.1
@@ -39,6 +40,7 @@ var dom = UE.dom = {};
 
 /**
  * 提供浏览器检测的模块
+ * 
  * @unfile
  * @module UE.browser
  */
@@ -47,70 +49,40 @@ var browser = UE.browser = function(){
         opera = window.opera,
         browser = {
         /**
-         * @property {boolean} ie 检测当前浏览器是否为IE
-         * @example
-         * ```javascript
-         * if ( UE.browser.ie ) {
-         *     console.log( '当前浏览器是IE' );
-         * }
-         * ```
-         */
+		 * @property {boolean} ie 检测当前浏览器是否为IE
+		 * @example ```javascript if ( UE.browser.ie ) { console.log( '当前浏览器是IE' ); } ```
+		 */
         ie		:  /(msie\s|trident.*rv:)([\w.]+)/.test(agent),
 
         /**
-         * @property {boolean} opera 检测当前浏览器是否为Opera
-         * @example
-         * ```javascript
-         * if ( UE.browser.opera ) {
-         *     console.log( '当前浏览器是Opera' );
-         * }
-         * ```
-         */
+		 * @property {boolean} opera 检测当前浏览器是否为Opera
+		 * @example ```javascript if ( UE.browser.opera ) { console.log( '当前浏览器是Opera' ); } ```
+		 */
         opera	: ( !!opera && opera.version ),
 
         /**
-         * @property {boolean} webkit 检测当前浏览器是否是webkit内核的浏览器
-         * @example
-         * ```javascript
-         * if ( UE.browser.webkit ) {
-         *     console.log( '当前浏览器是webkit内核浏览器' );
-         * }
-         * ```
-         */
+		 * @property {boolean} webkit 检测当前浏览器是否是webkit内核的浏览器
+		 * @example ```javascript if ( UE.browser.webkit ) { console.log( '当前浏览器是webkit内核浏览器' ); } ```
+		 */
         webkit	: ( agent.indexOf( ' applewebkit/' ) > -1 ),
 
         /**
-         * @property {boolean} mac 检测当前浏览器是否是运行在mac平台下
-         * @example
-         * ```javascript
-         * if ( UE.browser.mac ) {
-         *     console.log( '当前浏览器运行在mac平台下' );
-         * }
-         * ```
-         */
+		 * @property {boolean} mac 检测当前浏览器是否是运行在mac平台下
+		 * @example ```javascript if ( UE.browser.mac ) { console.log( '当前浏览器运行在mac平台下' ); } ```
+		 */
         mac	: ( agent.indexOf( 'macintosh' ) > -1 ),
 
         /**
-         * @property {boolean} quirks 检测当前浏览器是否处于“怪异模式”下
-         * @example
-         * ```javascript
-         * if ( UE.browser.quirks ) {
-         *     console.log( '当前浏览器运行处于“怪异模式”' );
-         * }
-         * ```
-         */
+		 * @property {boolean} quirks 检测当前浏览器是否处于“怪异模式”下
+		 * @example ```javascript if ( UE.browser.quirks ) { console.log( '当前浏览器运行处于“怪异模式”' ); } ```
+		 */
         quirks : ( document.compatMode == 'BackCompat' )
     };
 
     /**
-    * @property {boolean} gecko 检测当前浏览器内核是否是gecko内核
-    * @example
-    * ```javascript
-    * if ( UE.browser.gecko ) {
-    *     console.log( '当前浏览器内核是gecko内核' );
-    * }
-    * ```
-    */
+	 * @property {boolean} gecko 检测当前浏览器内核是否是gecko内核
+	 * @example ```javascript if ( UE.browser.gecko ) { console.log( '当前浏览器内核是gecko内核' ); } ```
+	 */
     browser.gecko =( navigator.product == 'Gecko' && !browser.webkit && !browser.opera && !browser.ie);
 
     var version = 0;
@@ -132,64 +104,39 @@ var browser = UE.browser = function(){
 
         browser.ie11Compat = document.documentMode == 11;
         /**
-         * @property { boolean } ie9Compat 检测浏览器模式是否为 IE9 兼容模式
-         * @warning 如果浏览器不是IE， 则该值为undefined
-         * @example
-         * ```javascript
-         * if ( UE.browser.ie9Compat ) {
-         *     console.log( '当前浏览器运行在IE9兼容模式下' );
-         * }
-         * ```
-         */
+		 * @property { boolean } ie9Compat 检测浏览器模式是否为 IE9 兼容模式
+		 * @warning 如果浏览器不是IE， 则该值为undefined
+		 * @example ```javascript if ( UE.browser.ie9Compat ) { console.log( '当前浏览器运行在IE9兼容模式下' ); } ```
+		 */
         browser.ie9Compat = document.documentMode == 9;
 
         /**
-         * @property { boolean } ie8 检测浏览器是否是IE8浏览器
-         * @warning 如果浏览器不是IE， 则该值为undefined
-         * @example
-         * ```javascript
-         * if ( UE.browser.ie8 ) {
-         *     console.log( '当前浏览器是IE8浏览器' );
-         * }
-         * ```
-         */
+		 * @property { boolean } ie8 检测浏览器是否是IE8浏览器
+		 * @warning 如果浏览器不是IE， 则该值为undefined
+		 * @example ```javascript if ( UE.browser.ie8 ) { console.log( '当前浏览器是IE8浏览器' ); } ```
+		 */
         browser.ie8 = !!document.documentMode;
 
         /**
-         * @property { boolean } ie8Compat 检测浏览器模式是否为 IE8 兼容模式
-         * @warning 如果浏览器不是IE， 则该值为undefined
-         * @example
-         * ```javascript
-         * if ( UE.browser.ie8Compat ) {
-         *     console.log( '当前浏览器运行在IE8兼容模式下' );
-         * }
-         * ```
-         */
+		 * @property { boolean } ie8Compat 检测浏览器模式是否为 IE8 兼容模式
+		 * @warning 如果浏览器不是IE， 则该值为undefined
+		 * @example ```javascript if ( UE.browser.ie8Compat ) { console.log( '当前浏览器运行在IE8兼容模式下' ); } ```
+		 */
         browser.ie8Compat = document.documentMode == 8;
 
         /**
-         * @property { boolean } ie7Compat 检测浏览器模式是否为 IE7 兼容模式
-         * @warning 如果浏览器不是IE， 则该值为undefined
-         * @example
-         * ```javascript
-         * if ( UE.browser.ie7Compat ) {
-         *     console.log( '当前浏览器运行在IE7兼容模式下' );
-         * }
-         * ```
-         */
+		 * @property { boolean } ie7Compat 检测浏览器模式是否为 IE7 兼容模式
+		 * @warning 如果浏览器不是IE， 则该值为undefined
+		 * @example ```javascript if ( UE.browser.ie7Compat ) { console.log( '当前浏览器运行在IE7兼容模式下' ); } ```
+		 */
         browser.ie7Compat = ( ( version == 7 && !document.documentMode )
                 || document.documentMode == 7 );
 
         /**
-         * @property { boolean } ie6Compat 检测浏览器模式是否为 IE6 模式 或者怪异模式
-         * @warning 如果浏览器不是IE， 则该值为undefined
-         * @example
-         * ```javascript
-         * if ( UE.browser.ie6Compat ) {
-         *     console.log( '当前浏览器运行在IE6模式或者怪异模式下' );
-         * }
-         * ```
-         */
+		 * @property { boolean } ie6Compat 检测浏览器模式是否为 IE6 模式 或者怪异模式
+		 * @warning 如果浏览器不是IE， 则该值为undefined
+		 * @example ```javascript if ( UE.browser.ie6Compat ) { console.log( '当前浏览器运行在IE6模式或者怪异模式下' ); } ```
+		 */
         browser.ie6Compat = ( version < 7 || browser.quirks );
 
         browser.ie9above = version > 8;
@@ -213,29 +160,19 @@ var browser = UE.browser = function(){
     }
 
     /**
-     * @property { Number } chrome 检测当前浏览器是否为Chrome, 如果是，则返回Chrome的大版本号
-     * @warning 如果浏览器不是chrome， 则该值为undefined
-     * @example
-     * ```javascript
-     * if ( UE.browser.chrome ) {
-     *     console.log( '当前浏览器是Chrome' );
-     * }
-     * ```
-     */
+	 * @property { Number } chrome 检测当前浏览器是否为Chrome, 如果是，则返回Chrome的大版本号
+	 * @warning 如果浏览器不是chrome， 则该值为undefined
+	 * @example ```javascript if ( UE.browser.chrome ) { console.log( '当前浏览器是Chrome' ); } ```
+	 */
     if (/chrome\/(\d+\.\d)/i.test(agent)) {
         browser.chrome = + RegExp['\x241'];
     }
 
     /**
-     * @property { Number } safari 检测当前浏览器是否为Safari, 如果是，则返回Safari的大版本号
-     * @warning 如果浏览器不是safari， 则该值为undefined
-     * @example
-     * ```javascript
-     * if ( UE.browser.safari ) {
-     *     console.log( '当前浏览器是Safari' );
-     * }
-     * ```
-     */
+	 * @property { Number } safari 检测当前浏览器是否为Safari, 如果是，则返回Safari的大版本号
+	 * @warning 如果浏览器不是safari， 则该值为undefined
+	 * @example ```javascript if ( UE.browser.safari ) { console.log( '当前浏览器是Safari' ); } ```
+	 */
     if(/(\d+\.\d)?(?:\.\d)?\s+safari\/?(\d+\.\d+)?/i.test(agent) && !/chrome/i.test(agent)){
     	browser.safari = + (RegExp['\x241'] || RegExp['\x242']);
     }
@@ -250,29 +187,21 @@ var browser = UE.browser = function(){
         version = parseFloat( agent.match( / applewebkit\/(\d+)/ )[1] );
 
     /**
-     * @property { Number } version 检测当前浏览器版本号
-     * @remind
-     * <ul>
-     *     <li>IE系列返回值为5,6,7,8,9,10等</li>
-     *     <li>gecko系列会返回10900，158900等</li>
-     *     <li>webkit系列会返回其build号 (如 522等)</li>
-     * </ul>
-     * @example
-     * ```javascript
-     * console.log( '当前浏览器版本号是： ' + UE.browser.version );
-     * ```
-     */
+	 * @property { Number } version 检测当前浏览器版本号
+	 * @remind
+	 *           <ul>
+	 *           <li>IE系列返回值为5,6,7,8,9,10等</li>
+	 *           <li>gecko系列会返回10900，158900等</li>
+	 *           <li>webkit系列会返回其build号 (如 522等)</li>
+	 *           </ul>
+	 * @example ```javascript console.log( '当前浏览器版本号是： ' + UE.browser.version ); ```
+	 */
     browser.version = version;
 
     /**
-     * @property { boolean } isCompatible 检测当前浏览器是否能够与UEditor良好兼容
-     * @example
-     * ```javascript
-     * if ( UE.browser.isCompatible ) {
-     *     console.log( '浏览器与UEditor能够良好兼容' );
-     * }
-     * ```
-     */
+	 * @property { boolean } isCompatible 检测当前浏览器是否能够与UEditor良好兼容
+	 * @example ```javascript if ( UE.browser.isCompatible ) { console.log( '浏览器与UEditor能够良好兼容' ); } ```
+	 */
     browser.isCompatible =
         !browser.mobile && (
         ( browser.ie && version >= 6 ) ||
@@ -283,7 +212,7 @@ var browser = UE.browser = function(){
         false );
     return browser;
 }();
-//快捷方式
+// 快捷方式
 var ie = browser.ie,
     webkit = browser.webkit,
     gecko = browser.gecko,
@@ -292,6 +221,7 @@ var ie = browser.ie,
 // core/utils.js
 /**
  * 工具函数包
+ * 
  * @file
  * @module UE.utils
  * @since 1.2.6.1
@@ -299,6 +229,7 @@ var ie = browser.ie,
 
 /**
  * UEditor封装使用的静态工具函数
+ * 
  * @module UE.utils
  * @unfile
  */
@@ -306,43 +237,34 @@ var ie = browser.ie,
 var utils = UE.utils = {
 
     /**
-     * 用给定的迭代器遍历对象
-     * @method each
-     * @param { Object } obj 需要遍历的对象
-     * @param { Function } iterator 迭代器， 该方法接受两个参数， 第一个参数是当前所处理的value， 第二个参数是当前遍历对象的key
-     * @example
-     * ```javascript
-     * var demoObj = {
-     *     key1: 1,
-     *     key2: 2
-     * };
-     *
-     * //output: key1: 1, key2: 2
-     * UE.utils.each( demoObj, funciton ( value, key ) {
-     *
-     *     console.log( key + ":" + value );
-     *
-     * } );
-     * ```
-     */
+	 * 用给定的迭代器遍历对象
+	 * 
+	 * @method each
+	 * @param {
+	 *            Object } obj 需要遍历的对象
+	 * @param {
+	 *            Function } iterator 迭代器， 该方法接受两个参数， 第一个参数是当前所处理的value， 第二个参数是当前遍历对象的key
+	 * @example ```javascript var demoObj = { key1: 1, key2: 2 };
+	 * 
+	 * //output: key1: 1, key2: 2 UE.utils.each( demoObj, funciton ( value, key ) {
+	 * 
+	 * console.log( key + ":" + value ); } ); ```
+	 */
 
     /**
-     * 用给定的迭代器遍历数组或类数组对象
-     * @method each
-     * @param { Array } array 需要遍历的数组或者类数组
-     * @param { Function } iterator 迭代器， 该方法接受两个参数， 第一个参数是当前所处理的value， 第二个参数是当前遍历对象的key
-     * @example
-     * ```javascript
-     * var divs = document.getElmentByTagNames( "div" );
-     *
-     * //output: 0: DIV, 1: DIV ...
-     * UE.utils.each( divs, funciton ( value, key ) {
-     *
-     *     console.log( key + ":" + value.tagName );
-     *
-     * } );
-     * ```
-     */
+	 * 用给定的迭代器遍历数组或类数组对象
+	 * 
+	 * @method each
+	 * @param {
+	 *            Array } array 需要遍历的数组或者类数组
+	 * @param {
+	 *            Function } iterator 迭代器， 该方法接受两个参数， 第一个参数是当前所处理的value， 第二个参数是当前遍历对象的key
+	 * @example ```javascript var divs = document.getElmentByTagNames( "div" );
+	 * 
+	 * //output: 0: DIV, 1: DIV ... UE.utils.each( divs, funciton ( value, key ) {
+	 * 
+	 * console.log( key + ":" + value.tagName ); } ); ```
+	 */
     each : function(obj, iterator, context) {
         if (obj == null) return;
         if (obj.length === +obj.length) {
@@ -361,20 +283,18 @@ var utils = UE.utils = {
     },
 
     /**
-     * 以给定对象作为原型创建一个新对象
-     * @method makeInstance
-     * @param { Object } protoObject 该对象将作为新创建对象的原型
-     * @return { Object } 新的对象， 该对象的原型是给定的protoObject对象
-     * @example
-     * ```javascript
-     *
-     * var protoObject = { sayHello: function () { console.log('Hello UEditor!'); } };
-     *
-     * var newObject = UE.utils.makeInstance( protoObject );
-     * //output: Hello UEditor!
-     * newObject.sayHello();
-     * ```
-     */
+	 * 以给定对象作为原型创建一个新对象
+	 * 
+	 * @method makeInstance
+	 * @param {
+	 *            Object } protoObject 该对象将作为新创建对象的原型
+	 * @return { Object } 新的对象， 该对象的原型是给定的protoObject对象
+	 * @example ```javascript
+	 * 
+	 * var protoObject = { sayHello: function () { console.log('Hello UEditor!'); } };
+	 * 
+	 * var newObject = UE.utils.makeInstance( protoObject ); //output: Hello UEditor! newObject.sayHello(); ```
+	 */
     makeInstance:function (obj) {
         var noop = new Function();
         noop.prototype = obj;
@@ -384,48 +304,48 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将source对象中的属性扩展到target对象上
-     * @method extend
-     * @remind 该方法将强制把source对象上的属性复制到target对象上
-     * @see UE.utils.extend(Object,Object,Boolean)
-     * @param { Object } target 目标对象， 新的属性将附加到该对象上
-     * @param { Object } source 源对象， 该对象的属性会被附加到target对象上
-     * @return { Object } 返回target对象
-     * @example
-     * ```javascript
-     *
-     * var target = { name: 'target', sex: 1 },
-     *      source = { name: 'source', age: 17 };
-     *
-     * UE.utils.extend( target, source );
-     *
-     * //output: { name: 'source', sex: 1, age: 17 }
-     * console.log( target );
-     *
-     * ```
-     */
+	 * 将source对象中的属性扩展到target对象上
+	 * 
+	 * @method extend
+	 * @remind 该方法将强制把source对象上的属性复制到target对象上
+	 * @see UE.utils.extend(Object,Object,Boolean)
+	 * @param {
+	 *            Object } target 目标对象， 新的属性将附加到该对象上
+	 * @param {
+	 *            Object } source 源对象， 该对象的属性会被附加到target对象上
+	 * @return { Object } 返回target对象
+	 * @example ```javascript
+	 * 
+	 * var target = { name: 'target', sex: 1 }, source = { name: 'source', age: 17 };
+	 * 
+	 * UE.utils.extend( target, source );
+	 * 
+	 * //output: { name: 'source', sex: 1, age: 17 } console.log( target );
+	 * 
+	 * ```
+	 */
 
     /**
-     * 将source对象中的属性扩展到target对象上， 根据指定的isKeepTarget值决定是否保留目标对象中与
-     * 源对象属性名相同的属性值。
-     * @method extend
-     * @param { Object } target 目标对象， 新的属性将附加到该对象上
-     * @param { Object } source 源对象， 该对象的属性会被附加到target对象上
-     * @param { Boolean } isKeepTarget 是否保留目标对象中与源对象中属性名相同的属性
-     * @return { Object } 返回target对象
-     * @example
-     * ```javascript
-     *
-     * var target = { name: 'target', sex: 1 },
-     *      source = { name: 'source', age: 17 };
-     *
-     * UE.utils.extend( target, source, true );
-     *
-     * //output: { name: 'target', sex: 1, age: 17 }
-     * console.log( target );
-     *
-     * ```
-     */
+	 * 将source对象中的属性扩展到target对象上， 根据指定的isKeepTarget值决定是否保留目标对象中与 源对象属性名相同的属性值。
+	 * 
+	 * @method extend
+	 * @param {
+	 *            Object } target 目标对象， 新的属性将附加到该对象上
+	 * @param {
+	 *            Object } source 源对象， 该对象的属性会被附加到target对象上
+	 * @param {
+	 *            Boolean } isKeepTarget 是否保留目标对象中与源对象中属性名相同的属性
+	 * @return { Object } 返回target对象
+	 * @example ```javascript
+	 * 
+	 * var target = { name: 'target', sex: 1 }, source = { name: 'source', age: 17 };
+	 * 
+	 * UE.utils.extend( target, source, true );
+	 * 
+	 * //output: { name: 'target', sex: 1, age: 17 } console.log( target );
+	 * 
+	 * ```
+	 */
     extend:function (t, s, b) {
         if (s) {
             for (var k in s) {
@@ -438,28 +358,26 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将给定的多个对象的属性复制到目标对象target上
-     * @method extend2
-     * @remind 该方法将强制把源对象上的属性复制到target对象上
-     * @remind 该方法支持两个及以上的参数， 从第二个参数开始， 其属性都会被复制到第一个参数上。 如果遇到同名的属性，
-     *          将会覆盖掉之前的值。
-     * @param { Object } target 目标对象， 新的属性将附加到该对象上
-     * @param { Object... } source 源对象， 支持多个对象， 该对象的属性会被附加到target对象上
-     * @return { Object } 返回target对象
-     * @example
-     * ```javascript
-     *
-     * var target = {},
-     *     source1 = { name: 'source', age: 17 },
-     *     source2 = { title: 'dev' };
-     *
-     * UE.utils.extend2( target, source1, source2 );
-     *
-     * //output: { name: 'source', age: 17, title: 'dev' }
-     * console.log( target );
-     *
-     * ```
-     */
+	 * 将给定的多个对象的属性复制到目标对象target上
+	 * 
+	 * @method extend2
+	 * @remind 该方法将强制把源对象上的属性复制到target对象上
+	 * @remind 该方法支持两个及以上的参数， 从第二个参数开始， 其属性都会被复制到第一个参数上。 如果遇到同名的属性， 将会覆盖掉之前的值。
+	 * @param {
+	 *            Object } target 目标对象， 新的属性将附加到该对象上
+	 * @param {
+	 *            Object... } source 源对象， 支持多个对象， 该对象的属性会被附加到target对象上
+	 * @return { Object } 返回target对象
+	 * @example ```javascript
+	 * 
+	 * var target = {}, source1 = { name: 'source', age: 17 }, source2 = { title: 'dev' };
+	 * 
+	 * UE.utils.extend2( target, source1, source2 );
+	 * 
+	 * //output: { name: 'source', age: 17, title: 'dev' } console.log( target );
+	 * 
+	 * ```
+	 */
     extend2:function (t) {
         var a = arguments;
         for (var i = 1; i < a.length; i++) {
@@ -474,35 +392,25 @@ var utils = UE.utils = {
     },
 
     /**
-     * 模拟继承机制， 使得subClass继承自superClass
-     * @method inherits
-     * @param { Object } subClass 子类对象
-     * @param { Object } superClass 超类对象
-     * @warning 该方法只能让subClass继承超类的原型， subClass对象自身的属性和方法不会被继承
-     * @return { Object } 继承superClass后的子类对象
-     * @example
-     * ```javascript
-     * function SuperClass(){
-     *     this.name = "小李";
-     * }
-     *
-     * SuperClass.prototype = {
-     *     hello:function(str){
-     *         console.log(this.name + str);
-     *     }
-     * }
-     *
-     * function SubClass(){
-     *     this.name = "小张";
-     * }
-     *
-     * UE.utils.inherits(SubClass,SuperClass);
-     *
-     * var sub = new SubClass();
-     * //output: '小张早上好!
-     * sub.hello("早上好!");
-     * ```
-     */
+	 * 模拟继承机制， 使得subClass继承自superClass
+	 * 
+	 * @method inherits
+	 * @param {
+	 *            Object } subClass 子类对象
+	 * @param {
+	 *            Object } superClass 超类对象
+	 * @warning 该方法只能让subClass继承超类的原型， subClass对象自身的属性和方法不会被继承
+	 * @return { Object } 继承superClass后的子类对象
+	 * @example ```javascript function SuperClass(){ this.name = "小李"; }
+	 * 
+	 * SuperClass.prototype = { hello:function(str){ console.log(this.name + str); } }
+	 * 
+	 * function SubClass(){ this.name = "小张"; }
+	 * 
+	 * UE.utils.inherits(SubClass,SuperClass);
+	 * 
+	 * var sub = new SubClass(); //output: '小张早上好! sub.hello("早上好!"); ```
+	 */
     inherits:function (subClass, superClass) {
         var oldP = subClass.prototype,
             newP = utils.makeInstance(superClass.prototype);
@@ -512,31 +420,28 @@ var utils = UE.utils = {
     },
 
     /**
-     * 用指定的context对象作为函数fn的上下文
-     * @method bind
-     * @param { Function } fn 需要绑定上下文的函数对象
-     * @param { Object } content 函数fn新的上下文对象
-     * @return { Function } 一个新的函数， 该函数作为原始函数fn的代理， 将完成fn的上下文调换工作。
-     * @example
-     * ```javascript
-     *
-     * var name = 'window',
-     *     newTest = null;
-     *
-     * function test () {
-     *     console.log( this.name );
-     * }
-     *
-     * newTest = UE.utils.bind( test, { name: 'object' } );
-     *
-     * //output: object
-     * newTest();
-     *
-     * //output: window
-     * test();
-     *
-     * ```
-     */
+	 * 用指定的context对象作为函数fn的上下文
+	 * 
+	 * @method bind
+	 * @param {
+	 *            Function } fn 需要绑定上下文的函数对象
+	 * @param {
+	 *            Object } content 函数fn新的上下文对象
+	 * @return { Function } 一个新的函数， 该函数作为原始函数fn的代理， 将完成fn的上下文调换工作。
+	 * @example ```javascript
+	 * 
+	 * var name = 'window', newTest = null;
+	 * 
+	 * function test () { console.log( this.name ); }
+	 * 
+	 * newTest = UE.utils.bind( test, { name: 'object' } );
+	 * 
+	 * //output: object newTest();
+	 * 
+	 * //output: window test();
+	 * 
+	 * ```
+	 */
     bind:function (fn, context) {
         return function () {
             return fn.apply(context, arguments);
@@ -544,54 +449,42 @@ var utils = UE.utils = {
     },
 
     /**
-     * 创建延迟指定时间后执行的函数fn
-     * @method defer
-     * @param { Function } fn 需要延迟执行的函数对象
-     * @param { int } delay 延迟的时间， 单位是毫秒
-     * @warning 该方法的时间控制是不精确的，仅仅只能保证函数的执行是在给定的时间之后，
-     *           而不能保证刚好到达延迟时间时执行。
-     * @return { Function } 目标函数fn的代理函数， 只有执行该函数才能起到延时效果
-     * @example
-     * ```javascript
-     * var start = 0;
-     *
-     * function test(){
-     *     console.log( new Date() - start );
-     * }
-     *
-     * var testDefer = UE.utils.defer( test, 1000 );
-     * //
-     * start = new Date();
-     * //output: (大约在1000毫秒之后输出) 1000
-     * testDefer();
-     * ```
-     */
+	 * 创建延迟指定时间后执行的函数fn
+	 * 
+	 * @method defer
+	 * @param {
+	 *            Function } fn 需要延迟执行的函数对象
+	 * @param {
+	 *            int } delay 延迟的时间， 单位是毫秒
+	 * @warning 该方法的时间控制是不精确的，仅仅只能保证函数的执行是在给定的时间之后， 而不能保证刚好到达延迟时间时执行。
+	 * @return { Function } 目标函数fn的代理函数， 只有执行该函数才能起到延时效果
+	 * @example ```javascript var start = 0;
+	 * 
+	 * function test(){ console.log( new Date() - start ); }
+	 * 
+	 * var testDefer = UE.utils.defer( test, 1000 ); // start = new Date(); //output: (大约在1000毫秒之后输出) 1000 testDefer(); ```
+	 */
 
     /**
-     * 创建延迟指定时间后执行的函数fn, 如果在延迟时间内再次执行该方法， 将会根据指定的exclusion的值，
-     * 决定是否取消前一次函数的执行， 如果exclusion的值为true， 则取消执行，反之，将继续执行前一个方法。
-     * @method defer
-     * @param { Function } fn 需要延迟执行的函数对象
-     * @param { int } delay 延迟的时间， 单位是毫秒
-     * @param { Boolean } exclusion 如果在延迟时间内再次执行该函数，该值将决定是否取消执行前一次函数的执行，
-     *                     值为true表示取消执行， 反之则将在执行前一次函数之后才执行本次函数调用。
-     * @warning 该方法的时间控制是不精确的，仅仅只能保证函数的执行是在给定的时间之后，
-     *           而不能保证刚好到达延迟时间时执行。
-     * @return { Function } 目标函数fn的代理函数， 只有执行该函数才能起到延时效果
-     * @example
-     * ```javascript
-     *
-     * function test(){
-     *     console.log(1);
-     * }
-     *
-     * var testDefer = UE.utils.defer( test, 1000, true );
-     *
-     * //output: (两次调用仅有一次输出) 1
-     * testDefer();
-     * testDefer();
-     * ```
-     */
+	 * 创建延迟指定时间后执行的函数fn, 如果在延迟时间内再次执行该方法， 将会根据指定的exclusion的值， 决定是否取消前一次函数的执行， 如果exclusion的值为true， 则取消执行，反之，将继续执行前一个方法。
+	 * 
+	 * @method defer
+	 * @param {
+	 *            Function } fn 需要延迟执行的函数对象
+	 * @param {
+	 *            int } delay 延迟的时间， 单位是毫秒
+	 * @param {
+	 *            Boolean } exclusion 如果在延迟时间内再次执行该函数，该值将决定是否取消执行前一次函数的执行， 值为true表示取消执行， 反之则将在执行前一次函数之后才执行本次函数调用。
+	 * @warning 该方法的时间控制是不精确的，仅仅只能保证函数的执行是在给定的时间之后， 而不能保证刚好到达延迟时间时执行。
+	 * @return { Function } 目标函数fn的代理函数， 只有执行该函数才能起到延时效果
+	 * @example ```javascript
+	 * 
+	 * function test(){ console.log(1); }
+	 * 
+	 * var testDefer = UE.utils.defer( test, 1000, true );
+	 * 
+	 * //output: (两次调用仅有一次输出) 1 testDefer(); testDefer(); ```
+	 */
     defer:function (fn, delay, exclusion) {
         var timerID;
         return function () {
@@ -603,39 +496,36 @@ var utils = UE.utils = {
     },
 
     /**
-     * 获取元素item在数组array中首次出现的位置, 如果未找到item， 则返回-1
-     * @method indexOf
-     * @remind 该方法的匹配过程使用的是恒等“===”
-     * @param { Array } array 需要查找的数组对象
-     * @param { * } item 需要在目标数组中查找的值
-     * @return { int } 返回item在目标数组array中首次出现的位置， 如果在数组中未找到item， 则返回-1
-     * @example
-     * ```javascript
-     * var item = 1,
-     *     arr = [ 3, 4, 6, 8, 1, 1, 2 ];
-     *
-     * //output: 4
-     * console.log( UE.utils.indexOf( arr, item ) );
-     * ```
-     */
+	 * 获取元素item在数组array中首次出现的位置, 如果未找到item， 则返回-1
+	 * 
+	 * @method indexOf
+	 * @remind 该方法的匹配过程使用的是恒等“===”
+	 * @param {
+	 *            Array } array 需要查找的数组对象
+	 * @param { * }
+	 *            item 需要在目标数组中查找的值
+	 * @return { int } 返回item在目标数组array中首次出现的位置， 如果在数组中未找到item， 则返回-1
+	 * @example ```javascript var item = 1, arr = [ 3, 4, 6, 8, 1, 1, 2 ];
+	 * 
+	 * //output: 4 console.log( UE.utils.indexOf( arr, item ) ); ```
+	 */
 
     /**
-     * 获取元素item数组array中首次出现的位置, 如果未找到item， 则返回-1。通过start的值可以指定搜索的起始位置。
-     * @method indexOf
-     * @remind 该方法的匹配过程使用的是恒等“===”
-     * @param { Array } array 需要查找的数组对象
-     * @param { * } item 需要在目标数组中查找的值
-     * @param { int } start 搜索的起始位置
-     * @return { int } 返回item在目标数组array中的start位置之后首次出现的位置， 如果在数组中未找到item， 则返回-1
-     * @example
-     * ```javascript
-     * var item = 1,
-     *     arr = [ 3, 4, 6, 8, 1, 2, 8, 3, 2, 1, 1, 4 ];
-     *
-     * //output: 9
-     * console.log( UE.utils.indexOf( arr, item, 5 ) );
-     * ```
-     */
+	 * 获取元素item数组array中首次出现的位置, 如果未找到item， 则返回-1。通过start的值可以指定搜索的起始位置。
+	 * 
+	 * @method indexOf
+	 * @remind 该方法的匹配过程使用的是恒等“===”
+	 * @param {
+	 *            Array } array 需要查找的数组对象
+	 * @param { * }
+	 *            item 需要在目标数组中查找的值
+	 * @param {
+	 *            int } start 搜索的起始位置
+	 * @return { int } 返回item在目标数组array中的start位置之后首次出现的位置， 如果在数组中未找到item， 则返回-1
+	 * @example ```javascript var item = 1, arr = [ 3, 4, 6, 8, 1, 2, 8, 3, 2, 1, 1, 4 ];
+	 * 
+	 * //output: 9 console.log( UE.utils.indexOf( arr, item, 5 ) ); ```
+	 */
     indexOf:function (array, item, start) {
         var index = -1;
         start = this.isNumber(start) ? start : 0;
@@ -649,21 +539,20 @@ var utils = UE.utils = {
     },
 
     /**
-     * 移除数组array中所有的元素item
-     * @method removeItem
-     * @param { Array } array 要移除元素的目标数组
-     * @param { * } item 将要被移除的元素
-     * @remind 该方法的匹配过程使用的是恒等“===”
-     * @example
-     * ```javascript
-     * var arr = [ 4, 5, 7, 1, 3, 4, 6 ];
-     *
-     * UE.utils.removeItem( arr, 4 );
-     * //output: [ 5, 7, 1, 3, 6 ]
-     * console.log( arr );
-     *
-     * ```
-     */
+	 * 移除数组array中所有的元素item
+	 * 
+	 * @method removeItem
+	 * @param {
+	 *            Array } array 要移除元素的目标数组
+	 * @param { * }
+	 *            item 将要被移除的元素
+	 * @remind 该方法的匹配过程使用的是恒等“===”
+	 * @example ```javascript var arr = [ 4, 5, 7, 1, 3, 4, 6 ];
+	 * 
+	 * UE.utils.removeItem( arr, 4 ); //output: [ 5, 7, 1, 3, 6 ] console.log( arr );
+	 * 
+	 * ```
+	 */
     removeItem:function (array, item) {
         for (var i = 0, l = array.length; i < l; i++) {
             if (array[i] === item) {
@@ -674,59 +563,57 @@ var utils = UE.utils = {
     },
 
     /**
-     * 删除字符串str的首尾空格
-     * @method trim
-     * @param { String } str 需要删除首尾空格的字符串
-     * @return { String } 删除了首尾的空格后的字符串
-     * @example
-     * ```javascript
-     *
-     * var str = " UEdtior ";
-     *
-     * //output: 9
-     * console.log( str.length );
-     *
-     * //output: 7
-     * console.log( UE.utils.trim( " UEdtior " ).length );
-     *
-     * //output: 9
-     * console.log( str.length );
-     *
-     *  ```
-     */
+	 * 删除字符串str的首尾空格
+	 * 
+	 * @method trim
+	 * @param {
+	 *            String } str 需要删除首尾空格的字符串
+	 * @return { String } 删除了首尾的空格后的字符串
+	 * @example ```javascript
+	 * 
+	 * var str = " UEdtior ";
+	 * 
+	 * //output: 9 console.log( str.length );
+	 * 
+	 * //output: 7 console.log( UE.utils.trim( " UEdtior " ).length );
+	 * 
+	 * //output: 9 console.log( str.length );
+	 * 
+	 * ```
+	 */
     trim:function (str) {
         return str.replace(/(^[ \t\n\r]+)|([ \t\n\r]+$)/g, '');
     },
 
     /**
-     * 将字符串str以','分隔成数组后，将该数组转换成哈希对象， 其生成的hash对象的key为数组中的元素， value为1
-     * @method listToMap
-     * @warning 该方法在生成的hash对象中，会为每一个key同时生成一个另一个全大写的key。
-     * @param { String } str 该字符串将被以','分割为数组， 然后进行转化
-     * @return { Object } 转化之后的hash对象
-     * @example
-     * ```javascript
-     *
-     * //output: Object {UEdtior: 1, UEDTIOR: 1, Hello: 1, HELLO: 1}
-     * console.log( UE.utils.listToMap( 'UEdtior,Hello' ) );
-     *
-     * ```
-     */
+	 * 将字符串str以','分隔成数组后，将该数组转换成哈希对象， 其生成的hash对象的key为数组中的元素， value为1
+	 * 
+	 * @method listToMap
+	 * @warning 该方法在生成的hash对象中，会为每一个key同时生成一个另一个全大写的key。
+	 * @param {
+	 *            String } str 该字符串将被以','分割为数组， 然后进行转化
+	 * @return { Object } 转化之后的hash对象
+	 * @example ```javascript
+	 * 
+	 * //output: Object {UEdtior: 1, UEDTIOR: 1, Hello: 1, HELLO: 1} console.log( UE.utils.listToMap( 'UEdtior,Hello' ) );
+	 * 
+	 * ```
+	 */
 
     /**
-     * 将字符串数组转换成哈希对象， 其生成的hash对象的key为数组中的元素， value为1
-     * @method listToMap
-     * @warning 该方法在生成的hash对象中，会为每一个key同时生成一个另一个全大写的key。
-     * @param { Array } arr 字符串数组
-     * @return { Object } 转化之后的hash对象
-     * @example
-     * ```javascript
-     *
-     * //output: Object {UEdtior: 1, UEDTIOR: 1, Hello: 1, HELLO: 1}
-     * console.log( UE.utils.listToMap( [ 'UEdtior', 'Hello' ] ) );
-     *
-     * ```
-     */
+	 * 将字符串数组转换成哈希对象， 其生成的hash对象的key为数组中的元素， value为1
+	 * 
+	 * @method listToMap
+	 * @warning 该方法在生成的hash对象中，会为每一个key同时生成一个另一个全大写的key。
+	 * @param {
+	 *            Array } arr 字符串数组
+	 * @return { Object } 转化之后的hash对象
+	 * @example ```javascript
+	 * 
+	 * //output: Object {UEdtior: 1, UEDTIOR: 1, Hello: 1, HELLO: 1} console.log( UE.utils.listToMap( [ 'UEdtior', 'Hello' ] ) );
+	 * 
+	 * ```
+	 */
     listToMap:function (list) {
         if (!list)return {};
         list = utils.isArray(list) ? list : list.split(',');
@@ -737,19 +624,18 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将str中的html符号转义,将转义“'，&，<，"，>”五个字符
-     * @method unhtml
-     * @param { String } str 需要转义的字符串
-     * @return { String } 转义后的字符串
-     * @example
-     * ```javascript
-     * var html = '<body>&</body>';
-     *
-     * //output: &lt;body&gt;&amp;&lt;/body&gt;
-     * console.log( UE.utils.unhtml( html ) );
-     *
-     * ```
-     */
+	 * 将str中的html符号转义,将转义“'，&，<，"，>”五个字符
+	 * 
+	 * @method unhtml
+	 * @param {
+	 *            String } str 需要转义的字符串
+	 * @return { String } 转义后的字符串
+	 * @example ```javascript var html = '<body>&</body>';
+	 * 
+	 * //output: &lt;body&gt;&amp;&lt;/body&gt; console.log( UE.utils.unhtml( html ) );
+	 * 
+	 * ```
+	 */
     unhtml:function (str, reg) {
         return str ? str.replace(reg || /[&<">'](?:(amp|lt|quot|gt|#39|nbsp|#\d+);)?/g, function (a, b) {
             if (b) {
@@ -767,11 +653,14 @@ var utils = UE.utils = {
         }) : '';
     },
     /**
-     * 将url中的html字符转义， 仅转义  ', ", <, > 四个字符
-     * @param  { String } str 需要转义的字符串
-     * @param  { RegExp } reg 自定义的正则
-     * @return { String }     转义后的字符串
-     */
+	 * 将url中的html字符转义， 仅转义 ', ", <, > 四个字符
+	 * 
+	 * @param {
+	 *            String } str 需要转义的字符串
+	 * @param {
+	 *            RegExp } reg 自定义的正则
+	 * @return { String } 转义后的字符串
+	 */
     unhtmlForUrl:function (str, reg) {
         return str ? str.replace(reg || /[<">']/g, function (a) {
             return {
@@ -786,21 +675,21 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将str中的转义字符还原成html字符
-     * @see UE.utils.unhtml(String);
-     * @method html
-     * @param { String } str 需要逆转义的字符串
-     * @return { String } 逆转义后的字符串
-     * @example
-     * ```javascript
-     *
-     * var str = '&lt;body&gt;&amp;&lt;/body&gt;';
-     *
-     * //output: <body>&</body>
-     * console.log( UE.utils.html( str ) );
-     *
-     * ```
-     */
+	 * 将str中的转义字符还原成html字符
+	 * 
+	 * @see UE.utils.unhtml(String);
+	 * @method html
+	 * @param {
+	 *            String } str 需要逆转义的字符串
+	 * @return { String } 逆转义后的字符串
+	 * @example ```javascript
+	 * 
+	 * var str = '&lt;body&gt;&amp;&lt;/body&gt;';
+	 * 
+	 * //output: <body>&</body> console.log( UE.utils.html( str ) );
+	 * 
+	 * ```
+	 */
     html:function (str) {
         return str ? str.replace(/&((g|l|quo)t|amp|#39|nbsp);/g, function (m) {
             return {
@@ -815,20 +704,20 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将css样式转换为驼峰的形式
-     * @method cssStyleToDomStyle
-     * @param { String } cssName 需要转换的css样式名
-     * @return { String } 转换成驼峰形式后的css样式名
-     * @example
-     * ```javascript
-     *
-     * var str = 'border-top';
-     *
-     * //output: borderTop
-     * console.log( UE.utils.cssStyleToDomStyle( str ) );
-     *
-     * ```
-     */
+	 * 将css样式转换为驼峰的形式
+	 * 
+	 * @method cssStyleToDomStyle
+	 * @param {
+	 *            String } cssName 需要转换的css样式名
+	 * @return { String } 转换成驼峰形式后的css样式名
+	 * @example ```javascript
+	 * 
+	 * var str = 'border-top';
+	 * 
+	 * //output: borderTop console.log( UE.utils.cssStyleToDomStyle( str ) );
+	 * 
+	 * ```
+	 */
     cssStyleToDomStyle:function () {
         var test = document.createElement('div').style,
             cache = {
@@ -843,45 +732,37 @@ var utils = UE.utils = {
     }(),
 
     /**
-     * 动态加载文件到doc中
-     * @method loadFile
-     * @param { DomDocument } document 需要加载资源文件的文档对象
-     * @param { Object } options 加载资源文件的属性集合， 取值请参考代码示例
-     * @example
-     * ```javascript
-     *
-     * UE.utils.loadFile( document, {
-     *     src:"test.js",
-     *     tag:"script",
-     *     type:"text/javascript",
-     *     defer:"defer"
-     * } );
-     *
-     * ```
-     */
+	 * 动态加载文件到doc中
+	 * 
+	 * @method loadFile
+	 * @param {
+	 *            DomDocument } document 需要加载资源文件的文档对象
+	 * @param {
+	 *            Object } options 加载资源文件的属性集合， 取值请参考代码示例
+	 * @example ```javascript
+	 * 
+	 * UE.utils.loadFile( document, { src:"test.js", tag:"script", type:"text/javascript", defer:"defer" } );
+	 * 
+	 * ```
+	 */
 
     /**
-     * 动态加载文件到doc中，加载成功后执行的回调函数fn
-     * @method loadFile
-     * @param { DomDocument } document 需要加载资源文件的文档对象
-     * @param { Object } options 加载资源文件的属性集合， 该集合支持的值是script标签和style标签支持的所有属性。
-     * @param { Function } fn 资源文件加载成功之后执行的回调
-     * @warning 对于在同一个文档中多次加载同一URL的文件， 该方法会在第一次加载之后缓存该请求，
-     *           在此之后的所有同一URL的请求， 将会直接触发回调。
-     * @example
-     * ```javascript
-     *
-     * UE.utils.loadFile( document, {
-     *     src:"test.js",
-     *     tag:"script",
-     *     type:"text/javascript",
-     *     defer:"defer"
-     * }, function () {
-     *     console.log('加载成功');
-     * } );
-     *
-     * ```
-     */
+	 * 动态加载文件到doc中，加载成功后执行的回调函数fn
+	 * 
+	 * @method loadFile
+	 * @param {
+	 *            DomDocument } document 需要加载资源文件的文档对象
+	 * @param {
+	 *            Object } options 加载资源文件的属性集合， 该集合支持的值是script标签和style标签支持的所有属性。
+	 * @param {
+	 *            Function } fn 资源文件加载成功之后执行的回调
+	 * @warning 对于在同一个文档中多次加载同一URL的文件， 该方法会在第一次加载之后缓存该请求， 在此之后的所有同一URL的请求， 将会直接触发回调。
+	 * @example ```javascript
+	 * 
+	 * UE.utils.loadFile( document, { src:"test.js", tag:"script", type:"text/javascript", defer:"defer" }, function () { console.log('加载成功'); } );
+	 * 
+	 * ```
+	 */
     loadFile:function () {
         var tmpList = [];
 
@@ -950,35 +831,29 @@ var utils = UE.utils = {
     }(),
 
     /**
-     * 判断obj对象是否为空
-     * @method isEmptyObject
-     * @param { * } obj 需要判断的对象
-     * @remind 如果判断的对象是NULL， 将直接返回true， 如果是数组且为空， 返回true， 如果是字符串， 且字符串为空，
-     *          返回true， 如果是普通对象， 且该对象没有任何实例属性， 返回true
-     * @return { Boolean } 对象是否为空
-     * @example
-     * ```javascript
-     *
-     * //output: true
-     * console.log( UE.utils.isEmptyObject( {} ) );
-     *
-     * //output: true
-     * console.log( UE.utils.isEmptyObject( [] ) );
-     *
-     * //output: true
-     * console.log( UE.utils.isEmptyObject( "" ) );
-     *
-     * //output: false
-     * console.log( UE.utils.isEmptyObject( { key: 1 } ) );
-     *
-     * //output: false
-     * console.log( UE.utils.isEmptyObject( [1] ) );
-     *
-     * //output: false
-     * console.log( UE.utils.isEmptyObject( "1" ) );
-     *
-     * ```
-     */
+	 * 判断obj对象是否为空
+	 * 
+	 * @method isEmptyObject
+	 * @param { * }
+	 *            obj 需要判断的对象
+	 * @remind 如果判断的对象是NULL， 将直接返回true， 如果是数组且为空， 返回true， 如果是字符串， 且字符串为空， 返回true， 如果是普通对象， 且该对象没有任何实例属性， 返回true
+	 * @return { Boolean } 对象是否为空
+	 * @example ```javascript
+	 * 
+	 * //output: true console.log( UE.utils.isEmptyObject( {} ) );
+	 * 
+	 * //output: true console.log( UE.utils.isEmptyObject( [] ) );
+	 * 
+	 * //output: true console.log( UE.utils.isEmptyObject( "" ) );
+	 * 
+	 * //output: false console.log( UE.utils.isEmptyObject( { key: 1 } ) );
+	 * 
+	 * //output: false console.log( UE.utils.isEmptyObject( [1] ) );
+	 * 
+	 * //output: false console.log( UE.utils.isEmptyObject( "1" ) );
+	 * 
+	 * ```
+	 */
     isEmptyObject:function (obj) {
         if (obj == null) return true;
         if (this.isArray(obj) || this.isString(obj)) return obj.length === 0;
@@ -987,13 +862,15 @@ var utils = UE.utils = {
     },
 
     /**
-     * 把rgb格式的颜色值转换成16进制格式
-     * @method fixColor
-     * @param { String } rgb格式的颜色值
-     * @param { String }
-     * @example
-     * rgb(255,255,255)  => "#ffffff"
-     */
+	 * 把rgb格式的颜色值转换成16进制格式
+	 * 
+	 * @method fixColor
+	 * @param {
+	 *            String } rgb格式的颜色值
+	 * @param {
+	 *            String }
+	 * @example rgb(255,255,255) => "#ffffff"
+	 */
     fixColor:function (name, value) {
         if (/color/i.test(name) && /rgba?/.test(value)) {
             var array = value.split(",");
@@ -1009,11 +886,13 @@ var utils = UE.utils = {
         return  value;
     },
     /**
-     * 只针对border,padding,margin做了处理，因为性能问题
-     * @public
-     * @function
-     * @param {String}    val style字符串
-     */
+	 * 只针对border,padding,margin做了处理，因为性能问题
+	 * 
+	 * @public
+	 * @function
+	 * @param {String}
+	 *            val style字符串
+	 */
     optCss:function (val) {
         var padding, margin, border;
         val = val.replace(/(padding|margin|border)\-([^:]+):([^;]+);?/gi, function (str, key, name, val) {
@@ -1060,19 +939,24 @@ var utils = UE.utils = {
     },
 
     /**
-     * 克隆对象
-     * @method clone
-     * @param { Object } source 源对象
-     * @return { Object } source的一个副本
-     */
+	 * 克隆对象
+	 * 
+	 * @method clone
+	 * @param {
+	 *            Object } source 源对象
+	 * @return { Object } source的一个副本
+	 */
 
     /**
-     * 深度克隆对象，将source的属性克隆到target对象， 会覆盖target重名的属性。
-     * @method clone
-     * @param { Object } source 源对象
-     * @param { Object } target 目标对象
-     * @return { Object } 附加了source对象所有属性的target对象
-     */
+	 * 深度克隆对象，将source的属性克隆到target对象， 会覆盖target重名的属性。
+	 * 
+	 * @method clone
+	 * @param {
+	 *            Object } source 源对象
+	 * @param {
+	 *            Object } target 目标对象
+	 * @return { Object } 附加了source对象所有属性的target对象
+	 */
     clone:function (source, target) {
         var tmp;
         target = target || {};
@@ -1091,21 +975,20 @@ var utils = UE.utils = {
     },
 
     /**
-     * 把cm／pt为单位的值转换为px为单位的值
-     * @method transUnitToPx
-     * @param { String } 待转换的带单位的字符串
-     * @return { String } 转换为px为计量单位的值的字符串
-     * @example
-     * ```javascript
-     *
-     * //output: 500px
-     * console.log( UE.utils.transUnitToPx( '20cm' ) );
-     *
-     * //output: 27px
-     * console.log( UE.utils.transUnitToPx( '20pt' ) );
-     *
-     * ```
-     */
+	 * 把cm／pt为单位的值转换为px为单位的值
+	 * 
+	 * @method transUnitToPx
+	 * @param {
+	 *            String } 待转换的带单位的字符串
+	 * @return { String } 转换为px为计量单位的值的字符串
+	 * @example ```javascript
+	 * 
+	 * //output: 500px console.log( UE.utils.transUnitToPx( '20cm' ) );
+	 * 
+	 * //output: 27px console.log( UE.utils.transUnitToPx( '20pt' ) );
+	 * 
+	 * ```
+	 */
     transUnitToPx:function (val) {
         if (!/(pt|cm)/.test(val)) {
             return val
@@ -1126,27 +1009,26 @@ var utils = UE.utils = {
     },
 
     /**
-     * 在dom树ready之后执行给定的回调函数
-     * @method domReady
-     * @remind 如果在执行该方法的时候， dom树已经ready， 那么回调函数将立刻执行
-     * @param { Function } fn dom树ready之后的回调函数
-     * @example
-     * ```javascript
-     *
-     * UE.utils.domReady( function () {
-     *
-     *     console.log('123');
-     *
-     * } );
-     *
-     * ```
-     */
+	 * 在dom树ready之后执行给定的回调函数
+	 * 
+	 * @method domReady
+	 * @remind 如果在执行该方法的时候， dom树已经ready， 那么回调函数将立刻执行
+	 * @param {
+	 *            Function } fn dom树ready之后的回调函数
+	 * @example ```javascript
+	 * 
+	 * UE.utils.domReady( function () {
+	 * 
+	 * console.log('123'); } );
+	 * 
+	 * ```
+	 */
     domReady:function () {
 
         var fnArr = [];
 
         function doReady(doc) {
-            //确保onready只执行一次
+            // 确保onready只执行一次
             doc.isReady = true;
             for (var ci; ci = fnArr.pop(); ci()) {
             }
@@ -1189,19 +1071,21 @@ var utils = UE.utils = {
     }(),
 
     /**
-     * 动态添加css样式
-     * @method cssRule
-     * @param { String } 节点名称
-     * @grammar UE.utils.cssRule('添加的样式的节点名称',['样式'，'放到哪个document上'])
-     * @grammar UE.utils.cssRule('body','body{background:#ccc}') => null  //给body添加背景颜色
-     * @grammar UE.utils.cssRule('body') =>样式的字符串  //取得key值为body的样式的内容,如果没有找到key值先关的样式将返回空，例如刚才那个背景颜色，将返回 body{background:#ccc}
-     * @grammar UE.utils.cssRule('body',document) => 返回指定key的样式，并且指定是哪个document
-     * @grammar UE.utils.cssRule('body','') =>null //清空给定的key值的背景颜色
-     */
+	 * 动态添加css样式
+	 * 
+	 * @method cssRule
+	 * @param {
+	 *            String } 节点名称
+	 * @grammar UE.utils.cssRule('添加的样式的节点名称',['样式'，'放到哪个document上'])
+	 * @grammar UE.utils.cssRule('body','body{background:#ccc}') => null //给body添加背景颜色
+	 * @grammar UE.utils.cssRule('body') =>样式的字符串 //取得key值为body的样式的内容,如果没有找到key值先关的样式将返回空，例如刚才那个背景颜色，将返回 body{background:#ccc}
+	 * @grammar UE.utils.cssRule('body',document) => 返回指定key的样式，并且指定是哪个document
+	 * @grammar UE.utils.cssRule('body','') =>null //清空给定的key值的背景颜色
+	 */
     cssRule:browser.ie && browser.version != 11 ? function (key, style, doc) {
         var indexList, index;
         if(style === undefined || style && style.nodeType && style.nodeType == 9){
-            //获取样式
+            // 获取样式
             doc = style && style.nodeType && style.nodeType == 9 ? style : (doc || document);
             indexList = doc.indexList || (doc.indexList = {});
             index = indexList[key];
@@ -1213,7 +1097,7 @@ var utils = UE.utils = {
         doc = doc || document;
         indexList = doc.indexList || (doc.indexList = {});
         index = indexList[key];
-        //清除样式
+        // 清除样式
         if(style === ''){
             if(index!== undefined){
                 doc.styleSheets[index].cssText = '';
@@ -1223,7 +1107,7 @@ var utils = UE.utils = {
             return false;
         }
 
-        //添加样式
+        // 添加样式
         if(index!== undefined){
             sheetStyle =  doc.styleSheets[index];
         }else{
@@ -1234,7 +1118,7 @@ var utils = UE.utils = {
     }: function (key, style, doc) {
         var head, node;
         if(style === undefined || style && style.nodeType && style.nodeType == 9){
-            //获取样式
+            // 获取样式
             doc = style && style.nodeType && style.nodeType == 9 ? style : (doc || document);
             node = doc.getElementById(key);
             return node ? node.innerHTML : undefined;
@@ -1242,7 +1126,7 @@ var utils = UE.utils = {
         doc = doc || document;
         node = doc.getElementById(key);
 
-        //清除样式
+        // 清除样式
         if(style === ''){
             if(node){
                 node.parentNode.removeChild(node);
@@ -1251,7 +1135,7 @@ var utils = UE.utils = {
             return false;
         }
 
-        //添加样式
+        // 添加样式
         if(node){
             node.innerHTML = style;
         }else{
@@ -1277,13 +1161,13 @@ var utils = UE.utils = {
     serializeParam:function (json) {
         var strArr = [];
         for (var i in json) {
-            //忽略默认的几个参数
+            // 忽略默认的几个参数
             if(i=="method" || i=="timeout" || i=="async") continue;
-            //传递过来的对象和函数不在提交之列
+            // 传递过来的对象和函数不在提交之列
             if (!((typeof json[i]).toLowerCase() == "function" || (typeof json[i]).toLowerCase() == "object")) {
                 strArr.push( encodeURIComponent(i) + "="+encodeURIComponent(json[i]) );
             } else if (utils.isArray(json[i])) {
-                //支持传数组内容
+                // 支持传数组内容
                 for(var j = 0; j < json[i].length; j++) {
                     strArr.push( encodeURIComponent(i) + "[]="+encodeURIComponent(json[i][j]) );
                 }
@@ -1456,43 +1340,55 @@ var utils = UE.utils = {
 };
 /**
  * 判断给定的对象是否是字符串
+ * 
  * @method isString
- * @param { * } object 需要判断的对象
+ * @param { * }
+ *            object 需要判断的对象
  * @return { Boolean } 给定的对象是否是字符串
  */
 
 /**
  * 判断给定的对象是否是数组
+ * 
  * @method isArray
- * @param { * } object 需要判断的对象
+ * @param { * }
+ *            object 需要判断的对象
  * @return { Boolean } 给定的对象是否是数组
  */
 
 /**
  * 判断给定的对象是否是一个Function
+ * 
  * @method isFunction
- * @param { * } object 需要判断的对象
+ * @param { * }
+ *            object 需要判断的对象
  * @return { Boolean } 给定的对象是否是Function
  */
 
 /**
  * 判断给定的对象是否是Number
+ * 
  * @method isNumber
- * @param { * } object 需要判断的对象
+ * @param { * }
+ *            object 需要判断的对象
  * @return { Boolean } 给定的对象是否是Number
  */
 
 /**
  * 判断给定的对象是否是一个正则表达式
+ * 
  * @method isRegExp
- * @param { * } object 需要判断的对象
+ * @param { * }
+ *            object 需要判断的对象
  * @return { Boolean } 给定的对象是否是正则表达式
  */
 
 /**
  * 判断给定的对象是否是一个普通对象
+ * 
  * @method isObject
- * @param { * } object 需要判断的对象
+ * @param { * }
+ *            object 需要判断的对象
  * @return { Boolean } 给定的对象是否是普通对象
  */
 utils.each(['String', 'Function', 'Array', 'Number', 'RegExp', 'Object', 'Date'], function (v) {
@@ -1505,6 +1401,7 @@ utils.each(['String', 'Function', 'Array', 'Number', 'RegExp', 'Object', 'Date']
 // core/EventBase.js
 /**
  * UE采用的事件基类
+ * 
  * @file
  * @module UE
  * @class EventBase
@@ -1513,13 +1410,14 @@ utils.each(['String', 'Function', 'Array', 'Number', 'RegExp', 'Object', 'Date']
 
 /**
  * UEditor公用空间，UEditor所有的功能都挂载在该空间下
+ * 
  * @unfile
  * @module UE
  */
 
 /**
- * UE采用的事件基类，继承此类的对应类将获取addListener,removeListener,fireEvent方法。
- * 在UE中，Editor以及所有ui实例都继承了该类，故可以在对应的ui对象以及editor对象上使用上述方法。
+ * UE采用的事件基类，继承此类的对应类将获取addListener,removeListener,fireEvent方法。 在UE中，Editor以及所有ui实例都继承了该类，故可以在对应的ui对象以及editor对象上使用上述方法。
+ * 
  * @unfile
  * @module UE
  * @class EventBase
@@ -1527,38 +1425,27 @@ utils.each(['String', 'Function', 'Array', 'Number', 'RegExp', 'Object', 'Date']
 
 /**
  * 通过此构造器，子类可以继承EventBase获取事件监听的方法
+ * 
  * @constructor
- * @example
- * ```javascript
- * UE.EventBase.call(editor);
- * ```
+ * @example ```javascript UE.EventBase.call(editor); ```
  */
 var EventBase = UE.EventBase = function () {};
 
 EventBase.prototype = {
 
     /**
-     * 注册事件监听器
-     * @method addListener
-     * @param { String } types 监听的事件名称，同时监听多个事件使用空格分隔
-     * @param { Function } fn 监听的事件被触发时，会执行该回调函数
-     * @waining 事件被触发时，监听的函数假如返回的值恒等于true，回调函数的队列中后面的函数将不执行
-     * @example
-     * ```javascript
-     * editor.addListener('selectionchange',function(){
-     *      console.log("选区已经变化！");
-     * })
-     * editor.addListener('beforegetcontent aftergetcontent',function(type){
-     *         if(type == 'beforegetcontent'){
-     *             //do something
-     *         }else{
-     *             //do something
-     *         }
-     *         console.log(this.getContent) // this是注册的事件的编辑器实例
-     * })
-     * ```
-     * @see UE.EventBase:fireEvent(String)
-     */
+	 * 注册事件监听器
+	 * 
+	 * @method addListener
+	 * @param {
+	 *            String } types 监听的事件名称，同时监听多个事件使用空格分隔
+	 * @param {
+	 *            Function } fn 监听的事件被触发时，会执行该回调函数
+	 * @waining 事件被触发时，监听的函数假如返回的值恒等于true，回调函数的队列中后面的函数将不执行
+	 * @example ```javascript editor.addListener('selectionchange',function(){ console.log("选区已经变化！"); }) editor.addListener('beforegetcontent aftergetcontent',function(type){
+	 *          if(type == 'beforegetcontent'){ //do something }else{ //do something } console.log(this.getContent) // this是注册的事件的编辑器实例 }) ```
+	 * @see UE.EventBase:fireEvent(String)
+	 */
     addListener:function (types, listener) {
         types = utils.trim(types).split(/\s+/);
         for (var i = 0, ti; ti = types[i++];) {
@@ -1576,16 +1463,15 @@ EventBase.prototype = {
         return this.fireEvent.apply(this,arguments);
     },
     /**
-     * 移除事件监听器
-     * @method removeListener
-     * @param { String } types 移除的事件名称，同时移除多个事件使用空格分隔
-     * @param { Function } fn 移除监听事件的函数引用
-     * @example
-     * ```javascript
-     * //changeCallback为方法体
-     * editor.removeListener("selectionchange",changeCallback);
-     * ```
-     */
+	 * 移除事件监听器
+	 * 
+	 * @method removeListener
+	 * @param {
+	 *            String } types 移除的事件名称，同时移除多个事件使用空格分隔
+	 * @param {
+	 *            Function } fn 移除监听事件的函数引用
+	 * @example ```javascript //changeCallback为方法体 editor.removeListener("selectionchange",changeCallback); ```
+	 */
     removeListener:function (types, listener) {
         types = utils.trim(types).split(/\s+/);
         for (var i = 0, ti; ti = types[i++];) {
@@ -1594,37 +1480,33 @@ EventBase.prototype = {
     },
 
     /**
-     * 触发事件
-     * @method fireEvent
-     * @param { String } types 触发的事件名称，同时触发多个事件使用空格分隔
-     * @remind 该方法会触发addListener
-     * @return { * } 返回触发事件的队列中，最后执行的回调函数的返回值
-     * @example
-     * ```javascript
-     * editor.fireEvent("selectionchange");
-     * ```
-     */
+	 * 触发事件
+	 * 
+	 * @method fireEvent
+	 * @param {
+	 *            String } types 触发的事件名称，同时触发多个事件使用空格分隔
+	 * @remind 该方法会触发addListener
+	 * @return { * } 返回触发事件的队列中，最后执行的回调函数的返回值
+	 * @example ```javascript editor.fireEvent("selectionchange"); ```
+	 */
 
     /**
-     * 触发事件
-     * @method fireEvent
-     * @param { String } types 触发的事件名称，同时触发多个事件使用空格分隔
-     * @param { *... } options 可选参数，可以传入一个或多个参数，会传给事件触发的回调函数
-     * @return { * } 返回触发事件的队列中，最后执行的回调函数的返回值
-     * @example
-     * ```javascript
-     *
-     * editor.addListener( "selectionchange", function ( type, arg1, arg2 ) {
-     *
-     *     console.log( arg1 + " " + arg2 );
-     *
-     * } );
-     *
-     * //触发selectionchange事件， 会执行上面的事件监听器
-     * //output: Hello World
-     * editor.fireEvent("selectionchange", "Hello", "World");
-     * ```
-     */
+	 * 触发事件
+	 * 
+	 * @method fireEvent
+	 * @param {
+	 *            String } types 触发的事件名称，同时触发多个事件使用空格分隔
+	 * @param {
+	 *            *... } options 可选参数，可以传入一个或多个参数，会传给事件触发的回调函数
+	 * @return { * } 返回触发事件的队列中，最后执行的回调函数的返回值
+	 * @example ```javascript
+	 * 
+	 * editor.addListener( "selectionchange", function ( type, arg1, arg2 ) {
+	 * 
+	 * console.log( arg1 + " " + arg2 ); } );
+	 * 
+	 * //触发selectionchange事件， 会执行上面的事件监听器 //output: Hello World editor.fireEvent("selectionchange", "Hello", "World"); ```
+	 */
     fireEvent:function () {
         var types = arguments[0];
         types = utils.trim(types).split(' ');
@@ -1653,14 +1535,18 @@ EventBase.prototype = {
 };
 /**
  * 获得对象所拥有监听类型的所有监听器
+ * 
  * @unfile
  * @module UE
  * @since 1.2.6.1
  * @method getListener
  * @public
- * @param { Object } obj  查询监听器的对象
- * @param { String } type 事件类型
- * @param { Boolean } force  为true且当前所有type类型的侦听器不存在时，创建一个空监听器数组
+ * @param {
+ *            Object } obj 查询监听器的对象
+ * @param {
+ *            String } type 事件类型
+ * @param {
+ *            Boolean } force 为true且当前所有type类型的侦听器不存在时，创建一个空监听器数组
  * @return { Array } 监听器数组
  */
 function getListener(obj, type, force) {
@@ -1673,11 +1559,12 @@ function getListener(obj, type, force) {
 
 
 // core/dtd.js
-///import editor.js
-///import core/dom/dom.js
-///import core/utils.js
+// /import editor.js
+// /import core/dom/dom.js
+// /import core/utils.js
 /**
  * dtd html语义化的体现类
+ * 
  * @constructor
  * @namespace dtd
  */
@@ -1701,7 +1588,7 @@ var dtd = dom.dtd = (function() {
         J = X( _({iframe:1}), H, B ),
         K = _({img:1,embed:1,noscript:1,br:1,kbd:1,center:1,button:1,basefont:1,h5:1,h4:1,samp:1,h6:1,ol:1,h1:1,h3:1,h2:1,form:1,font:1,'#':1,select:1,menu:1,ins:1,abbr:1,label:1,code:1,table:1,script:1,cite:1,input:1,iframe:1,strong:1,textarea:1,noframes:1,big:1,small:1,span:1,hr:1,sub:1,bdo:1,'var':1,div:1,object:1,sup:1,strike:1,dir:1,map:1,dl:1,applet:1,del:1,isindex:1,fieldset:1,ul:1,b:1,acronym:1,a:1,blockquote:1,i:1,u:1,s:1,tt:1,address:1,q:1,pre:1,p:1,em:1,dfn:1}),
 
-        L = X( _({a:0}), J ),//a不能被切开，所以把他
+        L = X( _({a:0}), J ),// a不能被切开，所以把他
         M = _({tr:1}),
         N = _({'#':1}),
         O = X( _({param:1}), K ),
@@ -1724,10 +1611,10 @@ var dtd = dom.dtd = (function() {
         // body外的元素列表.
         $nonBodyContent: X( V, U, S ),
 
-        //块结构元素列表
+        // 块结构元素列表
         $block : block,
 
-        //内联元素列表
+        // 内联元素列表
         $inline : L,
 
         $inlineWithA : X(_({a:1}),L),
@@ -1736,28 +1623,28 @@ var dtd = dom.dtd = (function() {
 
         $cdata : _({script:1,style:1}),
 
-        //自闭和元素
+        // 自闭和元素
         $empty : empty,
 
-        //不是自闭合，但不能让range选中里边
+        // 不是自闭合，但不能让range选中里边
         $nonChild : _({iframe:1,textarea:1}),
-        //列表元素列表
+        // 列表元素列表
         $listItem : _({dd:1,dt:1,li:1}),
 
-        //列表根元素列表
+        // 列表根元素列表
         $list: _({ul:1,ol:1,dl:1}),
 
-        //不能认为是空的元素
+        // 不能认为是空的元素
         $isNotEmpty : _({table:1,ul:1,ol:1,dl:1,iframe:1,area:1,base:1,col:1,hr:1,img:1,embed:1,input:1,link:1,meta:1,param:1,h1:1,h2:1,h3:1,h4:1,h5:1,h6:1}),
 
-        //如果没有子节点就可以删除的元素列表，像span,a
+        // 如果没有子节点就可以删除的元素列表，像span,a
         $removeEmpty : _({a:1,abbr:1,acronym:1,address:1,b:1,bdo:1,big:1,cite:1,code:1,del:1,dfn:1,em:1,font:1,i:1,ins:1,label:1,kbd:1,q:1,s:1,samp:1,small:1,span:1,strike:1,strong:1,sub:1,sup:1,tt:1,u:1,'var':1}),
 
         $removeEmptyBlock : _({'p':1,'div':1}),
 
-        //在table元素里的元素列表
+        // 在table元素里的元素列表
         $tableContent : _({caption:1,col:1,colgroup:1,tbody:1,td:1,tfoot:1,th:1,thead:1,tr:1,table:1}),
-        //不转换的标签
+        // 不转换的标签
         $notTransContent : _({pre:1,script:1,style:1,textarea:1}),
         html: U,
         head: T,
@@ -1809,7 +1696,7 @@ var dtd = dom.dtd = (function() {
         noframes : P,
         big : L,
         small : L,
-        //trace:
+        // trace:
         span :_({'#':1,br:1,b:1,strong:1,u:1,i:1,em:1,sub:1,sup:1,strike:1,span:1}),
         hr : L,
         dt : L,
@@ -1857,6 +1744,7 @@ var dtd = dom.dtd = (function() {
 // core/domUtils.js
 /**
  * Dom操作工具包
+ * 
  * @file
  * @module UE.dom.domUtils
  * @since 1.2.6.1
@@ -1864,6 +1752,7 @@ var dtd = dom.dtd = (function() {
 
 /**
  * Dom操作工具包
+ * 
  * @unfile
  * @module UE.dom.domUtils
  */
@@ -1906,76 +1795,47 @@ var attrFix = ie && browser.version < 9 ? {
         'table-cell' , 'table-caption'
     ]);
 var domUtils = dom.domUtils = {
-    //节点常量
+    // 节点常量
     NODE_ELEMENT:1,
     NODE_DOCUMENT:9,
     NODE_TEXT:3,
     NODE_COMMENT:8,
     NODE_DOCUMENT_FRAGMENT:11,
 
-    //位置关系
+    // 位置关系
     POSITION_IDENTICAL:0,
     POSITION_DISCONNECTED:1,
     POSITION_FOLLOWING:2,
     POSITION_PRECEDING:4,
     POSITION_IS_CONTAINED:8,
     POSITION_CONTAINS:16,
-    //ie6使用其他的会有一段空白出现
+    // ie6使用其他的会有一段空白出现
     fillChar:ie && browser.version == '6' ? '\ufeff' : '\u200B',
-    //-------------------------Node部分--------------------------------
+    // -------------------------Node部分--------------------------------
     keys:{
-        /*Backspace*/ 8:1, /*Delete*/ 46:1,
-        /*Shift*/ 16:1, /*Ctrl*/ 17:1, /*Alt*/ 18:1,
+        /* Backspace */ 8:1, /* Delete */ 46:1,
+        /* Shift */ 16:1, /* Ctrl */ 17:1, /* Alt */ 18:1,
         37:1, 38:1, 39:1, 40:1,
-        13:1 /*enter*/
+        13:1 /* enter */
     },
     /**
-     * 获取节点A相对于节点B的位置关系
-     * @method getPosition
-     * @param { Node } nodeA 需要查询位置关系的节点A
-     * @param { Node } nodeB 需要查询位置关系的节点B
-     * @return { Number } 节点A与节点B的关系
-     * @example
-     * ```javascript
-     * //output: 20
-     * var position = UE.dom.domUtils.getPosition( document.documentElement, document.body );
-     *
-     * switch ( position ) {
-     *
-     *      //0
-     *      case UE.dom.domUtils.POSITION_IDENTICAL:
-     *          console.log('元素相同');
-     *          break;
-     *      //1
-     *      case UE.dom.domUtils.POSITION_DISCONNECTED:
-     *          console.log('两个节点在不同的文档中');
-     *          break;
-     *      //2
-     *      case UE.dom.domUtils.POSITION_FOLLOWING:
-     *          console.log('节点A在节点B之后');
-     *          break;
-     *      //4
-     *      case UE.dom.domUtils.POSITION_PRECEDING;
-     *          console.log('节点A在节点B之前');
-     *          break;
-     *      //8
-     *      case UE.dom.domUtils.POSITION_IS_CONTAINED:
-     *          console.log('节点A被节点B包含');
-     *          break;
-     *      case 10:
-     *          console.log('节点A被节点B包含且节点A在节点B之后');
-     *          break;
-     *      //16
-     *      case UE.dom.domUtils.POSITION_CONTAINS:
-     *          console.log('节点A包含节点B');
-     *          break;
-     *      case 20:
-     *          console.log('节点A包含节点B且节点A在节点B之前');
-     *          break;
-     *
-     * }
-     * ```
-     */
+	 * 获取节点A相对于节点B的位置关系
+	 * 
+	 * @method getPosition
+	 * @param {
+	 *            Node } nodeA 需要查询位置关系的节点A
+	 * @param {
+	 *            Node } nodeB 需要查询位置关系的节点B
+	 * @return { Number } 节点A与节点B的关系
+	 * @example ```javascript //output: 20 var position = UE.dom.domUtils.getPosition( document.documentElement, document.body );
+	 * 
+	 * switch ( position ) {
+	 * 
+	 * //0 case UE.dom.domUtils.POSITION_IDENTICAL: console.log('元素相同'); break; //1 case UE.dom.domUtils.POSITION_DISCONNECTED: console.log('两个节点在不同的文档中'); break; //2 case
+	 * UE.dom.domUtils.POSITION_FOLLOWING: console.log('节点A在节点B之后'); break; //4 case UE.dom.domUtils.POSITION_PRECEDING; console.log('节点A在节点B之前'); break; //8 case
+	 * UE.dom.domUtils.POSITION_IS_CONTAINED: console.log('节点A被节点B包含'); break; case 10: console.log('节点A被节点B包含且节点A在节点B之后'); break; //16 case UE.dom.domUtils.POSITION_CONTAINS:
+	 * console.log('节点A包含节点B'); break; case 20: console.log('节点A包含节点B且节点A在节点B之前'); break; } ```
+	 */
     getPosition:function (nodeA, nodeB) {
         // 如果两个节点是同一个节点
         if (nodeA === nodeB) {
@@ -2025,36 +1885,36 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 检测节点node在父节点中的索引位置
-     * @method getNodeIndex
-     * @param { Node } node 需要检测的节点对象
-     * @return { Number } 该节点在父节点中的位置
-     * @see UE.dom.domUtils.getNodeIndex(Node,Boolean)
-     */
+	 * 检测节点node在父节点中的索引位置
+	 * 
+	 * @method getNodeIndex
+	 * @param {
+	 *            Node } node 需要检测的节点对象
+	 * @return { Number } 该节点在父节点中的位置
+	 * @see UE.dom.domUtils.getNodeIndex(Node,Boolean)
+	 */
 
     /**
-     * 检测节点node在父节点中的索引位置， 根据给定的mergeTextNode参数决定是否要合并多个连续的文本节点为一个节点
-     * @method getNodeIndex
-     * @param { Node } node 需要检测的节点对象
-     * @param { Boolean } mergeTextNode 是否合并多个连续的文本节点为一个节点
-     * @return { Number } 该节点在父节点中的位置
-     * @example
-     * ```javascript
-     *
-     *      var node = document.createElement("div");
-     *
-     *      node.appendChild( document.createTextNode( "hello" ) );
-     *      node.appendChild( document.createTextNode( "world" ) );
-     *      node.appendChild( node = document.createElement( "div" ) );
-     *
-     *      //output: 2
-     *      console.log( UE.dom.domUtils.getNodeIndex( node ) );
-     *
-     *      //output: 1
-     *      console.log( UE.dom.domUtils.getNodeIndex( node, true ) );
-     *
-     * ```
-     */
+	 * 检测节点node在父节点中的索引位置， 根据给定的mergeTextNode参数决定是否要合并多个连续的文本节点为一个节点
+	 * 
+	 * @method getNodeIndex
+	 * @param {
+	 *            Node } node 需要检测的节点对象
+	 * @param {
+	 *            Boolean } mergeTextNode 是否合并多个连续的文本节点为一个节点
+	 * @return { Number } 该节点在父节点中的位置
+	 * @example ```javascript
+	 * 
+	 * var node = document.createElement("div");
+	 * 
+	 * node.appendChild( document.createTextNode( "hello" ) ); node.appendChild( document.createTextNode( "world" ) ); node.appendChild( node = document.createElement( "div" ) );
+	 * 
+	 * //output: 2 console.log( UE.dom.domUtils.getNodeIndex( node ) );
+	 * 
+	 * //output: 1 console.log( UE.dom.domUtils.getNodeIndex( node, true ) );
+	 * 
+	 * ```
+	 */
     getNodeIndex:function (node, ignoreTextNode) {
         var preNode = node,
             i = 0;
@@ -2071,87 +1931,73 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 检测节点node是否在给定的document对象上
-     * @method inDoc
-     * @param { Node } node 需要检测的节点对象
-     * @param { DomDocument } doc 需要检测的document对象
-     * @return { Boolean } 该节点node是否在给定的document的dom树上
-     * @example
-     * ```javascript
-     *
-     * var node = document.createElement("div");
-     *
-     * //output: false
-     * console.log( UE.do.domUtils.inDoc( node, document ) );
-     *
-     * document.body.appendChild( node );
-     *
-     * //output: true
-     * console.log( UE.do.domUtils.inDoc( node, document ) );
-     *
-     * ```
-     */
+	 * 检测节点node是否在给定的document对象上
+	 * 
+	 * @method inDoc
+	 * @param {
+	 *            Node } node 需要检测的节点对象
+	 * @param {
+	 *            DomDocument } doc 需要检测的document对象
+	 * @return { Boolean } 该节点node是否在给定的document的dom树上
+	 * @example ```javascript
+	 * 
+	 * var node = document.createElement("div");
+	 * 
+	 * //output: false console.log( UE.do.domUtils.inDoc( node, document ) );
+	 * 
+	 * document.body.appendChild( node );
+	 * 
+	 * //output: true console.log( UE.do.domUtils.inDoc( node, document ) );
+	 * 
+	 * ```
+	 */
     inDoc:function (node, doc) {
         return domUtils.getPosition(node, doc) == 10;
     },
     /**
-     * 根据给定的过滤规则filterFn， 查找符合该过滤规则的node节点的第一个祖先节点，
-     * 查找的起点是给定node节点的父节点。
-     * @method findParent
-     * @param { Node } node 需要查找的节点
-     * @param { Function } filterFn 自定义的过滤方法。
-     * @warning 查找的终点是到body节点为止
-     * @remind 自定义的过滤方法filterFn接受一个Node对象作为参数， 该对象代表当前执行检测的祖先节点。 如果该
-     *          节点满足过滤条件， 则要求返回true， 这时将直接返回该节点作为findParent()的结果， 否则， 请返回false。
-     * @return { Node | Null } 如果找到符合过滤条件的节点， 就返回该节点， 否则返回NULL
-     * @example
-     * ```javascript
-     * var filterNode = UE.dom.domUtils.findParent( document.body.firstChild, function ( node ) {
-     *
-     *     //由于查找的终点是body节点， 所以永远也不会匹配当前过滤器的条件， 即这里永远会返回false
-     *     return node.tagName === "HTML";
-     *
-     * } );
-     *
-     * //output: true
-     * console.log( filterNode === null );
-     * ```
-     */
+	 * 根据给定的过滤规则filterFn， 查找符合该过滤规则的node节点的第一个祖先节点， 查找的起点是给定node节点的父节点。
+	 * 
+	 * @method findParent
+	 * @param {
+	 *            Node } node 需要查找的节点
+	 * @param {
+	 *            Function } filterFn 自定义的过滤方法。
+	 * @warning 查找的终点是到body节点为止
+	 * @remind 自定义的过滤方法filterFn接受一个Node对象作为参数， 该对象代表当前执行检测的祖先节点。 如果该 节点满足过滤条件， 则要求返回true， 这时将直接返回该节点作为findParent()的结果， 否则， 请返回false。
+	 * @return { Node | Null } 如果找到符合过滤条件的节点， 就返回该节点， 否则返回NULL
+	 * @example ```javascript var filterNode = UE.dom.domUtils.findParent( document.body.firstChild, function ( node ) {
+	 * 
+	 * //由于查找的终点是body节点， 所以永远也不会匹配当前过滤器的条件， 即这里永远会返回false return node.tagName === "HTML"; } );
+	 * 
+	 * //output: true console.log( filterNode === null ); ```
+	 */
 
     /**
-     * 根据给定的过滤规则filterFn， 查找符合该过滤规则的node节点的第一个祖先节点，
-     * 如果includeSelf的值为true，则查找的起点是给定的节点node， 否则， 起点是node的父节点
-     * @method findParent
-     * @param { Node } node 需要查找的节点
-     * @param { Function } filterFn 自定义的过滤方法。
-     * @param { Boolean } includeSelf 查找过程是否包含自身
-     * @warning 查找的终点是到body节点为止
-     * @remind 自定义的过滤方法filterFn接受一个Node对象作为参数， 该对象代表当前执行检测的祖先节点。 如果该
-     *          节点满足过滤条件， 则要求返回true， 这时将直接返回该节点作为findParent()的结果， 否则， 请返回false。
-     * @remind 如果includeSelf为true， 则过滤器第一次执行时的参数会是节点本身。
-     *          反之， 过滤器第一次执行时的参数将是该节点的父节点。
-     * @return { Node | Null } 如果找到符合过滤条件的节点， 就返回该节点， 否则返回NULL
-     * @example
-     * ```html
-     * <body>
-     *
-     *      <div id="test">
-     *      </div>
-     *
-     *      <script type="text/javascript">
-     *
-     *          //output: DIV, BODY
-     *          var filterNode = UE.dom.domUtils.findParent( document.getElementById( "test" ), function ( node ) {
-     *
-     *              console.log( node.tagName );
-     *              return false;
-     *
-     *          }, true );
-     *
-     *      </script>
-     * </body>
-     * ```
-     */
+	 * 根据给定的过滤规则filterFn， 查找符合该过滤规则的node节点的第一个祖先节点， 如果includeSelf的值为true，则查找的起点是给定的节点node， 否则， 起点是node的父节点
+	 * 
+	 * @method findParent
+	 * @param {
+	 *            Node } node 需要查找的节点
+	 * @param {
+	 *            Function } filterFn 自定义的过滤方法。
+	 * @param {
+	 *            Boolean } includeSelf 查找过程是否包含自身
+	 * @warning 查找的终点是到body节点为止
+	 * @remind 自定义的过滤方法filterFn接受一个Node对象作为参数， 该对象代表当前执行检测的祖先节点。 如果该 节点满足过滤条件， 则要求返回true， 这时将直接返回该节点作为findParent()的结果， 否则， 请返回false。
+	 * @remind 如果includeSelf为true， 则过滤器第一次执行时的参数会是节点本身。 反之， 过滤器第一次执行时的参数将是该节点的父节点。
+	 * @return { Node | Null } 如果找到符合过滤条件的节点， 就返回该节点， 否则返回NULL
+	 * @example ```html <body>
+	 * 
+	 * <div id="test"> </div>
+	 * 
+	 * <script type="text/javascript">
+	 * 
+	 * //output: DIV, BODY var filterNode = UE.dom.domUtils.findParent( document.getElementById( "test" ), function ( node ) {
+	 * 
+	 * console.log( node.tagName ); return false; }, true );
+	 * 
+	 * </script> </body> ```
+	 */
     findParent:function (node, filterFn, includeSelf) {
         if (node && !domUtils.isBody(node)) {
             node = includeSelf ? node : node.parentNode;
@@ -2165,37 +2011,33 @@ var domUtils = dom.domUtils = {
         return null;
     },
     /**
-     * 查找node的节点名为tagName的第一个祖先节点， 查找的起点是node节点的父节点。
-     * @method findParentByTagName
-     * @param { Node } node 需要查找的节点对象
-     * @param { Array } tagNames 需要查找的父节点的名称数组
-     * @warning 查找的终点是到body节点为止
-     * @return { Node | NULL } 如果找到符合条件的节点， 则返回该节点， 否则返回NULL
-     * @example
-     * ```javascript
-     * var node = UE.dom.domUtils.findParentByTagName( document.getElementsByTagName("div")[0], [ "BODY" ] );
-     * //output: BODY
-     * console.log( node.tagName );
-     * ```
-     */
+	 * 查找node的节点名为tagName的第一个祖先节点， 查找的起点是node节点的父节点。
+	 * 
+	 * @method findParentByTagName
+	 * @param {
+	 *            Node } node 需要查找的节点对象
+	 * @param {
+	 *            Array } tagNames 需要查找的父节点的名称数组
+	 * @warning 查找的终点是到body节点为止
+	 * @return { Node | NULL } 如果找到符合条件的节点， 则返回该节点， 否则返回NULL
+	 * @example ```javascript var node = UE.dom.domUtils.findParentByTagName( document.getElementsByTagName("div")[0], [ "BODY" ] ); //output: BODY console.log( node.tagName ); ```
+	 */
 
     /**
-     * 查找node的节点名为tagName的祖先节点， 如果includeSelf的值为true，则查找的起点是给定的节点node，
-     * 否则， 起点是node的父节点。
-     * @method findParentByTagName
-     * @param { Node } node 需要查找的节点对象
-     * @param { Array } tagNames 需要查找的父节点的名称数组
-     * @param { Boolean } includeSelf 查找过程是否包含node节点自身
-     * @warning 查找的终点是到body节点为止
-     * @return { Node | NULL } 如果找到符合条件的节点， 则返回该节点， 否则返回NULL
-     * @example
-     * ```javascript
-     * var queryTarget = document.getElementsByTagName("div")[0];
-     * var node = UE.dom.domUtils.findParentByTagName( queryTarget, [ "DIV" ], true );
-     * //output: true
-     * console.log( queryTarget === node );
-     * ```
-     */
+	 * 查找node的节点名为tagName的祖先节点， 如果includeSelf的值为true，则查找的起点是给定的节点node， 否则， 起点是node的父节点。
+	 * 
+	 * @method findParentByTagName
+	 * @param {
+	 *            Node } node 需要查找的节点对象
+	 * @param {
+	 *            Array } tagNames 需要查找的父节点的名称数组
+	 * @param {
+	 *            Boolean } includeSelf 查找过程是否包含node节点自身
+	 * @warning 查找的终点是到body节点为止
+	 * @return { Node | NULL } 如果找到符合条件的节点， 则返回该节点， 否则返回NULL
+	 * @example ```javascript var queryTarget = document.getElementsByTagName("div")[0]; var node = UE.dom.domUtils.findParentByTagName( queryTarget, [ "DIV" ], true ); //output:
+	 *          true console.log( queryTarget === node ); ```
+	 */
     findParentByTagName:function (node, tagNames, includeSelf, excludeFn) {
         tagNames = utils.listToMap(utils.isArray(tagNames) ? tagNames : [tagNames]);
         return domUtils.findParent(node, function (node) {
@@ -2203,24 +2045,28 @@ var domUtils = dom.domUtils = {
         }, includeSelf);
     },
     /**
-     * 查找节点node的祖先节点集合， 查找的起点是给定节点的父节点，结果集中不包含给定的节点。
-     * @method findParents
-     * @param { Node } node 需要查找的节点对象
-     * @return { Array } 给定节点的祖先节点数组
-     * @grammar UE.dom.domUtils.findParents(node)  => Array  //返回一个祖先节点数组集合，不包含自身
-     * @grammar UE.dom.domUtils.findParents(node,includeSelf)  => Array  //返回一个祖先节点数组集合，includeSelf指定是否包含自身
-     * @grammar UE.dom.domUtils.findParents(node,includeSelf,filterFn)  => Array  //返回一个祖先节点数组集合，filterFn指定过滤条件，返回true的node将被选取
-     * @grammar UE.dom.domUtils.findParents(node,includeSelf,filterFn,closerFirst)  => Array  //返回一个祖先节点数组集合，closerFirst为true的话，node的直接父亲节点是数组的第0个
-     */
+	 * 查找节点node的祖先节点集合， 查找的起点是给定节点的父节点，结果集中不包含给定的节点。
+	 * 
+	 * @method findParents
+	 * @param {
+	 *            Node } node 需要查找的节点对象
+	 * @return { Array } 给定节点的祖先节点数组
+	 * @grammar UE.dom.domUtils.findParents(node) => Array //返回一个祖先节点数组集合，不包含自身
+	 * @grammar UE.dom.domUtils.findParents(node,includeSelf) => Array //返回一个祖先节点数组集合，includeSelf指定是否包含自身
+	 * @grammar UE.dom.domUtils.findParents(node,includeSelf,filterFn) => Array //返回一个祖先节点数组集合，filterFn指定过滤条件，返回true的node将被选取
+	 * @grammar UE.dom.domUtils.findParents(node,includeSelf,filterFn,closerFirst) => Array //返回一个祖先节点数组集合，closerFirst为true的话，node的直接父亲节点是数组的第0个
+	 */
 
     /**
-     * 查找节点node的祖先节点集合， 如果includeSelf的值为true，
-     * 则返回的结果集中允许出现当前给定的节点， 否则， 该节点不会出现在其结果集中。
-     * @method findParents
-     * @param { Node } node 需要查找的节点对象
-     * @param { Boolean } includeSelf 查找的结果中是否允许包含当前查找的节点对象
-     * @return { Array } 给定节点的祖先节点数组
-     */
+	 * 查找节点node的祖先节点集合， 如果includeSelf的值为true， 则返回的结果集中允许出现当前给定的节点， 否则， 该节点不会出现在其结果集中。
+	 * 
+	 * @method findParents
+	 * @param {
+	 *            Node } node 需要查找的节点对象
+	 * @param {
+	 *            Boolean } includeSelf 查找的结果中是否允许包含当前查找的节点对象
+	 * @return { Array } 给定节点的祖先节点数组
+	 */
     findParents:function (node, includeSelf, filterFn, closerFirst) {
         var parents = includeSelf && ( filterFn && filterFn(node) || !filterFn ) ? [node] : [];
         while (node = domUtils.findParent(node, filterFn)) {
@@ -2230,53 +2076,43 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 在节点node后面插入新节点newNode
-     * @method insertAfter
-     * @param { Node } node 目标节点
-     * @param { Node } newNode 新插入的节点， 该节点将置于目标节点之后
-     * @return { Node } 新插入的节点
-     */
+	 * 在节点node后面插入新节点newNode
+	 * 
+	 * @method insertAfter
+	 * @param {
+	 *            Node } node 目标节点
+	 * @param {
+	 *            Node } newNode 新插入的节点， 该节点将置于目标节点之后
+	 * @return { Node } 新插入的节点
+	 */
     insertAfter:function (node, newNode) {
         return node.nextSibling ? node.parentNode.insertBefore(newNode, node.nextSibling):
             node.parentNode.appendChild(newNode);
     },
 
     /**
-     * 删除节点node及其下属的所有节点
-     * @method remove
-     * @param { Node } node 需要删除的节点对象
-     * @return { Node } 返回刚删除的节点对象
-     * @example
-     * ```html
-     * <div id="test">
-     *     <div id="child">你好</div>
-     * </div>
-     * <script>
-     *     UE.dom.domUtils.remove( document.body, false );
-     *     //output: false
-     *     console.log( document.getElementById( "child" ) !== null );
-     * </script>
-     * ```
-     */
+	 * 删除节点node及其下属的所有节点
+	 * 
+	 * @method remove
+	 * @param {
+	 *            Node } node 需要删除的节点对象
+	 * @return { Node } 返回刚删除的节点对象
+	 * @example ```html <div id="test"> <div id="child">你好</div> </div> <script> UE.dom.domUtils.remove( document.body, false ); //output: false console.log(
+	 *          document.getElementById( "child" ) !== null ); </script> ```
+	 */
 
     /**
-     * 删除节点node，并根据keepChildren的值决定是否保留子节点
-     * @method remove
-     * @param { Node } node 需要删除的节点对象
-     * @param { Boolean } keepChildren 是否需要保留子节点
-     * @return { Node } 返回刚删除的节点对象
-     * @example
-     * ```html
-     * <div id="test">
-     *     <div id="child">你好</div>
-     * </div>
-     * <script>
-     *     UE.dom.domUtils.remove( document.body, true );
-     *     //output: true
-     *     console.log( document.getElementById( "child" ) !== null );
-     * </script>
-     * ```
-     */
+	 * 删除节点node，并根据keepChildren的值决定是否保留子节点
+	 * 
+	 * @method remove
+	 * @param {
+	 *            Node } node 需要删除的节点对象
+	 * @param {
+	 *            Boolean } keepChildren 是否需要保留子节点
+	 * @return { Node } 返回刚删除的节点对象
+	 * @example ```html <div id="test"> <div id="child">你好</div> </div> <script> UE.dom.domUtils.remove( document.body, true ); //output: true console.log(
+	 *          document.getElementById( "child" ) !== null ); </script> ```
+	 */
     remove:function (node, keepChildren) {
         var parent = node.parentNode,
             child;
@@ -2292,55 +2128,36 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 取得node节点的下一个兄弟节点， 如果该节点其后没有兄弟节点， 则递归查找其父节点之后的第一个兄弟节点，
-     * 直到找到满足条件的节点或者递归到BODY节点之后才会结束。
-     * @method getNextDomNode
-     * @param { Node } node 需要获取其后的兄弟节点的节点对象
-     * @return { Node | NULL } 如果找满足条件的节点， 则返回该节点， 否则返回NULL
-     * @example
-     * ```html
-     *     <body>
-     *      <div id="test">
-     *          <span></span>
-     *      </div>
-     *      <i>xxx</i>
-     * </body>
-     * <script>
-     *
-     *     //output: i节点
-     *     console.log( UE.dom.domUtils.getNextDomNode( document.getElementById( "test" ) ) );
-     *
-     * </script>
-     * ```
-     * @example
-     * ```html
-     * <body>
-     *      <div>
-     *          <span></span>
-     *          <i id="test">xxx</i>
-     *      </div>
-     *      <b>xxx</b>
-     * </body>
-     * <script>
-     *
-     *     //由于id为test的i节点之后没有兄弟节点， 则查找其父节点（div）后面的兄弟节点
-     *     //output: b节点
-     *     console.log( UE.dom.domUtils.getNextDomNode( document.getElementById( "test" ) ) );
-     *
-     * </script>
-     * ```
-     */
+	 * 取得node节点的下一个兄弟节点， 如果该节点其后没有兄弟节点， 则递归查找其父节点之后的第一个兄弟节点， 直到找到满足条件的节点或者递归到BODY节点之后才会结束。
+	 * 
+	 * @method getNextDomNode
+	 * @param {
+	 *            Node } node 需要获取其后的兄弟节点的节点对象
+	 * @return { Node | NULL } 如果找满足条件的节点， 则返回该节点， 否则返回NULL
+	 * @example ```html <body> <div id="test"> <span></span> </div> <i>xxx</i> </body> <script>
+	 * 
+	 * //output: i节点 console.log( UE.dom.domUtils.getNextDomNode( document.getElementById( "test" ) ) );
+	 * 
+	 * </script> ```
+	 * @example ```html <body> <div> <span></span> <i id="test">xxx</i> </div> <b>xxx</b> </body> <script>
+	 * 
+	 * //由于id为test的i节点之后没有兄弟节点， 则查找其父节点（div）后面的兄弟节点 //output: b节点 console.log( UE.dom.domUtils.getNextDomNode( document.getElementById( "test" ) ) );
+	 * 
+	 * </script> ```
+	 */
 
     /**
-     * 取得node节点的下一个兄弟节点， 如果startFromChild的值为ture，则先获取其子节点，
-     * 如果有子节点则直接返回第一个子节点；如果没有子节点或者startFromChild的值为false，
-     * 则执行<a href="#UE.dom.domUtils.getNextDomNode(Node)">getNextDomNode(Node node)</a>的查找过程。
-     * @method getNextDomNode
-     * @param { Node } node 需要获取其后的兄弟节点的节点对象
-     * @param { Boolean } startFromChild 查找过程是否从其子节点开始
-     * @return { Node | NULL } 如果找满足条件的节点， 则返回该节点， 否则返回NULL
-     * @see UE.dom.domUtils.getNextDomNode(Node)
-     */
+	 * 取得node节点的下一个兄弟节点， 如果startFromChild的值为ture，则先获取其子节点， 如果有子节点则直接返回第一个子节点；如果没有子节点或者startFromChild的值为false， 则执行<a
+	 * href="#UE.dom.domUtils.getNextDomNode(Node)">getNextDomNode(Node node)</a>的查找过程。
+	 * 
+	 * @method getNextDomNode
+	 * @param {
+	 *            Node } node 需要获取其后的兄弟节点的节点对象
+	 * @param {
+	 *            Boolean } startFromChild 查找过程是否从其子节点开始
+	 * @return { Node | NULL } 如果找满足条件的节点， 则返回该节点， 否则返回NULL
+	 * @see UE.dom.domUtils.getNextDomNode(Node)
+	 */
     getNextDomNode:function (node, startFromChild, filterFn, guard) {
         return getDomNode(node, 'firstChild', 'nextSibling', startFromChild, filterFn, guard);
     },
@@ -2348,53 +2165,45 @@ var domUtils = dom.domUtils = {
         return getDomNode(node, 'lastChild', 'previousSibling', startFromChild, filterFn, guard);
     },
     /**
-     * 检测节点node是否属是UEditor定义的bookmark节点
-     * @method isBookmarkNode
-     * @private
-     * @param { Node } node 需要检测的节点对象
-     * @return { Boolean } 是否是bookmark节点
-     * @example
-     * ```html
-     * <span id="_baidu_bookmark_1"></span>
-     * <script>
-     *      var bookmarkNode = document.getElementById("_baidu_bookmark_1");
-     *      //output: true
-     *      console.log( UE.dom.domUtils.isBookmarkNode( bookmarkNode ) );
-     * </script>
-     * ```
-     */
+	 * 检测节点node是否属是UEditor定义的bookmark节点
+	 * 
+	 * @method isBookmarkNode
+	 * @private
+	 * @param {
+	 *            Node } node 需要检测的节点对象
+	 * @return { Boolean } 是否是bookmark节点
+	 * @example ```html <span id="_baidu_bookmark_1"></span> <script> var bookmarkNode = document.getElementById("_baidu_bookmark_1"); //output: true console.log(
+	 *          UE.dom.domUtils.isBookmarkNode( bookmarkNode ) ); </script> ```
+	 */
     isBookmarkNode:function (node) {
         return node.nodeType == 1 && node.id && /^_baidu_bookmark_/i.test(node.id);
     },
     /**
-     * 获取节点node所属的window对象
-     * @method  getWindow
-     * @param { Node } node 节点对象
-     * @return { Window } 当前节点所属的window对象
-     * @example
-     * ```javascript
-     * //output: true
-     * console.log( UE.dom.domUtils.getWindow( document.body ) === window );
-     * ```
-     */
+	 * 获取节点node所属的window对象
+	 * 
+	 * @method getWindow
+	 * @param {
+	 *            Node } node 节点对象
+	 * @return { Window } 当前节点所属的window对象
+	 * @example ```javascript //output: true console.log( UE.dom.domUtils.getWindow( document.body ) === window ); ```
+	 */
     getWindow:function (node) {
         var doc = node.ownerDocument || node;
         return doc.defaultView || doc.parentWindow;
     },
     /**
-     * 获取离nodeA与nodeB最近的公共的祖先节点
-     * @method  getCommonAncestor
-     * @param { Node } nodeA 第一个节点
-     * @param { Node } nodeB 第二个节点
-     * @remind 如果给定的两个节点是同一个节点， 将直接返回该节点。
-     * @return { Node | NULL } 如果未找到公共节点， 返回NULL， 否则返回最近的公共祖先节点。
-     * @example
-     * ```javascript
-     * var commonAncestor = UE.dom.domUtils.getCommonAncestor( document.body, document.body.firstChild );
-     * //output: true
-     * console.log( commonAncestor.tagName.toLowerCase() === 'body' );
-     * ```
-     */
+	 * 获取离nodeA与nodeB最近的公共的祖先节点
+	 * 
+	 * @method getCommonAncestor
+	 * @param {
+	 *            Node } nodeA 第一个节点
+	 * @param {
+	 *            Node } nodeB 第二个节点
+	 * @remind 如果给定的两个节点是同一个节点， 将直接返回该节点。
+	 * @return { Node | NULL } 如果未找到公共节点， 返回NULL， 否则返回最近的公共祖先节点。
+	 * @example ```javascript var commonAncestor = UE.dom.domUtils.getCommonAncestor( document.body, document.body.firstChild ); //output: true console.log(
+	 *          commonAncestor.tagName.toLowerCase() === 'body' ); ```
+	 */
     getCommonAncestor:function (nodeA, nodeB) {
         if (nodeA === nodeB)
             return nodeA;
@@ -2419,58 +2228,50 @@ var domUtils = dom.domUtils = {
 
     },
     /**
-     * 清除node节点左右连续为空的兄弟inline节点
-     * @method clearEmptySibling
-     * @param { Node } node 执行的节点对象， 如果该节点的左右连续的兄弟节点是空的inline节点，
-     * 则这些兄弟节点将被删除
-     * @grammar UE.dom.domUtils.clearEmptySibling(node,ignoreNext)  //ignoreNext指定是否忽略右边空节点
-     * @grammar UE.dom.domUtils.clearEmptySibling(node,ignoreNext,ignorePre)  //ignorePre指定是否忽略左边空节点
-     * @example
-     * ```html
-     * <body>
-     *     <div></div>
-     *     <span id="test"></span>
-     *     <i></i>
-     *     <b></b>
-     *     <em>xxx</em>
-     *     <span></span>
-     * </body>
-     * <script>
-     *
-     *      UE.dom.domUtils.clearEmptySibling( document.getElementById( "test" ) );
-     *
-     *      //output: <div></div><span id="test"></span><em>xxx</em><span></span>
-     *      console.log( document.body.innerHTML );
-     *
-     * </script>
-     * ```
-     */
+	 * 清除node节点左右连续为空的兄弟inline节点
+	 * 
+	 * @method clearEmptySibling
+	 * @param {
+	 *            Node } node 执行的节点对象， 如果该节点的左右连续的兄弟节点是空的inline节点， 则这些兄弟节点将被删除
+	 * @grammar UE.dom.domUtils.clearEmptySibling(node,ignoreNext) //ignoreNext指定是否忽略右边空节点
+	 * @grammar UE.dom.domUtils.clearEmptySibling(node,ignoreNext,ignorePre) //ignorePre指定是否忽略左边空节点
+	 * @example ```html <body> <div></div> <span id="test"></span> <i></i> <b></b> <em>xxx</em> <span></span> </body> <script>
+	 * 
+	 * UE.dom.domUtils.clearEmptySibling( document.getElementById( "test" ) );
+	 * 
+	 * //output: <div></div><span id="test"></span><em>xxx</em><span></span> console.log( document.body.innerHTML );
+	 * 
+	 * </script> ```
+	 */
 
     /**
-     * 清除node节点左右连续为空的兄弟inline节点， 如果ignoreNext的值为true，
-     * 则忽略对右边兄弟节点的操作。
-     * @method clearEmptySibling
-     * @param { Node } node 执行的节点对象， 如果该节点的左右连续的兄弟节点是空的inline节点，
-     * @param { Boolean } ignoreNext 是否忽略忽略对右边的兄弟节点的操作
-     * 则这些兄弟节点将被删除
-     * @see UE.dom.domUtils.clearEmptySibling(Node)
-     */
+	 * 清除node节点左右连续为空的兄弟inline节点， 如果ignoreNext的值为true， 则忽略对右边兄弟节点的操作。
+	 * 
+	 * @method clearEmptySibling
+	 * @param {
+	 *            Node } node 执行的节点对象， 如果该节点的左右连续的兄弟节点是空的inline节点，
+	 * @param {
+	 *            Boolean } ignoreNext 是否忽略忽略对右边的兄弟节点的操作 则这些兄弟节点将被删除
+	 * @see UE.dom.domUtils.clearEmptySibling(Node)
+	 */
 
     /**
-     * 清除node节点左右连续为空的兄弟inline节点， 如果ignoreNext的值为true，
-     * 则忽略对右边兄弟节点的操作， 如果ignorePre的值为true，则忽略对左边兄弟节点的操作。
-     * @method clearEmptySibling
-     * @param { Node } node 执行的节点对象， 如果该节点的左右连续的兄弟节点是空的inline节点，
-     * @param { Boolean } ignoreNext 是否忽略忽略对右边的兄弟节点的操作
-     * @param { Boolean } ignorePre 是否忽略忽略对左边的兄弟节点的操作
-     * 则这些兄弟节点将被删除
-     * @see UE.dom.domUtils.clearEmptySibling(Node)
-     */
+	 * 清除node节点左右连续为空的兄弟inline节点， 如果ignoreNext的值为true， 则忽略对右边兄弟节点的操作， 如果ignorePre的值为true，则忽略对左边兄弟节点的操作。
+	 * 
+	 * @method clearEmptySibling
+	 * @param {
+	 *            Node } node 执行的节点对象， 如果该节点的左右连续的兄弟节点是空的inline节点，
+	 * @param {
+	 *            Boolean } ignoreNext 是否忽略忽略对右边的兄弟节点的操作
+	 * @param {
+	 *            Boolean } ignorePre 是否忽略忽略对左边的兄弟节点的操作 则这些兄弟节点将被删除
+	 * @see UE.dom.domUtils.clearEmptySibling(Node)
+	 */
     clearEmptySibling:function (node, ignoreNext, ignorePre) {
         function clear(next, dir) {
             var tmpNode;
             while (next && !domUtils.isBookmarkNode(next) && (domUtils.isEmptyInlineElement(next)
-                //这里不能把空格算进来会吧空格干掉，出现文字间的空格丢掉了
+                // 这里不能把空格算进来会吧空格干掉，出现文字间的空格丢掉了
                 || !new RegExp('[^\t\n\r' + domUtils.fillChar + ']').test(next.nodeValue) )) {
                 tmpNode = next[dir];
                 domUtils.remove(next);
@@ -2481,21 +2282,17 @@ var domUtils = dom.domUtils = {
         !ignorePre && clear(node.previousSibling, 'previousSibling');
     },
     /**
-     * 将一个文本节点textNode拆分成两个文本节点，offset指定拆分位置
-     * @method split
-     * @param { Node } textNode 需要拆分的文本节点对象
-     * @param { int } offset 需要拆分的位置， 位置计算从0开始
-     * @return { Node } 拆分后形成的新节点
-     * @example
-     * ```html
-     * <div id="test">abcdef</div>
-     * <script>
-     *      var newNode = UE.dom.domUtils.split( document.getElementById( "test" ).firstChild, 3 );
-     *      //output: def
-     *      console.log( newNode.nodeValue );
-     * </script>
-     * ```
-     */
+	 * 将一个文本节点textNode拆分成两个文本节点，offset指定拆分位置
+	 * 
+	 * @method split
+	 * @param {
+	 *            Node } textNode 需要拆分的文本节点对象
+	 * @param {
+	 *            int } offset 需要拆分的位置， 位置计算从0开始
+	 * @return { Node } 拆分后形成的新节点
+	 * @example ```html <div id="test">abcdef</div> <script> var newNode = UE.dom.domUtils.split( document.getElementById( "test" ).firstChild, 3 ); //output: def console.log(
+	 *          newNode.nodeValue ); </script> ```
+	 */
     split:function (node, offset) {
         var doc = node.ownerDocument;
         if (browser.ie && offset == node.nodeValue.length) {
@@ -2503,7 +2300,7 @@ var domUtils = dom.domUtils = {
             return domUtils.insertAfter(node, next);
         }
         var retval = node.splitText(offset);
-        //ie8下splitText不会跟新childNodes,我们手动触发他的更新
+        // ie8下splitText不会跟新childNodes,我们手动触发他的更新
         if (browser.ie8) {
             var tmpNode = doc.createTextNode('');
             domUtils.insertAfter(retval, tmpNode);
@@ -2513,38 +2310,30 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 检测文本节点textNode是否为空节点（包括空格、换行、占位符等字符）
-     * @method  isWhitespace
-     * @param { Node } node 需要检测的节点对象
-     * @return { Boolean } 检测的节点是否为空
-     * @example
-     * ```html
-     * <div id="test">
-     *
-     * </div>
-     * <script>
-     *      //output: true
-     *      console.log( UE.dom.domUtils.isWhitespace( document.getElementById("test").firstChild ) );
-     * </script>
-     * ```
-     */
+	 * 检测文本节点textNode是否为空节点（包括空格、换行、占位符等字符）
+	 * 
+	 * @method isWhitespace
+	 * @param {
+	 *            Node } node 需要检测的节点对象
+	 * @return { Boolean } 检测的节点是否为空
+	 * @example ```html <div id="test">
+	 * 
+	 * </div> <script> //output: true console.log( UE.dom.domUtils.isWhitespace( document.getElementById("test").firstChild ) ); </script> ```
+	 */
     isWhitespace:function (node) {
         return !new RegExp('[^ \t\n\r' + domUtils.fillChar + ']').test(node.nodeValue);
     },
     /**
-     * 获取元素element相对于viewport的位置坐标
-     * @method getXY
-     * @param { Node } element 需要计算位置的节点对象
-     * @return { Object } 返回形如{x:left,y:top}的一个key-value映射对象， 其中键x代表水平偏移距离，
-     *                          y代表垂直偏移距离。
-     *
-     * @example
-     * ```javascript
-     * var location = UE.dom.domUtils.getXY( document.getElementById("test") );
-     * //output: test的坐标为: 12, 24
-     * console.log( 'test的坐标为： ', location.x, ',', location.y );
-     * ```
-     */
+	 * 获取元素element相对于viewport的位置坐标
+	 * 
+	 * @method getXY
+	 * @param {
+	 *            Node } element 需要计算位置的节点对象
+	 * @return { Object } 返回形如{x:left,y:top}的一个key-value映射对象， 其中键x代表水平偏移距离， y代表垂直偏移距离。
+	 * 
+	 * @example ```javascript var location = UE.dom.domUtils.getXY( document.getElementById("test") ); //output: test的坐标为: 12, 24 console.log( 'test的坐标为： ', location.x, ',',
+	 *          location.y ); ```
+	 */
     getXY:function (element) {
         var x = 0, y = 0;
         while (element.offsetParent) {
@@ -2555,32 +2344,30 @@ var domUtils = dom.domUtils = {
         return { 'x':x, 'y':y};
     },
     /**
-     * 为元素element绑定原生DOM事件，type为事件类型，handler为处理函数
-     * @method on
-     * @param { Node } element 需要绑定事件的节点对象
-     * @param { String } type 绑定的事件类型
-     * @param { Function } handler 事件处理器
-     * @example
-     * ```javascript
-     * UE.dom.domUtils.on(document.body,"click",function(e){
-     *     //e为事件对象，this为被点击元素对戏那个
-     * });
-     * ```
-     */
+	 * 为元素element绑定原生DOM事件，type为事件类型，handler为处理函数
+	 * 
+	 * @method on
+	 * @param {
+	 *            Node } element 需要绑定事件的节点对象
+	 * @param {
+	 *            String } type 绑定的事件类型
+	 * @param {
+	 *            Function } handler 事件处理器
+	 * @example ```javascript UE.dom.domUtils.on(document.body,"click",function(e){ //e为事件对象，this为被点击元素对戏那个 }); ```
+	 */
 
     /**
-     * 为元素element绑定原生DOM事件，type为事件类型，handler为处理函数
-     * @method on
-     * @param { Node } element 需要绑定事件的节点对象
-     * @param { Array } type 绑定的事件类型数组
-     * @param { Function } handler 事件处理器
-     * @example
-     * ```javascript
-     * UE.dom.domUtils.on(document.body,["click","mousedown"],function(evt){
-     *     //evt为事件对象，this为被点击元素对象
-     * });
-     * ```
-     */
+	 * 为元素element绑定原生DOM事件，type为事件类型，handler为处理函数
+	 * 
+	 * @method on
+	 * @param {
+	 *            Node } element 需要绑定事件的节点对象
+	 * @param {
+	 *            Array } type 绑定的事件类型数组
+	 * @param {
+	 *            Function } handler 事件处理器
+	 * @example ```javascript UE.dom.domUtils.on(document.body,["click","mousedown"],function(evt){ //evt为事件对象，this为被点击元素对象 }); ```
+	 */
     on:function (element, type, handler) {
 
         var types = utils.isArray(type) ? type : utils.trim(type).split(/\s+/),
@@ -2614,32 +2401,30 @@ var domUtils = dom.domUtils = {
         element = null;
     },
     /**
-     * 解除DOM事件绑定
-     * @method un
-     * @param { Node } element 需要解除事件绑定的节点对象
-     * @param { String } type 需要接触绑定的事件类型
-     * @param { Function } handler 对应的事件处理器
-     * @example
-     * ```javascript
-     * UE.dom.domUtils.un(document.body,"click",function(evt){
-     *     //evt为事件对象，this为被点击元素对象
-     * });
-     * ```
-     */
+	 * 解除DOM事件绑定
+	 * 
+	 * @method un
+	 * @param {
+	 *            Node } element 需要解除事件绑定的节点对象
+	 * @param {
+	 *            String } type 需要接触绑定的事件类型
+	 * @param {
+	 *            Function } handler 对应的事件处理器
+	 * @example ```javascript UE.dom.domUtils.un(document.body,"click",function(evt){ //evt为事件对象，this为被点击元素对象 }); ```
+	 */
 
     /**
-     * 解除DOM事件绑定
-     * @method un
-     * @param { Node } element 需要解除事件绑定的节点对象
-     * @param { Array } type 需要接触绑定的事件类型数组
-     * @param { Function } handler 对应的事件处理器
-     * @example
-     * ```javascript
-     * UE.dom.domUtils.un(document.body, ["click","mousedown"],function(evt){
-     *     //evt为事件对象，this为被点击元素对象
-     * });
-     * ```
-     */
+	 * 解除DOM事件绑定
+	 * 
+	 * @method un
+	 * @param {
+	 *            Node } element 需要解除事件绑定的节点对象
+	 * @param {
+	 *            Array } type 需要接触绑定的事件类型数组
+	 * @param {
+	 *            Function } handler 对应的事件处理器
+	 * @example ```javascript UE.dom.domUtils.un(document.body, ["click","mousedown"],function(evt){ //evt为事件对象，this为被点击元素对象 }); ```
+	 */
     un:function (element, type, handler) {
         var types = utils.isArray(type) ? type : utils.trim(type).split(/\s+/),
             k = types.length;
@@ -2664,31 +2449,27 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 比较节点nodeA与节点nodeB是否具有相同的标签名、属性名以及属性值
-     * @method  isSameElement
-     * @param { Node } nodeA 需要比较的节点
-     * @param { Node } nodeB 需要比较的节点
-     * @return { Boolean } 两个节点是否具有相同的标签名、属性名以及属性值
-     * @example
-     * ```html
-     * <span style="font-size:12px">ssss</span>
-     * <span style="font-size:12px">bbbbb</span>
-     * <span style="font-size:13px">ssss</span>
-     * <span style="font-size:14px">bbbbb</span>
-     *
-     * <script>
-     *
-     *     var nodes = document.getElementsByTagName( "span" );
-     *
-     *     //output: true
-     *     console.log( UE.dom.domUtils.isSameElement( nodes[0], nodes[1] ) );
-     *
-     *     //output: false
-     *     console.log( UE.dom.domUtils.isSameElement( nodes[2], nodes[3] ) );
-     *
-     * </script>
-     * ```
-     */
+	 * 比较节点nodeA与节点nodeB是否具有相同的标签名、属性名以及属性值
+	 * 
+	 * @method isSameElement
+	 * @param {
+	 *            Node } nodeA 需要比较的节点
+	 * @param {
+	 *            Node } nodeB 需要比较的节点
+	 * @return { Boolean } 两个节点是否具有相同的标签名、属性名以及属性值
+	 * @example ```html <span style="font-size:12px">ssss</span> <span style="font-size:12px">bbbbb</span> <span style="font-size:13px">ssss</span> <span
+	 *          style="font-size:14px">bbbbb</span>
+	 * 
+	 * <script>
+	 * 
+	 * var nodes = document.getElementsByTagName( "span" );
+	 * 
+	 * //output: true console.log( UE.dom.domUtils.isSameElement( nodes[0], nodes[1] ) );
+	 * 
+	 * //output: false console.log( UE.dom.domUtils.isSameElement( nodes[2], nodes[3] ) );
+	 * 
+	 * </script> ```
+	 */
     isSameElement:function (nodeA, nodeB) {
         if (nodeA.tagName != nodeB.tagName) {
             return false;
@@ -2739,31 +2520,27 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 判断节点nodeA与节点nodeB的元素的style属性是否一致
-     * @method isSameStyle
-     * @param { Node } nodeA 需要比较的节点
-     * @param { Node } nodeB 需要比较的节点
-     * @return { Boolean } 两个节点是否具有相同的style属性值
-     * @example
-     * ```html
-     * <span style="font-size:12px">ssss</span>
-     * <span style="font-size:12px">bbbbb</span>
-     * <span style="font-size:13px">ssss</span>
-     * <span style="font-size:14px">bbbbb</span>
-     *
-     * <script>
-     *
-     *     var nodes = document.getElementsByTagName( "span" );
-     *
-     *     //output: true
-     *     console.log( UE.dom.domUtils.isSameStyle( nodes[0], nodes[1] ) );
-     *
-     *     //output: false
-     *     console.log( UE.dom.domUtils.isSameStyle( nodes[2], nodes[3] ) );
-     *
-     * </script>
-     * ```
-     */
+	 * 判断节点nodeA与节点nodeB的元素的style属性是否一致
+	 * 
+	 * @method isSameStyle
+	 * @param {
+	 *            Node } nodeA 需要比较的节点
+	 * @param {
+	 *            Node } nodeB 需要比较的节点
+	 * @return { Boolean } 两个节点是否具有相同的style属性值
+	 * @example ```html <span style="font-size:12px">ssss</span> <span style="font-size:12px">bbbbb</span> <span style="font-size:13px">ssss</span> <span
+	 *          style="font-size:14px">bbbbb</span>
+	 * 
+	 * <script>
+	 * 
+	 * var nodes = document.getElementsByTagName( "span" );
+	 * 
+	 * //output: true console.log( UE.dom.domUtils.isSameStyle( nodes[0], nodes[1] ) );
+	 * 
+	 * //output: false console.log( UE.dom.domUtils.isSameStyle( nodes[2], nodes[3] ) );
+	 * 
+	 * </script> ```
+	 */
     isSameStyle:function (nodeA, nodeB) {
         var styleA = nodeA.style.cssText.replace(/( ?; ?)/g, ';').replace(/( ?: ?)/g, ':'),
             styleB = nodeB.style.cssText.replace(/( ?; ?)/g, ';').replace(/( ?: ?)/g, ':');
@@ -2798,78 +2575,72 @@ var domUtils = dom.domUtils = {
         return true;
     },
     /**
-     * 检查节点node是否为block元素
-     * @method isBlockElm
-     * @param { Node } node 需要检测的节点对象
-     * @return { Boolean } 是否是block元素节点
-     * @warning 该方法的判断规则如下： 如果该元素原本是block元素， 则不论该元素当前的css样式是什么都会返回true；
-     *          否则，检测该元素的css样式， 如果该元素当前是block元素， 则返回true。 其余情况下都返回false。
-     * @example
-     * ```html
-     * <span id="test1" style="display: block"></span>
-     * <span id="test2"></span>
-     * <div id="test3" style="display: inline"></div>
-     *
-     * <script>
-     *
-     *     //output: true
-     *     console.log( UE.dom.domUtils.isBlockElm( document.getElementById("test1") ) );
-     *
-     *     //output: false
-     *     console.log( UE.dom.domUtils.isBlockElm( document.getElementById("test2") ) );
-     *
-     *     //output: true
-     *     console.log( UE.dom.domUtils.isBlockElm( document.getElementById("test3") ) );
-     *
-     * </script>
-     * ```
-     */
+	 * 检查节点node是否为block元素
+	 * 
+	 * @method isBlockElm
+	 * @param {
+	 *            Node } node 需要检测的节点对象
+	 * @return { Boolean } 是否是block元素节点
+	 * @warning 该方法的判断规则如下： 如果该元素原本是block元素， 则不论该元素当前的css样式是什么都会返回true； 否则，检测该元素的css样式， 如果该元素当前是block元素， 则返回true。 其余情况下都返回false。
+	 * @example ```html <span id="test1" style="display: block"></span> <span id="test2"></span> <div id="test3" style="display: inline"></div>
+	 * 
+	 * <script>
+	 * 
+	 * //output: true console.log( UE.dom.domUtils.isBlockElm( document.getElementById("test1") ) );
+	 * 
+	 * //output: false console.log( UE.dom.domUtils.isBlockElm( document.getElementById("test2") ) );
+	 * 
+	 * //output: true console.log( UE.dom.domUtils.isBlockElm( document.getElementById("test3") ) );
+	 * 
+	 * </script> ```
+	 */
     isBlockElm:function (node) {
         return node.nodeType == 1 && (dtd.$block[node.tagName] || styleBlock[domUtils.getComputedStyle(node, 'display')]) && !dtd.$nonChild[node.tagName];
     },
     /**
-     * 检测node节点是否为body节点
-     * @method isBody
-     * @param { Element } node 需要检测的dom元素
-     * @return { Boolean } 给定的元素是否是body元素
-     * @example
-     * ```javascript
-     * //output: true
-     * console.log( UE.dom.domUtils.isBody( document.body ) );
-     * ```
-     */
+	 * 检测node节点是否为body节点
+	 * 
+	 * @method isBody
+	 * @param {
+	 *            Element } node 需要检测的dom元素
+	 * @return { Boolean } 给定的元素是否是body元素
+	 * @example ```javascript //output: true console.log( UE.dom.domUtils.isBody( document.body ) ); ```
+	 */
     isBody:function (node) {
         return  node && node.nodeType == 1 && node.tagName.toLowerCase() == 'body';
     },
     /**
-     * 以node节点为分界，将该节点的指定祖先节点parent拆分成两个独立的节点，
-     * 拆分形成的两个节点之间是node节点
-     * @method breakParent
-     * @param { Node } node 作为分界的节点对象
-     * @param { Node } parent 该节点必须是node节点的祖先节点， 且是block节点。
-     * @return { Node } 给定的node分界节点
-     * @example
-     * ```javascript
-     *
-     *      var node = document.createElement("span"),
-     *          wrapNode = document.createElement( "div" ),
-     *          parent = document.createElement("p");
-     *
-     *      parent.appendChild( node );
-     *      wrapNode.appendChild( parent );
-     *
-     *      //拆分前
-     *      //output: <p><span></span></p>
-     *      console.log( wrapNode.innerHTML );
-     *
-     *
-     *      UE.dom.domUtils.breakParent( node, parent );
-     *      //拆分后
-     *      //output: <p></p><span></span><p></p>
-     *      console.log( wrapNode.innerHTML );
-     *
-     * ```
-     */
+	 * 以node节点为分界，将该节点的指定祖先节点parent拆分成两个独立的节点， 拆分形成的两个节点之间是node节点
+	 * 
+	 * @method breakParent
+	 * @param {
+	 *            Node } node 作为分界的节点对象
+	 * @param {
+	 *            Node } parent 该节点必须是node节点的祖先节点， 且是block节点。
+	 * @return { Node } 给定的node分界节点
+	 * @example ```javascript
+	 * 
+	 * var node = document.createElement("span"), wrapNode = document.createElement( "div" ), parent = document.createElement("p");
+	 * 
+	 * parent.appendChild( node ); wrapNode.appendChild( parent );
+	 * 
+	 * //拆分前 //output:
+	 * <p>
+	 * <span></span>
+	 * </p>
+	 * console.log( wrapNode.innerHTML );
+	 * 
+	 * 
+	 * UE.dom.domUtils.breakParent( node, parent ); //拆分后 //output:
+	 * <p>
+	 * </p>
+	 * <span></span>
+	 * <p>
+	 * </p>
+	 * console.log( wrapNode.innerHTML );
+	 * 
+	 * ```
+	 */
     breakParent:function (node, parent) {
         var tmpNode,
             parentClone = node,
@@ -2905,25 +2676,21 @@ var domUtils = dom.domUtils = {
         return node;
     },
     /**
-     * 检查节点node是否是空inline节点
-     * @method  isEmptyInlineElement
-     * @param { Node } node 需要检测的节点对象
-     * @return { Number }  如果给定的节点是空的inline节点， 则返回1, 否则返回0。
-     * @example
-     * ```html
-     * <b><i></i></b> => 1
-     * <b><i></i><u></u></b> => 1
-     * <b></b> => 1
-     * <b>xx<i></i></b> => 0
-     * ```
-     */
+	 * 检查节点node是否是空inline节点
+	 * 
+	 * @method isEmptyInlineElement
+	 * @param {
+	 *            Node } node 需要检测的节点对象
+	 * @return { Number } 如果给定的节点是空的inline节点， 则返回1, 否则返回0。
+	 * @example ```html <b><i></i></b> => 1 <b><i></i><u></u></b> => 1 <b></b> => 1 <b>xx<i></i></b> => 0 ```
+	 */
     isEmptyInlineElement:function (node) {
         if (node.nodeType != 1 || !dtd.$removeEmpty[ node.tagName ]) {
             return 0;
         }
         node = node.firstChild;
         while (node) {
-            //如果是创建的bookmark就跳过
+            // 如果是创建的bookmark就跳过
             if (domUtils.isBookmarkNode(node)) {
                 return 0;
             }
@@ -2939,28 +2706,25 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 删除node节点下首尾两端的空白文本子节点
-     * @method trimWhiteTextNode
-     * @param { Element } node 需要执行删除操作的元素对象
-     * @example
-     * ```javascript
-     *      var node = document.createElement("div");
-     *
-     *      node.appendChild( document.createTextNode( "" ) );
-     *
-     *      node.appendChild( document.createElement("div") );
-     *
-     *      node.appendChild( document.createTextNode( "" ) );
-     *
-     *      //3
-     *      console.log( node.childNodes.length );
-     *
-     *      UE.dom.domUtils.trimWhiteTextNode( node );
-     *
-     *      //1
-     *      console.log( node.childNodes.length );
-     * ```
-     */
+	 * 删除node节点下首尾两端的空白文本子节点
+	 * 
+	 * @method trimWhiteTextNode
+	 * @param {
+	 *            Element } node 需要执行删除操作的元素对象
+	 * @example ```javascript var node = document.createElement("div");
+	 * 
+	 * node.appendChild( document.createTextNode( "" ) );
+	 * 
+	 * node.appendChild( document.createElement("div") );
+	 * 
+	 * node.appendChild( document.createTextNode( "" ) );
+	 * 
+	 * //3 console.log( node.childNodes.length );
+	 * 
+	 * UE.dom.domUtils.trimWhiteTextNode( node );
+	 * 
+	 * //1 console.log( node.childNodes.length ); ```
+	 */
     trimWhiteTextNode:function (node) {
         function remove(dir) {
             var child;
@@ -2973,22 +2737,26 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 合并node节点下相同的子节点
-     * @name mergeChild
-     * @desc
-     * UE.dom.domUtils.mergeChild(node,tagName) //tagName要合并的子节点的标签
-     * @example
-     * <p><span style="font-size:12px;">xx<span style="font-size:12px;">aa</span>xx</span></p>
-     * ==> UE.dom.domUtils.mergeChild(node,'span')
-     * <p><span style="font-size:12px;">xxaaxx</span></p>
-     */
+	 * 合并node节点下相同的子节点
+	 * 
+	 * @name mergeChild
+	 * @desc UE.dom.domUtils.mergeChild(node,tagName) //tagName要合并的子节点的标签
+	 * @example
+	 *       <p>
+	 *       <span style="font-size:12px;">xx<span style="font-size:12px;">aa</span>xx</span>
+	 *       </p>
+	 *       ==> UE.dom.domUtils.mergeChild(node,'span')
+	 *       <p>
+	 *       <span style="font-size:12px;">xxaaxx</span>
+	 *       </p>
+	 */
     mergeChild:function (node, tagName, attrs) {
         var list = domUtils.getElementsByTagName(node, node.tagName.toLowerCase());
         for (var i = 0, ci; ci = list[i++];) {
             if (!ci.parentNode || domUtils.isBookmarkNode(ci)) {
                 continue;
             }
-            //span单独处理
+            // span单独处理
             if (ci.tagName.toLowerCase() == 'span') {
                 if (node === ci.parentNode) {
                     domUtils.trimWhiteTextNode(node);
@@ -3020,12 +2788,15 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 原生方法getElementsByTagName的封装
-     * @method getElementsByTagName
-     * @param { Node } node 目标节点对象
-     * @param { String } tagName 需要查找的节点的tagName， 多个tagName以空格分割
-     * @return { Array } 符合条件的节点集合
-     */
+	 * 原生方法getElementsByTagName的封装
+	 * 
+	 * @method getElementsByTagName
+	 * @param {
+	 *            Node } node 目标节点对象
+	 * @param {
+	 *            String } tagName 需要查找的节点的tagName， 多个tagName以空格分割
+	 * @return { Array } 符合条件的节点集合
+	 */
     getElementsByTagName:function (node, name,filter) {
         if(filter && utils.isString(filter)){
            var className = filter;
@@ -3044,38 +2815,31 @@ var domUtils = dom.domUtils = {
         return arr;
     },
     /**
-     * 将节点node提取到父节点上
-     * @method mergeToParent
-     * @param { Element } node 需要提取的元素对象
-     * @example
-     * ```html
-     * <div id="parent">
-     *     <div id="sub">
-     *         <span id="child"></span>
-     *     </div>
-     * </div>
-     *
-     * <script>
-     *
-     *     var child = document.getElementById( "child" );
-     *
-     *     //output: sub
-     *     console.log( child.parentNode.id );
-     *
-     *     UE.dom.domUtils.mergeToParent( child );
-     *
-     *     //output: parent
-     *     console.log( child.parentNode.id );
-     *
-     * </script>
-     * ```
-     */
+	 * 将节点node提取到父节点上
+	 * 
+	 * @method mergeToParent
+	 * @param {
+	 *            Element } node 需要提取的元素对象
+	 * @example ```html <div id="parent"> <div id="sub"> <span id="child"></span> </div> </div>
+	 * 
+	 * <script>
+	 * 
+	 * var child = document.getElementById( "child" );
+	 * 
+	 * //output: sub console.log( child.parentNode.id );
+	 * 
+	 * UE.dom.domUtils.mergeToParent( child );
+	 * 
+	 * //output: parent console.log( child.parentNode.id );
+	 * 
+	 * </script> ```
+	 */
     mergeToParent:function (node) {
         var parent = node.parentNode;
         while (parent && dtd.$removeEmpty[parent.tagName]) {
-            if (parent.tagName == node.tagName || parent.tagName == 'A') {//针对a标签单独处理
+            if (parent.tagName == node.tagName || parent.tagName == 'A') {// 针对a标签单独处理
                 domUtils.trimWhiteTextNode(parent);
-                //span需要特殊处理  不处理这样的情况 <span stlye="color:#fff">xxx<span style="color:#ccc">xxx</span>xxx</span>
+                // span需要特殊处理 不处理这样的情况 <span stlye="color:#fff">xxx<span style="color:#ccc">xxx</span>xxx</span>
                 if (parent.tagName == 'SPAN' && !domUtils.isSameStyle(parent, node)
                     || (parent.tagName == 'A' && node.tagName == 'SPAN')) {
                     if (parent.childNodes.length > 1 || parent !== node.parentNode) {
@@ -3084,7 +2848,7 @@ var domUtils = dom.domUtils = {
                         continue;
                     } else {
                         parent.style.cssText += ";" + node.style.cssText;
-                        //trace:952 a标签要保持下划线
+                        // trace:952 a标签要保持下划线
                         if (parent.tagName == 'A') {
                             parent.style.textDecoration = 'underline';
                         }
@@ -3099,59 +2863,45 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 合并节点node的左右兄弟节点
-     * @method mergeSibling
-     * @param { Element } node 需要合并的目标节点
-     * @example
-     * ```html
-     * <b>xxxx</b><b id="test">ooo</b><b>xxxx</b>
-     *
-     * <script>
-     *     var demoNode = document.getElementById("test");
-     *     UE.dom.domUtils.mergeSibling( demoNode );
-     *     //output: xxxxoooxxxx
-     *     console.log( demoNode.innerHTML );
-     * </script>
-     * ```
-     */
+	 * 合并节点node的左右兄弟节点
+	 * 
+	 * @method mergeSibling
+	 * @param {
+	 *            Element } node 需要合并的目标节点
+	 * @example ```html <b>xxxx</b><b id="test">ooo</b><b>xxxx</b>
+	 * 
+	 * <script> var demoNode = document.getElementById("test"); UE.dom.domUtils.mergeSibling( demoNode ); //output: xxxxoooxxxx console.log( demoNode.innerHTML ); </script> ```
+	 */
 
     /**
-     * 合并节点node的左右兄弟节点， 可以根据给定的条件选择是否忽略合并左节点。
-     * @method mergeSibling
-     * @param { Element } node 需要合并的目标节点
-     * @param { Boolean } ignorePre 是否忽略合并左节点
-     * @example
-     * ```html
-     * <b>xxxx</b><b id="test">ooo</b><b>xxxx</b>
-     *
-     * <script>
-     *     var demoNode = document.getElementById("test");
-     *     UE.dom.domUtils.mergeSibling( demoNode, true );
-     *     //output: oooxxxx
-     *     console.log( demoNode.innerHTML );
-     * </script>
-     * ```
-     */
+	 * 合并节点node的左右兄弟节点， 可以根据给定的条件选择是否忽略合并左节点。
+	 * 
+	 * @method mergeSibling
+	 * @param {
+	 *            Element } node 需要合并的目标节点
+	 * @param {
+	 *            Boolean } ignorePre 是否忽略合并左节点
+	 * @example ```html <b>xxxx</b><b id="test">ooo</b><b>xxxx</b>
+	 * 
+	 * <script> var demoNode = document.getElementById("test"); UE.dom.domUtils.mergeSibling( demoNode, true ); //output: oooxxxx console.log( demoNode.innerHTML ); </script> ```
+	 */
 
     /**
-     * 合并节点node的左右兄弟节点，可以根据给定的条件选择是否忽略合并左右节点。
-     * @method mergeSibling
-     * @param { Element } node 需要合并的目标节点
-     * @param { Boolean } ignorePre 是否忽略合并左节点
-     * @param { Boolean } ignoreNext 是否忽略合并右节点
-     * @remind 如果同时忽略左右节点， 则该操作什么也不会做
-     * @example
-     * ```html
-     * <b>xxxx</b><b id="test">ooo</b><b>xxxx</b>
-     *
-     * <script>
-     *     var demoNode = document.getElementById("test");
-     *     UE.dom.domUtils.mergeSibling( demoNode, false, true );
-     *     //output: xxxxooo
-     *     console.log( demoNode.innerHTML );
-     * </script>
-     * ```
-     */
+	 * 合并节点node的左右兄弟节点，可以根据给定的条件选择是否忽略合并左右节点。
+	 * 
+	 * @method mergeSibling
+	 * @param {
+	 *            Element } node 需要合并的目标节点
+	 * @param {
+	 *            Boolean } ignorePre 是否忽略合并左节点
+	 * @param {
+	 *            Boolean } ignoreNext 是否忽略合并右节点
+	 * @remind 如果同时忽略左右节点， 则该操作什么也不会做
+	 * @example ```html <b>xxxx</b><b id="test">ooo</b><b>xxxx</b>
+	 * 
+	 * <script> var demoNode = document.getElementById("test"); UE.dom.domUtils.mergeSibling( demoNode, false, true ); //output: xxxxooo console.log( demoNode.innerHTML );
+	 * </script> ```
+	 */
     mergeSibling:function (node, ignorePre, ignoreNext) {
         function merge(rtl, start, node) {
             var next;
@@ -3171,17 +2921,16 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 设置节点node及其子节点不会被选中
-     * @method unSelectable
-     * @param { Element } node 需要执行操作的dom元素
-     * @remind 执行该操作后的节点， 将不能被鼠标选中
-     * @example
-     * ```javascript
-     * UE.dom.domUtils.unSelectable( document.body );
-     * ```
-     */
+	 * 设置节点node及其子节点不会被选中
+	 * 
+	 * @method unSelectable
+	 * @param {
+	 *            Element } node 需要执行操作的dom元素
+	 * @remind 执行该操作后的节点， 将不能被鼠标选中
+	 * @example ```javascript UE.dom.domUtils.unSelectable( document.body ); ```
+	 */
     unSelectable:ie && browser.ie9below || browser.opera ? function (node) {
-        //for ie9
+        // for ie9
         node.onselectstart = function () {
             return false;
         };
@@ -3209,48 +2958,42 @@ var domUtils = dom.domUtils = {
                     node.style.KhtmlUserSelect = 'none';
     },
     /**
-     * 删除节点node上的指定属性名称的属性
-     * @method  removeAttributes
-     * @param { Node } node 需要删除属性的节点对象
-     * @param { String } attrNames 可以是空格隔开的多个属性名称，该操作将会依次删除相应的属性
-     * @example
-     * ```html
-     * <div id="wrap">
-     *      <span style="font-size:14px;" id="test" name="followMe">xxxxx</span>
-     * </div>
-     *
-     * <script>
-     *
-     *     UE.dom.domUtils.removeAttributes( document.getElementById( "test" ), "id name" );
-     *
-     *     //output: <span style="font-size:14px;">xxxxx</span>
-     *     console.log( document.getElementById("wrap").innerHTML );
-     *
-     * </script>
-     * ```
-     */
+	 * 删除节点node上的指定属性名称的属性
+	 * 
+	 * @method removeAttributes
+	 * @param {
+	 *            Node } node 需要删除属性的节点对象
+	 * @param {
+	 *            String } attrNames 可以是空格隔开的多个属性名称，该操作将会依次删除相应的属性
+	 * @example ```html <div id="wrap"> <span style="font-size:14px;" id="test" name="followMe">xxxxx</span> </div>
+	 * 
+	 * <script>
+	 * 
+	 * UE.dom.domUtils.removeAttributes( document.getElementById( "test" ), "id name" );
+	 * 
+	 * //output: <span style="font-size:14px;">xxxxx</span> console.log( document.getElementById("wrap").innerHTML );
+	 * 
+	 * </script> ```
+	 */
 
     /**
-     * 删除节点node上的指定属性名称的属性
-     * @method  removeAttributes
-     * @param { Node } node 需要删除属性的节点对象
-     * @param { Array } attrNames 需要删除的属性名数组
-     * @example
-     * ```html
-     * <div id="wrap">
-     *      <span style="font-size:14px;" id="test" name="followMe">xxxxx</span>
-     * </div>
-     *
-     * <script>
-     *
-     *     UE.dom.domUtils.removeAttributes( document.getElementById( "test" ), ["id", "name"] );
-     *
-     *     //output: <span style="font-size:14px;">xxxxx</span>
-     *     console.log( document.getElementById("wrap").innerHTML );
-     *
-     * </script>
-     * ```
-     */
+	 * 删除节点node上的指定属性名称的属性
+	 * 
+	 * @method removeAttributes
+	 * @param {
+	 *            Node } node 需要删除属性的节点对象
+	 * @param {
+	 *            Array } attrNames 需要删除的属性名数组
+	 * @example ```html <div id="wrap"> <span style="font-size:14px;" id="test" name="followMe">xxxxx</span> </div>
+	 * 
+	 * <script>
+	 * 
+	 * UE.dom.domUtils.removeAttributes( document.getElementById( "test" ), ["id", "name"] );
+	 * 
+	 * //output: <span style="font-size:14px;">xxxxx</span> console.log( document.getElementById("wrap").innerHTML );
+	 * 
+	 * </script> ```
+	 */
     removeAttributes:function (node, attrNames) {
         attrNames = utils.isArray(attrNames) ? attrNames : utils.trim(attrNames).replace(/[ ]{2,}/g,' ').split(' ');
         for (var i = 0, ci; ci = attrNames[i++];) {
@@ -3268,58 +3011,54 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 在doc下创建一个标签名为tag，属性为attrs的元素
-     * @method createElement
-     * @param { DomDocument } doc 新创建的元素属于该document节点创建
-     * @param { String } tagName 需要创建的元素的标签名
-     * @param { Object } attrs 新创建的元素的属性key-value集合
-     * @return { Element } 新创建的元素对象
-     * @example
-     * ```javascript
-     * var ele = UE.dom.domUtils.createElement( document, 'div', {
-     *     id: 'test'
-     * } );
-     *
-     * //output: DIV
-     * console.log( ele.tagName );
-     *
-     * //output: test
-     * console.log( ele.id );
-     *
-     * ```
-     */
+	 * 在doc下创建一个标签名为tag，属性为attrs的元素
+	 * 
+	 * @method createElement
+	 * @param {
+	 *            DomDocument } doc 新创建的元素属于该document节点创建
+	 * @param {
+	 *            String } tagName 需要创建的元素的标签名
+	 * @param {
+	 *            Object } attrs 新创建的元素的属性key-value集合
+	 * @return { Element } 新创建的元素对象
+	 * @example ```javascript var ele = UE.dom.domUtils.createElement( document, 'div', { id: 'test' } );
+	 * 
+	 * //output: DIV console.log( ele.tagName );
+	 * 
+	 * //output: test console.log( ele.id );
+	 * 
+	 * ```
+	 */
     createElement:function (doc, tag, attrs) {
         return domUtils.setAttributes(doc.createElement(tag), attrs)
     },
     /**
-     * 为节点node添加属性attrs，attrs为属性键值对
-     * @method setAttributes
-     * @param { Element } node 需要设置属性的元素对象
-     * @param { Object } attrs 需要设置的属性名-值对
-     * @return { Element } 设置属性的元素对象
-     * @example
-     * ```html
-     * <span id="test"></span>
-     *
-     * <script>
-     *
-     *     var testNode = UE.dom.domUtils.setAttributes( document.getElementById( "test" ), {
-     *         id: 'demo'
-     *     } );
-     *
-     *     //output: demo
-     *     console.log( testNode.id );
-     *
-     * </script>
-     *
-     */
+	 * 为节点node添加属性attrs，attrs为属性键值对
+	 * 
+	 * @method setAttributes
+	 * @param {
+	 *            Element } node 需要设置属性的元素对象
+	 * @param {
+	 *            Object } attrs 需要设置的属性名-值对
+	 * @return { Element } 设置属性的元素对象
+	 * @example ```html <span id="test"></span>
+	 * 
+	 * <script>
+	 * 
+	 * var testNode = UE.dom.domUtils.setAttributes( document.getElementById( "test" ), { id: 'demo' } );
+	 * 
+	 * //output: demo console.log( testNode.id );
+	 * 
+	 * </script>
+	 * 
+	 */
     setAttributes:function (node, attrs) {
         for (var attr in attrs) {
             if(attrs.hasOwnProperty(attr)){
                 var value = attrs[attr];
                 switch (attr) {
                     case 'class':
-                        //ie下要这样赋值，setAttribute不起作用
+                        // ie下要这样赋值，setAttribute不起作用
                         node.className = value;
                         break;
                     case 'style' :
@@ -3340,39 +3079,32 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 获取元素element经过计算后的样式值
-     * @method getComputedStyle
-     * @param { Element } element 需要获取样式的元素对象
-     * @param { String } styleName 需要获取的样式名
-     * @return { String } 获取到的样式值
-     * @example
-     * ```html
-     * <style type="text/css">
-     *      #test {
-     *          font-size: 15px;
-     *      }
-     * </style>
-     *
-     * <span id="test"></span>
-     *
-     * <script>
-     *     //output: 15px
-     *     console.log( UE.dom.domUtils.getComputedStyle( document.getElementById( "test" ), 'font-size' ) );
-     * </script>
-     * ```
-     */
+	 * 获取元素element经过计算后的样式值
+	 * 
+	 * @method getComputedStyle
+	 * @param {
+	 *            Element } element 需要获取样式的元素对象
+	 * @param {
+	 *            String } styleName 需要获取的样式名
+	 * @return { String } 获取到的样式值
+	 * @example ```html <style type="text/css"> #test { font-size: 15px; } </style>
+	 * 
+	 * <span id="test"></span>
+	 * 
+	 * <script> //output: 15px console.log( UE.dom.domUtils.getComputedStyle( document.getElementById( "test" ), 'font-size' ) ); </script> ```
+	 */
     getComputedStyle:function (element, styleName) {
-        //一下的属性单独处理
+        // 一下的属性单独处理
         var pros = 'width height top left';
 
         if(pros.indexOf(styleName) > -1){
             return element['offset' + styleName.replace(/^\w/,function(s){return s.toUpperCase()})] + 'px';
         }
-        //忽略文本节点
+        // 忽略文本节点
         if (element.nodeType == 3) {
             element = element.parentNode;
         }
-        //ie下font-size若body下定义了font-size，则从currentStyle里会取到这个font-size. 取不到实际值，故此修改.
+        // ie下font-size若body下定义了font-size，则从currentStyle里会取到这个font-size. 取不到实际值，故此修改.
         if (browser.ie && browser.version < 9 && styleName == 'font-size' && !element.style.fontSize &&
             !dtd.$empty[element.tagName] && !dtd.$nonChild[element.tagName]) {
             var span = element.ownerDocument.createElement('span');
@@ -3395,46 +3127,42 @@ var domUtils = dom.domUtils = {
         return utils.transUnitToPx(utils.fixColor(styleName, value));
     },
     /**
-     * 删除元素element指定的className
-     * @method removeClasses
-     * @param { Element } ele 需要删除class的元素节点
-     * @param { String } classNames 需要删除的className， 多个className之间以空格分开
-     * @example
-     * ```html
-     * <span id="test" class="test1 test2 test3">xxx</span>
-     *
-     * <script>
-     *
-     *     var testNode = document.getElementById( "test" );
-     *     UE.dom.domUtils.removeClasses( testNode, "test1 test2" );
-     *
-     *     //output: test3
-     *     console.log( testNode.className );
-     *
-     * </script>
-     * ```
-     */
+	 * 删除元素element指定的className
+	 * 
+	 * @method removeClasses
+	 * @param {
+	 *            Element } ele 需要删除class的元素节点
+	 * @param {
+	 *            String } classNames 需要删除的className， 多个className之间以空格分开
+	 * @example ```html <span id="test" class="test1 test2 test3">xxx</span>
+	 * 
+	 * <script>
+	 * 
+	 * var testNode = document.getElementById( "test" ); UE.dom.domUtils.removeClasses( testNode, "test1 test2" );
+	 * 
+	 * //output: test3 console.log( testNode.className );
+	 * 
+	 * </script> ```
+	 */
 
     /**
-     * 删除元素element指定的className
-     * @method removeClasses
-     * @param { Element } ele 需要删除class的元素节点
-     * @param { Array } classNames 需要删除的className数组
-     * @example
-     * ```html
-     * <span id="test" class="test1 test2 test3">xxx</span>
-     *
-     * <script>
-     *
-     *     var testNode = document.getElementById( "test" );
-     *     UE.dom.domUtils.removeClasses( testNode, ["test1", "test2"] );
-     *
-     *     //output: test3
-     *     console.log( testNode.className );
-     *
-     * </script>
-     * ```
-     */
+	 * 删除元素element指定的className
+	 * 
+	 * @method removeClasses
+	 * @param {
+	 *            Element } ele 需要删除class的元素节点
+	 * @param {
+	 *            Array } classNames 需要删除的className数组
+	 * @example ```html <span id="test" class="test1 test2 test3">xxx</span>
+	 * 
+	 * <script>
+	 * 
+	 * var testNode = document.getElementById( "test" ); UE.dom.domUtils.removeClasses( testNode, ["test1", "test2"] );
+	 * 
+	 * //output: test3 console.log( testNode.className );
+	 * 
+	 * </script> ```
+	 */
     removeClasses:function (elm, classNames) {
         classNames = utils.isArray(classNames) ? classNames :
             utils.trim(classNames).replace(/[ ]{2,}/g,' ').split(' ');
@@ -3449,48 +3177,44 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 给元素element添加className
-     * @method addClass
-     * @param { Node } ele 需要增加className的元素
-     * @param { String } classNames 需要添加的className， 多个className之间以空格分割
-     * @remind 相同的类名不会被重复添加
-     * @example
-     * ```html
-     * <span id="test" class="cls1 cls2"></span>
-     *
-     * <script>
-     *     var testNode = document.getElementById("test");
-     *
-     *     UE.dom.domUtils.addClass( testNode, "cls2 cls3 cls4" );
-     *
-     *     //output: cl1 cls2 cls3 cls4
-     *     console.log( testNode.className );
-     *
-     * <script>
-     * ```
-     */
+	 * 给元素element添加className
+	 * 
+	 * @method addClass
+	 * @param {
+	 *            Node } ele 需要增加className的元素
+	 * @param {
+	 *            String } classNames 需要添加的className， 多个className之间以空格分割
+	 * @remind 相同的类名不会被重复添加
+	 * @example ```html <span id="test" class="cls1 cls2"></span>
+	 * 
+	 * <script> var testNode = document.getElementById("test");
+	 * 
+	 * UE.dom.domUtils.addClass( testNode, "cls2 cls3 cls4" );
+	 * 
+	 * //output: cl1 cls2 cls3 cls4 console.log( testNode.className );
+	 * 
+	 * <script> ```
+	 */
 
     /**
-     * 给元素element添加className
-     * @method addClass
-     * @param { Node } ele 需要增加className的元素
-     * @param { Array } classNames 需要添加的className的数组
-     * @remind 相同的类名不会被重复添加
-     * @example
-     * ```html
-     * <span id="test" class="cls1 cls2"></span>
-     *
-     * <script>
-     *     var testNode = document.getElementById("test");
-     *
-     *     UE.dom.domUtils.addClass( testNode, ["cls2", "cls3", "cls4"] );
-     *
-     *     //output: cl1 cls2 cls3 cls4
-     *     console.log( testNode.className );
-     *
-     * <script>
-     * ```
-     */
+	 * 给元素element添加className
+	 * 
+	 * @method addClass
+	 * @param {
+	 *            Node } ele 需要增加className的元素
+	 * @param {
+	 *            Array } classNames 需要添加的className的数组
+	 * @remind 相同的类名不会被重复添加
+	 * @example ```html <span id="test" class="cls1 cls2"></span>
+	 * 
+	 * <script> var testNode = document.getElementById("test");
+	 * 
+	 * UE.dom.domUtils.addClass( testNode, ["cls2", "cls3", "cls4"] );
+	 * 
+	 * //output: cl1 cls2 cls3 cls4 console.log( testNode.className );
+	 * 
+	 * <script> ```
+	 */
     addClass:function (elm, classNames) {
         if(!elm)return;
         classNames = utils.trim(classNames).replace(/[ ]{2,}/g,' ').split(' ');
@@ -3502,48 +3226,40 @@ var domUtils = dom.domUtils = {
         elm.className = utils.trim(cls);
     },
     /**
-     * 判断元素element是否包含给定的样式类名className
-     * @method hasClass
-     * @param { Node } ele 需要检测的元素
-     * @param { String } classNames 需要检测的className， 多个className之间用空格分割
-     * @return { Boolean } 元素是否包含所有给定的className
-     * @example
-     * ```html
-     * <span id="test1" class="cls1 cls2"></span>
-     *
-     * <script>
-     *     var test1 = document.getElementById("test1");
-     *
-     *     //output: false
-     *     console.log( UE.dom.domUtils.hasClass( test1, "cls2 cls1 cls3" ) );
-     *
-     *     //output: true
-     *     console.log( UE.dom.domUtils.hasClass( test1, "cls2 cls1" ) );
-     * </script>
-     * ```
-     */
+	 * 判断元素element是否包含给定的样式类名className
+	 * 
+	 * @method hasClass
+	 * @param {
+	 *            Node } ele 需要检测的元素
+	 * @param {
+	 *            String } classNames 需要检测的className， 多个className之间用空格分割
+	 * @return { Boolean } 元素是否包含所有给定的className
+	 * @example ```html <span id="test1" class="cls1 cls2"></span>
+	 * 
+	 * <script> var test1 = document.getElementById("test1");
+	 * 
+	 * //output: false console.log( UE.dom.domUtils.hasClass( test1, "cls2 cls1 cls3" ) );
+	 * 
+	 * //output: true console.log( UE.dom.domUtils.hasClass( test1, "cls2 cls1" ) ); </script> ```
+	 */
 
     /**
-     * 判断元素element是否包含给定的样式类名className
-     * @method hasClass
-     * @param { Node } ele 需要检测的元素
-     * @param { Array } classNames 需要检测的className数组
-     * @return { Boolean } 元素是否包含所有给定的className
-     * @example
-     * ```html
-     * <span id="test1" class="cls1 cls2"></span>
-     *
-     * <script>
-     *     var test1 = document.getElementById("test1");
-     *
-     *     //output: false
-     *     console.log( UE.dom.domUtils.hasClass( test1, [ "cls2", "cls1", "cls3" ] ) );
-     *
-     *     //output: true
-     *     console.log( UE.dom.domUtils.hasClass( test1, [ "cls2", "cls1" ]) );
-     * </script>
-     * ```
-     */
+	 * 判断元素element是否包含给定的样式类名className
+	 * 
+	 * @method hasClass
+	 * @param {
+	 *            Node } ele 需要检测的元素
+	 * @param {
+	 *            Array } classNames 需要检测的className数组
+	 * @return { Boolean } 元素是否包含所有给定的className
+	 * @example ```html <span id="test1" class="cls1 cls2"></span>
+	 * 
+	 * <script> var test1 = document.getElementById("test1");
+	 * 
+	 * //output: false console.log( UE.dom.domUtils.hasClass( test1, [ "cls2", "cls1", "cls3" ] ) );
+	 * 
+	 * //output: true console.log( UE.dom.domUtils.hasClass( test1, [ "cls2", "cls1" ]) ); </script> ```
+	 */
     hasClass:function (element, className) {
         if(utils.isRegExp(className)){
             return className.test(element.className)
@@ -3558,41 +3274,39 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 阻止事件默认行为
-     * @method preventDefault
-     * @param { Event } evt 需要阻止默认行为的事件对象
-     * @example
-     * ```javascript
-     * UE.dom.domUtils.preventDefault( evt );
-     * ```
-     */
+	 * 阻止事件默认行为
+	 * 
+	 * @method preventDefault
+	 * @param {
+	 *            Event } evt 需要阻止默认行为的事件对象
+	 * @example ```javascript UE.dom.domUtils.preventDefault( evt ); ```
+	 */
     preventDefault:function (evt) {
         evt.preventDefault ? evt.preventDefault() : (evt.returnValue = false);
     },
     /**
-     * 删除元素element指定的样式
-     * @method removeStyle
-     * @param { Element } element 需要删除样式的元素
-     * @param { String } styleName 需要删除的样式名
-     * @example
-     * ```html
-     * <span id="test" style="color: red; background: blue;"></span>
-     *
-     * <script>
-     *
-     *     var testNode = document.getElementById("test");
-     *
-     *     UE.dom.domUtils.removeStyle( testNode, 'color' );
-     *
-     *     //output: background: blue;
-     *     console.log( testNode.style.cssText );
-     *
-     * </script>
-     * ```
-     */
+	 * 删除元素element指定的样式
+	 * 
+	 * @method removeStyle
+	 * @param {
+	 *            Element } element 需要删除样式的元素
+	 * @param {
+	 *            String } styleName 需要删除的样式名
+	 * @example ```html <span id="test" style="color: red; background: blue;"></span>
+	 * 
+	 * <script>
+	 * 
+	 * var testNode = document.getElementById("test");
+	 * 
+	 * UE.dom.domUtils.removeStyle( testNode, 'color' );
+	 * 
+	 * //output: background: blue; console.log( testNode.style.cssText );
+	 * 
+	 * </script> ```
+	 */
     removeStyle:function (element, name) {
         if(browser.ie ){
-            //针对color先单独处理一下
+            // 针对color先单独处理一下
             if(name == 'color'){
                 name = '(^|;)' + name;
             }
@@ -3611,57 +3325,53 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 获取元素element的style属性的指定值
-     * @method getStyle
-     * @param { Element } element 需要获取属性值的元素
-     * @param { String } styleName 需要获取的style的名称
-     * @warning 该方法仅获取元素style属性中所标明的值
-     * @return { String } 该元素包含指定的style属性值
-     * @example
-     * ```html
-     * <div id="test" style="color: red;"></div>
-     *
-     * <script>
-     *
-     *      var testNode = document.getElementById( "test" );
-     *
-     *      //output: red
-     *      console.log( UE.dom.domUtils.getStyle( testNode, "color" ) );
-     *
-     *      //output: ""
-     *      console.log( UE.dom.domUtils.getStyle( testNode, "background" ) );
-     *
-     * </script>
-     * ```
-     */
+	 * 获取元素element的style属性的指定值
+	 * 
+	 * @method getStyle
+	 * @param {
+	 *            Element } element 需要获取属性值的元素
+	 * @param {
+	 *            String } styleName 需要获取的style的名称
+	 * @warning 该方法仅获取元素style属性中所标明的值
+	 * @return { String } 该元素包含指定的style属性值
+	 * @example ```html <div id="test" style="color: red;"></div>
+	 * 
+	 * <script>
+	 * 
+	 * var testNode = document.getElementById( "test" );
+	 * 
+	 * //output: red console.log( UE.dom.domUtils.getStyle( testNode, "color" ) );
+	 * 
+	 * //output: "" console.log( UE.dom.domUtils.getStyle( testNode, "background" ) );
+	 * 
+	 * </script> ```
+	 */
     getStyle:function (element, name) {
         var value = element.style[ utils.cssStyleToDomStyle(name) ];
         return utils.fixColor(name, value);
     },
     /**
-     * 为元素element设置样式属性值
-     * @method setStyle
-     * @param { Element } element 需要设置样式的元素
-     * @param { String } styleName 样式名
-     * @param { String } styleValue 样式值
-     * @example
-     * ```html
-     * <div id="test"></div>
-     *
-     * <script>
-     *
-     *      var testNode = document.getElementById( "test" );
-     *
-     *      //output: ""
-     *      console.log( testNode.style.color );
-     *
-     *      UE.dom.domUtils.setStyle( testNode, 'color', 'red' );
-     *      //output: "red"
-     *      console.log( testNode.style.color );
-     *
-     * </script>
-     * ```
-     */
+	 * 为元素element设置样式属性值
+	 * 
+	 * @method setStyle
+	 * @param {
+	 *            Element } element 需要设置样式的元素
+	 * @param {
+	 *            String } styleName 样式名
+	 * @param {
+	 *            String } styleValue 样式值
+	 * @example ```html <div id="test"></div>
+	 * 
+	 * <script>
+	 * 
+	 * var testNode = document.getElementById( "test" );
+	 * 
+	 * //output: "" console.log( testNode.style.color );
+	 * 
+	 * UE.dom.domUtils.setStyle( testNode, 'color', 'red' ); //output: "red" console.log( testNode.style.color );
+	 * 
+	 * </script> ```
+	 */
     setStyle:function (element, name, value) {
         element.style[utils.cssStyleToDomStyle(name)] = value;
         if(!utils.trim(element.style.cssText)){
@@ -3669,30 +3379,25 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 为元素element设置多个样式属性值
-     * @method setStyles
-     * @param { Element } element 需要设置样式的元素
-     * @param { Object } styles 样式名值对
-     * @example
-     * ```html
-     * <div id="test"></div>
-     *
-     * <script>
-     *
-     *      var testNode = document.getElementById( "test" );
-     *
-     *      //output: ""
-     *      console.log( testNode.style.color );
-     *
-     *      UE.dom.domUtils.setStyles( testNode, {
-     *          'color': 'red'
-     *      } );
-     *      //output: "red"
-     *      console.log( testNode.style.color );
-     *
-     * </script>
-     * ```
-     */
+	 * 为元素element设置多个样式属性值
+	 * 
+	 * @method setStyles
+	 * @param {
+	 *            Element } element 需要设置样式的元素
+	 * @param {
+	 *            Object } styles 样式名值对
+	 * @example ```html <div id="test"></div>
+	 * 
+	 * <script>
+	 * 
+	 * var testNode = document.getElementById( "test" );
+	 * 
+	 * //output: "" console.log( testNode.style.color );
+	 * 
+	 * UE.dom.domUtils.setStyles( testNode, { 'color': 'red' } ); //output: "red" console.log( testNode.style.color );
+	 * 
+	 * </script> ```
+	 */
     setStyles:function (element, styles) {
         for (var name in styles) {
             if (styles.hasOwnProperty(name)) {
@@ -3701,10 +3406,11 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 删除_moz_dirty属性
-     * @private
-     * @method removeDirtyAttr
-     */
+	 * 删除_moz_dirty属性
+	 * 
+	 * @private
+	 * @method removeDirtyAttr
+	 */
     removeDirtyAttr:function (node) {
         for (var i = 0, ci, nodes = node.getElementsByTagName('*'); ci = nodes[i++];) {
             ci.removeAttribute('_moz_dirty');
@@ -3712,49 +3418,40 @@ var domUtils = dom.domUtils = {
         node.removeAttribute('_moz_dirty');
     },
     /**
-     * 获取子节点的数量
-     * @method getChildCount
-     * @param { Element } node 需要检测的元素
-     * @return { Number } 给定的node元素的子节点数量
-     * @example
-     * ```html
-     * <div id="test">
-     *      <span></span>
-     * </div>
-     *
-     * <script>
-     *
-     *     //output: 3
-     *     console.log( UE.dom.domUtils.getChildCount( document.getElementById("test") ) );
-     *
-     * </script>
-     * ```
-     */
+	 * 获取子节点的数量
+	 * 
+	 * @method getChildCount
+	 * @param {
+	 *            Element } node 需要检测的元素
+	 * @return { Number } 给定的node元素的子节点数量
+	 * @example ```html <div id="test"> <span></span> </div>
+	 * 
+	 * <script>
+	 * 
+	 * //output: 3 console.log( UE.dom.domUtils.getChildCount( document.getElementById("test") ) );
+	 * 
+	 * </script> ```
+	 */
 
     /**
-     * 根据给定的过滤规则， 获取符合条件的子节点的数量
-     * @method getChildCount
-     * @param { Element } node 需要检测的元素
-     * @param { Function } fn 过滤器， 要求对符合条件的子节点返回true， 反之则要求返回false
-     * @return { Number } 符合过滤条件的node元素的子节点数量
-     * @example
-     * ```html
-     * <div id="test">
-     *      <span></span>
-     * </div>
-     *
-     * <script>
-     *
-     *     //output: 1
-     *     console.log( UE.dom.domUtils.getChildCount( document.getElementById("test"), function ( node ) {
-     *
-     *         return node.nodeType === 1;
-     *
-     *     } ) );
-     *
-     * </script>
-     * ```
-     */
+	 * 根据给定的过滤规则， 获取符合条件的子节点的数量
+	 * 
+	 * @method getChildCount
+	 * @param {
+	 *            Element } node 需要检测的元素
+	 * @param {
+	 *            Function } fn 过滤器， 要求对符合条件的子节点返回true， 反之则要求返回false
+	 * @return { Number } 符合过滤条件的node元素的子节点数量
+	 * @example ```html <div id="test"> <span></span> </div>
+	 * 
+	 * <script>
+	 * 
+	 * //output: 1 console.log( UE.dom.domUtils.getChildCount( document.getElementById("test"), function ( node ) {
+	 * 
+	 * return node.nodeType === 1; } ) );
+	 * 
+	 * </script> ```
+	 */
     getChildCount:function (node, fn) {
         var count = 0, first = node.firstChild;
         fn = fn || function () {
@@ -3770,15 +3467,14 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 判断给定节点是否为空节点
-     * @method isEmptyNode
-     * @param { Node } node 需要检测的节点对象
-     * @return { Boolean } 节点是否为空
-     * @example
-     * ```javascript
-     * UE.dom.domUtils.isEmptyNode( document.body );
-     * ```
-     */
+	 * 判断给定节点是否为空节点
+	 * 
+	 * @method isEmptyNode
+	 * @param {
+	 *            Node } node 需要检测的节点对象
+	 * @return { Boolean } 节点是否为空
+	 * @example ```javascript UE.dom.domUtils.isEmptyNode( document.body ); ```
+	 */
     isEmptyNode:function (node) {
         return !node.firstChild || domUtils.getChildCount(node, function (node) {
             return  !domUtils.isBr(node) && !domUtils.isBookmarkNode(node) && !domUtils.isWhitespace(node)
@@ -3791,12 +3487,16 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 将显示区域滚动到指定节点的位置
-     * @method scrollToView
-     * @param    {Node}   node    节点
-     * @param    {window}   win      window对象
-     * @param    {Number}    offsetTop    距离上方的偏移量
-     */
+	 * 将显示区域滚动到指定节点的位置
+	 * 
+	 * @method scrollToView
+	 * @param {Node}
+	 *            node 节点
+	 * @param {window}
+	 *            win window对象
+	 * @param {Number}
+	 *            offsetTop 距离上方的偏移量
+	 */
     scrollToView:function (node, win, offsetTop) {
         var getViewPaneSize = function () {
                 var doc = win.document,
@@ -3832,22 +3532,27 @@ var domUtils = dom.domUtils = {
         }
     },
     /**
-     * 判断给定节点是否为br
-     * @method isBr
-     * @param { Node } node 需要判断的节点对象
-     * @return { Boolean } 给定的节点是否是br节点
-     */
+	 * 判断给定节点是否为br
+	 * 
+	 * @method isBr
+	 * @param {
+	 *            Node } node 需要判断的节点对象
+	 * @return { Boolean } 给定的节点是否是br节点
+	 */
     isBr:function (node) {
         return node.nodeType == 1 && node.tagName == 'BR';
     },
     /**
-     * 判断给定的节点是否是一个“填充”节点
-     * @private
-     * @method isFillChar
-     * @param { Node } node 需要判断的节点
-     * @param { Boolean } isInStart 是否从节点内容的开始位置匹配
-     * @returns { Boolean } 节点是否是填充节点
-     */
+	 * 判断给定的节点是否是一个“填充”节点
+	 * 
+	 * @private
+	 * @method isFillChar
+	 * @param {
+	 *            Node } node 需要判断的节点
+	 * @param {
+	 *            Boolean } isInStart 是否从节点内容的开始位置匹配
+	 * @returns { Boolean } 节点是否是填充节点
+	 */
     isFillChar:function (node,isInStart) {
         if(node.nodeType != 3)
             return false;
@@ -3912,28 +3617,27 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 判断给定的元素是否是一个空元素
-     * @method isEmptyBlock
-     * @param { Element } node 需要判断的元素
-     * @return { Boolean } 是否是空元素
-     * @example
-     * ```html
-     * <div id="test"></div>
-     *
-     * <script>
-     *     //output: true
-     *     console.log( UE.dom.domUtils.isEmptyBlock( document.getElementById("test") ) );
-     * </script>
-     * ```
-     */
+	 * 判断给定的元素是否是一个空元素
+	 * 
+	 * @method isEmptyBlock
+	 * @param {
+	 *            Element } node 需要判断的元素
+	 * @return { Boolean } 是否是空元素
+	 * @example ```html <div id="test"></div>
+	 * 
+	 * <script> //output: true console.log( UE.dom.domUtils.isEmptyBlock( document.getElementById("test") ) ); </script> ```
+	 */
 
     /**
-     * 根据指定的判断规则判断给定的元素是否是一个空元素
-     * @method isEmptyBlock
-     * @param { Element } node 需要判断的元素
-     * @param { RegExp } reg 对内容执行判断的正则表达式对象
-     * @return { Boolean } 是否是空元素
-     */
+	 * 根据指定的判断规则判断给定的元素是否是一个空元素
+	 * 
+	 * @method isEmptyBlock
+	 * @param {
+	 *            Element } node 需要判断的元素
+	 * @param {
+	 *            RegExp } reg 对内容执行判断的正则表达式对象
+	 * @return { Boolean } 是否是空元素
+	 */
     isEmptyBlock:function (node,reg) {
         if(node.nodeType != 1)
             return 0;
@@ -3951,31 +3655,25 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 移动元素使得该元素的位置移动指定的偏移量的距离
-     * @method setViewportOffset
-     * @param { Element } element 需要设置偏移量的元素
-     * @param { Object } offset 偏移量， 形如{ left: 100, top: 50 }的一个键值对， 表示该元素将在
-     *                                  现有的位置上向水平方向偏移offset.left的距离， 在竖直方向上偏移
-     *                                  offset.top的距离
-     * @example
-     * ```html
-     * <div id="test" style="top: 100px; left: 50px; position: absolute;"></div>
-     *
-     * <script>
-     *
-     *     var testNode = document.getElementById("test");
-     *
-     *     UE.dom.domUtils.setViewportOffset( testNode, {
-     *         left: 200,
-     *         top: 50
-     *     } );
-     *
-     *     //output: top: 300px; left: 100px; position: absolute;
-     *     console.log( testNode.style.cssText );
-     *
-     * </script>
-     * ```
-     */
+	 * 移动元素使得该元素的位置移动指定的偏移量的距离
+	 * 
+	 * @method setViewportOffset
+	 * @param {
+	 *            Element } element 需要设置偏移量的元素
+	 * @param {
+	 *            Object } offset 偏移量， 形如{ left: 100, top: 50 }的一个键值对， 表示该元素将在 现有的位置上向水平方向偏移offset.left的距离， 在竖直方向上偏移 offset.top的距离
+	 * @example ```html <div id="test" style="top: 100px; left: 50px; position: absolute;"></div>
+	 * 
+	 * <script>
+	 * 
+	 * var testNode = document.getElementById("test");
+	 * 
+	 * UE.dom.domUtils.setViewportOffset( testNode, { left: 200, top: 50 } );
+	 * 
+	 * //output: top: 300px; left: 100px; position: absolute; console.log( testNode.style.cssText );
+	 * 
+	 * </script> ```
+	 */
     setViewportOffset:function (element, offset) {
         var left = parseInt(element.style.left) | 0;
         var top = parseInt(element.style.top) | 0;
@@ -3991,29 +3689,26 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 用“填充字符”填充节点
-     * @method fillNode
-     * @private
-     * @param { DomDocument } doc 填充的节点所在的docment对象
-     * @param { Node } node 需要填充的节点对象
-     * @example
-     * ```html
-     * <div id="test"></div>
-     *
-     * <script>
-     *     var testNode = document.getElementById("test");
-     *
-     *     //output: 0
-     *     console.log( testNode.childNodes.length );
-     *
-     *     UE.dom.domUtils.fillNode( document, testNode );
-     *
-     *     //output: 1
-     *     console.log( testNode.childNodes.length );
-     *
-     * </script>
-     * ```
-     */
+	 * 用“填充字符”填充节点
+	 * 
+	 * @method fillNode
+	 * @private
+	 * @param {
+	 *            DomDocument } doc 填充的节点所在的docment对象
+	 * @param {
+	 *            Node } node 需要填充的节点对象
+	 * @example ```html <div id="test"></div>
+	 * 
+	 * <script> var testNode = document.getElementById("test");
+	 * 
+	 * //output: 0 console.log( testNode.childNodes.length );
+	 * 
+	 * UE.dom.domUtils.fillNode( document, testNode );
+	 * 
+	 * //output: 1 console.log( testNode.childNodes.length );
+	 * 
+	 * </script> ```
+	 */
     fillNode:function (doc, node) {
         var tmpNode = browser.ie ? doc.createTextNode(domUtils.fillChar) : doc.createElement('br');
         node.innerHTML = '';
@@ -4021,67 +3716,52 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 把节点src的所有子节点追加到另一个节点tag上去
-     * @method moveChild
-     * @param { Node } src 源节点， 该节点下的所有子节点将被移除
-     * @param { Node } tag 目标节点， 从源节点移除的子节点将被追加到该节点下
-     * @example
-     * ```html
-     * <div id="test1">
-     *      <span></span>
-     * </div>
-     * <div id="test2">
-     *     <div></div>
-     * </div>
-     *
-     * <script>
-     *
-     *     var test1 = document.getElementById("test1"),
-     *         test2 = document.getElementById("test2");
-     *
-     *     UE.dom.domUtils.moveChild( test1, test2 );
-     *
-     *     //output: ""（空字符串）
-     *     console.log( test1.innerHTML );
-     *
-     *     //output: "<div></div><span></span>"
-     *     console.log( test2.innerHTML );
-     *
-     * </script>
-     * ```
-     */
+	 * 把节点src的所有子节点追加到另一个节点tag上去
+	 * 
+	 * @method moveChild
+	 * @param {
+	 *            Node } src 源节点， 该节点下的所有子节点将被移除
+	 * @param {
+	 *            Node } tag 目标节点， 从源节点移除的子节点将被追加到该节点下
+	 * @example ```html <div id="test1"> <span></span> </div> <div id="test2"> <div></div> </div>
+	 * 
+	 * <script>
+	 * 
+	 * var test1 = document.getElementById("test1"), test2 = document.getElementById("test2");
+	 * 
+	 * UE.dom.domUtils.moveChild( test1, test2 );
+	 * 
+	 * //output: ""（空字符串） console.log( test1.innerHTML );
+	 * 
+	 * //output: "<div></div><span></span>" console.log( test2.innerHTML );
+	 * 
+	 * </script> ```
+	 */
 
     /**
-     * 把节点src的所有子节点移动到另一个节点tag上去, 可以通过dir参数控制附加的行为是“追加”还是“插入顶部”
-     * @method moveChild
-     * @param { Node } src 源节点， 该节点下的所有子节点将被移除
-     * @param { Node } tag 目标节点， 从源节点移除的子节点将被附加到该节点下
-     * @param { Boolean } dir 附加方式， 如果为true， 则附加进去的节点将被放到目标节点的顶部， 反之，则放到末尾
-     * @example
-     * ```html
-     * <div id="test1">
-     *      <span></span>
-     * </div>
-     * <div id="test2">
-     *     <div></div>
-     * </div>
-     *
-     * <script>
-     *
-     *     var test1 = document.getElementById("test1"),
-     *         test2 = document.getElementById("test2");
-     *
-     *     UE.dom.domUtils.moveChild( test1, test2, true );
-     *
-     *     //output: ""（空字符串）
-     *     console.log( test1.innerHTML );
-     *
-     *     //output: "<span></span><div></div>"
-     *     console.log( test2.innerHTML );
-     *
-     * </script>
-     * ```
-     */
+	 * 把节点src的所有子节点移动到另一个节点tag上去, 可以通过dir参数控制附加的行为是“追加”还是“插入顶部”
+	 * 
+	 * @method moveChild
+	 * @param {
+	 *            Node } src 源节点， 该节点下的所有子节点将被移除
+	 * @param {
+	 *            Node } tag 目标节点， 从源节点移除的子节点将被附加到该节点下
+	 * @param {
+	 *            Boolean } dir 附加方式， 如果为true， 则附加进去的节点将被放到目标节点的顶部， 反之，则放到末尾
+	 * @example ```html <div id="test1"> <span></span> </div> <div id="test2"> <div></div> </div>
+	 * 
+	 * <script>
+	 * 
+	 * var test1 = document.getElementById("test1"), test2 = document.getElementById("test2");
+	 * 
+	 * UE.dom.domUtils.moveChild( test1, test2, true );
+	 * 
+	 * //output: ""（空字符串） console.log( test1.innerHTML );
+	 * 
+	 * //output: "<span></span><div></div>" console.log( test2.innerHTML );
+	 * 
+	 * </script> ```
+	 */
     moveChild:function (src, tag, dir) {
         while (src.firstChild) {
             if (dir && tag.firstChild) {
@@ -4093,130 +3773,113 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 判断节点的标签上是否不存在任何属性
-     * @method hasNoAttributes
-     * @private
-     * @param { Node } node 需要检测的节点对象
-     * @return { Boolean } 节点是否不包含任何属性
-     * @example
-     * ```html
-     * <div id="test"><span>xxxx</span></div>
-     *
-     * <script>
-     *
-     *     //output: false
-     *     console.log( UE.dom.domUtils.hasNoAttributes( document.getElementById("test") ) );
-     *
-     *     //output: true
-     *     console.log( UE.dom.domUtils.hasNoAttributes( document.getElementById("test").firstChild ) );
-     *
-     * </script>
-     * ```
-     */
+	 * 判断节点的标签上是否不存在任何属性
+	 * 
+	 * @method hasNoAttributes
+	 * @private
+	 * @param {
+	 *            Node } node 需要检测的节点对象
+	 * @return { Boolean } 节点是否不包含任何属性
+	 * @example ```html <div id="test"><span>xxxx</span></div>
+	 * 
+	 * <script>
+	 * 
+	 * //output: false console.log( UE.dom.domUtils.hasNoAttributes( document.getElementById("test") ) );
+	 * 
+	 * //output: true console.log( UE.dom.domUtils.hasNoAttributes( document.getElementById("test").firstChild ) );
+	 * 
+	 * </script> ```
+	 */
     hasNoAttributes:function (node) {
         return browser.ie ? /^<\w+\s*?>/.test(node.outerHTML) : node.attributes.length == 0;
     },
 
     /**
-     * 检测节点是否是UEditor所使用的辅助节点
-     * @method isCustomeNode
-     * @private
-     * @param { Node } node 需要检测的节点
-     * @remind 辅助节点是指编辑器要完成工作临时添加的节点， 在输出的时候将会从编辑器内移除， 不会影响最终的结果。
-     * @return { Boolean } 给定的节点是否是一个辅助节点
-     */
+	 * 检测节点是否是UEditor所使用的辅助节点
+	 * 
+	 * @method isCustomeNode
+	 * @private
+	 * @param {
+	 *            Node } node 需要检测的节点
+	 * @remind 辅助节点是指编辑器要完成工作临时添加的节点， 在输出的时候将会从编辑器内移除， 不会影响最终的结果。
+	 * @return { Boolean } 给定的节点是否是一个辅助节点
+	 */
     isCustomeNode:function (node) {
         return node.nodeType == 1 && node.getAttribute('_ue_custom_node_');
     },
 
     /**
-     * 检测节点的标签是否是给定的标签
-     * @method isTagNode
-     * @param { Node } node 需要检测的节点对象
-     * @param { String } tagName 标签
-     * @return { Boolean } 节点的标签是否是给定的标签
-     * @example
-     * ```html
-     * <div id="test"></div>
-     *
-     * <script>
-     *
-     *     //output: true
-     *     console.log( UE.dom.domUtils.isTagNode( document.getElementById("test"), "div" ) );
-     *
-     * </script>
-     * ```
-     */
+	 * 检测节点的标签是否是给定的标签
+	 * 
+	 * @method isTagNode
+	 * @param {
+	 *            Node } node 需要检测的节点对象
+	 * @param {
+	 *            String } tagName 标签
+	 * @return { Boolean } 节点的标签是否是给定的标签
+	 * @example ```html <div id="test"></div>
+	 * 
+	 * <script>
+	 * 
+	 * //output: true console.log( UE.dom.domUtils.isTagNode( document.getElementById("test"), "div" ) );
+	 * 
+	 * </script> ```
+	 */
     isTagNode:function (node, tagNames) {
         return node.nodeType == 1 && new RegExp('\\b' + node.tagName + '\\b','i').test(tagNames)
     },
 
     /**
-     * 给定一个节点数组，在通过指定的过滤器过滤后， 获取其中满足过滤条件的第一个节点
-     * @method filterNodeList
-     * @param { Array } nodeList 需要过滤的节点数组
-     * @param { Function } fn 过滤器， 对符合条件的节点， 执行结果返回true， 反之则返回false
-     * @return { Node | NULL } 如果找到符合过滤条件的节点， 则返回该节点， 否则返回NULL
-     * @example
-     * ```javascript
-     * var divNodes = document.getElementsByTagName("div");
-     * divNodes = [].slice.call( divNodes, 0 );
-     *
-     * //output: null
-     * console.log( UE.dom.domUtils.filterNodeList( divNodes, function ( node ) {
-     *     return node.tagName.toLowerCase() !== 'div';
-     * } ) );
-     * ```
-     */
+	 * 给定一个节点数组，在通过指定的过滤器过滤后， 获取其中满足过滤条件的第一个节点
+	 * 
+	 * @method filterNodeList
+	 * @param {
+	 *            Array } nodeList 需要过滤的节点数组
+	 * @param {
+	 *            Function } fn 过滤器， 对符合条件的节点， 执行结果返回true， 反之则返回false
+	 * @return { Node | NULL } 如果找到符合过滤条件的节点， 则返回该节点， 否则返回NULL
+	 * @example ```javascript var divNodes = document.getElementsByTagName("div"); divNodes = [].slice.call( divNodes, 0 );
+	 * 
+	 * //output: null console.log( UE.dom.domUtils.filterNodeList( divNodes, function ( node ) { return node.tagName.toLowerCase() !== 'div'; } ) ); ```
+	 */
 
     /**
-     * 给定一个节点数组nodeList和一组标签名tagNames， 获取其中能够匹配标签名的节点集合中的第一个节点
-     * @method filterNodeList
-     * @param { Array } nodeList 需要过滤的节点数组
-     * @param { String } tagNames 需要匹配的标签名， 多个标签名之间用空格分割
-     * @return { Node | NULL } 如果找到标签名匹配的节点， 则返回该节点， 否则返回NULL
-     * @example
-     * ```javascript
-     * var divNodes = document.getElementsByTagName("div");
-     * divNodes = [].slice.call( divNodes, 0 );
-     *
-     * //output: null
-     * console.log( UE.dom.domUtils.filterNodeList( divNodes, 'a span' ) );
-     * ```
-     */
+	 * 给定一个节点数组nodeList和一组标签名tagNames， 获取其中能够匹配标签名的节点集合中的第一个节点
+	 * 
+	 * @method filterNodeList
+	 * @param {
+	 *            Array } nodeList 需要过滤的节点数组
+	 * @param {
+	 *            String } tagNames 需要匹配的标签名， 多个标签名之间用空格分割
+	 * @return { Node | NULL } 如果找到标签名匹配的节点， 则返回该节点， 否则返回NULL
+	 * @example ```javascript var divNodes = document.getElementsByTagName("div"); divNodes = [].slice.call( divNodes, 0 );
+	 * 
+	 * //output: null console.log( UE.dom.domUtils.filterNodeList( divNodes, 'a span' ) ); ```
+	 */
 
     /**
-     * 给定一个节点数组，在通过指定的过滤器过滤后， 如果参数forAll为true， 则会返回所有满足过滤
-     * 条件的节点集合， 否则， 返回满足条件的节点集合中的第一个节点
-     * @method filterNodeList
-     * @param { Array } nodeList 需要过滤的节点数组
-     * @param { Function } fn 过滤器， 对符合条件的节点， 执行结果返回true， 反之则返回false
-     * @param { Boolean } forAll 是否返回整个节点数组, 如果该参数为false， 则返回节点集合中的第一个节点
-     * @return { Array | Node | NULL } 如果找到符合过滤条件的节点， 则根据参数forAll的值决定返回满足
-     *                                      过滤条件的节点数组或第一个节点， 否则返回NULL
-     * @example
-     * ```javascript
-     * var divNodes = document.getElementsByTagName("div");
-     * divNodes = [].slice.call( divNodes, 0 );
-     *
-     * //output: 3（假定有3个div）
-     * console.log( divNodes.length );
-     *
-     * var nodes = UE.dom.domUtils.filterNodeList( divNodes, function ( node ) {
-     *     return node.tagName.toLowerCase() === 'div';
-     * }, true );
-     *
-     * //output: 3
-     * console.log( nodes.length );
-     *
-     * var node = UE.dom.domUtils.filterNodeList( divNodes, function ( node ) {
-     *     return node.tagName.toLowerCase() === 'div';
-     * }, false );
-     *
-     * //output: div
-     * console.log( node.nodeName );
-     * ```
-     */
+	 * 给定一个节点数组，在通过指定的过滤器过滤后， 如果参数forAll为true， 则会返回所有满足过滤 条件的节点集合， 否则， 返回满足条件的节点集合中的第一个节点
+	 * 
+	 * @method filterNodeList
+	 * @param {
+	 *            Array } nodeList 需要过滤的节点数组
+	 * @param {
+	 *            Function } fn 过滤器， 对符合条件的节点， 执行结果返回true， 反之则返回false
+	 * @param {
+	 *            Boolean } forAll 是否返回整个节点数组, 如果该参数为false， 则返回节点集合中的第一个节点
+	 * @return { Array | Node | NULL } 如果找到符合过滤条件的节点， 则根据参数forAll的值决定返回满足 过滤条件的节点数组或第一个节点， 否则返回NULL
+	 * @example ```javascript var divNodes = document.getElementsByTagName("div"); divNodes = [].slice.call( divNodes, 0 );
+	 * 
+	 * //output: 3（假定有3个div） console.log( divNodes.length );
+	 * 
+	 * var nodes = UE.dom.domUtils.filterNodeList( divNodes, function ( node ) { return node.tagName.toLowerCase() === 'div'; }, true );
+	 * 
+	 * //output: 3 console.log( nodes.length );
+	 * 
+	 * var node = UE.dom.domUtils.filterNodeList( divNodes, function ( node ) { return node.tagName.toLowerCase() === 'div'; }, false );
+	 * 
+	 * //output: div console.log( node.nodeName ); ```
+	 */
     filterNodeList : function(nodelist,filter,forAll){
         var results = [];
         if(!utils .isFunction(filter)){
@@ -4232,12 +3895,15 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 查询给定的range选区是否在给定的node节点内，且在该节点的最末尾
-     * @method isInNodeEndBoundary
-     * @param { UE.dom.Range } rng 需要判断的range对象， 该对象的startContainer不能为NULL
-     * @param node 需要检测的节点对象
-     * @return { Number } 如果给定的选取range对象是在node内部的最末端， 则返回1, 否则返回0
-     */
+	 * 查询给定的range选区是否在给定的node节点内，且在该节点的最末尾
+	 * 
+	 * @method isInNodeEndBoundary
+	 * @param {
+	 *            UE.dom.Range } rng 需要判断的range对象， 该对象的startContainer不能为NULL
+	 * @param node
+	 *            需要检测的节点对象
+	 * @return { Number } 如果给定的选取range对象是在node内部的最末端， 则返回1, 否则返回0
+	 */
     isInNodeEndBoundary : function (rng,node){
         var start = rng.startContainer;
         if(start.nodeType == 3 && rng.startOffset != start.nodeValue.length){
@@ -4272,6 +3938,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 // core/Range.js
 /**
  * Range封装
+ * 
  * @file
  * @module UE.dom
  * @class Range
@@ -4280,12 +3947,14 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
 /**
  * dom操作封装
+ * 
  * @unfile
  * @module UE.dom
  */
 
 /**
  * Range实现类，本类是UEditor底层核心类，封装不同浏览器之间的Range操作。
+ * 
  * @unfile
  * @module UE.dom
  * @class Range
@@ -4298,9 +3967,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         fillData;
 
     /**
-     * 更新range的collapse状态
-     * @param  {Range}   range    range对象
-     */
+	 * 更新range的collapse状态
+	 * 
+	 * @param {Range}
+	 *            range range对象
+	 */
     function updateCollapse(range) {
         range.collapsed =
             range.startContainer && range.endContainer &&
@@ -4312,7 +3983,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         return !rng.collapsed && rng.startContainer.nodeType == 1 && rng.startContainer === rng.endContainer && rng.endOffset - rng.startOffset == 1
     }
     function setEndPoint(toStart, node, offset, range) {
-        //如果node是自闭合标签要处理
+        // 如果node是自闭合标签要处理
         if (node.nodeType == 1 && (dtd.$empty[node.tagName] || dtd.$nonChild[node.tagName])) {
             offset = domUtils.getNodeIndex(node) + (toStart ? 0 : 1);
             node = node.parentNode;
@@ -4335,8 +4006,8 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     }
 
     function execContentsAction(range, action) {
-        //调整边界
-        //range.includeBookmark();
+        // 调整边界
+        // range.includeBookmark();
         var start = range.startContainer,
             end = range.endContainer,
             startOffset = range.startOffset,
@@ -4352,7 +4023,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         }
         if (start === end && start.nodeType == 3) {
             frag.appendChild(doc.createTextNode(start.substringData(startOffset, endOffset - startOffset)));
-            //is not clone
+            // is not clone
             if (action) {
                 start.deleteData(startOffset, endOffset - startOffset);
                 range.collapse(true);
@@ -4370,7 +4041,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 if (!tmpStart) {
                     if (range.startContainer.nodeType == 3) {
                         clone.appendChild(doc.createTextNode(start.nodeValue.slice(startOffset)));
-                        //is not clone
+                        // is not clone
                         if (action) {
                             start.deleteData(startOffset, start.nodeValue.length - startOffset);
                         }
@@ -4402,7 +4073,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             if (ei == end) {
                 if (!tmpEnd && range.endContainer.nodeType == 3) {
                     clone.appendChild(doc.createTextNode(end.substringData(0, endOffset)));
-                    //is not clone
+                    // is not clone
                     if (action) {
                         end.deleteData(0, endOffset);
                     }
@@ -4411,7 +4082,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 currentLevel = ei.cloneNode(false);
                 clone.appendChild(currentLevel);
             }
-            //如果两端同级，右边第一次已经被开始做了
+            // 如果两端同级，右边第一次已经被开始做了
             if (j != i || !startParents[i]) {
                 while (current) {
                     if (current === start) {
@@ -4433,39 +4104,39 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     }
 
     /**
-     * 创建一个跟document绑定的空的Range实例
-     * @constructor
-     * @param { Document } document 新建的选区所属的文档对象
-     */
+	 * 创建一个跟document绑定的空的Range实例
+	 * 
+	 * @constructor
+	 * @param {
+	 *            Document } document 新建的选区所属的文档对象
+	 */
 
     /**
-     * @property { Node } startContainer 当前Range的开始边界的容器节点, 可以是一个元素节点或者是文本节点
-     */
+	 * @property { Node } startContainer 当前Range的开始边界的容器节点, 可以是一个元素节点或者是文本节点
+	 */
 
     /**
-     * @property { Node } startOffset 当前Range的开始边界容器节点的偏移量, 如果是元素节点，
-     *                              该值就是childNodes中的第几个节点， 如果是文本节点就是文本内容的第几个字符
-     */
+	 * @property { Node } startOffset 当前Range的开始边界容器节点的偏移量, 如果是元素节点， 该值就是childNodes中的第几个节点， 如果是文本节点就是文本内容的第几个字符
+	 */
 
     /**
-     * @property { Node } endContainer 当前Range的结束边界的容器节点, 可以是一个元素节点或者是文本节点
-     */
+	 * @property { Node } endContainer 当前Range的结束边界的容器节点, 可以是一个元素节点或者是文本节点
+	 */
 
     /**
-     * @property { Node } endOffset 当前Range的结束边界容器节点的偏移量, 如果是元素节点，
-     *                              该值就是childNodes中的第几个节点， 如果是文本节点就是文本内容的第几个字符
-     */
+	 * @property { Node } endOffset 当前Range的结束边界容器节点的偏移量, 如果是元素节点， 该值就是childNodes中的第几个节点， 如果是文本节点就是文本内容的第几个字符
+	 */
 
     /**
-     * @property { Boolean } collapsed 当前Range是否闭合
-     * @default true
-     * @remind Range是闭合的时候， startContainer === endContainer && startOffset === endOffset
-     */
+	 * @property { Boolean } collapsed 当前Range是否闭合
+	 * @default true
+	 * @remind Range是闭合的时候， startContainer === endContainer && startOffset === endOffset
+	 */
 
     /**
-     * @property { Document } document 当前Range所属的Document对象
-     * @remind 不同range的的document属性可以是不同的
-     */
+	 * @property { Document } document 当前Range所属的Document对象
+	 * @remind 不同range的的document属性可以是不同的
+	 */
     var Range = dom.Range = function (document) {
         var me = this;
         me.startContainer =
@@ -4477,10 +4148,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     };
 
     /**
-     * 删除fillData
-     * @param doc
-     * @param excludeNode
-     */
+	 * 删除fillData
+	 * 
+	 * @param doc
+	 * @param excludeNode
+	 */
     function removeFillData(doc, excludeNode) {
         try {
             if (fillData && domUtils.inDoc(fillData, doc)) {
@@ -4488,7 +4160,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     var tmpNode = fillData.parentNode;
                     domUtils.remove(fillData);
                     while (tmpNode && domUtils.isEmptyInlineElement(tmpNode) &&
-                        //safari的contains有bug
+                        // safari的contains有bug
                         (browser.safari ? !(domUtils.getPosition(tmpNode,excludeNode) & domUtils.POSITION_CONTAINS) : !tmpNode.contains(excludeNode))
                         ) {
                         fillData = tmpNode.parentNode;
@@ -4504,9 +4176,9 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     }
 
     /**
-     * @param node
-     * @param dir
-     */
+	 * @param node
+	 * @param dir
+	 */
     function mergeSibling(node, dir) {
         var tmpNode;
         node = node[dir];
@@ -4520,68 +4192,41 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     Range.prototype = {
 
         /**
-         * 克隆选区的内容到一个DocumentFragment里
-         * @method cloneContents
-         * @return { DocumentFragment | NULL } 如果选区是闭合的将返回null， 否则， 返回包含所clone内容的DocumentFragment元素
-         * @example
-         * ```html
-         * <body>
-         *      <!-- 中括号表示选区 -->
-         *      <b>x<i>x[x</i>xx]x</b>
-         *
-         *      <script>
-         *          //range是已选中的选区
-         *          var fragment = range.cloneContents(),
-         *              node = document.createElement("div");
-         *
-         *          node.appendChild( fragment );
-         *
-         *          //output: <i>x</i>xx
-         *          console.log( node.innerHTML );
-         *
-         *      </script>
-         * </body>
-         * ```
-         */
+		 * 克隆选区的内容到一个DocumentFragment里
+		 * 
+		 * @method cloneContents
+		 * @return { DocumentFragment | NULL } 如果选区是闭合的将返回null， 否则， 返回包含所clone内容的DocumentFragment元素
+		 * @example ```html <body> <!-- 中括号表示选区 --> <b>x<i>x[x</i>xx]x</b>
+		 * 
+		 * <script> //range是已选中的选区 var fragment = range.cloneContents(), node = document.createElement("div");
+		 * 
+		 * node.appendChild( fragment );
+		 * 
+		 * //output: <i>x</i>xx console.log( node.innerHTML );
+		 * 
+		 * </script> </body> ```
+		 */
         cloneContents:function () {
             return this.collapsed ? null : execContentsAction(this, 0);
         },
 
         /**
-         * 删除当前选区范围中的所有内容
-         * @method deleteContents
-         * @remind 执行完该操作后， 当前Range对象变成了闭合状态
-         * @return { UE.dom.Range } 当前操作的Range对象
-         * @example
-         * ```html
-         * <body>
-         *      <!-- 中括号表示选区 -->
-         *      <b>x<i>x[x</i>xx]x</b>
-         *
-         *      <script>
-         *          //range是已选中的选区
-         *          range.deleteContents();
-         *
-         *          //竖线表示闭合后的选区位置
-         *          //output: <b>x<i>x</i>|x</b>
-         *          console.log( document.body.innerHTML );
-         *
-         *          //此时， range的各项属性为
-         *          //output: B
-         *          console.log( range.startContainer.tagName );
-         *          //output: 2
-         *          console.log( range.startOffset );
-         *          //output: B
-         *          console.log( range.endContainer.tagName );
-         *          //output: 2
-         *          console.log( range.endOffset );
-         *          //output: true
-         *          console.log( range.collapsed );
-         *
-         *      </script>
-         * </body>
-         * ```
-         */
+		 * 删除当前选区范围中的所有内容
+		 * 
+		 * @method deleteContents
+		 * @remind 执行完该操作后， 当前Range对象变成了闭合状态
+		 * @return { UE.dom.Range } 当前操作的Range对象
+		 * @example ```html <body> <!-- 中括号表示选区 --> <b>x<i>x[x</i>xx]x</b>
+		 * 
+		 * <script> //range是已选中的选区 range.deleteContents();
+		 * 
+		 * //竖线表示闭合后的选区位置 //output: <b>x<i>x</i>|x</b> console.log( document.body.innerHTML );
+		 * 
+		 * //此时， range的各项属性为 //output: B console.log( range.startContainer.tagName ); //output: 2 console.log( range.startOffset ); //output: B console.log(
+		 * range.endContainer.tagName ); //output: 2 console.log( range.endOffset ); //output: true console.log( range.collapsed );
+		 * 
+		 * </script> </body> ```
+		 */
         deleteContents:function () {
             var txt;
             if (!this.collapsed) {
@@ -4598,312 +4243,273 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 将当前选区的内容提取到一个DocumentFragment里
-         * @method extractContents
-         * @remind 执行该操作后， 选区将变成闭合状态
-         * @warning 执行该操作后， 原来选区所选中的内容将从dom树上剥离出来
-         * @return { DocumentFragment } 返回包含所提取内容的DocumentFragment对象
-         * @example
-         * ```html
-         * <body>
-         *      <!-- 中括号表示选区 -->
-         *      <b>x<i>x[x</i>xx]x</b>
-         *
-         *      <script>
-         *          //range是已选中的选区
-         *          var fragment = range.extractContents(),
-         *              node = document.createElement( "div" );
-         *
-         *          node.appendChild( fragment );
-         *
-         *          //竖线表示闭合后的选区位置
-         *
-         *          //output: <b>x<i>x</i>|x</b>
-         *          console.log( document.body.innerHTML );
-         *          //output: <i>x</i>xx
-         *          console.log( node.innerHTML );
-         *
-         *          //此时， range的各项属性为
-         *          //output: B
-         *          console.log( range.startContainer.tagName );
-         *          //output: 2
-         *          console.log( range.startOffset );
-         *          //output: B
-         *          console.log( range.endContainer.tagName );
-         *          //output: 2
-         *          console.log( range.endOffset );
-         *          //output: true
-         *          console.log( range.collapsed );
-         *
-         *      </script>
-         * </body>
-         */
+		 * 将当前选区的内容提取到一个DocumentFragment里
+		 * 
+		 * @method extractContents
+		 * @remind 执行该操作后， 选区将变成闭合状态
+		 * @warning 执行该操作后， 原来选区所选中的内容将从dom树上剥离出来
+		 * @return { DocumentFragment } 返回包含所提取内容的DocumentFragment对象
+		 * @example ```html <body> <!-- 中括号表示选区 --> <b>x<i>x[x</i>xx]x</b>
+		 * 
+		 * <script> //range是已选中的选区 var fragment = range.extractContents(), node = document.createElement( "div" );
+		 * 
+		 * node.appendChild( fragment );
+		 * 
+		 * //竖线表示闭合后的选区位置
+		 * 
+		 * //output: <b>x<i>x</i>|x</b> console.log( document.body.innerHTML ); //output: <i>x</i>xx console.log( node.innerHTML );
+		 * 
+		 * //此时， range的各项属性为 //output: B console.log( range.startContainer.tagName ); //output: 2 console.log( range.startOffset ); //output: B console.log(
+		 * range.endContainer.tagName ); //output: 2 console.log( range.endOffset ); //output: true console.log( range.collapsed );
+		 * 
+		 * </script> </body>
+		 */
         extractContents:function () {
             return this.collapsed ? null : execContentsAction(this, 2);
         },
 
         /**
-         * 设置Range的开始容器节点和偏移量
-         * @method  setStart
-         * @remind 如果给定的节点是元素节点，那么offset指的是其子元素中索引为offset的元素，
-         *          如果是文本节点，那么offset指的是其文本内容的第offset个字符
-         * @remind 如果提供的容器节点是一个不能包含子元素的节点， 则该选区的开始容器将被设置
-         *          为该节点的父节点， 此时， 其距离开始容器的偏移量也变成了该节点在其父节点
-         *          中的索引
-         * @param { Node } node 将被设为当前选区开始边界容器的节点对象
-         * @param { int } offset 选区的开始位置偏移量
-         * @return { UE.dom.Range } 当前range对象
-         * @example
-         * ```html
-         * <!-- 选区 -->
-         * <b>xxx<i>x<span>xx</span>xx<em>xx</em>xxx</i>[xxx]</b>
-         *
-         * <script>
-         *
-         *     //执行操作
-         *     range.setStart( document.getElementsByTagName("i")[0], 1 );
-         *
-         *     //此时， 选区变成了
-         *     //<b>xxx<i>x[<span>xx</span>xx<em>xx</em>xxx</i>xxx]</b>
-         *
-         * </script>
-         * ```
-         * @example
-         * ```html
-         * <!-- 选区 -->
-         * <b>xxx<img>[xx]x</b>
-         *
-         * <script>
-         *
-         *     //执行操作
-         *     range.setStart( document.getElementsByTagName("img")[0], 3 );
-         *
-         *     //此时， 选区变成了
-         *     //<b>xxx[<img>xx]x</b>
-         *
-         * </script>
-         * ```
-         */
+		 * 设置Range的开始容器节点和偏移量
+		 * 
+		 * @method setStart
+		 * @remind 如果给定的节点是元素节点，那么offset指的是其子元素中索引为offset的元素， 如果是文本节点，那么offset指的是其文本内容的第offset个字符
+		 * @remind 如果提供的容器节点是一个不能包含子元素的节点， 则该选区的开始容器将被设置 为该节点的父节点， 此时， 其距离开始容器的偏移量也变成了该节点在其父节点 中的索引
+		 * @param {
+		 *            Node } node 将被设为当前选区开始边界容器的节点对象
+		 * @param {
+		 *            int } offset 选区的开始位置偏移量
+		 * @return { UE.dom.Range } 当前range对象
+		 * @example ```html <!-- 选区 --> <b>xxx<i>x<span>xx</span>xx<em>xx</em>xxx</i>[xxx]</b>
+		 * 
+		 * <script>
+		 * 
+		 * //执行操作 range.setStart( document.getElementsByTagName("i")[0], 1 );
+		 * 
+		 * //此时， 选区变成了 //<b>xxx<i>x[<span>xx</span>xx<em>xx</em>xxx</i>xxx]</b>
+		 * 
+		 * </script> ```
+		 * @example ```html <!-- 选区 --> <b>xxx<img>[xx]x</b>
+		 * 
+		 * <script>
+		 * 
+		 * //执行操作 range.setStart( document.getElementsByTagName("img")[0], 3 );
+		 * 
+		 * //此时， 选区变成了 //<b>xxx[<img>xx]x</b>
+		 * 
+		 * </script> ```
+		 */
         setStart:function (node, offset) {
             return setEndPoint(true, node, offset, this);
         },
 
         /**
-         * 设置Range的结束容器和偏移量
-         * @method  setEnd
-         * @param { Node } node 作为当前选区结束边界容器的节点对象
-         * @param { int } offset 结束边界的偏移量
-         * @see UE.dom.Range:setStart(Node,int)
-         * @return { UE.dom.Range } 当前range对象
-         */
+		 * 设置Range的结束容器和偏移量
+		 * 
+		 * @method setEnd
+		 * @param {
+		 *            Node } node 作为当前选区结束边界容器的节点对象
+		 * @param {
+		 *            int } offset 结束边界的偏移量
+		 * @see UE.dom.Range:setStart(Node,int)
+		 * @return { UE.dom.Range } 当前range对象
+		 */
         setEnd:function (node, offset) {
             return setEndPoint(false, node, offset, this);
         },
 
         /**
-         * 将Range开始位置设置到node节点之后
-         * @method  setStartAfter
-         * @remind 该操作将会把给定节点的父节点作为range的开始容器， 且偏移量是该节点在其父节点中的位置索引+1
-         * @param { Node } node 选区的开始边界将紧接着该节点之后
-         * @return { UE.dom.Range } 当前range对象
-         * @example
-         * ```html
-         * <!-- 选区示例 -->
-         * <b>xx<i>xxx</i><span>xx[x</span>xxx]</b>
-         *
-         * <script>
-         *
-         *     //执行操作
-         *     range.setStartAfter( document.getElementsByTagName("i")[0] );
-         *
-         *     //结果选区
-         *     //<b>xx<i>xxx</i>[<span>xxx</span>xxx]</b>
-         *
-         * </script>
-         * ```
-         */
+		 * 将Range开始位置设置到node节点之后
+		 * 
+		 * @method setStartAfter
+		 * @remind 该操作将会把给定节点的父节点作为range的开始容器， 且偏移量是该节点在其父节点中的位置索引+1
+		 * @param {
+		 *            Node } node 选区的开始边界将紧接着该节点之后
+		 * @return { UE.dom.Range } 当前range对象
+		 * @example ```html <!-- 选区示例 --> <b>xx<i>xxx</i><span>xx[x</span>xxx]</b>
+		 * 
+		 * <script>
+		 * 
+		 * //执行操作 range.setStartAfter( document.getElementsByTagName("i")[0] );
+		 * 
+		 * //结果选区 //<b>xx<i>xxx</i>[<span>xxx</span>xxx]</b>
+		 * 
+		 * </script> ```
+		 */
         setStartAfter:function (node) {
             return this.setStart(node.parentNode, domUtils.getNodeIndex(node) + 1);
         },
 
         /**
-         * 将Range开始位置设置到node节点之前
-         * @method  setStartBefore
-         * @remind 该操作将会把给定节点的父节点作为range的开始容器， 且偏移量是该节点在其父节点中的位置索引
-         * @param { Node } node 新的选区开始位置在该节点之前
-         * @see UE.dom.Range:setStartAfter(Node)
-         * @return { UE.dom.Range } 当前range对象
-         */
+		 * 将Range开始位置设置到node节点之前
+		 * 
+		 * @method setStartBefore
+		 * @remind 该操作将会把给定节点的父节点作为range的开始容器， 且偏移量是该节点在其父节点中的位置索引
+		 * @param {
+		 *            Node } node 新的选区开始位置在该节点之前
+		 * @see UE.dom.Range:setStartAfter(Node)
+		 * @return { UE.dom.Range } 当前range对象
+		 */
         setStartBefore:function (node) {
             return this.setStart(node.parentNode, domUtils.getNodeIndex(node));
         },
 
         /**
-         * 将Range结束位置设置到node节点之后
-         * @method  setEndAfter
-         * @remind 该操作将会把给定节点的父节点作为range的结束容器， 且偏移量是该节点在其父节点中的位置索引+1
-         * @param { Node } node 目标节点
-         * @see UE.dom.Range:setStartAfter(Node)
-         * @return { UE.dom.Range } 当前range对象
-         * @example
-         * ```html
-         * <!-- 选区示例 -->
-         * <b>[xx<i>xxx</i><span>xx]x</span>xxx</b>
-         *
-         * <script>
-         *
-         *     //执行操作
-         *     range.setStartAfter( document.getElementsByTagName("span")[0] );
-         *
-         *     //结果选区
-         *     //<b>[xx<i>xxx</i><span>xxx</span>]xxx</b>
-         *
-         * </script>
-         * ```
-         */
+		 * 将Range结束位置设置到node节点之后
+		 * 
+		 * @method setEndAfter
+		 * @remind 该操作将会把给定节点的父节点作为range的结束容器， 且偏移量是该节点在其父节点中的位置索引+1
+		 * @param {
+		 *            Node } node 目标节点
+		 * @see UE.dom.Range:setStartAfter(Node)
+		 * @return { UE.dom.Range } 当前range对象
+		 * @example ```html <!-- 选区示例 --> <b>[xx<i>xxx</i><span>xx]x</span>xxx</b>
+		 * 
+		 * <script>
+		 * 
+		 * //执行操作 range.setStartAfter( document.getElementsByTagName("span")[0] );
+		 * 
+		 * //结果选区 //<b>[xx<i>xxx</i><span>xxx</span>]xxx</b>
+		 * 
+		 * </script> ```
+		 */
         setEndAfter:function (node) {
             return this.setEnd(node.parentNode, domUtils.getNodeIndex(node) + 1);
         },
 
         /**
-         * 将Range结束位置设置到node节点之前
-         * @method  setEndBefore
-         * @remind 该操作将会把给定节点的父节点作为range的结束容器， 且偏移量是该节点在其父节点中的位置索引
-         * @param { Node } node 目标节点
-         * @see UE.dom.Range:setEndAfter(Node)
-         * @return { UE.dom.Range } 当前range对象
-         */
+		 * 将Range结束位置设置到node节点之前
+		 * 
+		 * @method setEndBefore
+		 * @remind 该操作将会把给定节点的父节点作为range的结束容器， 且偏移量是该节点在其父节点中的位置索引
+		 * @param {
+		 *            Node } node 目标节点
+		 * @see UE.dom.Range:setEndAfter(Node)
+		 * @return { UE.dom.Range } 当前range对象
+		 */
         setEndBefore:function (node) {
             return this.setEnd(node.parentNode, domUtils.getNodeIndex(node));
         },
 
         /**
-         * 设置Range的开始位置到node节点内的第一个子节点之前
-         * @method  setStartAtFirst
-         * @remind 选区的开始容器将变成给定的节点， 且偏移量为0
-         * @remind 如果给定的节点是元素节点， 则该节点必须是允许包含子节点的元素。
-         * @param { Node } node 目标节点
-         * @see UE.dom.Range:setStartBefore(Node)
-         * @return { UE.dom.Range } 当前range对象
-         * @example
-         * ```html
-         * <!-- 选区示例 -->
-         * <b>xx<i>xxx</i><span>[xx]x</span>xxx</b>
-         *
-         * <script>
-         *
-         *     //执行操作
-         *     range.setStartAtFirst( document.getElementsByTagName("i")[0] );
-         *
-         *     //结果选区
-         *     //<b>xx<i>[xxx</i><span>xx]x</span>xxx</b>
-         *
-         * </script>
-         * ```
-         */
+		 * 设置Range的开始位置到node节点内的第一个子节点之前
+		 * 
+		 * @method setStartAtFirst
+		 * @remind 选区的开始容器将变成给定的节点， 且偏移量为0
+		 * @remind 如果给定的节点是元素节点， 则该节点必须是允许包含子节点的元素。
+		 * @param {
+		 *            Node } node 目标节点
+		 * @see UE.dom.Range:setStartBefore(Node)
+		 * @return { UE.dom.Range } 当前range对象
+		 * @example ```html <!-- 选区示例 --> <b>xx<i>xxx</i><span>[xx]x</span>xxx</b>
+		 * 
+		 * <script>
+		 * 
+		 * //执行操作 range.setStartAtFirst( document.getElementsByTagName("i")[0] );
+		 * 
+		 * //结果选区 //<b>xx<i>[xxx</i><span>xx]x</span>xxx</b>
+		 * 
+		 * </script> ```
+		 */
         setStartAtFirst:function (node) {
             return this.setStart(node, 0);
         },
 
         /**
-         * 设置Range的开始位置到node节点内的最后一个节点之后
-         * @method setStartAtLast
-         * @remind 选区的开始容器将变成给定的节点， 且偏移量为该节点的子节点数
-         * @remind 如果给定的节点是元素节点， 则该节点必须是允许包含子节点的元素。
-         * @param { Node } node 目标节点
-         * @see UE.dom.Range:setStartAtFirst(Node)
-         * @return { UE.dom.Range } 当前range对象
-         */
+		 * 设置Range的开始位置到node节点内的最后一个节点之后
+		 * 
+		 * @method setStartAtLast
+		 * @remind 选区的开始容器将变成给定的节点， 且偏移量为该节点的子节点数
+		 * @remind 如果给定的节点是元素节点， 则该节点必须是允许包含子节点的元素。
+		 * @param {
+		 *            Node } node 目标节点
+		 * @see UE.dom.Range:setStartAtFirst(Node)
+		 * @return { UE.dom.Range } 当前range对象
+		 */
         setStartAtLast:function (node) {
             return this.setStart(node, node.nodeType == 3 ? node.nodeValue.length : node.childNodes.length);
         },
 
         /**
-         * 设置Range的结束位置到node节点内的第一个节点之前
-         * @method  setEndAtFirst
-         * @param { Node } node 目标节点
-         * @remind 选区的结束容器将变成给定的节点， 且偏移量为0
-         * @remind node必须是一个元素节点， 且必须是允许包含子节点的元素。
-         * @see UE.dom.Range:setStartAtFirst(Node)
-         * @return { UE.dom.Range } 当前range对象
-         */
+		 * 设置Range的结束位置到node节点内的第一个节点之前
+		 * 
+		 * @method setEndAtFirst
+		 * @param {
+		 *            Node } node 目标节点
+		 * @remind 选区的结束容器将变成给定的节点， 且偏移量为0
+		 * @remind node必须是一个元素节点， 且必须是允许包含子节点的元素。
+		 * @see UE.dom.Range:setStartAtFirst(Node)
+		 * @return { UE.dom.Range } 当前range对象
+		 */
         setEndAtFirst:function (node) {
             return this.setEnd(node, 0);
         },
 
         /**
-         * 设置Range的结束位置到node节点内的最后一个节点之后
-         * @method  setEndAtLast
-         * @param { Node } node 目标节点
-         * @remind 选区的结束容器将变成给定的节点， 且偏移量为该节点的子节点数量
-         * @remind node必须是一个元素节点， 且必须是允许包含子节点的元素。
-         * @see UE.dom.Range:setStartAtFirst(Node)
-         * @return { UE.dom.Range } 当前range对象
-         */
+		 * 设置Range的结束位置到node节点内的最后一个节点之后
+		 * 
+		 * @method setEndAtLast
+		 * @param {
+		 *            Node } node 目标节点
+		 * @remind 选区的结束容器将变成给定的节点， 且偏移量为该节点的子节点数量
+		 * @remind node必须是一个元素节点， 且必须是允许包含子节点的元素。
+		 * @see UE.dom.Range:setStartAtFirst(Node)
+		 * @return { UE.dom.Range } 当前range对象
+		 */
         setEndAtLast:function (node) {
             return this.setEnd(node, node.nodeType == 3 ? node.nodeValue.length : node.childNodes.length);
         },
 
         /**
-         * 选中给定节点
-         * @method  selectNode
-         * @remind 此时， 选区的开始容器和结束容器都是该节点的父节点， 其startOffset是该节点在父节点中的位置索引，
-         *          而endOffset为startOffset+1
-         * @param { Node } node 需要选中的节点
-         * @return { UE.dom.Range } 当前range对象，此时的range仅包含当前给定的节点对象
-         * @example
-         * ```html
-         * <!-- 选区示例 -->
-         * <b>xx<i>xxx</i><span>[xx]x</span>xxx</b>
-         *
-         * <script>
-         *
-         *     //执行操作
-         *     range.selectNode( document.getElementsByTagName("i")[0] );
-         *
-         *     //结果选区
-         *     //<b>xx[<i>xxx</i>]<span>xxx</span>xxx</b>
-         *
-         * </script>
-         * ```
-         */
+		 * 选中给定节点
+		 * 
+		 * @method selectNode
+		 * @remind 此时， 选区的开始容器和结束容器都是该节点的父节点， 其startOffset是该节点在父节点中的位置索引， 而endOffset为startOffset+1
+		 * @param {
+		 *            Node } node 需要选中的节点
+		 * @return { UE.dom.Range } 当前range对象，此时的range仅包含当前给定的节点对象
+		 * @example ```html <!-- 选区示例 --> <b>xx<i>xxx</i><span>[xx]x</span>xxx</b>
+		 * 
+		 * <script>
+		 * 
+		 * //执行操作 range.selectNode( document.getElementsByTagName("i")[0] );
+		 * 
+		 * //结果选区 //<b>xx[<i>xxx</i>]<span>xxx</span>xxx</b>
+		 * 
+		 * </script> ```
+		 */
         selectNode:function (node) {
             return this.setStartBefore(node).setEndAfter(node);
         },
 
         /**
-         * 选中给定节点内部的所有节点
-         * @method  selectNodeContents
-         * @remind 此时， 选区的开始容器和结束容器都是该节点， 其startOffset为0，
-         *          而endOffset是该节点的子节点数。
-         * @param { Node } node 目标节点， 当前range将包含该节点内的所有节点
-         * @return { UE.dom.Range } 当前range对象， 此时range仅包含给定节点的所有子节点
-         * @example
-         * ```html
-         * <!-- 选区示例 -->
-         * <b>xx<i>xxx</i><span>[xx]x</span>xxx</b>
-         *
-         * <script>
-         *
-         *     //执行操作
-         *     range.selectNode( document.getElementsByTagName("b")[0] );
-         *
-         *     //结果选区
-         *     //<b>[xx<i>xxx</i><span>xxx</span>xxx]</b>
-         *
-         * </script>
-         * ```
-         */
+		 * 选中给定节点内部的所有节点
+		 * 
+		 * @method selectNodeContents
+		 * @remind 此时， 选区的开始容器和结束容器都是该节点， 其startOffset为0， 而endOffset是该节点的子节点数。
+		 * @param {
+		 *            Node } node 目标节点， 当前range将包含该节点内的所有节点
+		 * @return { UE.dom.Range } 当前range对象， 此时range仅包含给定节点的所有子节点
+		 * @example ```html <!-- 选区示例 --> <b>xx<i>xxx</i><span>[xx]x</span>xxx</b>
+		 * 
+		 * <script>
+		 * 
+		 * //执行操作 range.selectNode( document.getElementsByTagName("b")[0] );
+		 * 
+		 * //结果选区 //<b>[xx<i>xxx</i><span>xxx</span>xxx]</b>
+		 * 
+		 * </script> ```
+		 */
         selectNodeContents:function (node) {
             return this.setStart(node, 0).setEndAtLast(node);
         },
 
         /**
-         * clone当前Range对象
-         * @method  cloneRange
-         * @remind 返回的range是一个全新的range对象， 其内部所有属性与当前被clone的range相同。
-         * @return { UE.dom.Range } 当前range对象的一个副本
-         */
+		 * clone当前Range对象
+		 * 
+		 * @method cloneRange
+		 * @remind 返回的range是一个全新的range对象， 其内部所有属性与当前被clone的range相同。
+		 * @return { UE.dom.Range } 当前range对象的一个副本
+		 */
         cloneRange:function () {
             var me = this;
             return new Range(me.document).setStart(me.startContainer, me.startOffset).setEnd(me.endContainer, me.endOffset);
@@ -4911,51 +4517,39 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 向当前选区的结束处闭合选区
-         * @method  collapse
-         * @return { UE.dom.Range } 当前range对象
-         * @example
-         * ```html
-         * <!-- 选区示例 -->
-         * <b>xx<i>xxx</i><span>[xx]x</span>xxx</b>
-         *
-         * <script>
-         *
-         *     //执行操作
-         *     range.collapse();
-         *
-         *     //结果选区
-         *     //“|”表示选区已闭合
-         *     //<b>xx<i>xxx</i><span>xx|x</span>xxx</b>
-         *
-         * </script>
-         * ```
-         */
+		 * 向当前选区的结束处闭合选区
+		 * 
+		 * @method collapse
+		 * @return { UE.dom.Range } 当前range对象
+		 * @example ```html <!-- 选区示例 --> <b>xx<i>xxx</i><span>[xx]x</span>xxx</b>
+		 * 
+		 * <script>
+		 * 
+		 * //执行操作 range.collapse();
+		 * 
+		 * //结果选区 //“|”表示选区已闭合 //<b>xx<i>xxx</i><span>xx|x</span>xxx</b>
+		 * 
+		 * </script> ```
+		 */
 
         /**
-         * 闭合当前选区，根据给定的toStart参数项决定是向当前选区开始处闭合还是向结束处闭合，
-         * 如果toStart的值为true，则向开始位置闭合， 反之，向结束位置闭合。
-         * @method  collapse
-         * @param { Boolean } toStart 是否向选区开始处闭合
-         * @return { UE.dom.Range } 当前range对象，此时range对象处于闭合状态
-         * @see UE.dom.Range:collapse()
-         * @example
-         * ```html
-         * <!-- 选区示例 -->
-         * <b>xx<i>xxx</i><span>[xx]x</span>xxx</b>
-         *
-         * <script>
-         *
-         *     //执行操作
-         *     range.collapse( true );
-         *
-         *     //结果选区
-         *     //“|”表示选区已闭合
-         *     //<b>xx<i>xxx</i><span>|xxx</span>xxx</b>
-         *
-         * </script>
-         * ```
-         */
+		 * 闭合当前选区，根据给定的toStart参数项决定是向当前选区开始处闭合还是向结束处闭合， 如果toStart的值为true，则向开始位置闭合， 反之，向结束位置闭合。
+		 * 
+		 * @method collapse
+		 * @param {
+		 *            Boolean } toStart 是否向选区开始处闭合
+		 * @return { UE.dom.Range } 当前range对象，此时range对象处于闭合状态
+		 * @see UE.dom.Range:collapse()
+		 * @example ```html <!-- 选区示例 --> <b>xx<i>xxx</i><span>[xx]x</span>xxx</b>
+		 * 
+		 * <script>
+		 * 
+		 * //执行操作 range.collapse( true );
+		 * 
+		 * //结果选区 //“|”表示选区已闭合 //<b>xx<i>xxx</i><span>|xxx</span>xxx</b>
+		 * 
+		 * </script> ```
+		 */
         collapse:function (toStart) {
             var me = this;
             if (toStart) {
@@ -4970,51 +4564,40 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 调整range的开始位置和结束位置，使其"收缩"到最小的位置
-         * @method  shrinkBoundary
-         * @return { UE.dom.Range } 当前range对象
-         * @example
-         * ```html
-         * <span>xx<b>xx[</b>xxxxx]</span> => <span>xx<b>xx</b>[xxxxx]</span>
-         * ```
-         *
-         * @example
-         * ```html
-         * <!-- 选区示例 -->
-         * <b>x[xx</b><i>]xxx</i>
-         *
-         * <script>
-         *
-         *     //执行收缩
-         *     range.shrinkBoundary();
-         *
-         *     //结果选区
-         *     //<b>x[xx]</b><i>xxx</i>
-         * </script>
-         * ```
-         *
-         * @example
-         * ```html
-         * [<b><i>xxxx</i>xxxxxxx</b>] => <b><i>[xxxx</i>xxxxxxx]</b>
-         * ```
-         */
+		 * 调整range的开始位置和结束位置，使其"收缩"到最小的位置
+		 * 
+		 * @method shrinkBoundary
+		 * @return { UE.dom.Range } 当前range对象
+		 * @example ```html <span>xx<b>xx[</b>xxxxx]</span> => <span>xx<b>xx</b>[xxxxx]</span> ```
+		 * 
+		 * @example ```html <!-- 选区示例 --> <b>x[xx</b><i>]xxx</i>
+		 * 
+		 * <script>
+		 * 
+		 * //执行收缩 range.shrinkBoundary();
+		 * 
+		 * //结果选区 //<b>x[xx]</b><i>xxx</i> </script> ```
+		 * 
+		 * @example ```html [<b><i>xxxx</i>xxxxxxx</b>] => <b><i>[xxxx</i>xxxxxxx]</b> ```
+		 */
 
         /**
-         * 调整range的开始位置和结束位置，使其"收缩"到最小的位置，
-         * 如果ignoreEnd的值为true，则忽略对结束位置的调整
-         * @method  shrinkBoundary
-         * @param { Boolean } ignoreEnd 是否忽略对结束位置的调整
-         * @return { UE.dom.Range } 当前range对象
-         * @see UE.dom.domUtils.Range:shrinkBoundary()
-         */
+		 * 调整range的开始位置和结束位置，使其"收缩"到最小的位置， 如果ignoreEnd的值为true，则忽略对结束位置的调整
+		 * 
+		 * @method shrinkBoundary
+		 * @param {
+		 *            Boolean } ignoreEnd 是否忽略对结束位置的调整
+		 * @return { UE.dom.Range } 当前range对象
+		 * @see UE.dom.domUtils.Range:shrinkBoundary()
+		 */
         shrinkBoundary:function (ignoreEnd) {
             var me = this, child,
                 collapsed = me.collapsed;
             function check(node){
                 return node.nodeType == 1 && !domUtils.isBookmarkNode(node) && !dtd.$empty[node.tagName] && !dtd.$nonChild[node.tagName]
             }
-            while (me.startContainer.nodeType == 1 //是element
-                && (child = me.startContainer.childNodes[me.startOffset]) //子节点也是element
+            while (me.startContainer.nodeType == 1 // 是element
+                && (child = me.startContainer.childNodes[me.startOffset]) // 子节点也是element
                 && check(child)) {
                 me.setStart(child, 0);
             }
@@ -5022,9 +4605,9 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 return me.collapse(true);
             }
             if (!ignoreEnd) {
-                while (me.endContainer.nodeType == 1//是element
-                    && me.endOffset > 0 //如果是空元素就退出 endOffset=0那么endOffst-1为负值，childNodes[endOffset]报错
-                    && (child = me.endContainer.childNodes[me.endOffset - 1]) //子节点也是element
+                while (me.endContainer.nodeType == 1// 是element
+                    && me.endOffset > 0 // 如果是空元素就退出 endOffset=0那么endOffst-1为负值，childNodes[endOffset]报错
+                    && (child = me.endContainer.childNodes[me.endOffset - 1]) // 子节点也是element
                     && check(child)) {
                     me.setEnd(child, child.childNodes.length);
                 }
@@ -5033,85 +4616,69 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 获取离当前选区内包含的所有节点最近的公共祖先节点，
-         * @method  getCommonAncestor
-         * @remind 返回的公共祖先节点一定不是range自身的容器节点， 但有可能是一个文本节点
-         * @return { Node } 当前range对象内所有节点的公共祖先节点
-         * @example
-         * ```html
-         * //选区示例
-         * <span>xxx<b>x[x<em>xx]x</em>xxx</b>xx</span>
-         * <script>
-         *
-         *     var node = range.getCommonAncestor();
-         *
-         *     //公共祖先节点是： b节点
-         *     //输出： B
-         *     console.log(node.tagName);
-         *
-         * </script>
-         * ```
-         */
+		 * 获取离当前选区内包含的所有节点最近的公共祖先节点，
+		 * 
+		 * @method getCommonAncestor
+		 * @remind 返回的公共祖先节点一定不是range自身的容器节点， 但有可能是一个文本节点
+		 * @return { Node } 当前range对象内所有节点的公共祖先节点
+		 * @example ```html //选区示例 <span>xxx<b>x[x<em>xx]x</em>xxx</b>xx</span> <script>
+		 * 
+		 * var node = range.getCommonAncestor();
+		 * 
+		 * //公共祖先节点是： b节点 //输出： B console.log(node.tagName);
+		 * 
+		 * </script> ```
+		 */
 
         /**
-         * 获取当前选区所包含的所有节点的公共祖先节点， 可以根据给定的参数 includeSelf 决定获取到
-         * 的公共祖先节点是否可以是当前选区的startContainer或endContainer节点， 如果 includeSelf
-         * 的取值为true， 则返回的节点可以是自身的容器节点， 否则， 则不能是容器节点
-         * @method  getCommonAncestor
-         * @param { Boolean } includeSelf 是否允许获取到的公共祖先节点是当前range对象的容器节点
-         * @return { Node } 当前range对象内所有节点的公共祖先节点
-         * @see UE.dom.Range:getCommonAncestor()
-         * @example
-         * ```html
-         * <body>
-         *
-         *     <!-- 选区示例 -->
-         *     <b>xxx<i>xxxx<span>xx[x</span>xx]x</i>xxxxxxx</b>
-         *
-         *     <script>
-         *
-         *         var node = range.getCommonAncestor( false );
-         *
-         *         //这里的公共祖先节点是B而不是I， 是因为参数限制了获取到的节点不能是容器节点
-         *         //output: B
-         *         console.log( node.tagName );
-         *
-         *     </script>
-         *
-         * </body>
-         * ```
-         */
+		 * 获取当前选区所包含的所有节点的公共祖先节点， 可以根据给定的参数 includeSelf 决定获取到 的公共祖先节点是否可以是当前选区的startContainer或endContainer节点， 如果 includeSelf 的取值为true， 则返回的节点可以是自身的容器节点， 否则， 则不能是容器节点
+		 * 
+		 * @method getCommonAncestor
+		 * @param {
+		 *            Boolean } includeSelf 是否允许获取到的公共祖先节点是当前range对象的容器节点
+		 * @return { Node } 当前range对象内所有节点的公共祖先节点
+		 * @see UE.dom.Range:getCommonAncestor()
+		 * @example ```html <body>
+		 * 
+		 * <!-- 选区示例 --> <b>xxx<i>xxxx<span>xx[x</span>xx]x</i>xxxxxxx</b>
+		 * 
+		 * <script>
+		 * 
+		 * var node = range.getCommonAncestor( false );
+		 * 
+		 * //这里的公共祖先节点是B而不是I， 是因为参数限制了获取到的节点不能是容器节点 //output: B console.log( node.tagName );
+		 * 
+		 * </script>
+		 * 
+		 * </body> ```
+		 */
 
         /**
-         * 获取当前选区所包含的所有节点的公共祖先节点， 可以根据给定的参数 includeSelf 决定获取到
-         * 的公共祖先节点是否可以是当前选区的startContainer或endContainer节点， 如果 includeSelf
-         * 的取值为true， 则返回的节点可以是自身的容器节点， 否则， 则不能是容器节点； 同时可以根据
-         * ignoreTextNode 参数的取值决定是否忽略类型为文本节点的祖先节点。
-         * @method  getCommonAncestor
-         * @param { Boolean } includeSelf 是否允许获取到的公共祖先节点是当前range对象的容器节点
-         * @param { Boolean } ignoreTextNode 获取祖先节点的过程中是否忽略类型为文本节点的祖先节点
-         * @return { Node } 当前range对象内所有节点的公共祖先节点
-         * @see UE.dom.Range:getCommonAncestor()
-         * @see UE.dom.Range:getCommonAncestor(Boolean)
-         * @example
-         * ```html
-         * <body>
-         *
-         *     <!-- 选区示例 -->
-         *     <b>xxx<i>xxxx<span>x[x]x</span>xxx</i>xxxxxxx</b>
-         *
-         *     <script>
-         *
-         *         var node = range.getCommonAncestor( true, false );
-         *
-         *         //output: SPAN
-         *         console.log( node.tagName );
-         *
-         *     </script>
-         *
-         * </body>
-         * ```
-         */
+		 * 获取当前选区所包含的所有节点的公共祖先节点， 可以根据给定的参数 includeSelf 决定获取到 的公共祖先节点是否可以是当前选区的startContainer或endContainer节点， 如果 includeSelf 的取值为true， 则返回的节点可以是自身的容器节点， 否则， 则不能是容器节点； 同时可以根据
+		 * ignoreTextNode 参数的取值决定是否忽略类型为文本节点的祖先节点。
+		 * 
+		 * @method getCommonAncestor
+		 * @param {
+		 *            Boolean } includeSelf 是否允许获取到的公共祖先节点是当前range对象的容器节点
+		 * @param {
+		 *            Boolean } ignoreTextNode 获取祖先节点的过程中是否忽略类型为文本节点的祖先节点
+		 * @return { Node } 当前range对象内所有节点的公共祖先节点
+		 * @see UE.dom.Range:getCommonAncestor()
+		 * @see UE.dom.Range:getCommonAncestor(Boolean)
+		 * @example ```html <body>
+		 * 
+		 * <!-- 选区示例 --> <b>xxx<i>xxxx<span>x[x]x</span>xxx</i>xxxxxxx</b>
+		 * 
+		 * <script>
+		 * 
+		 * var node = range.getCommonAncestor( true, false );
+		 * 
+		 * //output: SPAN console.log( node.tagName );
+		 * 
+		 * </script>
+		 * 
+		 * </body> ```
+		 */
         getCommonAncestor:function (includeSelf, ignoreTextNode) {
             var me = this,
                 start = me.startContainer,
@@ -5122,57 +4689,42 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     if(start.nodeType == 1)
                         return start;
                 }
-                //只有在上来就相等的情况下才会出现是文本的情况
+                // 只有在上来就相等的情况下才会出现是文本的情况
                 return ignoreTextNode && start.nodeType == 3 ? start.parentNode : start;
             }
             return domUtils.getCommonAncestor(start, end);
         },
 
         /**
-         * 调整当前Range的开始和结束边界容器，如果是容器节点是文本节点,就调整到包含该文本节点的父节点上
-         * @method trimBoundary
-         * @remind 该操作有可能会引起文本节点被切开
-         * @return { UE.dom.Range } 当前range对象
-         * @example
-         * ```html
-         *
-         * //选区示例
-         * <b>xxx<i>[xxxxx]</i>xxx</b>
-         *
-         * <script>
-         *     //未调整前， 选区的开始容器和结束都是文本节点
-         *     //执行调整
-         *     range.trimBoundary();
-         *
-         *     //调整之后， 容器节点变成了i节点
-         *     //<b>xxx[<i>xxxxx</i>]xxx</b>
-         * </script>
-         * ```
-         */
+		 * 调整当前Range的开始和结束边界容器，如果是容器节点是文本节点,就调整到包含该文本节点的父节点上
+		 * 
+		 * @method trimBoundary
+		 * @remind 该操作有可能会引起文本节点被切开
+		 * @return { UE.dom.Range } 当前range对象
+		 * @example ```html
+		 * 
+		 * //选区示例 <b>xxx<i>[xxxxx]</i>xxx</b>
+		 * 
+		 * <script> //未调整前， 选区的开始容器和结束都是文本节点 //执行调整 range.trimBoundary();
+		 * 
+		 * //调整之后， 容器节点变成了i节点 //<b>xxx[<i>xxxxx</i>]xxx</b> </script> ```
+		 */
 
         /**
-         * 调整当前Range的开始和结束边界容器，如果是容器节点是文本节点,就调整到包含该文本节点的父节点上，
-         * 可以根据 ignoreEnd 参数的值决定是否调整对结束边界的调整
-         * @method trimBoundary
-         * @param { Boolean } ignoreEnd 是否忽略对结束边界的调整
-         * @return { UE.dom.Range } 当前range对象
-         * @example
-         * ```html
-         *
-         * //选区示例
-         * <b>xxx<i>[xxxxx]</i>xxx</b>
-         *
-         * <script>
-         *     //未调整前， 选区的开始容器和结束都是文本节点
-         *     //执行调整
-         *     range.trimBoundary( true );
-         *
-         *     //调整之后， 开始容器节点变成了i节点
-         *     //但是， 结束容器没有发生变化
-         *     //<b>xxx[<i>xxxxx]</i>xxx</b>
-         * </script>
-         * ```
-         */
+		 * 调整当前Range的开始和结束边界容器，如果是容器节点是文本节点,就调整到包含该文本节点的父节点上， 可以根据 ignoreEnd 参数的值决定是否调整对结束边界的调整
+		 * 
+		 * @method trimBoundary
+		 * @param {
+		 *            Boolean } ignoreEnd 是否忽略对结束边界的调整
+		 * @return { UE.dom.Range } 当前range对象
+		 * @example ```html
+		 * 
+		 * //选区示例 <b>xxx<i>[xxxxx]</i>xxx</b>
+		 * 
+		 * <script> //未调整前， 选区的开始容器和结束都是文本节点 //执行调整 range.trimBoundary( true );
+		 * 
+		 * //调整之后， 开始容器节点变成了i节点 //但是， 结束容器没有发生变化 //<b>xxx[<i>xxxxx]</i>xxx</b> </script> ```
+		 */
         trimBoundary:function (ignoreEnd) {
             this.txtToElmBoundary();
             var start = this.startContainer,
@@ -5187,7 +4739,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                         this.setStartAfter(start);
                     } else {
                         var textNode = domUtils.split(start, offset);
-                        //跟新结束边界
+                        // 跟新结束边界
                         if (start === end) {
                             this.setEnd(textNode, this.endOffset - offset);
                         } else if (start.parentNode === end) {
@@ -5216,20 +4768,21 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 如果选区在文本的边界上，就扩展选区到文本的父节点上, 如果当前选区是闭合的， 则什么也不做
-         * @method txtToElmBoundary
-         * @remind 该操作不会修改dom节点
-         * @return { UE.dom.Range } 当前range对象
-         */
+		 * 如果选区在文本的边界上，就扩展选区到文本的父节点上, 如果当前选区是闭合的， 则什么也不做
+		 * 
+		 * @method txtToElmBoundary
+		 * @remind 该操作不会修改dom节点
+		 * @return { UE.dom.Range } 当前range对象
+		 */
 
         /**
-         * 如果选区在文本的边界上，就扩展选区到文本的父节点上, 如果当前选区是闭合的， 则根据参数项
-         * ignoreCollapsed 的值决定是否执行该调整
-         * @method txtToElmBoundary
-         * @param { Boolean } ignoreCollapsed 是否忽略选区的闭合状态， 如果该参数取值为true， 则
-         *                      不论选区是否闭合， 都会执行该操作， 反之， 则不会对闭合的选区执行该操作
-         * @return { UE.dom.Range } 当前range对象
-         */
+		 * 如果选区在文本的边界上，就扩展选区到文本的父节点上, 如果当前选区是闭合的， 则根据参数项 ignoreCollapsed 的值决定是否执行该调整
+		 * 
+		 * @method txtToElmBoundary
+		 * @param {
+		 *            Boolean } ignoreCollapsed 是否忽略选区的闭合状态， 如果该参数取值为true， 则 不论选区是否闭合， 都会执行该操作， 反之， 则不会对闭合的选区执行该操作
+		 * @return { UE.dom.Range } 当前range对象
+		 */
         txtToElmBoundary:function (ignoreCollapsed) {
             function adjust(r, c) {
                 var container = r[c + 'Container'],
@@ -5255,12 +4808,14 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 在当前选区的开始位置前插入节点，新插入的节点会被该range包含
-         * @method  insertNode
-         * @param { Node } node 需要插入的节点
-         * @remind 插入的节点可以是一个DocumentFragment依次插入多个节点
-         * @return { UE.dom.Range } 当前range对象
-         */
+		 * 在当前选区的开始位置前插入节点，新插入的节点会被该range包含
+		 * 
+		 * @method insertNode
+		 * @param {
+		 *            Node } node 需要插入的节点
+		 * @remind 插入的节点可以是一个DocumentFragment依次插入多个节点
+		 * @return { UE.dom.Range } 当前range对象
+		 */
         insertNode:function (node) {
             var first = node, length = 1;
             if (node.nodeType == 11) {
@@ -5283,33 +4838,34 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 闭合选区到当前选区的开始位置， 并且定位光标到闭合后的位置
-         * @method  setCursor
-         * @return { UE.dom.Range } 当前range对象
-         * @see UE.dom.Range:collapse()
-         */
+		 * 闭合选区到当前选区的开始位置， 并且定位光标到闭合后的位置
+		 * 
+		 * @method setCursor
+		 * @return { UE.dom.Range } 当前range对象
+		 * @see UE.dom.Range:collapse()
+		 */
 
         /**
-         * 闭合选区，可以根据参数toEnd的值控制选区是向前闭合还是向后闭合， 并且定位光标到闭合后的位置。
-         * @method  setCursor
-         * @param { Boolean } toEnd 是否向后闭合， 如果为true， 则闭合选区时， 将向结束容器方向闭合，
-         *                      反之，则向开始容器方向闭合
-         * @return { UE.dom.Range } 当前range对象
-         * @see UE.dom.Range:collapse(Boolean)
-         */
+		 * 闭合选区，可以根据参数toEnd的值控制选区是向前闭合还是向后闭合， 并且定位光标到闭合后的位置。
+		 * 
+		 * @method setCursor
+		 * @param {
+		 *            Boolean } toEnd 是否向后闭合， 如果为true， 则闭合选区时， 将向结束容器方向闭合， 反之，则向开始容器方向闭合
+		 * @return { UE.dom.Range } 当前range对象
+		 * @see UE.dom.Range:collapse(Boolean)
+		 */
         setCursor:function (toEnd, noFillData) {
             return this.collapse(!toEnd).select(noFillData);
         },
 
         /**
-         * 创建当前range的一个书签，记录下当前range的位置，方便当dom树改变时，还能找回原来的选区位置
-         * @method createBookmark
-         * @param { Boolean } serialize 控制返回的标记位置是对当前位置的引用还是ID，如果该值为true，则
-         *                              返回标记位置的ID， 反之则返回标记位置节点的引用
-         * @return { Object } 返回一个书签记录键值对， 其包含的key有： start => 开始标记的ID或者引用，
-         *                          end => 结束标记的ID或引用， id => 当前标记的类型， 如果为true，则表示
-         *                          返回的记录的类型为ID， 反之则为引用
-         */
+		 * 创建当前range的一个书签，记录下当前range的位置，方便当dom树改变时，还能找回原来的选区位置
+		 * 
+		 * @method createBookmark
+		 * @param {
+		 *            Boolean } serialize 控制返回的标记位置是对当前位置的引用还是ID，如果该值为true，则 返回标记位置的ID， 反之则返回标记位置节点的引用
+		 * @return { Object } 返回一个书签记录键值对， 其包含的key有： start => 开始标记的ID或者引用， end => 结束标记的ID或引用， id => 当前标记的类型， 如果为true，则表示 返回的记录的类型为ID， 反之则为引用
+		 */
         createBookmark:function (serialize, same) {
             var endNode,
                 startNode = this.document.createElement('span');
@@ -5334,12 +4890,14 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         *  调整当前range的边界到书签位置，并删除该书签对象所标记的位置内的节点
-         *  @method  moveToBookmark
-         *  @param { BookMark } bookmark createBookmark所创建的标签对象
-         *  @return { UE.dom.Range } 当前range对象
-         *  @see UE.dom.Range:createBookmark(Boolean)
-         */
+		 * 调整当前range的边界到书签位置，并删除该书签对象所标记的位置内的节点
+		 * 
+		 * @method moveToBookmark
+		 * @param {
+		 *            BookMark } bookmark createBookmark所创建的标签对象
+		 * @return { UE.dom.Range } 当前range对象
+		 * @see UE.dom.Range:createBookmark(Boolean)
+		 */
         moveToBookmark:function (bookmark) {
             var start = bookmark.id ? this.document.getElementById(bookmark.start) : bookmark.start,
                 end = bookmark.end && bookmark.id ? this.document.getElementById(bookmark.end) : bookmark.end;
@@ -5355,19 +4913,21 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 调整range的边界，使其"放大"到最近的父节点
-         * @method  enlarge
-         * @remind 会引起选区的变化
-         * @return { UE.dom.Range } 当前range对象
-         */
+		 * 调整range的边界，使其"放大"到最近的父节点
+		 * 
+		 * @method enlarge
+		 * @remind 会引起选区的变化
+		 * @return { UE.dom.Range } 当前range对象
+		 */
 
         /**
-         * 调整range的边界，使其"放大"到最近的父节点，根据参数 toBlock 的取值， 可以
-         * 要求扩大之后的父节点是block节点
-         * @method  enlarge
-         * @param { Boolean } toBlock 是否要求扩大之后的父节点必须是block节点
-         * @return { UE.dom.Range } 当前range对象
-         */
+		 * 调整range的边界，使其"放大"到最近的父节点，根据参数 toBlock 的取值， 可以 要求扩大之后的父节点是block节点
+		 * 
+		 * @method enlarge
+		 * @param {
+		 *            Boolean } toBlock 是否要求扩大之后的父节点必须是block节点
+		 * @return { UE.dom.Range } 当前range对象
+		 */
         enlarge:function (toBlock, stopFn) {
             var isBody = domUtils.isBody,
                 pre, node, tmp = this.document.createTextNode('');
@@ -5459,11 +5019,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             return this;
         },
         /**
-         * 调整Range的边界，使其"缩小"到最合适的位置
-         * @method adjustmentBoundary
-         * @return { UE.dom.Range } 当前range对象
-         * @see UE.dom.Range:shrinkBoundary()
-         */
+		 * 调整Range的边界，使其"缩小"到最合适的位置
+		 * 
+		 * @method adjustmentBoundary
+		 * @return { UE.dom.Range } 当前range对象
+		 * @see UE.dom.Range:shrinkBoundary()
+		 */
         adjustmentBoundary:function () {
             if (!this.collapsed) {
                 while (!domUtils.isBody(this.startContainer) &&
@@ -5483,35 +5044,47 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 给range选区中的内容添加给定的inline标签
-         * @method applyInlineStyle
-         * @param { String } tagName 需要添加的标签名
-         * @example
-         * ```html
-         * <p>xxxx[xxxx]x</p>  ==>  range.applyInlineStyle("strong")  ==>  <p>xxxx[<strong>xxxx</strong>]x</p>
-         * ```
-         */
+		 * 给range选区中的内容添加给定的inline标签
+		 * 
+		 * @method applyInlineStyle
+		 * @param {
+		 *            String } tagName 需要添加的标签名
+		 * @example ```html
+		 *          <p>
+		 *          xxxx[xxxx]x
+		 *          </p>
+		 *          ==> range.applyInlineStyle("strong") ==>
+		 *          <p>
+		 *          xxxx[<strong>xxxx</strong>]x
+		 *          </p>
+		 *          ```
+		 */
 
         /**
-         * 给range选区中的内容添加给定的inline标签， 并且为标签附加上一些初始化属性。
-         * @method applyInlineStyle
-         * @param { String } tagName 需要添加的标签名
-         * @param { Object } attrs 跟随新添加的标签的属性
-         * @return { UE.dom.Range } 当前选区
-         * @example
-         * ```html
-         * <p>xxxx[xxxx]x</p>
-         *
-         * ==>
-         *
-         * <!-- 执行操作 -->
-         * range.applyInlineStyle("strong",{"style":"font-size:12px"})
-         *
-         * ==>
-         *
-         * <p>xxxx[<strong style="font-size:12px">xxxx</strong>]x</p>
-         * ```
-         */
+		 * 给range选区中的内容添加给定的inline标签， 并且为标签附加上一些初始化属性。
+		 * 
+		 * @method applyInlineStyle
+		 * @param {
+		 *            String } tagName 需要添加的标签名
+		 * @param {
+		 *            Object } attrs 跟随新添加的标签的属性
+		 * @return { UE.dom.Range } 当前选区
+		 * @example ```html
+		 *          <p>
+		 *          xxxx[xxxx]x
+		 *          </p>
+		 * 
+		 * ==>
+		 * 
+		 * <!-- 执行操作 --> range.applyInlineStyle("strong",{"style":"font-size:12px"})
+		 * 
+		 * ==>
+		 * 
+		 * <p>
+		 * xxxx[<strong style="font-size:12px">xxxx</strong>]x
+		 * </p>
+		 * ```
+		 */
         applyInlineStyle:function (tagName, attrs, list) {
             if (this.collapsed)return this;
             this.trimBoundary().enlarge(false,
@@ -5554,7 +5127,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     }
                     elm.appendChild(frag);
                     range.insertNode(list ? top : elm);
-                    //处理下滑线在a上的情况
+                    // 处理下滑线在a上的情况
                     var aNode;
                     if (tagName == 'span' && attrs.style && /text\-decoration/.test(attrs.style) && (aNode = domUtils.findParentByTagName(elm, 'a', true))) {
                         domUtils.setAttributes(aNode, attrs);
@@ -5564,7 +5137,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                         domUtils.mergeSibling(elm);
                         domUtils.clearEmptySibling(elm);
                     }
-                    //去除子节点相同的
+                    // 去除子节点相同的
                     domUtils.mergeChild(elm, attrs);
                     current = domUtils.getNextDomNode(elm, false, filterFn);
                     domUtils.mergeToParent(elm);
@@ -5579,23 +5152,24 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 移除当前选区内指定的inline标签，但保留其中的内容
-         * @method removeInlineStyle
-         * @param { String } tagName 需要移除的标签名
-         * @return { UE.dom.Range } 当前的range对象
-         * @example
-         * ```html
-         * xx[x<span>xxx<em>yyy</em>zz]z</span>  => range.removeInlineStyle(["em"])  => xx[x<span>xxxyyyzz]z</span>
-         * ```
-         */
+		 * 移除当前选区内指定的inline标签，但保留其中的内容
+		 * 
+		 * @method removeInlineStyle
+		 * @param {
+		 *            String } tagName 需要移除的标签名
+		 * @return { UE.dom.Range } 当前的range对象
+		 * @example ```html xx[x<span>xxx<em>yyy</em>zz]z</span> => range.removeInlineStyle(["em"]) => xx[x<span>xxxyyyzz]z</span> ```
+		 */
 
         /**
-         * 移除当前选区内指定的一组inline标签，但保留其中的内容
-         * @method removeInlineStyle
-         * @param { Array } tagNameArr 需要移除的标签名的数组
-         * @return { UE.dom.Range } 当前的range对象
-         * @see UE.dom.Range:removeInlineStyle(String)
-         */
+		 * 移除当前选区内指定的一组inline标签，但保留其中的内容
+		 * 
+		 * @method removeInlineStyle
+		 * @param {
+		 *            Array } tagNameArr 需要移除的标签名的数组
+		 * @return { UE.dom.Range } 当前的range对象
+		 * @see UE.dom.Range:removeInlineStyle(String)
+		 */
         removeInlineStyle:function (tagNames) {
             if (this.collapsed)return this;
             tagNames = utils.isArray(tagNames) ? tagNames : [tagNames];
@@ -5658,10 +5232,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 获取当前选中的自闭合的节点
-         * @method  getClosedNode
-         * @return { Node | NULL } 如果当前选中的是自闭合节点， 则返回该节点， 否则返回NULL
-         */
+		 * 获取当前选中的自闭合的节点
+		 * 
+		 * @method getClosedNode
+		 * @return { Node | NULL } 如果当前选中的是自闭合节点， 则返回该节点， 否则返回NULL
+		 */
         getClosedNode:function () {
             var node;
             if (!this.collapsed) {
@@ -5677,11 +5252,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 在页面上高亮range所表示的选区
-         * @method select
-         * @return { UE.dom.Range } 返回当前Range对象
-         */
-            //这里不区分ie9以上，trace:3824
+		 * 在页面上高亮range所表示的选区
+		 * 
+		 * @method select
+		 * @return { UE.dom.Range } 返回当前Range对象
+		 */
+            // 这里不区分ie9以上，trace:3824
         select:browser.ie ? function (noFillData, textRange) {
             var nativeRange;
             if (!this.collapsed)
@@ -5708,13 +5284,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 nativeRange.setEndPoint('EndToEnd', nativeRangeEnd);
             } else {
                 if (!noFillData && this.startContainer.nodeType != 3) {
-                    //使用<span>|x<span>固定住光标
+                    // 使用<span>|x<span>固定住光标
                     var tmpText = this.document.createTextNode(fillChar),
                         tmp = this.document.createElement('span');
                     tmp.appendChild(this.document.createTextNode(fillChar));
                     start.parentNode.insertBefore(tmp, start);
                     start.parentNode.insertBefore(tmpText, start);
-                    //当点b,i,u时，不能清除i上边的b
+                    // 当点b,i,u时，不能清除i上边的b
                     removeFillData(this.document, tmpText);
                     fillData = tmpText;
                     mergeSibling(tmp, 'previousSibling');
@@ -5725,7 +5301,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             }
             this.moveToBookmark(bookmark);
             tmp && domUtils.remove(tmp);
-            //IE在隐藏状态下不支持range操作，catch一下
+            // IE在隐藏状态下不支持range操作，catch一下
             try {
                 nativeRange.select();
             } catch (e) {
@@ -5745,25 +5321,25 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             var win = domUtils.getWindow(this.document),
                 sel = win.getSelection(),
                 txtNode;
-            //FF下关闭自动长高时滚动条在关闭dialog时会跳
-            //ff下如果不body.focus将不能定位闭合光标到编辑器内
+            // FF下关闭自动长高时滚动条在关闭dialog时会跳
+            // ff下如果不body.focus将不能定位闭合光标到编辑器内
             browser.gecko ? this.document.body.focus() : win.focus();
             if (sel) {
                 sel.removeAllRanges();
                 // trace:870 chrome/safari后边是br对于闭合得range不能定位 所以去掉了判断
                 // this.startContainer.nodeType != 3 &&! ((child = this.startContainer.childNodes[this.startOffset]) && child.nodeType == 1 && child.tagName == 'BR'
                 if (this.collapsed && !notInsertFillData) {
-//                    //opear如果没有节点接着，原生的不能够定位,不能在body的第一级插入空白节点
-//                    if (notInsertFillData && browser.opera && !domUtils.isBody(this.startContainer) && this.startContainer.nodeType == 1) {
-//                        var tmp = this.document.createTextNode('');
-//                        this.insertNode(tmp).setStart(tmp, 0).collapse(true);
-//                    }
+// //opear如果没有节点接着，原生的不能够定位,不能在body的第一级插入空白节点
+// if (notInsertFillData && browser.opera && !domUtils.isBody(this.startContainer) && this.startContainer.nodeType == 1) {
+// var tmp = this.document.createTextNode('');
+// this.insertNode(tmp).setStart(tmp, 0).collapse(true);
+// }
 //
-                    //处理光标落在文本节点的情况
-                    //处理以下的情况
-                    //<b>|xxxx</b>
-                    //<b>xxxx</b>|xxxx
-                    //xxxx<b>|</b>
+                    // 处理光标落在文本节点的情况
+                    // 处理以下的情况
+                    // <b>|xxxx</b>
+                    // <b>xxxx</b>|xxxx
+                    // xxxx<b>|</b>
                     var start = this.startContainer,child = start;
                     if(start.nodeType == 1){
                         child = start.childNodes[this.startOffset];
@@ -5777,7 +5353,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                         )
                     ){
                         txtNode = this.document.createTextNode(fillChar);
-                        //跟着前边走
+                        // 跟着前边走
                         this.insertNode(txtNode);
                         removeFillData(this.document, txtNode);
                         mergeSibling(txtNode, 'previousSibling');
@@ -5790,13 +5366,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 if(this.collapsed && browser.opera && this.startContainer.nodeType == 1){
                     var child = this.startContainer.childNodes[this.startOffset];
                     if(!child){
-                        //往前靠拢
+                        // 往前靠拢
                         child = this.startContainer.lastChild;
                         if( child && domUtils.isBr(child)){
                             this.setStartBefore(child).collapse(true);
                         }
                     }else{
-                        //向后靠拢
+                        // 向后靠拢
                         while(child && domUtils.isBlockElm(child)){
                             if(child.nodeType == 1 && child.childNodes[0]){
                                 child = child.childNodes[0]
@@ -5808,7 +5384,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     }
 
                 }
-                //是createAddress最后一位算的不准，现在这里进行微调
+                // 是createAddress最后一位算的不准，现在这里进行微调
                 checkOffset(this);
                 nativeRange.setStart(this.startContainer, this.startOffset);
                 nativeRange.setEnd(this.endContainer, this.endOffset);
@@ -5818,24 +5394,29 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 滚动到当前range开始的位置
-         * @method scrollToView
-         * @param { Window } win 当前range对象所属的window对象
-         * @return { UE.dom.Range } 当前Range对象
-         */
+		 * 滚动到当前range开始的位置
+		 * 
+		 * @method scrollToView
+		 * @param {
+		 *            Window } win 当前range对象所属的window对象
+		 * @return { UE.dom.Range } 当前Range对象
+		 */
 
         /**
-         * 滚动到距离当前range开始位置 offset 的位置处
-         * @method scrollToView
-         * @param { Window } win 当前range对象所属的window对象
-         * @param { Number } offset 距离range开始位置处的偏移量， 如果为正数， 则向下偏移， 反之， 则向上偏移
-         * @return { UE.dom.Range } 当前Range对象
-         */
+		 * 滚动到距离当前range开始位置 offset 的位置处
+		 * 
+		 * @method scrollToView
+		 * @param {
+		 *            Window } win 当前range对象所属的window对象
+		 * @param {
+		 *            Number } offset 距离range开始位置处的偏移量， 如果为正数， 则向下偏移， 反之， 则向上偏移
+		 * @return { UE.dom.Range } 当前Range对象
+		 */
         scrollToView:function (win, offset) {
             win = win ? window : domUtils.getWindow(this.document);
             var me = this,
                 span = me.document.createElement('span');
-            //trace:717
+            // trace:717
             span.innerHTML = '&nbsp;';
             me.cloneRange().insertNode(span);
             domUtils.scrollToView(span, win, offset);
@@ -5844,11 +5425,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 判断当前选区内容是否占位符
-         * @private
-         * @method inFillChar
-         * @return { Boolean } 如果是占位符返回true，否则返回false
-         */
+		 * 判断当前选区内容是否占位符
+		 * 
+		 * @private
+		 * @method inFillChar
+		 * @return { Boolean } 如果是占位符返回true，否则返回false
+		 */
         inFillChar : function(){
             var start = this.startContainer;
             if(this.collapsed && start.nodeType == 3
@@ -5860,29 +5442,22 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 保存
-         * @method createAddress
-         * @private
-         * @return { Boolean } 返回开始和结束的位置
-         * @example
-         * ```html
-         * <body>
-         *     <p>
-         *         aaaa
-         *         <em>
+		 * 保存
+		 * 
+		 * @method createAddress
+		 * @private
+		 * @return { Boolean } 返回开始和结束的位置
+		 * @example ```html <body>
+		 *          <p>
+		 *          aaaa <em>
          *             <!-- 选区开始 -->
          *             bbbb
          *             <!-- 选区结束 -->
          *         </em>
-         *     </p>
-         *
-         *     <script>
-         *         //output: {startAddress:[0,1,0,0],endAddress:[0,1,0,4]}
-         *         console.log( range.createAddress() );
-         *     </script>
-         * </body>
-         * ```
-         */
+		 *          </p>
+		 * 
+		 * <script> //output: {startAddress:[0,1,0,0],endAddress:[0,1,0,4]} console.log( range.createAddress() ); </script> </body> ```
+		 */
         createAddress : function(ignoreEnd,ignoreTxt){
             var addr = {},me = this;
 
@@ -5944,32 +5519,23 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 保存
-         * @method createAddress
-         * @private
-         * @return { Boolean } 返回开始和结束的位置
-         * @example
-         * ```html
-         * <body>
-         *     <p>
-         *         aaaa
-         *         <em>
+		 * 保存
+		 * 
+		 * @method createAddress
+		 * @private
+		 * @return { Boolean } 返回开始和结束的位置
+		 * @example ```html <body>
+		 *          <p>
+		 *          aaaa <em>
          *             <!-- 选区开始 -->
          *             bbbb
          *             <!-- 选区结束 -->
          *         </em>
-         *     </p>
-         *
-         *     <script>
-         *         var range = editor.selection.getRange();
-         *         range.moveToAddress({startAddress:[0,1,0,0],endAddress:[0,1,0,4]});
-         *         range.select();
-         *         //output: 'bbbb'
-         *         console.log(editor.selection.getText());
-         *     </script>
-         * </body>
-         * ```
-         */
+		 *          </p>
+		 * 
+		 * <script> var range = editor.selection.getRange(); range.moveToAddress({startAddress:[0,1,0,0],endAddress:[0,1,0,4]}); range.select(); //output: 'bbbb'
+		 * console.log(editor.selection.getText()); </script> </body> ```
+		 */
         moveToAddress : function(addr,ignoreEnd){
             var me = this;
             function getNode(address,isStart){
@@ -6004,11 +5570,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 判断给定的Range对象是否和当前Range对象表示的是同一个选区
-         * @method equals
-         * @param { UE.dom.Range } 需要判断的Range对象
-         * @return { Boolean } 如果给定的Range对象与当前Range对象表示的是同一个选区， 则返回true， 否则返回false
-         */
+		 * 判断给定的Range对象是否和当前Range对象表示的是同一个选区
+		 * 
+		 * @method equals
+		 * @param {
+		 *            UE.dom.Range } 需要判断的Range对象
+		 * @return { Boolean } 如果给定的Range对象与当前Range对象表示的是同一个选区， 则返回true， 否则返回false
+		 */
         equals : function(rng){
             for(var p in this){
                 if(this.hasOwnProperty(p)){
@@ -6021,85 +5589,59 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 遍历range内的节点。每当遍历一个节点时， 都会执行参数项 doFn 指定的函数， 该函数的接受当前遍历的节点
-         * 作为其参数。
-         * @method traversal
-         * @param { Function }  doFn 对每个遍历的节点要执行的方法， 该方法接受当前遍历的节点作为其参数
-         * @return { UE.dom.Range } 当前range对象
-         * @example
-         * ```html
-         *
-         * <body>
-         *
-         *     <!-- 选区开始 -->
-         *     <span></span>
-         *     <a></a>
-         *     <!-- 选区结束 -->
-         * </body>
-         *
-         * <script>
-         *
-         *     //output: <span></span><a></a>
-         *     console.log( range.cloneContents() );
-         *
-         *     range.traversal( function ( node ) {
-         *
-         *         if ( node.nodeType === 1 ) {
-         *             node.className = "test";
-         *         }
-         *
-         *     } );
-         *
-         *     //output: <span class="test"></span><a class="test"></a>
-         *     console.log( range.cloneContents() );
-         *
-         * </script>
-         * ```
-         */
+		 * 遍历range内的节点。每当遍历一个节点时， 都会执行参数项 doFn 指定的函数， 该函数的接受当前遍历的节点 作为其参数。
+		 * 
+		 * @method traversal
+		 * @param {
+		 *            Function } doFn 对每个遍历的节点要执行的方法， 该方法接受当前遍历的节点作为其参数
+		 * @return { UE.dom.Range } 当前range对象
+		 * @example ```html
+		 * 
+		 * <body>
+		 * 
+		 * <!-- 选区开始 --> <span></span> <a></a> <!-- 选区结束 --> </body>
+		 * 
+		 * <script>
+		 * 
+		 * //output: <span></span><a></a> console.log( range.cloneContents() );
+		 * 
+		 * range.traversal( function ( node ) {
+		 * 
+		 * if ( node.nodeType === 1 ) { node.className = "test"; } } );
+		 * 
+		 * //output: <span class="test"></span><a class="test"></a> console.log( range.cloneContents() );
+		 * 
+		 * </script> ```
+		 */
 
         /**
-         * 遍历range内的节点。
-         * 每当遍历一个节点时， 都会执行参数项 doFn 指定的函数， 该函数的接受当前遍历的节点
-         * 作为其参数。
-         * 可以通过参数项 filterFn 来指定一个过滤器， 只有符合该过滤器过滤规则的节点才会触
-         * 发doFn函数的执行
-         * @method traversal
-         * @param { Function } doFn 对每个遍历的节点要执行的方法， 该方法接受当前遍历的节点作为其参数
-         * @param { Function } filterFn 过滤器， 该函数接受当前遍历的节点作为参数， 如果该节点满足过滤
-         *                      规则， 请返回true， 该节点会触发doFn， 否则， 请返回false， 则该节点不
-         *                      会触发doFn。
-         * @return { UE.dom.Range } 当前range对象
-         * @see UE.dom.Range:traversal(Function)
-         * @example
-         * ```html
-         *
-         * <body>
-         *
-         *     <!-- 选区开始 -->
-         *     <span></span>
-         *     <a></a>
-         *     <!-- 选区结束 -->
-         * </body>
-         *
-         * <script>
-         *
-         *     //output: <span></span><a></a>
-         *     console.log( range.cloneContents() );
-         *
-         *     range.traversal( function ( node ) {
-         *
-         *         node.className = "test";
-         *
-         *     }, function ( node ) {
-         *          return node.nodeType === 1;
-         *     } );
-         *
-         *     //output: <span class="test"></span><a class="test"></a>
-         *     console.log( range.cloneContents() );
-         *
-         * </script>
-         * ```
-         */
+		 * 遍历range内的节点。 每当遍历一个节点时， 都会执行参数项 doFn 指定的函数， 该函数的接受当前遍历的节点 作为其参数。 可以通过参数项 filterFn 来指定一个过滤器， 只有符合该过滤器过滤规则的节点才会触 发doFn函数的执行
+		 * 
+		 * @method traversal
+		 * @param {
+		 *            Function } doFn 对每个遍历的节点要执行的方法， 该方法接受当前遍历的节点作为其参数
+		 * @param {
+		 *            Function } filterFn 过滤器， 该函数接受当前遍历的节点作为参数， 如果该节点满足过滤 规则， 请返回true， 该节点会触发doFn， 否则， 请返回false， 则该节点不 会触发doFn。
+		 * @return { UE.dom.Range } 当前range对象
+		 * @see UE.dom.Range:traversal(Function)
+		 * @example ```html
+		 * 
+		 * <body>
+		 * 
+		 * <!-- 选区开始 --> <span></span> <a></a> <!-- 选区结束 --> </body>
+		 * 
+		 * <script>
+		 * 
+		 * //output: <span></span><a></a> console.log( range.cloneContents() );
+		 * 
+		 * range.traversal( function ( node ) {
+		 * 
+		 * node.className = "test"; }, function ( node ) { return node.nodeType === 1; } );
+		 * 
+		 * //output: <span class="test"></span><a class="test"></a> console.log( range.cloneContents() );
+		 * 
+		 * </script> ```
+		 */
         traversal:function(doFn,filterFn){
             if (this.collapsed)
                 return this;
@@ -6119,6 +5661,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 // core/Selection.js
 /**
  * 选集
+ * 
  * @file
  * @module UE.dom
  * @class Selection
@@ -6127,6 +5670,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
 /**
  * 选区集合
+ * 
  * @unfile
  * @module UE.dom
  * @class Selection
@@ -6138,7 +5682,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         range = range.duplicate();
         range.collapse( start );
         var parent = range.parentElement();
-        //如果节点里没有子节点，直接退出
+        // 如果节点里没有子节点，直接退出
         if ( !parent.hasChildNodes() ) {
             return  {container:parent, offset:0};
         }
@@ -6157,7 +5701,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             } else if ( position < 0 ) {
                 startIndex = index + 1;
             } else {
-                //trace:1043
+                // trace:1043
                 return  {container:parent, offset:getIndex( child )};
             }
         }
@@ -6198,11 +5742,14 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     }
 
     /**
-     * 将ieRange转换为Range对象
-     * @param {Range}   ieRange    ieRange对象
-     * @param {Range}   range      Range对象
-     * @return  {Range}  range       返回转换后的Range对象
-     */
+	 * 将ieRange转换为Range对象
+	 * 
+	 * @param {Range}
+	 *            ieRange ieRange对象
+	 * @param {Range}
+	 *            range Range对象
+	 * @return {Range} range 返回转换后的Range对象
+	 */
     function transformIERangeToRange( ieRange, range ) {
         if ( ieRange.item ) {
             range.selectNode( ieRange.item( 0 ) );
@@ -6218,13 +5765,15 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     }
 
     /**
-     * 获得ieRange
-     * @param {Selection} sel    Selection对象
-     * @return {ieRange}    得到ieRange
-     */
+	 * 获得ieRange
+	 * 
+	 * @param {Selection}
+	 *            sel Selection对象
+	 * @return {ieRange} 得到ieRange
+	 */
     function _getIERange( sel ) {
         var ieRange;
-        //ie下有可能报错
+        // ie下有可能报错
         try {
             ieRange = sel.getNative().createRange();
         } catch ( e ) {
@@ -6267,14 +5816,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 获取原生seleciton对象
-         * @method getNative
-         * @return { Object } 获得selection对象
-         * @example
-         * ```javascript
-         * editor.selection.getNative();
-         * ```
-         */
+		 * 获取原生seleciton对象
+		 * 
+		 * @method getNative
+		 * @return { Object } 获得selection对象
+		 * @example ```javascript editor.selection.getNative(); ```
+		 */
         getNative:function () {
             var doc = this.document;
             try {
@@ -6285,14 +5832,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 获得ieRange
-         * @method getIERange
-         * @return { Object } 返回ie原生的Range
-         * @example
-         * ```javascript
-         * editor.selection.getIERange();
-         * ```
-         */
+		 * 获得ieRange
+		 * 
+		 * @method getIERange
+		 * @return { Object } 返回ie原生的Range
+		 * @example ```javascript editor.selection.getIERange(); ```
+		 */
         getIERange:function () {
             var ieRange = _getIERange( this );
             if ( !ieRange ) {
@@ -6304,9 +5849,10 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 缓存当前选区的range和选区的开始节点
-         * @method cache
-         */
+		 * 缓存当前选区的range和选区的开始节点
+		 * 
+		 * @method cache
+		 */
         cache:function () {
             this.clear();
             this._cachedRange = this.getRange();
@@ -6315,14 +5861,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 获取选区开始位置的父节点到body
-         * @method getStartElementPath
-         * @return { Array } 返回父节点集合
-         * @example
-         * ```javascript
-         * editor.selection.getStartElementPath();
-         * ```
-         */
+		 * 获取选区开始位置的父节点到body
+		 * 
+		 * @method getStartElementPath
+		 * @return { Array } 返回父节点集合
+		 * @example ```javascript editor.selection.getStartElementPath(); ```
+		 */
         getStartElementPath:function () {
             if ( this._cachedStartElementPath ) {
                 return this._cachedStartElementPath;
@@ -6335,17 +5879,19 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 清空缓存
-         * @method clear
-         */
+		 * 清空缓存
+		 * 
+		 * @method clear
+		 */
         clear:function () {
             this._cachedStartElementPath = this._cachedRange = this._cachedStartElement = null;
         },
 
         /**
-         * 编辑器是否得到了选区
-         * @method isFocus
-         */
+		 * 编辑器是否得到了选区
+		 * 
+		 * @method isFocus
+		 */
         isFocus:function () {
             try {
                 if(browser.ie9below){
@@ -6362,14 +5908,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 获取选区对应的Range
-         * @method getRange
-         * @return { Object } 得到Range对象
-         * @example
-         * ```javascript
-         * editor.selection.getRange();
-         * ```
-         */
+		 * 获取选区对应的Range
+		 * 
+		 * @method getRange
+		 * @return { Object } 得到Range对象
+		 * @example ```javascript editor.selection.getRange(); ```
+		 */
         getRange:function () {
             var me = this;
             function optimze( range ) {
@@ -6395,7 +5939,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             if ( browser.ie9below ) {
                 var nativeRange = me.getIERange();
                 if ( nativeRange ) {
-                    //备份的_bakIERange可能已经实效了，dom树发生了变化比如从源码模式切回来，所以try一下，实效就放到body开始位置
+                    // 备份的_bakIERange可能已经实效了，dom树发生了变化比如从源码模式切回来，所以try一下，实效就放到body开始位置
                     try{
                         transformIERangeToRange( nativeRange, range );
                     }catch(e){
@@ -6415,7 +5959,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                         optimze( range );
                     }
                 } else {
-                    //trace:1734 有可能已经不在dom树上了，标识的节点
+                    // trace:1734 有可能已经不在dom树上了，标识的节点
                     if ( this._bakRange && domUtils.inDoc( this._bakRange.startContainer, this.document ) ){
                         return this._bakRange;
                     }
@@ -6426,14 +5970,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 获取开始元素，用于状态反射
-         * @method getStart
-         * @return { Element } 获得开始元素
-         * @example
-         * ```javascript
-         * editor.selection.getStart();
-         * ```
-         */
+		 * 获取开始元素，用于状态反射
+		 * 
+		 * @method getStart
+		 * @return { Element } 获得开始元素
+		 * @example ```javascript editor.selection.getStart(); ```
+		 */
         getStart:function () {
             if ( this._cachedStartElement ) {
                 return this._cachedStartElement;
@@ -6443,15 +5985,15 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 start, tmp, parent;
             if ( browser.ie9below ) {
                 if ( !range ) {
-                    //todo 给第一个值可能会有问题
+                    // todo 给第一个值可能会有问题
                     return this.document.body.firstChild;
                 }
-                //control元素
+                // control元素
                 if ( range.item ){
                     return range.item( 0 );
                 }
                 tmpRange = range.duplicate();
-                //修正ie下<b>x</b>[xx] 闭合后 <b>x|</b>xx
+                // 修正ie下<b>x</b>[xx] 闭合后 <b>x|</b>xx
                 tmpRange.text.length > 0 && tmpRange.moveStart( 'character', 1 );
                 tmpRange.collapse( 1 );
                 start = tmpRange.parentElement();
@@ -6476,14 +6018,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 得到选区中的文本
-         * @method getText
-         * @return { String } 选区中包含的文本
-         * @example
-         * ```javascript
-         * editor.selection.getText();
-         * ```
-         */
+		 * 得到选区中的文本
+		 * 
+		 * @method getText
+		 * @return { String } 选区中包含的文本
+		 * @example ```javascript editor.selection.getText(); ```
+		 */
         getText:function () {
             var nativeSel, nativeRange;
             if ( this.isFocus() && (nativeSel = this.getNative()) ) {
@@ -6494,13 +6034,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 清除选区
-         * @method clearRange
-         * @example
-         * ```javascript
-         * editor.selection.clearRange();
-         * ```
-         */
+		 * 清除选区
+		 * 
+		 * @method clearRange
+		 * @example ```javascript editor.selection.clearRange(); ```
+		 */
         clearRange : function(){
             this.getNative()[browser.ie9below ? 'empty' : 'removeAllRanges']();
         }
@@ -6510,6 +6048,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 // core/Editor.js
 /**
  * 编辑器主类，包含编辑器提供的大部分公用接口
+ * 
  * @file
  * @module UE
  * @class Editor
@@ -6518,12 +6057,14 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
 /**
  * UEditor公用空间，UEditor所有的功能都挂载在该空间下
+ * 
  * @unfile
  * @module UE
  */
 
 /**
  * UEditor的核心类，为用户提供与编辑器交互的接口。
+ * 
  * @unfile
  * @module UE
  * @class Editor
@@ -6533,11 +6074,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     var uid = 0, _selectionChangeTimer;
 
     /**
-     * 获取编辑器的html内容，赋值到编辑器所在表单的textarea文本域里面
-     * @private
-     * @method setValue
-     * @param { UE.Editor } editor 编辑器事例
-     */
+	 * 获取编辑器的html内容，赋值到编辑器所在表单的textarea文本域里面
+	 * 
+	 * @private
+	 * @method setValue
+	 * @param {
+	 *            UE.Editor } editor 编辑器事例
+	 */
     function setValue(form, editor) {
         var textarea;
         if (editor.textarea) {
@@ -6558,7 +6101,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 'id': 'ueditor_textarea_' + editor.options.textarea,
                 'style': "display:none"
             }));
-            //不要产生多个textarea
+            // 不要产生多个textarea
             editor.textarea = textarea;
         }
         !textarea.getAttribute('name') && textarea.setAttribute('name', editor.options.textarea );
@@ -6567,7 +6110,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             ''
     }
     function loadPlugins(me){
-        //初始化插件
+        // 初始化插件
         for (var pi in UE.plugins) {
             UE.plugins[pi].call(me);
         }
@@ -6586,155 +6129,158 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
     }
 
     /**
-     * 编辑器准备就绪后会触发该事件
-     * @module UE
-     * @class Editor
-     * @event ready
-     * @remind render方法执行完成之后,会触发该事件
-     * @remind
-     * @example
-     * ```javascript
-     * editor.addListener( 'ready', function( editor ) {
-     *     editor.execCommand( 'focus' ); //编辑器家在完成后，让编辑器拿到焦点
-     * } );
-     * ```
-     */
+	 * 编辑器准备就绪后会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event ready
+	 * @remind render方法执行完成之后,会触发该事件
+	 * @remind
+	 * @example ```javascript editor.addListener( 'ready', function( editor ) { editor.execCommand( 'focus' ); //编辑器家在完成后，让编辑器拿到焦点 } ); ```
+	 */
     /**
-     * 执行destroy方法,会触发该事件
-     * @module UE
-     * @class Editor
-     * @event destroy
-     * @see UE.Editor:destroy()
-     */
+	 * 执行destroy方法,会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event destroy
+	 * @see UE.Editor:destroy()
+	 */
     /**
-     * 执行reset方法,会触发该事件
-     * @module UE
-     * @class Editor
-     * @event reset
-     * @see UE.Editor:reset()
-     */
+	 * 执行reset方法,会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event reset
+	 * @see UE.Editor:reset()
+	 */
     /**
-     * 执行focus方法,会触发该事件
-     * @module UE
-     * @class Editor
-     * @event focus
-     * @see UE.Editor:focus(Boolean)
-     */
+	 * 执行focus方法,会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event focus
+	 * @see UE.Editor:focus(Boolean)
+	 */
     /**
-     * 语言加载完成会触发该事件
-     * @module UE
-     * @class Editor
-     * @event langReady
-     */
+	 * 语言加载完成会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event langReady
+	 */
     /**
-     * 运行命令之后会触发该命令
-     * @module UE
-     * @class Editor
-     * @event beforeExecCommand
-     */
+	 * 运行命令之后会触发该命令
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event beforeExecCommand
+	 */
     /**
-     * 运行命令之后会触发该命令
-     * @module UE
-     * @class Editor
-     * @event afterExecCommand
-     */
+	 * 运行命令之后会触发该命令
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event afterExecCommand
+	 */
     /**
-     * 运行命令之前会触发该命令
-     * @module UE
-     * @class Editor
-     * @event firstBeforeExecCommand
-     */
+	 * 运行命令之前会触发该命令
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event firstBeforeExecCommand
+	 */
     /**
-     * 在getContent方法执行之前会触发该事件
-     * @module UE
-     * @class Editor
-     * @event beforeGetContent
-     * @see UE.Editor:getContent()
-     */
+	 * 在getContent方法执行之前会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event beforeGetContent
+	 * @see UE.Editor:getContent()
+	 */
     /**
-     * 在getContent方法执行之后会触发该事件
-     * @module UE
-     * @class Editor
-     * @event afterGetContent
-     * @see UE.Editor:getContent()
-     */
+	 * 在getContent方法执行之后会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event afterGetContent
+	 * @see UE.Editor:getContent()
+	 */
     /**
-     * 在getAllHtml方法执行时会触发该事件
-     * @module UE
-     * @class Editor
-     * @event getAllHtml
-     * @see UE.Editor:getAllHtml()
-     */
+	 * 在getAllHtml方法执行时会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event getAllHtml
+	 * @see UE.Editor:getAllHtml()
+	 */
     /**
-     * 在setContent方法执行之前会触发该事件
-     * @module UE
-     * @class Editor
-     * @event beforeSetContent
-     * @see UE.Editor:setContent(String)
-     */
+	 * 在setContent方法执行之前会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event beforeSetContent
+	 * @see UE.Editor:setContent(String)
+	 */
     /**
-     * 在setContent方法执行之后会触发该事件
-     * @module UE
-     * @class Editor
-     * @event afterSetContent
-     * @see UE.Editor:setContent(String)
-     */
+	 * 在setContent方法执行之后会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event afterSetContent
+	 * @see UE.Editor:setContent(String)
+	 */
     /**
-     * 每当编辑器内部选区发生改变时，将触发该事件
-     * @event selectionchange
-     * @warning 该事件的触发非常频繁，不建议在该事件的处理过程中做重量级的处理
-     * @example
-     * ```javascript
-     * editor.addListener( 'selectionchange', function( editor ) {
-     *     console.log('选区发生改变');
-     * }
-     */
+	 * 每当编辑器内部选区发生改变时，将触发该事件
+	 * 
+	 * @event selectionchange
+	 * @warning 该事件的触发非常频繁，不建议在该事件的处理过程中做重量级的处理
+	 * @example ```javascript editor.addListener( 'selectionchange', function( editor ) { console.log('选区发生改变'); }
+	 */
     /**
-     * 在所有selectionchange的监听函数执行之前，会触发该事件
-     * @module UE
-     * @class Editor
-     * @event beforeSelectionChange
-     * @see UE.Editor:selectionchange
-     */
+	 * 在所有selectionchange的监听函数执行之前，会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event beforeSelectionChange
+	 * @see UE.Editor:selectionchange
+	 */
     /**
-     * 在所有selectionchange的监听函数执行完之后，会触发该事件
-     * @module UE
-     * @class Editor
-     * @event afterSelectionChange
-     * @see UE.Editor:selectionchange
-     */
+	 * 在所有selectionchange的监听函数执行完之后，会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event afterSelectionChange
+	 * @see UE.Editor:selectionchange
+	 */
     /**
-     * 编辑器内容发生改变时会触发该事件
-     * @module UE
-     * @class Editor
-     * @event contentChange
-     */
+	 * 编辑器内容发生改变时会触发该事件
+	 * 
+	 * @module UE
+	 * @class Editor
+	 * @event contentChange
+	 */
 
 
     /**
-     * 以默认参数构建一个编辑器实例
-     * @constructor
-     * @remind 通过 改构造方法实例化的编辑器,不带ui层.需要render到一个容器,编辑器实例才能正常渲染到页面
-     * @example
-     * ```javascript
-     * var editor = new UE.Editor();
-     * editor.execCommand('blod');
-     * ```
-     * @see UE.Config
-     */
+	 * 以默认参数构建一个编辑器实例
+	 * 
+	 * @constructor
+	 * @remind 通过 改构造方法实例化的编辑器,不带ui层.需要render到一个容器,编辑器实例才能正常渲染到页面
+	 * @example ```javascript var editor = new UE.Editor(); editor.execCommand('blod'); ```
+	 * @see UE.Config
+	 */
 
     /**
-     * 以给定的参数集合创建一个编辑器实例，对于未指定的参数，将应用默认参数。
-     * @constructor
-     * @remind 通过 改构造方法实例化的编辑器,不带ui层.需要render到一个容器,编辑器实例才能正常渲染到页面
-     * @param { Object } setting 创建编辑器的参数
-     * @example
-     * ```javascript
-     * var editor = new UE.Editor();
-     * editor.execCommand('blod');
-     * ```
-     * @see UE.Config
-     */
+	 * 以给定的参数集合创建一个编辑器实例，对于未指定的参数，将应用默认参数。
+	 * 
+	 * @constructor
+	 * @remind 通过 改构造方法实例化的编辑器,不带ui层.需要render到一个容器,编辑器实例才能正常渲染到页面
+	 * @param {
+	 *            Object } setting 创建编辑器的参数
+	 * @example ```javascript var editor = new UE.Editor(); editor.execCommand('blod'); ```
+	 * @see UE.Config
+	 */
     var Editor = UE.Editor = function (options) {
         var me = this;
         me.uid = uid++;
@@ -6744,14 +6290,14 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         me.shortcutkeys = {};
         me.inputRules = [];
         me.outputRules = [];
-        //设置默认的常用属性
+        // 设置默认的常用属性
         me.setOpt(Editor.defaultOptions(me));
 
         /* 尝试异步加载后台配置 */
         me.loadServerConfig();
 
         if(!utils.isEmptyObject(UE.I18N)){
-            //修改默认的语言类型
+            // 修改默认的语言类型
             me.options.lang = checkCurLang(UE.I18N);
             UE.plugin.load(me);
             langReadied(me);
@@ -6775,19 +6321,15 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             this.commands[name] = obj;
          },
         /**
-         * 编辑器对外提供的监听ready事件的接口， 通过调用该方法，达到的效果与监听ready事件是一致的
-         * @method ready
-         * @param { Function } fn 编辑器ready之后所执行的回调, 如果在注册事件之前编辑器已经ready，将会
-         * 立即触发该回调。
-         * @remind 需要等待编辑器加载完成后才能执行的代码,可以使用该方法传入
-         * @example
-         * ```javascript
-         * editor.ready( function( editor ) {
-         *     editor.setContent('初始化完毕');
-         * } );
-         * ```
-         * @see UE.Editor.event:ready
-         */
+		 * 编辑器对外提供的监听ready事件的接口， 通过调用该方法，达到的效果与监听ready事件是一致的
+		 * 
+		 * @method ready
+		 * @param {
+		 *            Function } fn 编辑器ready之后所执行的回调, 如果在注册事件之前编辑器已经ready，将会 立即触发该回调。
+		 * @remind 需要等待编辑器加载完成后才能执行的代码,可以使用该方法传入
+		 * @example ```javascript editor.ready( function( editor ) { editor.setContent('初始化完毕'); } ); ```
+		 * @see UE.Editor.event:ready
+		 */
         ready: function (fn) {
             var me = this;
             if (fn) {
@@ -6796,31 +6338,28 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 该方法是提供给插件里面使用，设置配置项默认值
-         * @method setOpt
-         * @warning 三处设置配置项的优先级: 实例化时传入参数 > setOpt()设置 > config文件里设置
-         * @warning 该方法仅供编辑器插件内部和编辑器初始化时调用，其他地方不能调用。
-         * @param { String } key 编辑器的可接受的选项名称
-         * @param { * } val  该选项可接受的值
-         * @example
-         * ```javascript
-         * editor.setOpt( 'initContent', '欢迎使用编辑器' );
-         * ```
-         */
+		 * 该方法是提供给插件里面使用，设置配置项默认值
+		 * 
+		 * @method setOpt
+		 * @warning 三处设置配置项的优先级: 实例化时传入参数 > setOpt()设置 > config文件里设置
+		 * @warning 该方法仅供编辑器插件内部和编辑器初始化时调用，其他地方不能调用。
+		 * @param {
+		 *            String } key 编辑器的可接受的选项名称
+		 * @param { * }
+		 *            val 该选项可接受的值
+		 * @example ```javascript editor.setOpt( 'initContent', '欢迎使用编辑器' ); ```
+		 */
 
         /**
-         * 该方法是提供给插件里面使用，以{key:value}集合的方式设置插件内用到的配置项默认值
-         * @method setOpt
-         * @warning 三处设置配置项的优先级: 实例化时传入参数 > setOpt()设置 > config文件里设置
-         * @warning 该方法仅供编辑器插件内部和编辑器初始化时调用，其他地方不能调用。
-         * @param { Object } options 将要设置的选项的键值对对象
-         * @example
-         * ```javascript
-         * editor.setOpt( {
-         *     'initContent': '欢迎使用编辑器'
-         * } );
-         * ```
-         */
+		 * 该方法是提供给插件里面使用，以{key:value}集合的方式设置插件内用到的配置项默认值
+		 * 
+		 * @method setOpt
+		 * @warning 三处设置配置项的优先级: 实例化时传入参数 > setOpt()设置 > config文件里设置
+		 * @warning 该方法仅供编辑器插件内部和编辑器初始化时调用，其他地方不能调用。
+		 * @param {
+		 *            Object } options 将要设置的选项的键值对对象
+		 * @example ```javascript editor.setOpt( { 'initContent': '欢迎使用编辑器' } ); ```
+		 */
         setOpt: function (key, val) {
             var obj = {};
             if (utils.isString(key)) {
@@ -6834,13 +6373,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             return this.options[key]
         },
         /**
-         * 销毁编辑器实例，使用textarea代替
-         * @method destroy
-         * @example
-         * ```javascript
-         * editor.destroy();
-         * ```
-         */
+		 * 销毁编辑器实例，使用textarea代替
+		 * 
+		 * @method destroy
+		 * @example ```javascript editor.destroy(); ```
+		 */
         destroy: function () {
 
             var me = this;
@@ -6861,7 +6398,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             container.innerHTML = '';
             domUtils.remove(container);
             var key = me.key;
-            //trace:2004
+            // trace:2004
             for (var p in me) {
                 if (me.hasOwnProperty(p)) {
                     delete this[p];
@@ -6871,20 +6408,24 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 渲染编辑器的DOM到指定容器
-         * @method render
-         * @param { String } containerId 指定一个容器ID
-         * @remind 执行该方法,会触发ready事件
-         * @warning 必须且只能调用一次
-         */
+		 * 渲染编辑器的DOM到指定容器
+		 * 
+		 * @method render
+		 * @param {
+		 *            String } containerId 指定一个容器ID
+		 * @remind 执行该方法,会触发ready事件
+		 * @warning 必须且只能调用一次
+		 */
 
         /**
-         * 渲染编辑器的DOM到指定容器
-         * @method render
-         * @param { Element } containerDom 直接指定容器对象
-         * @remind 执行该方法,会触发ready事件
-         * @warning 必须且只能调用一次
-         */
+		 * 渲染编辑器的DOM到指定容器
+		 * 
+		 * @method render
+		 * @param {
+		 *            Element } containerDom 直接指定容器对象
+		 * @remind 执行该方法,会触发ready事件
+		 * @warning 必须且只能调用一次
+		 */
         render: function (container) {
             var me = this,
                 options = me.options,
@@ -6916,12 +6457,14 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 var html = ( ie && browser.version < 9  ? '' : '<!DOCTYPE html>') +
                     '<html xmlns=\'http://www.w3.org/1999/xhtml\' class=\'view\' ><head>' +
                     '<style type=\'text/css\'>' +
-                    //设置四周的留边
+                    // 设置四周的留边
                     '.view{padding:0;word-wrap:break-word;cursor:text;height:90%;}\n' +
-                    //设置默认字体和字号
-                    //font-family不能呢随便改，在safari下fillchar会有解析问题
+                    // 设置默认字体和字号
+                    // font-family不能呢随便改，在safari下fillchar会有解析问题
                     'body{margin:8px;font-family:sans-serif;font-size:16px;}' +
-                    //设置段落间距
+                    // 设置图片最大宽度，以免撑出滚动条
+                    'img{max-width:100%;}'+
+                    // 设置段落间距
                     'p{margin:5px 0;}</style>' +
                     ( options.iframeCssUrl ? '<link rel=\'stylesheet\' type=\'text/css\' href=\'' + utils.unhtml(options.iframeCssUrl) + '\'/>' : '' ) +
                     (options.initialStyle ? '<style>' + options.initialStyle + '</style>' : '') +
@@ -6934,18 +6477,18 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     width: "100%",
                     height: "100%",
                     frameborder: "0",
-                    //先注释掉了，加的原因忘记了，但开启会直接导致全屏模式下内容多时不会出现滚动条
-//                    scrolling :'no',
+                    // 先注释掉了，加的原因忘记了，但开启会直接导致全屏模式下内容多时不会出现滚动条
+// scrolling :'no',
                     src: 'javascript:void(function(){document.open();' + (options.customDomain && document.domain != location.hostname ?  'document.domain="' + document.domain + '";' : '') +
                         'document.write("' + html + '");document.close();}())'
                 }));
                 container.style.overflow = 'hidden';
-                //解决如果是给定的百分比，会导致高度算不对的问题
+                // 解决如果是给定的百分比，会导致高度算不对的问题
                 setTimeout(function(){
                     if( /%$/.test(options.initialFrameWidth)){
                         options.minFrameWidth = options.initialFrameWidth = container.offsetWidth;
-                        //如果这里给定宽度，会导致ie在拖动窗口大小时，编辑区域不随着变化
-//                        container.style.width = options.initialFrameWidth + 'px';
+                        // 如果这里给定宽度，会导致ie在拖动窗口大小时，编辑区域不随着变化
+// container.style.width = options.initialFrameWidth + 'px';
                     }
                     if(/%$/.test(options.initialFrameHeight)){
                         options.minFrameHeight = options.initialFrameHeight = container.offsetHeight;
@@ -6956,11 +6499,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 编辑器初始化
-         * @method _setup
-         * @private
-         * @param { Element } doc 编辑器Iframe中的文档对象
-         */
+		 * 编辑器初始化
+		 * 
+		 * @method _setup
+		 * @private
+		 * @param {
+		 *            Element } doc 编辑器Iframe中的文档对象
+		 */
         _setup: function (doc) {
 
             var me = this,
@@ -6978,13 +6523,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             me.iframe = me.window.frameElement;
             me.body = doc.body;
             me.selection = new dom.Selection(doc);
-            //gecko初始化就能得到range,无法判断isFocus了
+            // gecko初始化就能得到range,无法判断isFocus了
             var geckoSel;
             if (browser.gecko && (geckoSel = this.selection.getNative())) {
                 geckoSel.removeAllRanges();
             }
             this._initEvents();
-            //为form提交提供一个隐藏的textarea
+            // 为form提交提供一个隐藏的textarea
             for (var form = this.iframe.parentNode; !domUtils.isBody(form); form = form.parentNode) {
                 if (form.tagName == 'FORM') {
                     me.form = form;
@@ -7012,16 +6557,16 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     this.setContent(options.initialContent, false, true);
             }
 
-            //编辑器不能为空内容
+            // 编辑器不能为空内容
 
             if (domUtils.isEmptyNode(me.body)) {
                 me.body.innerHTML = '<p>' + (browser.ie ? '' : '<br/>') + '</p>';
             }
-            //如果要求focus, 就把光标定位到内容开始
+            // 如果要求focus, 就把光标定位到内容开始
             if (options.focus) {
                 setTimeout(function () {
                     me.focus(me.options.focusInEnd);
-                    //如果自动清除开着，就不需要做selectionchange;
+                    // 如果自动清除开着，就不需要做selectionchange;
                     !me.options.autoClearinitialContent && me._selectionChange();
                 }, 0);
             }
@@ -7045,14 +6590,14 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             } catch (e) {
             }
 
-            //挂接快捷键
+            // 挂接快捷键
             me._bindshortcutKeys();
             me.isReady = 1;
             me.fireEvent('ready');
             options.onready && options.onready.call(me);
             if (!browser.ie9below) {
                 domUtils.on(me.window, ['blur', 'focus'], function (e) {
-                    //chrome下会出现alt+tab切换时，导致选区位置不对
+                    // chrome下会出现alt+tab切换时，导致选区位置不对
                     if (e.type == 'blur') {
                         me._bakRange = me.selection.getRange();
                         try {
@@ -7070,9 +6615,9 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     }
                 });
             }
-            //trace:1518 ff3.6body不够寛，会导致点击空白处无法获得焦点
+            // trace:1518 ff3.6body不够寛，会导致点击空白处无法获得焦点
             if (browser.gecko && browser.version <= 10902) {
-                //修复ff3.6初始化进来，不能点击获得焦点
+                // 修复ff3.6初始化进来，不能点击获得焦点
                 me.body.contentEditable = false;
                 setTimeout(function () {
                     me.body.contentEditable = true;
@@ -7087,23 +6632,19 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 同步数据到编辑器所在的form
-         * 从编辑器的容器节点向上查找form元素，若找到，就同步编辑内容到找到的form里，为提交数据做准备，主要用于是手动提交的情况
-         * 后台取得数据的键值，使用你容器上的name属性，如果没有就使用参数里的textarea项
-         * @method sync
-         * @example
-         * ```javascript
-         * editor.sync();
-         * form.sumbit(); //form变量已经指向了form元素
-         * ```
-         */
+		 * 同步数据到编辑器所在的form 从编辑器的容器节点向上查找form元素，若找到，就同步编辑内容到找到的form里，为提交数据做准备，主要用于是手动提交的情况 后台取得数据的键值，使用你容器上的name属性，如果没有就使用参数里的textarea项
+		 * 
+		 * @method sync
+		 * @example ```javascript editor.sync(); form.sumbit(); //form变量已经指向了form元素 ```
+		 */
 
         /**
-         * 根据传入的formId，在页面上查找要同步数据的表单，若找到，就同步编辑内容到找到的form里，为提交数据做准备
-         * 后台取得数据的键值，该键值默认使用给定的编辑器容器的name属性，如果没有name属性则使用参数项里给定的“textarea”项
-         * @method sync
-         * @param { String } formID 指定一个要同步数据的form的id,编辑器的数据会同步到你指定form下
-         */
+		 * 根据传入的formId，在页面上查找要同步数据的表单，若找到，就同步编辑内容到找到的form里，为提交数据做准备 后台取得数据的键值，该键值默认使用给定的编辑器容器的name属性，如果没有name属性则使用参数项里给定的“textarea”项
+		 * 
+		 * @method sync
+		 * @param {
+		 *            String } formID 指定一个要同步数据的form的id,编辑器的数据会同步到你指定form下
+		 */
         sync: function (formId) {
             var me = this,
                 form = formId ? document.getElementById(formId) :
@@ -7114,15 +6655,14 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 设置编辑器高度
-         * @method setHeight
-         * @remind 当配置项autoHeightEnabled为真时,该方法无效
-         * @param { Number } number 设置的高度值，纯数值，不带单位
-         * @example
-         * ```javascript
-         * editor.setHeight(number);
-         * ```
-         */
+		 * 设置编辑器高度
+		 * 
+		 * @method setHeight
+		 * @remind 当配置项autoHeightEnabled为真时,该方法无效
+		 * @param {
+		 *            Number } number 设置的高度值，纯数值，不带单位
+		 * @example ```javascript editor.setHeight(number); ```
+		 */
         setHeight: function (height,notSetHeight) {
             if (height !== parseInt(this.iframe.parentNode.style.height)) {
                 this.iframe.parentNode.style.height = height + 'px';
@@ -7133,28 +6673,23 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 为编辑器的编辑命令提供快捷键
-         * 这个接口是为插件扩展提供的接口,主要是为新添加的插件，如果需要添加快捷键，所提供的接口
-         * @method addshortcutkey
-         * @param { Object } keyset 命令名和快捷键键值对对象，多个按钮的快捷键用“＋”分隔
-         * @example
-         * ```javascript
-         * editor.addshortcutkey({
-         *     "Bold" : "ctrl+66",//^B
-         *     "Italic" : "ctrl+73", //^I
-         * });
-         * ```
-         */
+		 * 为编辑器的编辑命令提供快捷键 这个接口是为插件扩展提供的接口,主要是为新添加的插件，如果需要添加快捷键，所提供的接口
+		 * 
+		 * @method addshortcutkey
+		 * @param {
+		 *            Object } keyset 命令名和快捷键键值对对象，多个按钮的快捷键用“＋”分隔
+		 * @example ```javascript editor.addshortcutkey({ "Bold" : "ctrl+66",//^B "Italic" : "ctrl+73", //^I }); ```
+		 */
         /**
-         * 这个接口是为插件扩展提供的接口,主要是为新添加的插件，如果需要添加快捷键，所提供的接口
-         * @method addshortcutkey
-         * @param { String } cmd 触发快捷键时，响应的命令
-         * @param { String } keys 快捷键的字符串，多个按钮用“＋”分隔
-         * @example
-         * ```javascript
-         * editor.addshortcutkey("Underline", "ctrl+85"); //^U
-         * ```
-         */
+		 * 这个接口是为插件扩展提供的接口,主要是为新添加的插件，如果需要添加快捷键，所提供的接口
+		 * 
+		 * @method addshortcutkey
+		 * @param {
+		 *            String } cmd 触发快捷键时，响应的命令
+		 * @param {
+		 *            String } keys 快捷键的字符串，多个按钮用“＋”分隔
+		 * @example ```javascript editor.addshortcutkey("Underline", "ctrl+85"); //^U ```
+		 */
         addshortcutkey: function (cmd, keys) {
             var obj = {};
             if (keys) {
@@ -7166,10 +6701,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 对编辑器设置keydown事件监听，绑定快捷键和命令，当快捷键组合触发成功，会响应对应的命令
-         * @method _bindshortcutKeys
-         * @private
-         */
+		 * 对编辑器设置keydown事件监听，绑定快捷键和命令，当快捷键组合触发成功，会响应对应的命令
+		 * 
+		 * @method _bindshortcutKeys
+		 * @private
+		 */
         _bindshortcutKeys: function () {
             var me = this, shortcutkeys = this.shortcutkeys;
             me.addListener('keydown', function (type, e) {
@@ -7198,35 +6734,33 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 获取编辑器的内容
-         * @method getContent
-         * @warning 该方法获取到的是经过编辑器内置的过滤规则进行过滤后得到的内容
-         * @return { String } 编辑器的内容字符串, 如果编辑器的内容为空，或者是空的标签内容（如:”&lt;p&gt;&lt;br/&gt;&lt;/p&gt;“）， 则返回空字符串
-         * @example
-         * ```javascript
-         * //编辑器html内容:<p>1<strong>2<em>34</em>5</strong>6</p>
-         * var content = editor.getContent(); //返回值:<p>1<strong>2<em>34</em>5</strong>6</p>
-         * ```
-         */
+		 * 获取编辑器的内容
+		 * 
+		 * @method getContent
+		 * @warning 该方法获取到的是经过编辑器内置的过滤规则进行过滤后得到的内容
+		 * @return { String } 编辑器的内容字符串, 如果编辑器的内容为空，或者是空的标签内容（如:”&lt;p&gt;&lt;br/&gt;&lt;/p&gt;“）， 则返回空字符串
+		 * @example ```javascript //编辑器html内容:
+		 *          <p>
+		 *          1<strong>2<em>34</em>5</strong>6
+		 *          </p>
+		 *          var content = editor.getContent(); //返回值:
+		 *          <p>
+		 *          1<strong>2<em>34</em>5</strong>6
+		 *          </p>
+		 *          ```
+		 */
 
         /**
-         * 获取编辑器的内容。 可以通过参数定义编辑器内置的判空规则
-         * @method getContent
-         * @param { Function } fn 自定的判空规则， 要求该方法返回一个boolean类型的值，
-         *                      代表当前编辑器的内容是否空，
-         *                      如果返回true， 则该方法将直接返回空字符串；如果返回false，则编辑器将返回
-         *                      经过内置过滤规则处理后的内容。
-         * @remind 该方法在处理包含有初始化内容的时候能起到很好的作用。
-         * @warning 该方法获取到的是经过编辑器内置的过滤规则进行过滤后得到的内容
-         * @return { String } 编辑器的内容字符串
-         * @example
-         * ```javascript
-         * // editor 是一个编辑器的实例
-         * var content = editor.getContent( function ( editor ) {
-         *      return editor.body.innerHTML === '欢迎使用UEditor'; //返回空字符串
-         * } );
-         * ```
-         */
+		 * 获取编辑器的内容。 可以通过参数定义编辑器内置的判空规则
+		 * 
+		 * @method getContent
+		 * @param {
+		 *            Function } fn 自定的判空规则， 要求该方法返回一个boolean类型的值， 代表当前编辑器的内容是否空， 如果返回true， 则该方法将直接返回空字符串；如果返回false，则编辑器将返回 经过内置过滤规则处理后的内容。
+		 * @remind 该方法在处理包含有初始化内容的时候能起到很好的作用。
+		 * @warning 该方法获取到的是经过编辑器内置的过滤规则进行过滤后得到的内容
+		 * @return { String } 编辑器的内容字符串
+		 * @example ```javascript // editor 是一个编辑器的实例 var content = editor.getContent( function ( editor ) { return editor.body.innerHTML === '欢迎使用UEditor'; //返回空字符串 } ); ```
+		 */
         getContent: function (cmd, fn,notSetCursor,ignoreBlank,formatter) {
             var me = this;
             if (cmd && utils.isFunction(cmd)) {
@@ -7244,14 +6778,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 取得完整的html代码，可以直接显示成完整的html文档
-         * @method getAllHtml
-         * @return { String } 编辑器的内容html文档字符串
-         * @eaxmple
-         * ```javascript
-         * editor.getAllHtml(); //返回格式大致是: <html><head>...</head><body>...</body></html>
-         * ```
-         */
+		 * 取得完整的html代码，可以直接显示成完整的html文档
+		 * 
+		 * @method getAllHtml
+		 * @return { String } 编辑器的内容html文档字符串
+		 * @eaxmple ```javascript editor.getAllHtml(); //返回格式大致是: <html><head>...</head><body>...</body></html> ```
+		 */
         getAllHtml: function () {
             var me = this,
                 headHtml = [],
@@ -7273,69 +6805,93 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 得到编辑器的纯文本内容，但会保留段落格式
-         * @method getPlainTxt
-         * @return { String } 编辑器带段落格式的纯文本内容字符串
-         * @example
-         * ```javascript
-         * //编辑器html内容:<p><strong>1</strong></p><p><strong>2</strong></p>
-         * console.log(editor.getPlainTxt()); //输出:"1\n2\n
-         * ```
-         */
+		 * 得到编辑器的纯文本内容，但会保留段落格式
+		 * 
+		 * @method getPlainTxt
+		 * @return { String } 编辑器带段落格式的纯文本内容字符串
+		 * @example ```javascript //编辑器html内容:
+		 *          <p>
+		 *          <strong>1</strong>
+		 *          </p>
+		 *          <p>
+		 *          <strong>2</strong>
+		 *          </p>
+		 *          console.log(editor.getPlainTxt()); //输出:"1\n2\n ```
+		 */
         getPlainTxt: function () {
             var reg = new RegExp(domUtils.fillChar, 'g'),
-                html = this.body.innerHTML.replace(/[\n\r]/g, '');//ie要先去了\n在处理
+                html = this.body.innerHTML.replace(/[\n\r]/g, '');// ie要先去了\n在处理
             html = html.replace(/<(p|div)[^>]*>(<br\/?>|&nbsp;)<\/\1>/gi, '\n')
                 .replace(/<br\/?>/gi, '\n')
                 .replace(/<[^>/]+>/g, '')
                 .replace(/(\n)?<\/([^>]+)>/g, function (a, b, c) {
                     return dtd.$block[c] ? '\n' : b ? b : '';
                 });
-            //取出来的空格会有c2a0会变成乱码，处理这种情况\u00a0
+            // 取出来的空格会有c2a0会变成乱码，处理这种情况\u00a0
             return html.replace(reg, '').replace(/\u00a0/g, ' ').replace(/&nbsp;/g, ' ');
         },
 
         /**
-         * 获取编辑器中的纯文本内容,没有段落格式
-         * @method getContentTxt
-         * @return { String } 编辑器不带段落格式的纯文本内容字符串
-         * @example
-         * ```javascript
-         * //编辑器html内容:<p><strong>1</strong></p><p><strong>2</strong></p>
-         * console.log(editor.getPlainTxt()); //输出:"12
-         * ```
-         */
+		 * 获取编辑器中的纯文本内容,没有段落格式
+		 * 
+		 * @method getContentTxt
+		 * @return { String } 编辑器不带段落格式的纯文本内容字符串
+		 * @example ```javascript //编辑器html内容:
+		 *          <p>
+		 *          <strong>1</strong>
+		 *          </p>
+		 *          <p>
+		 *          <strong>2</strong>
+		 *          </p>
+		 *          console.log(editor.getPlainTxt()); //输出:"12 ```
+		 */
         getContentTxt: function () {
             var reg = new RegExp(domUtils.fillChar, 'g');
-            //取出来的空格会有c2a0会变成乱码，处理这种情况\u00a0
+            // 取出来的空格会有c2a0会变成乱码，处理这种情况\u00a0
             return this.body[browser.ie ? 'innerText' : 'textContent'].replace(reg, '').replace(/\u00a0/g, ' ');
         },
 
         /**
-         * 设置编辑器的内容，可修改编辑器当前的html内容
-         * @method setContent
-         * @warning 通过该方法插入的内容，是经过编辑器内置的过滤规则进行过滤后得到的内容
-         * @warning 该方法会触发selectionchange事件
-         * @param { String } html 要插入的html内容
-         * @example
-         * ```javascript
-         * editor.getContent('<p>test</p>');
-         * ```
-         */
+		 * 设置编辑器的内容，可修改编辑器当前的html内容
+		 * 
+		 * @method setContent
+		 * @warning 通过该方法插入的内容，是经过编辑器内置的过滤规则进行过滤后得到的内容
+		 * @warning 该方法会触发selectionchange事件
+		 * @param {
+		 *            String } html 要插入的html内容
+		 * @example ```javascript editor.getContent('
+		 *          <p>
+		 *          test
+		 *          </p>
+		 *          '); ```
+		 */
 
         /**
-         * 设置编辑器的内容，可修改编辑器当前的html内容
-         * @method setContent
-         * @warning 通过该方法插入的内容，是经过编辑器内置的过滤规则进行过滤后得到的内容
-         * @warning 该方法会触发selectionchange事件
-         * @param { String } html 要插入的html内容
-         * @param { Boolean } isAppendTo 若传入true，不清空原来的内容，在最后插入内容，否则，清空内容再插入
-         * @example
-         * ```javascript
-         * //假设设置前的编辑器内容是 <p>old text</p>
-         * editor.setContent('<p>new text</p>', true); //插入的结果是<p>old text</p><p>new text</p>
-         * ```
-         */
+		 * 设置编辑器的内容，可修改编辑器当前的html内容
+		 * 
+		 * @method setContent
+		 * @warning 通过该方法插入的内容，是经过编辑器内置的过滤规则进行过滤后得到的内容
+		 * @warning 该方法会触发selectionchange事件
+		 * @param {
+		 *            String } html 要插入的html内容
+		 * @param {
+		 *            Boolean } isAppendTo 若传入true，不清空原来的内容，在最后插入内容，否则，清空内容再插入
+		 * @example ```javascript //假设设置前的编辑器内容是
+		 *          <p>
+		 *          old text
+		 *          </p>
+		 *          editor.setContent('
+		 *          <p>
+		 *          new text
+		 *          </p>', true); //插入的结果是
+		 *          <p>
+		 *          old text
+		 *          </p>
+		 *          <p>
+		 *          new text
+		 *          </p>
+		 *          ```
+		 */
         setContent: function (html, isAppendTo, notFireSelectionchange) {
             var me = this;
 
@@ -7350,7 +6906,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             function isCdataDiv(node){
                 return  node.tagName == 'DIV' && node.getAttribute('cdata_tag');
             }
-            //给文本或者inline节点套p标签
+            // 给文本或者inline节点套p标签
             if (me.options.enterTag == 'p') {
 
                 var child = this.body.firstChild, tmpNode;
@@ -7386,9 +6942,9 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             me.fireEvent('contentchange');
 
             !notFireSelectionchange && me._selectionChange();
-            //清除保存的选区
+            // 清除保存的选区
             me._bakRange = me._bakIERange = me._bakNativeRange = null;
-            //trace:1742 setContent后gecko能得到焦点问题
+            // trace:1742 setContent后gecko能得到焦点问题
             var geckoSel;
             if (browser.gecko && (geckoSel = this.selection.getNative())) {
                 geckoSel.removeAllRanges();
@@ -7399,23 +6955,20 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 让编辑器获得焦点，默认focus到编辑器头部
-         * @method focus
-         * @example
-         * ```javascript
-         * editor.focus()
-         * ```
-         */
+		 * 让编辑器获得焦点，默认focus到编辑器头部
+		 * 
+		 * @method focus
+		 * @example ```javascript editor.focus() ```
+		 */
 
         /**
-         * 让编辑器获得焦点，toEnd确定focus位置
-         * @method focus
-         * @param { Boolean } toEnd 默认focus到编辑器头部，toEnd为true时focus到内容尾部
-         * @example
-         * ```javascript
-         * editor.focus(true)
-         * ```
-         */
+		 * 让编辑器获得焦点，toEnd确定focus位置
+		 * 
+		 * @method focus
+		 * @param {
+		 *            Boolean } toEnd 默认focus到编辑器头部，toEnd为true时focus到内容尾部
+		 * @example ```javascript editor.focus(true) ```
+		 */
         focus: function (toEnd) {
             try {
                 var me = this,
@@ -7463,13 +7016,14 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 sel.removeAllRanges()
             }
 
-            //this.fireEvent('blur selectionchange');
+            // this.fireEvent('blur selectionchange');
         },
         /**
-         * 初始化UE事件及部分事件代理
-         * @method _initEvents
-         * @private
-         */
+		 * 初始化UE事件及部分事件代理
+		 * 
+		 * @method _initEvents
+		 * @private
+		 */
         _initEvents: function () {
             var me = this,
                 doc = me.document,
@@ -7478,12 +7032,12 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             domUtils.on(doc, ['click', 'contextmenu', 'mousedown', 'keydown', 'keyup', 'keypress', 'mouseup', 'mouseover', 'mouseout', 'selectstart'], me._proxyDomEvent);
             domUtils.on(win, ['focus', 'blur'], me._proxyDomEvent);
             domUtils.on(me.body,'drop',function(e){
-                //阻止ff下默认的弹出新页面打开图片
+                // 阻止ff下默认的弹出新页面打开图片
                 if(browser.gecko && e.stopPropagation) { e.stopPropagation(); }
                 me.fireEvent('contentchange')
             });
             domUtils.on(doc, ['mouseup', 'keydown'], function (evt) {
-                //特殊键不触发selectionchange
+                // 特殊键不触发selectionchange
                 if (evt.type == 'keydown' && (evt.ctrlKey || evt.metaKey || evt.shiftKey || evt.altKey)) {
                     return;
                 }
@@ -7492,12 +7046,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             });
         },
         /**
-         * 触发事件代理
-         * @method _proxyDomEvent
-         * @private
-         * @return { * } fireEvent的返回值
-         * @see UE.EventBase:fireEvent(String)
-         */
+		 * 触发事件代理
+		 * 
+		 * @method _proxyDomEvent
+		 * @private
+		 * @return { * } fireEvent的返回值
+		 * @see UE.EventBase:fireEvent(String)
+		 */
         _proxyDomEvent: function (evt) {
             if(this.fireEvent('before' + evt.type.replace(/^on/, '').toLowerCase()) === false){
                 return false;
@@ -7508,16 +7063,17 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             return this.fireEvent('after' + evt.type.replace(/^on/, '').toLowerCase())
         },
         /**
-         * 变化选区
-         * @method _selectionChange
-         * @private
-         */
+		 * 变化选区
+		 * 
+		 * @method _selectionChange
+		 * @private
+		 */
         _selectionChange: function (delay, evt) {
             var me = this;
-            //有光标才做selectionchange 为了解决未focus时点击source不能触发更改工具栏状态的问题（source命令notNeedUndo=1）
-//            if ( !me.selection.isFocus() ){
-//                return;
-//            }
+            // 有光标才做selectionchange 为了解决未focus时点击source不能触发更改工具栏状态的问题（source命令notNeedUndo=1）
+// if ( !me.selection.isFocus() ){
+// return;
+// }
 
 
             var hackForMouseUp = false;
@@ -7535,8 +7091,8 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                 if (!me.selection || !me.selection.getNative()) {
                     return;
                 }
-                //修复一个IE下的bug: 鼠标点击一段已选择的文本中间时，可能在mouseup后的一段时间内取到的range是在selection的type为None下的错误值.
-                //IE下如果用户是拖拽一段已选择文本，则不会触发mouseup事件，所以这里的特殊处理不会对其有影响
+                // 修复一个IE下的bug: 鼠标点击一段已选择的文本中间时，可能在mouseup后的一段时间内取到的range是在selection的type为None下的错误值.
+                // IE下如果用户是拖拽一段已选择文本，则不会触发mouseup事件，所以这里的特殊处理不会对其有影响
                 var ieRange;
                 if (hackForMouseUp && me.selection.getNative().type == 'None') {
                     ieRange = me.document.body.createTextRange();
@@ -7568,19 +7124,22 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 执行编辑命令
-         * @method _callCmdFn
-         * @private
-         * @param { String } fnName 函数名称
-         * @param { * } args 传给命令函数的参数
-         * @return { * } 返回命令函数运行的返回值
-         */
+		 * 执行编辑命令
+		 * 
+		 * @method _callCmdFn
+		 * @private
+		 * @param {
+		 *            String } fnName 函数名称
+		 * @param { * }
+		 *            args 传给命令函数的参数
+		 * @return { * } 返回命令函数运行的返回值
+		 */
         _callCmdFn: function (fnName, args) {
             var cmdName = args[0].toLowerCase(),
                 cmd, cmdFn;
             cmd = this.commands[cmdName] || UE.commands[cmdName];
             cmdFn = cmd && cmd[fnName];
-            //没有querycommandstate或者没有command的都默认返回0
+            // 没有querycommandstate或者没有command的都默认返回0
             if ((!cmd || !cmdFn) && fnName == 'queryCommandState') {
                 return 0;
             } else if (cmdFn) {
@@ -7589,16 +7148,15 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 执行编辑命令cmdName，完成富文本编辑效果
-         * @method execCommand
-         * @param { String } cmdName 需要执行的命令
-         * @remind 具体命令的使用请参考<a href="#COMMAND.LIST">命令列表</a>
-         * @return { * } 返回命令函数运行的返回值
-         * @example
-         * ```javascript
-         * editor.execCommand(cmdName);
-         * ```
-         */
+		 * 执行编辑命令cmdName，完成富文本编辑效果
+		 * 
+		 * @method execCommand
+		 * @param {
+		 *            String } cmdName 需要执行的命令
+		 * @remind 具体命令的使用请参考<a href="#COMMAND.LIST">命令列表</a>
+		 * @return { * } 返回命令函数运行的返回值
+		 * @example ```javascript editor.execCommand(cmdName); ```
+		 */
         execCommand: function (cmdName) {
             cmdName = cmdName.toLowerCase();
             var me = this,
@@ -7613,8 +7171,8 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                     me.fireEvent('saveScene');
                     me.fireEvent.apply(me, ['beforeexeccommand', cmdName].concat(arguments));
                     result = this._callCmdFn('execCommand', arguments);
-                    //保存场景时，做了内容对比，再看是否进行contentchange触发，这里多触发了一次，去掉
-//                    (!cmd.ignoreContentChange && !me._ignoreContentChange) && me.fireEvent('contentchange');
+                    // 保存场景时，做了内容对比，再看是否进行contentchange触发，这里多触发了一次，去掉
+// (!cmd.ignoreContentChange && !me._ignoreContentChange) && me.fireEvent('contentchange');
                     me.fireEvent.apply(me, ['afterexeccommand', cmdName].concat(arguments));
                     me.fireEvent('saveScene');
                 }
@@ -7628,57 +7186,54 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 根据传入的command命令，查选编辑器当前的选区，返回命令的状态
-         * @method  queryCommandState
-         * @param { String } cmdName 需要查询的命令名称
-         * @remind 具体命令的使用请参考<a href="#COMMAND.LIST">命令列表</a>
-         * @return { Number } number 返回放前命令的状态，返回值三种情况：(-1|0|1)
-         * @example
-         * ```javascript
-         * editor.queryCommandState(cmdName)  => (-1|0|1)
-         * ```
-         * @see COMMAND.LIST
-         */
+		 * 根据传入的command命令，查选编辑器当前的选区，返回命令的状态
+		 * 
+		 * @method queryCommandState
+		 * @param {
+		 *            String } cmdName 需要查询的命令名称
+		 * @remind 具体命令的使用请参考<a href="#COMMAND.LIST">命令列表</a>
+		 * @return { Number } number 返回放前命令的状态，返回值三种情况：(-1|0|1)
+		 * @example ```javascript editor.queryCommandState(cmdName) => (-1|0|1) ```
+		 * @see COMMAND.LIST
+		 */
         queryCommandState: function (cmdName) {
             return this._callCmdFn('queryCommandState', arguments);
         },
 
         /**
-         * 根据传入的command命令，查选编辑器当前的选区，根据命令返回相关的值
-         * @method queryCommandValue
-         * @param { String } cmdName 需要查询的命令名称
-         * @remind 具体命令的使用请参考<a href="#COMMAND.LIST">命令列表</a>
-         * @remind 只有部分插件有此方法
-         * @return { * } 返回每个命令特定的当前状态值
-         * @grammar editor.queryCommandValue(cmdName)  =>  {*}
-         * @see COMMAND.LIST
-         */
+		 * 根据传入的command命令，查选编辑器当前的选区，根据命令返回相关的值
+		 * 
+		 * @method queryCommandValue
+		 * @param {
+		 *            String } cmdName 需要查询的命令名称
+		 * @remind 具体命令的使用请参考<a href="#COMMAND.LIST">命令列表</a>
+		 * @remind 只有部分插件有此方法
+		 * @return { * } 返回每个命令特定的当前状态值
+		 * @grammar editor.queryCommandValue(cmdName) => {*}
+		 * @see COMMAND.LIST
+		 */
         queryCommandValue: function (cmdName) {
             return this._callCmdFn('queryCommandValue', arguments);
         },
 
         /**
-         * 检查编辑区域中是否有内容
-         * @method  hasContents
-         * @remind 默认有文本内容，或者有以下节点都不认为是空
-         * table,ul,ol,dl,iframe,area,base,col,hr,img,embed,input,link,meta,param
-         * @return { Boolean } 检查有内容返回true，否则返回false
-         * @example
-         * ```javascript
-         * editor.hasContents()
-         * ```
-         */
+		 * 检查编辑区域中是否有内容
+		 * 
+		 * @method hasContents
+		 * @remind 默认有文本内容，或者有以下节点都不认为是空 table,ul,ol,dl,iframe,area,base,col,hr,img,embed,input,link,meta,param
+		 * @return { Boolean } 检查有内容返回true，否则返回false
+		 * @example ```javascript editor.hasContents() ```
+		 */
 
         /**
-         * 检查编辑区域中是否有内容，若包含参数tags中的节点类型，直接返回true
-         * @method  hasContents
-         * @param { Array } tags 传入数组判断时用到的节点类型
-         * @return { Boolean } 若文档中包含tags数组里对应的tag，返回true，否则返回false
-         * @example
-         * ```javascript
-         * editor.hasContents(['span']);
-         * ```
-         */
+		 * 检查编辑区域中是否有内容，若包含参数tags中的节点类型，直接返回true
+		 * 
+		 * @method hasContents
+		 * @param {
+		 *            Array } tags 传入数组判断时用到的节点类型
+		 * @return { Boolean } 若文档中包含tags数组里对应的tag，返回true，否则返回false
+		 * @example ```javascript editor.hasContents(['span']); ```
+		 */
         hasContents: function (tags) {
             if (tags) {
                 for (var i = 0, ci; ci = tags[i++];) {
@@ -7690,7 +7245,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             if (!domUtils.isEmptyBlock(this.body)) {
                 return true
             }
-            //随时添加,定义的特殊标签如果存在，不能认为是空
+            // 随时添加,定义的特殊标签如果存在，不能认为是空
             tags = ['div'];
             for (i = 0; ci = tags[i++];) {
                 var nodes = domUtils.getElementsByTagName(this.document, ci);
@@ -7704,32 +7259,28 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 重置编辑器，可用来做多个tab使用同一个编辑器实例
-         * @method  reset
-         * @remind 此方法会清空编辑器内容，清空回退列表，会触发reset事件
-         * @example
-         * ```javascript
-         * editor.reset()
-         * ```
-         */
+		 * 重置编辑器，可用来做多个tab使用同一个编辑器实例
+		 * 
+		 * @method reset
+		 * @remind 此方法会清空编辑器内容，清空回退列表，会触发reset事件
+		 * @example ```javascript editor.reset() ```
+		 */
         reset: function () {
             this.fireEvent('reset');
         },
 
         /**
-         * 设置当前编辑区域可以编辑
-         * @method setEnabled
-         * @example
-         * ```javascript
-         * editor.setEnabled()
-         * ```
-         */
+		 * 设置当前编辑区域可以编辑
+		 * 
+		 * @method setEnabled
+		 * @example ```javascript editor.setEnabled() ```
+		 */
         setEnabled: function () {
             var me = this, range;
             if (me.body.contentEditable == 'false') {
                 me.body.contentEditable = true;
                 range = me.selection.getRange();
-                //有可能内容丢失了
+                // 有可能内容丢失了
                 try {
                     range.moveToBookmark(me.lastBk);
                     delete me.lastBk
@@ -7752,29 +7303,31 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             return this.setEnabled();
         },
 
-        /** 设置当前编辑区域不可编辑
-         * @method setDisabled
-         */
+        /**
+		 * 设置当前编辑区域不可编辑
+		 * 
+		 * @method setDisabled
+		 */
 
-        /** 设置当前编辑区域不可编辑,except中的命令除外
-         * @method setDisabled
-         * @param { String } except 例外命令的字符串
-         * @remind 即使设置了disable，此处配置的例外命令仍然可以执行
-         * @example
-         * ```javascript
-         * editor.setDisabled('bold'); //禁用工具栏中除加粗之外的所有功能
-         * ```
-         */
+        /**
+		 * 设置当前编辑区域不可编辑,except中的命令除外
+		 * 
+		 * @method setDisabled
+		 * @param {
+		 *            String } except 例外命令的字符串
+		 * @remind 即使设置了disable，此处配置的例外命令仍然可以执行
+		 * @example ```javascript editor.setDisabled('bold'); //禁用工具栏中除加粗之外的所有功能 ```
+		 */
 
-        /** 设置当前编辑区域不可编辑,except中的命令除外
-         * @method setDisabled
-         * @param { Array } except 例外命令的字符串数组，数组中的命令仍然可以执行
-         * @remind 即使设置了disable，此处配置的例外命令仍然可以执行
-         * @example
-         * ```javascript
-         * editor.setDisabled(['bold','insertimage']); //禁用工具栏中除加粗和插入图片之外的所有功能
-         * ```
-         */
+        /**
+		 * 设置当前编辑区域不可编辑,except中的命令除外
+		 * 
+		 * @method setDisabled
+		 * @param {
+		 *            Array } except 例外命令的字符串数组，数组中的命令仍然可以执行
+		 * @remind 即使设置了disable，此处配置的例外命令仍然可以执行
+		 * @example ```javascript editor.setDisabled(['bold','insertimage']); //禁用工具栏中除加粗和插入图片之外的所有功能 ```
+		 */
         setDisabled: function (except) {
             var me = this;
             except = except ? utils.isArray(except) ? except : [except] : [];
@@ -7805,11 +7358,13 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 设置默认内容
-         * @method _setDefaultContent
-         * @private
-         * @param  { String } cont 要存入的内容
-         */
+		 * 设置默认内容
+		 * 
+		 * @method _setDefaultContent
+		 * @private
+		 * @param {
+		 *            String } cont 要存入的内容
+		 */
         _setDefaultContent: function () {
             function clear() {
                 var me = this;
@@ -7832,24 +7387,22 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         }(),
 
         /**
-         * 显示编辑器
-         * @method setShow
-         * @example
-         * ```javascript
-         * editor.setShow()
-         * ```
-         */
+		 * 显示编辑器
+		 * 
+		 * @method setShow
+		 * @example ```javascript editor.setShow() ```
+		 */
         setShow: function () {
             var me = this, range = me.selection.getRange();
             if (me.container.style.display == 'none') {
-                //有可能内容丢失了
+                // 有可能内容丢失了
                 try {
                     range.moveToBookmark(me.lastBk);
                     delete me.lastBk
                 } catch (e) {
                     range.setStartAtFirst(me.body).collapse(true)
                 }
-                //ie下focus实效，所以做了个延迟
+                // ie下focus实效，所以做了个延迟
                 setTimeout(function () {
                     range.select(true);
                 }, 100);
@@ -7861,13 +7414,11 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             return this.setShow();
         },
         /**
-         * 隐藏编辑器
-         * @method setHide
-         * @example
-         * ```javascript
-         * editor.setHide()
-         * ```
-         */
+		 * 隐藏编辑器
+		 * 
+		 * @method setHide
+		 * @example ```javascript editor.setHide() ```
+		 */
         setHide: function () {
             var me = this;
             if (!me.lastBk) {
@@ -7880,15 +7431,14 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 根据指定的路径，获取对应的语言资源
-         * @method getLang
-         * @param { String } path 路径根据的是lang目录下的语言文件的路径结构
-         * @return { Object | String } 根据路径返回语言资源的Json格式对象或者语言字符串
-         * @example
-         * ```javascript
-         * editor.getLang('contextMenu.delete'); //如果当前是中文，那返回是的是'删除'
-         * ```
-         */
+		 * 根据指定的路径，获取对应的语言资源
+		 * 
+		 * @method getLang
+		 * @param {
+		 *            String } path 路径根据的是lang目录下的语言文件的路径结构
+		 * @return { Object | String } 根据路径返回语言资源的Json格式对象或者语言字符串
+		 * @example ```javascript editor.getLang('contextMenu.delete'); //如果当前是中文，那返回是的是'删除' ```
+		 */
         getLang: function (path) {
             var lang = UE.I18N[this.options.lang];
             if (!lang) {
@@ -7903,26 +7453,29 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 计算编辑器html内容字符串的长度
-         * @method  getContentLength
-         * @return { Number } 返回计算的长度
-         * @example
-         * ```javascript
-         * //编辑器html内容<p><strong>132</strong></p>
-         * editor.getContentLength() //返回27
-         * ```
-         */
+		 * 计算编辑器html内容字符串的长度
+		 * 
+		 * @method getContentLength
+		 * @return { Number } 返回计算的长度
+		 * @example ```javascript //编辑器html内容
+		 *          <p>
+		 *          <strong>132</strong>
+		 *          </p>
+		 *          editor.getContentLength() //返回27 ```
+		 */
         /**
-         * 计算编辑器当前纯文本内容的长度
-         * @method  getContentLength
-         * @param { Boolean } ingoneHtml 传入true时，只按照纯文本来计算
-         * @return { Number } 返回计算的长度，内容中有hr/img/iframe标签，长度加1
-         * @example
-         * ```javascript
-         * //编辑器html内容<p><strong>132</strong></p>
-         * editor.getContentLength() //返回3
-         * ```
-         */
+		 * 计算编辑器当前纯文本内容的长度
+		 * 
+		 * @method getContentLength
+		 * @param {
+		 *            Boolean } ingoneHtml 传入true时，只按照纯文本来计算
+		 * @return { Number } 返回计算的长度，内容中有hr/img/iframe标签，长度加1
+		 * @example ```javascript //编辑器html内容
+		 *          <p>
+		 *          <strong>132</strong>
+		 *          </p>
+		 *          editor.getContentLength() //返回3 ```
+		 */
         getContentLength: function (ingoneHtml, tagNames) {
             var count = this.getContent(false,false,true).length;
             if (ingoneHtml) {
@@ -7936,33 +7489,27 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 注册输入过滤规则
-         * @method  addInputRule
-         * @param { Function } rule 要添加的过滤规则
-         * @example
-         * ```javascript
-         * editor.addInputRule(function(root){
-         *   $.each(root.getNodesByTagName('div'),function(i,node){
-         *       node.tagName="p";
-         *   });
-         * });
-         * ```
-         */
+		 * 注册输入过滤规则
+		 * 
+		 * @method addInputRule
+		 * @param {
+		 *            Function } rule 要添加的过滤规则
+		 * @example ```javascript editor.addInputRule(function(root){ $.each(root.getNodesByTagName('div'),function(i,node){ node.tagName="p"; }); }); ```
+		 */
         addInputRule: function (rule) {
             this.inputRules.push(rule);
         },
 
         /**
-         * 执行注册的过滤规则
-         * @method  filterInputRule
-         * @param { UE.uNode } root 要过滤的uNode节点
-         * @remind 执行editor.setContent方法和执行'inserthtml'命令后，会运行该过滤函数
-         * @example
-         * ```javascript
-         * editor.filterInputRule(editor.body);
-         * ```
-         * @see UE.Editor:addInputRule
-         */
+		 * 执行注册的过滤规则
+		 * 
+		 * @method filterInputRule
+		 * @param {
+		 *            UE.uNode } root 要过滤的uNode节点
+		 * @remind 执行editor.setContent方法和执行'inserthtml'命令后，会运行该过滤函数
+		 * @example ```javascript editor.filterInputRule(editor.body); ```
+		 * @see UE.Editor:addInputRule
+		 */
         filterInputRule: function (root) {
             for (var i = 0, ci; ci = this.inputRules[i++];) {
                 ci.call(this, root)
@@ -7970,33 +7517,27 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 注册输出过滤规则
-         * @method  addOutputRule
-         * @param { Function } rule 要添加的过滤规则
-         * @example
-         * ```javascript
-         * editor.addOutputRule(function(root){
-         *   $.each(root.getNodesByTagName('p'),function(i,node){
-         *       node.tagName="div";
-         *   });
-         * });
-         * ```
-         */
+		 * 注册输出过滤规则
+		 * 
+		 * @method addOutputRule
+		 * @param {
+		 *            Function } rule 要添加的过滤规则
+		 * @example ```javascript editor.addOutputRule(function(root){ $.each(root.getNodesByTagName('p'),function(i,node){ node.tagName="div"; }); }); ```
+		 */
         addOutputRule: function (rule) {
             this.outputRules.push(rule)
         },
 
         /**
-         * 根据输出过滤规则，过滤编辑器内容
-         * @method  filterOutputRule
-         * @remind 执行editor.getContent方法的时候，会先运行该过滤函数
-         * @param { UE.uNode } root 要过滤的uNode节点
-         * @example
-         * ```javascript
-         * editor.filterOutputRule(editor.body);
-         * ```
-         * @see UE.Editor:addOutputRule
-         */
+		 * 根据输出过滤规则，过滤编辑器内容
+		 * 
+		 * @method filterOutputRule
+		 * @remind 执行editor.getContent方法的时候，会先运行该过滤函数
+		 * @param {
+		 *            UE.uNode } root 要过滤的uNode节点
+		 * @example ```javascript editor.filterOutputRule(editor.body); ```
+		 * @see UE.Editor:addOutputRule
+		 */
         filterOutputRule: function (root) {
             for (var i = 0, ci; ci = this.outputRules[i++];) {
                 ci.call(this, root)
@@ -8004,18 +7545,16 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 根据action名称获取请求的路径
-         * @method  getActionUrl
-         * @remind 假如没有设置serverUrl,会根据imageUrl设置默认的controller路径
-         * @param { String } action action名称
-         * @example
-         * ```javascript
-         * editor.getActionUrl('config'); //返回 "/ueditor/php/controller.php?action=config"
-         * editor.getActionUrl('image'); //返回 "/ueditor/php/controller.php?action=uplaodimage"
-         * editor.getActionUrl('scrawl'); //返回 "/ueditor/php/controller.php?action=uplaodscrawl"
-         * editor.getActionUrl('imageManager'); //返回 "/ueditor/php/controller.php?action=listimage"
-         * ```
-         */
+		 * 根据action名称获取请求的路径
+		 * 
+		 * @method getActionUrl
+		 * @remind 假如没有设置serverUrl,会根据imageUrl设置默认的controller路径
+		 * @param {
+		 *            String } action action名称
+		 * @example ```javascript editor.getActionUrl('config'); //返回 "/ueditor/php/controller.php?action=config" editor.getActionUrl('image'); //返回
+		 *          "/ueditor/php/controller.php?action=uplaodimage" editor.getActionUrl('scrawl'); //返回 "/ueditor/php/controller.php?action=uplaodscrawl"
+		 *          editor.getActionUrl('imageManager'); //返回 "/ueditor/php/controller.php?action=listimage" ```
+		 */
         getActionUrl: function(action){
             var actionName = this.getOpt(action) || action,
                 imageUrl = this.getOpt('imageUrl'),
@@ -8038,7 +7577,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
 
 
 // core/Editor.defaultoptions.js
-//维护编辑器一下默认的不在插件中的配置项
+// 维护编辑器一下默认的不在插件中的配置项
 UE.Editor.defaultOptions = function(editor){
 
     var _url = editor.options.UEDITOR_HOME_URL;
@@ -8109,10 +7648,10 @@ UE.Editor.defaultOptions = function(editor){
 
         function showErrorMsg(msg) {
             console && console.error(msg);
-            //me.fireEvent('showMessage', {
-            //    'title': msg,
-            //    'type': 'error'
-            //});
+            // me.fireEvent('showMessage', {
+            // 'title': msg,
+            // 'type': 'error'
+            // });
         }
     };
 
@@ -8148,11 +7687,12 @@ UE.Editor.defaultOptions = function(editor){
 
 /**
  * 提供对ajax请求的支持
+ * 
  * @module UE.ajax
  */
 UE.ajax = function() {
 
-    //创建一个ajaxRequest对象
+    // 创建一个ajaxRequest对象
     var fnStr = 'XMLHttpRequest()';
     try {
         new ActiveXObject("Msxml2.XMLHTTP");
@@ -8168,21 +7708,22 @@ UE.ajax = function() {
 
 
     /**
-     * 将json参数转化成适合ajax提交的参数列表
-     * @param json
-     */
+	 * 将json参数转化成适合ajax提交的参数列表
+	 * 
+	 * @param json
+	 */
     function json2str(json) {
         var strArr = [];
         for (var i in json) {
-            //忽略默认的几个参数
+            // 忽略默认的几个参数
             if(i=="method" || i=="timeout" || i=="async" || i=="dataType" || i=="callback") continue;
-            //忽略控制
+            // 忽略控制
             if(json[i] == undefined || json[i] == null) continue;
-            //传递过来的对象和函数不在提交之列
+            // 传递过来的对象和函数不在提交之列
             if (!((typeof json[i]).toLowerCase() == "function" || (typeof json[i]).toLowerCase() == "object")) {
                 strArr.push( encodeURIComponent(i) + "="+encodeURIComponent(json[i]) );
             } else if (utils.isArray(json[i])) {
-            //支持传数组内容
+            // 支持传数组内容
                 for(var j = 0; j < json[i].length; j++) {
                     strArr.push( encodeURIComponent(i) + "[]="+encodeURIComponent(json[i][j]) );
                 }
@@ -8193,14 +7734,14 @@ UE.ajax = function() {
 
     function doAjax(url, ajaxOptions) {
         var xhr = creatAjaxRequest(),
-        //是否超时
+        // 是否超时
             timeIsOut = false,
-        //默认参数
+        // 默认参数
             defaultAjaxOptions = {
                 method:"POST",
                 timeout:5000,
                 async:true,
-                data:{},//需要传递对象的话只能覆盖
+                data:{},// 需要传递对象的话只能覆盖
                 onsuccess:function() {
                 },
                 onerror:function() {
@@ -8215,11 +7756,11 @@ UE.ajax = function() {
         var ajaxOpts = ajaxOptions ? utils.extend(defaultAjaxOptions,ajaxOptions) : defaultAjaxOptions;
 
         var submitStr = json2str(ajaxOpts);  // { name:"Jim",city:"Beijing" } --> "name=Jim&city=Beijing"
-        //如果用户直接通过data参数传递json对象过来，则也要将此json对象转化为字符串
+        // 如果用户直接通过data参数传递json对象过来，则也要将此json对象转化为字符串
         if (!utils.isEmptyObject(ajaxOpts.data)){
             submitStr += (submitStr? "&":"") + json2str(ajaxOpts.data);
         }
-        //超时检测
+        // 超时检测
         var timerID = setTimeout(function() {
             if (xhr.readyState != 4) {
                 timeIsOut = true;
@@ -8279,7 +7820,7 @@ UE.ajax = function() {
         }
 
         var queryStr = json2str(opts);  // { name:"Jim",city:"Beijing" } --> "name=Jim&city=Beijing"
-        //如果用户直接通过data参数传递json对象过来，则也要将此json对象转化为字符串
+        // 如果用户直接通过data参数传递json对象过来，则也要将此json对象转化为字符串
         if (!utils.isEmptyObject(opts.data)){
             queryStr += (queryStr? "&":"") + json2str(opts.data);
         }
@@ -8328,62 +7869,41 @@ UE.ajax = function() {
 
     return {
         /**
-         * 根据给定的参数项，向指定的url发起一个ajax请求。 ajax请求完成后，会根据请求结果调用相应回调： 如果请求
-         * 成功， 则调用onsuccess回调， 失败则调用 onerror 回调
-         * @method request
-         * @param { URLString } url ajax请求的url地址
-         * @param { Object } ajaxOptions ajax请求选项的键值对，支持的选项如下：
-         * @example
-         * ```javascript
-         * //向sayhello.php发起一个异步的Ajax GET请求, 请求超时时间为10s， 请求完成后执行相应的回调。
-         * UE.ajax.requeset( 'sayhello.php', {
-         *
-         *     //请求方法。可选值： 'GET', 'POST'，默认值是'POST'
-         *     method: 'GET',
-         *
-         *     //超时时间。 默认为5000， 单位是ms
-         *     timeout: 10000,
-         *
-         *     //是否是异步请求。 true为异步请求， false为同步请求
-         *     async: true,
-         *
-         *     //请求携带的数据。如果请求为GET请求， data会经过stringify后附加到请求url之后。
-         *     data: {
-         *         name: 'ueditor'
-         *     },
-         *
-         *     //请求成功后的回调， 该回调接受当前的XMLHttpRequest对象作为参数。
-         *     onsuccess: function ( xhr ) {
-         *         console.log( xhr.responseText );
-         *     },
-         *
-         *     //请求失败或者超时后的回调。
-         *     onerror: function ( xhr ) {
-         *          alert( 'Ajax请求失败' );
-         *     }
-         *
-         * } );
-         * ```
-         */
+		 * 根据给定的参数项，向指定的url发起一个ajax请求。 ajax请求完成后，会根据请求结果调用相应回调： 如果请求 成功， 则调用onsuccess回调， 失败则调用 onerror 回调
+		 * 
+		 * @method request
+		 * @param {
+		 *            URLString } url ajax请求的url地址
+		 * @param {
+		 *            Object } ajaxOptions ajax请求选项的键值对，支持的选项如下：
+		 * @example ```javascript //向sayhello.php发起一个异步的Ajax GET请求, 请求超时时间为10s， 请求完成后执行相应的回调。 UE.ajax.requeset( 'sayhello.php', {
+		 * 
+		 * //请求方法。可选值： 'GET', 'POST'，默认值是'POST' method: 'GET',
+		 * 
+		 * //超时时间。 默认为5000， 单位是ms timeout: 10000,
+		 * 
+		 * //是否是异步请求。 true为异步请求， false为同步请求 async: true,
+		 * 
+		 * //请求携带的数据。如果请求为GET请求， data会经过stringify后附加到请求url之后。 data: { name: 'ueditor' },
+		 * 
+		 * //请求成功后的回调， 该回调接受当前的XMLHttpRequest对象作为参数。 onsuccess: function ( xhr ) { console.log( xhr.responseText ); },
+		 * 
+		 * //请求失败或者超时后的回调。 onerror: function ( xhr ) { alert( 'Ajax请求失败' ); } } ); ```
+		 */
 
         /**
-         * 根据给定的参数项发起一个ajax请求， 参数项里必须包含一个url地址。 ajax请求完成后，会根据请求结果调用相应回调： 如果请求
-         * 成功， 则调用onsuccess回调， 失败则调用 onerror 回调。
-         * @method request
-         * @warning 如果在参数项里未提供一个key为“url”的地址值，则该请求将直接退出。
-         * @param { Object } ajaxOptions ajax请求选项的键值对，支持的选项如下：
-         * @example
-         * ```javascript
-         *
-         * //向sayhello.php发起一个异步的Ajax POST请求, 请求超时时间为5s， 请求完成后不执行任何回调。
-         * UE.ajax.requeset( 'sayhello.php', {
-         *
-         *     //请求的地址， 该项是必须的。
-         *     url: 'sayhello.php'
-         *
-         * } );
-         * ```
-         */
+		 * 根据给定的参数项发起一个ajax请求， 参数项里必须包含一个url地址。 ajax请求完成后，会根据请求结果调用相应回调： 如果请求 成功， 则调用onsuccess回调， 失败则调用 onerror 回调。
+		 * 
+		 * @method request
+		 * @warning 如果在参数项里未提供一个key为“url”的地址值，则该请求将直接退出。
+		 * @param {
+		 *            Object } ajaxOptions ajax请求选项的键值对，支持的选项如下：
+		 * @example ```javascript
+		 * 
+		 * //向sayhello.php发起一个异步的Ajax POST请求, 请求超时时间为5s， 请求完成后不执行任何回调。 UE.ajax.requeset( 'sayhello.php', {
+		 * 
+		 * //请求的地址， 该项是必须的。 url: 'sayhello.php' } ); ```
+		 */
 		request:function(url, opts) {
             if (opts && opts.dataType == 'jsonp') {
                 doJsonp(url, opts);
@@ -8407,34 +7927,35 @@ UE.ajax = function() {
 // core/filterword.js
 /**
  * UE过滤word的静态方法
+ * 
  * @file
  */
 
 /**
  * UEditor公用空间，UEditor所有的功能都挂载在该空间下
+ * 
  * @module UE
  */
 
 
 /**
  * 根据传入html字符串过滤word
+ * 
  * @module UE
  * @since 1.2.6.1
  * @method filterWord
- * @param { String } html html字符串
+ * @param {
+ *            String } html html字符串
  * @return { String } 已过滤后的结果字符串
- * @example
- * ```javascript
- * UE.filterWord(html);
- * ```
+ * @example ```javascript UE.filterWord(html); ```
  */
 var filterWord = UE.filterWord = function () {
 
-    //是否是word过来的内容
+    // 是否是word过来的内容
     function isWordDocument( str ) {
         return /(class="?Mso|style="[^"]*\bmso\-|w:WordDocument|<(v|o):|lang=)/ig.test( str );
     }
-    //去掉小数
+    // 去掉小数
     function transUnit( v ) {
         v = v.replace( /[\d.]+\w+/g, function ( m ) {
             return utils.transUnitToPx(m);
@@ -8445,14 +7966,14 @@ var filterWord = UE.filterWord = function () {
     function filterPasteWord( str ) {
         return str.replace(/[\t\r\n]+/g,' ')
                 .replace( /<!--[\s\S]*?-->/ig, "" )
-                //转换图片
+                // 转换图片
                 .replace(/<v:shape [^>]*>[\s\S]*?.<\/v:shape>/gi,function(str){
-                    //opera能自己解析出image所这里直接返回空
+                    // opera能自己解析出image所这里直接返回空
                     if(browser.opera){
                         return '';
                     }
                     try{
-                        //有可能是bitmap占为图，无用，直接过滤掉，主要体现在粘贴excel表格中
+                        // 有可能是bitmap占为图，无用，直接过滤掉，主要体现在粘贴excel表格中
                         if(/Bitmap/i.test(str)){
                             return '';
                         }
@@ -8464,22 +7985,22 @@ var filterWord = UE.filterWord = function () {
                         return '';
                     }
                 })
-                //针对wps添加的多余标签处理
+                // 针对wps添加的多余标签处理
                 .replace(/<\/?div[^>]*>/g,'')
-                //去掉多余的属性
+                // 去掉多余的属性
                 .replace( /v:\w+=(["']?)[^'"]+\1/g, '' )
                 .replace( /<(!|script[^>]*>.*?<\/script(?=[>\s])|\/?(\?xml(:\w+)?|xml|meta|link|style|\w+:\w+)(?=[\s\/>]))[^>]*>/gi, "" )
                 .replace( /<p [^>]*class="?MsoHeading"?[^>]*>(.*?)<\/p>/gi, "<p><strong>$1</strong></p>" )
-                //去掉多余的属性
+                // 去掉多余的属性
                 .replace( /\s+(class|lang|align)\s*=\s*(['"]?)([\w-]+)\2/ig, function(str,name,marks,val){
-                    //保留list的标示
+                    // 保留list的标示
                     return name == 'class' && val == 'MsoListParagraph' ? str : ''
                 })
-                //清除多余的font/span不能匹配&nbsp;有可能是空格
+                // 清除多余的font/span不能匹配&nbsp;有可能是空格
                 .replace( /<(font|span)[^>]*>(\s*)<\/\1>/gi, function(a,b,c){
                     return c.replace(/[\t\r\n ]+/g,' ')
                 })
-                //处理style的问题
+                // 处理style的问题
                 .replace( /(<[a-z][^>]*)\sstyle=(["'])([^\2]*?)\2/gi, function( str, tag, tmp, style ) {
                     var n = [],
                         s = style.replace( /^\s+|\s+$/, '' )
@@ -8516,12 +8037,12 @@ var filterWord = UE.filterWord = function () {
                                 case "mso-margin-right-alt":
                                 case "mso-margin-bottom-alt":
                                 case "mso-margin-left-alt":
-                                //ie下会出现挤到一起的情况
-                               //case "mso-table-layout-alt":
+                                // ie下会出现挤到一起的情况
+                               // case "mso-table-layout-alt":
                                 case "mso-height":
                                 case "mso-width":
                                 case "mso-vertical-align-alt":
-                                    //trace:1819 ff下会解析出padding在table上
+                                    // trace:1819 ff下会解析出padding在table上
                                     if(!/<table/.test(tag))
                                         n[i] = name.replace( /^mso-|-alt$/g, "" ) + ":" + transUnit( value );
                                     continue;
@@ -8565,8 +8086,8 @@ var filterWord = UE.filterWord = function () {
                                         n[i] = "display:none";
                                     }
                                     continue;
-//                                case 'background':
-//                                    break;
+// case 'background':
+// break;
                                 case 'margin':
                                     if ( !/[1-9]/.test( value ) ) {
                                         continue;
@@ -8598,6 +8119,7 @@ var filterWord = UE.filterWord = function () {
 // core/node.js
 /**
  * 编辑器模拟的节点类
+ * 
  * @file
  * @module UE
  * @class uNode
@@ -8606,6 +8128,7 @@ var filterWord = UE.filterWord = function () {
 
 /**
  * UEditor公用空间，UEditor所有的功能都挂载在该空间下
+ * 
  * @unfile
  * @module UE
  */
@@ -8613,25 +8136,21 @@ var filterWord = UE.filterWord = function () {
 (function () {
 
     /**
-     * 编辑器模拟的节点类
-     * @unfile
-     * @module UE
-     * @class uNode
-     */
+	 * 编辑器模拟的节点类
+	 * 
+	 * @unfile
+	 * @module UE
+	 * @class uNode
+	 */
 
     /**
-     * 通过一个键值对，创建一个uNode对象
-     * @constructor
-     * @param { Object } attr 传入要创建的uNode的初始属性
-     * @example
-     * ```javascript
-     * var node = new uNode({
-     *     type:'element',
-     *     tagName:'span',
-     *     attrs:{style:'font-size:14px;'}
-     * }
-     * ```
-     */
+	 * 通过一个键值对，创建一个uNode对象
+	 * 
+	 * @constructor
+	 * @param {
+	 *            Object } attr 传入要创建的uNode的初始属性
+	 * @example ```javascript var node = new uNode({ type:'element', tagName:'span', attrs:{style:'font-size:14px;'} } ```
+	 */
     var uNode = UE.uNode = function (obj) {
         this.type = obj.type;
         this.data = obj.data;
@@ -8663,14 +8182,14 @@ var filterWord = UE.filterWord = function () {
     }
 
     function insertIndent(arr, current) {
-        //插入缩进
+        // 插入缩进
         for (var i = 0; i < current; i++) {
             arr.push(indentChar);
         }
     }
 
-    //创建uNode的静态方法
-    //支持标签和html
+    // 创建uNode的静态方法
+    // 支持标签和html
     uNode.createElement = function (html) {
         if (/[<>]/.test(html)) {
             return UE.htmlparser(html).children[0]
@@ -8692,7 +8211,7 @@ var filterWord = UE.filterWord = function () {
         switch (node.type) {
             case 'root':
                 for (var i = 0, ci; ci = node.children[i++];) {
-                    //插入新行
+                    // 插入新行
                     if (formatter && ci.type == 'element' && !dtd.$inlineWithA[ci.tagName] && i > 1) {
                         insertLine(arr, current, true);
                         insertIndent(arr, current)
@@ -8714,7 +8233,7 @@ var filterWord = UE.filterWord = function () {
 
     function isText(node, arr) {
         if(node.parentNode.tagName == 'pre'){
-            //源码模式下输入html标签，不能做转换处理，直接输出
+            // 源码模式下输入html标签，不能做转换处理，直接输出
             arr.push(node.data)
         }else{
             arr.push(notTransTagName[node.parentNode.tagName] ? utils.html(node.data) : node.data.replace(/[ ]{2}/g,' &nbsp;'))
@@ -8728,10 +8247,10 @@ var filterWord = UE.filterWord = function () {
             attrhtml = [];
             var attrs = node.attrs;
             for (var a in attrs) {
-                //这里就针对
-                //<p>'<img src='http://nsclick.baidu.com/u.gif?&asdf=\"sdf&asdfasdfs;asdf'></p>
-                //这里边的\"做转换，要不用innerHTML直接被截断了，属性src
-                //有可能做的不够
+                // 这里就针对
+                // <p>'<img src='http://nsclick.baidu.com/u.gif?&asdf=\"sdf&asdfasdfs;asdf'></p>
+                // 这里边的\"做转换，要不用innerHTML直接被截断了，属性src
+                // 有可能做的不够
                 attrhtml.push(a + (attrs[a] !== undefined ? '="' + (notTransAttrs[a] ? utils.html(attrs[a]).replace(/["]/g, function (a) {
                    return '&quot;'
                 }) : utils.unhtml(attrs[a])) + '"' : ''))
@@ -8742,7 +8261,7 @@ var filterWord = UE.filterWord = function () {
             (attrhtml ? ' ' + attrhtml  : '') +
             (dtd.$empty[node.tagName] ? '\/' : '' ) + '>'
         );
-        //插入新行
+        // 插入新行
         if (formatter  &&  !dtd.$inlineWithA[node.tagName] && node.tagName != 'pre') {
             if(node.children && node.children.length){
                 current = insertLine(arr, current, true);
@@ -8804,7 +8323,7 @@ var filterWord = UE.filterWord = function () {
         if(root.children && root.children.length){
             for(var i= 0,ci;ci=root.children[i];){
                 nodeTraversal(ci,fn);
-                //ci被替换的情况，这里就不再走 fn了
+                // ci被替换的情况，这里就不再走 fn了
                 if(ci.parentNode ){
                     if(ci.children && ci.children.length){
                         fn(ci)
@@ -8820,25 +8339,22 @@ var filterWord = UE.filterWord = function () {
     uNode.prototype = {
 
         /**
-         * 当前节点对象，转换成html文本
-         * @method toHtml
-         * @return { String } 返回转换后的html字符串
-         * @example
-         * ```javascript
-         * node.toHtml();
-         * ```
-         */
+		 * 当前节点对象，转换成html文本
+		 * 
+		 * @method toHtml
+		 * @return { String } 返回转换后的html字符串
+		 * @example ```javascript node.toHtml(); ```
+		 */
 
         /**
-         * 当前节点对象，转换成html文本
-         * @method toHtml
-         * @param { Boolean } formatter 是否格式化返回值
-         * @return { String } 返回转换后的html字符串
-         * @example
-         * ```javascript
-         * node.toHtml( true );
-         * ```
-         */
+		 * 当前节点对象，转换成html文本
+		 * 
+		 * @method toHtml
+		 * @param {
+		 *            Boolean } formatter 是否格式化返回值
+		 * @return { String } 返回转换后的html字符串
+		 * @example ```javascript node.toHtml( true ); ```
+		 */
         toHtml:function (formatter) {
             var arr = [];
             nodeToHtml(this, arr, formatter, 0);
@@ -8846,27 +8362,24 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 获取节点的html内容
-         * @method innerHTML
-         * @warning 假如节点的type不是'element'，或节点的标签名称不在dtd列表里，直接返回当前节点
-         * @return { String } 返回节点的html内容
-         * @example
-         * ```javascript
-         * var htmlstr = node.innerHTML();
-         * ```
-         */
+		 * 获取节点的html内容
+		 * 
+		 * @method innerHTML
+		 * @warning 假如节点的type不是'element'，或节点的标签名称不在dtd列表里，直接返回当前节点
+		 * @return { String } 返回节点的html内容
+		 * @example ```javascript var htmlstr = node.innerHTML(); ```
+		 */
 
         /**
-         * 设置节点的html内容
-         * @method innerHTML
-         * @warning 假如节点的type不是'element'，或节点的标签名称不在dtd列表里，直接返回当前节点
-         * @param { String } htmlstr 传入要设置的html内容
-         * @return { UE.uNode } 返回节点本身
-         * @example
-         * ```javascript
-         * node.innerHTML('<span>text</span>');
-         * ```
-         */
+		 * 设置节点的html内容
+		 * 
+		 * @method innerHTML
+		 * @warning 假如节点的type不是'element'，或节点的标签名称不在dtd列表里，直接返回当前节点
+		 * @param {
+		 *            String } htmlstr 传入要设置的html内容
+		 * @return { UE.uNode } 返回节点本身
+		 * @example ```javascript node.innerHTML('<span>text</span>'); ```
+		 */
         innerHTML:function (htmlstr) {
             if (this.type != 'element' || dtd.$empty[this.tagName]) {
                 return this;
@@ -8894,27 +8407,24 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 获取节点的纯文本内容
-         * @method innerText
-         * @warning 假如节点的type不是'element'，或节点的标签名称不在dtd列表里，直接返回当前节点
-         * @return { String } 返回节点的存文本内容
-         * @example
-         * ```javascript
-         * var textStr = node.innerText();
-         * ```
-         */
+		 * 获取节点的纯文本内容
+		 * 
+		 * @method innerText
+		 * @warning 假如节点的type不是'element'，或节点的标签名称不在dtd列表里，直接返回当前节点
+		 * @return { String } 返回节点的存文本内容
+		 * @example ```javascript var textStr = node.innerText(); ```
+		 */
 
         /**
-         * 设置节点的纯文本内容
-         * @method innerText
-         * @warning 假如节点的type不是'element'，或节点的标签名称不在dtd列表里，直接返回当前节点
-         * @param { String } textStr 传入要设置的文本内容
-         * @return { UE.uNode } 返回节点本身
-         * @example
-         * ```javascript
-         * node.innerText('<span>text</span>');
-         * ```
-         */
+		 * 设置节点的纯文本内容
+		 * 
+		 * @method innerText
+		 * @warning 假如节点的type不是'element'，或节点的标签名称不在dtd列表里，直接返回当前节点
+		 * @param {
+		 *            String } textStr 传入要设置的文本内容
+		 * @return { UE.uNode } 返回节点本身
+		 * @example ```javascript node.innerText('<span>text</span>'); ```
+		 */
         innerText:function (textStr,noTrans) {
             if (this.type != 'element' || dtd.$empty[this.tagName]) {
                 return this;
@@ -8934,14 +8444,12 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 获取当前对象的data属性
-         * @method getData
-         * @return { Object } 若节点的type值是elemenet，返回空字符串，否则返回节点的data属性
-         * @example
-         * ```javascript
-         * node.getData();
-         * ```
-         */
+		 * 获取当前对象的data属性
+		 * 
+		 * @method getData
+		 * @return { Object } 若节点的type值是elemenet，返回空字符串，否则返回节点的data属性
+		 * @example ```javascript node.getData(); ```
+		 */
         getData:function () {
             if (this.type == 'element')
                 return '';
@@ -8949,46 +8457,40 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 获取当前节点下的第一个子节点
-         * @method firstChild
-         * @return { UE.uNode } 返回第一个子节点
-         * @example
-         * ```javascript
-         * node.firstChild(); //返回第一个子节点
-         * ```
-         */
+		 * 获取当前节点下的第一个子节点
+		 * 
+		 * @method firstChild
+		 * @return { UE.uNode } 返回第一个子节点
+		 * @example ```javascript node.firstChild(); //返回第一个子节点 ```
+		 */
         firstChild:function () {
-//            if (this.type != 'element' || dtd.$empty[this.tagName]) {
-//                return this;
-//            }
+// if (this.type != 'element' || dtd.$empty[this.tagName]) {
+// return this;
+// }
             return this.children ? this.children[0] : null;
         },
 
         /**
-         * 获取当前节点下的最后一个子节点
-         * @method lastChild
-         * @return { UE.uNode } 返回最后一个子节点
-         * @example
-         * ```javascript
-         * node.lastChild(); //返回最后一个子节点
-         * ```
-         */
+		 * 获取当前节点下的最后一个子节点
+		 * 
+		 * @method lastChild
+		 * @return { UE.uNode } 返回最后一个子节点
+		 * @example ```javascript node.lastChild(); //返回最后一个子节点 ```
+		 */
         lastChild:function () {
-//            if (this.type != 'element' || dtd.$empty[this.tagName] ) {
-//                return this;
-//            }
+// if (this.type != 'element' || dtd.$empty[this.tagName] ) {
+// return this;
+// }
             return this.children ? this.children[this.children.length - 1] : null;
         },
 
         /**
-         * 获取和当前节点有相同父亲节点的前一个节点
-         * @method previousSibling
-         * @return { UE.uNode } 返回前一个节点
-         * @example
-         * ```javascript
-         * node.children[2].previousSibling(); //返回子节点node.children[1]
-         * ```
-         */
+		 * 获取和当前节点有相同父亲节点的前一个节点
+		 * 
+		 * @method previousSibling
+		 * @return { UE.uNode } 返回前一个节点
+		 * @example ```javascript node.children[2].previousSibling(); //返回子节点node.children[1] ```
+		 */
         previousSibling : function(){
             var parent = this.parentNode;
             for (var i = 0, ci; ci = parent.children[i]; i++) {
@@ -9000,14 +8502,12 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 获取和当前节点有相同父亲节点的后一个节点
-         * @method nextSibling
-         * @return { UE.uNode } 返回后一个节点,找不到返回null
-         * @example
-         * ```javascript
-         * node.children[2].nextSibling(); //如果有，返回子节点node.children[3]
-         * ```
-         */
+		 * 获取和当前节点有相同父亲节点的后一个节点
+		 * 
+		 * @method nextSibling
+		 * @return { UE.uNode } 返回后一个节点,找不到返回null
+		 * @example ```javascript node.children[2].nextSibling(); //如果有，返回子节点node.children[3] ```
+		 */
         nextSibling : function(){
             var parent = this.parentNode;
             for (var i = 0, ci; ci = parent.children[i++];) {
@@ -9018,16 +8518,16 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 用新的节点替换当前节点
-         * @method replaceChild
-         * @param { UE.uNode } target 要替换成该节点参数
-         * @param { UE.uNode } source 要被替换掉的节点
-         * @return { UE.uNode } 返回替换之后的节点对象
-         * @example
-         * ```javascript
-         * node.replaceChild(newNode, childNode); //用newNode替换childNode,childNode是node的子节点
-         * ```
-         */
+		 * 用新的节点替换当前节点
+		 * 
+		 * @method replaceChild
+		 * @param {
+		 *            UE.uNode } target 要替换成该节点参数
+		 * @param {
+		 *            UE.uNode } source 要被替换掉的节点
+		 * @return { UE.uNode } 返回替换之后的节点对象
+		 * @example ```javascript node.replaceChild(newNode, childNode); //用newNode替换childNode,childNode是node的子节点 ```
+		 */
         replaceChild:function (target, source) {
             if (this.children) {
                 if(target.parentNode){
@@ -9045,15 +8545,14 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 在节点的子节点列表最后位置插入一个节点
-         * @method appendChild
-         * @param { UE.uNode } node 要插入的节点
-         * @return { UE.uNode } 返回刚插入的子节点
-         * @example
-         * ```javascript
-         * node.appendChild( newNode ); //在node内插入子节点newNode
-         * ```
-         */
+		 * 在节点的子节点列表最后位置插入一个节点
+		 * 
+		 * @method appendChild
+		 * @param {
+		 *            UE.uNode } node 要插入的节点
+		 * @return { UE.uNode } 返回刚插入的子节点
+		 * @example ```javascript node.appendChild( newNode ); //在node内插入子节点newNode ```
+		 */
         appendChild:function (node) {
             if (this.type == 'root' || (this.type == 'element' && !dtd.$empty[this.tagName])) {
                 if (!this.children) {
@@ -9077,16 +8576,16 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 在传入节点的前面插入一个节点
-         * @method insertBefore
-         * @param { UE.uNode } target 要插入的节点
-         * @param { UE.uNode } source 在该参数节点前面插入
-         * @return { UE.uNode } 返回刚插入的子节点
-         * @example
-         * ```javascript
-         * node.parentNode.insertBefore(newNode, node); //在node节点后面插入newNode
-         * ```
-         */
+		 * 在传入节点的前面插入一个节点
+		 * 
+		 * @method insertBefore
+		 * @param {
+		 *            UE.uNode } target 要插入的节点
+		 * @param {
+		 *            UE.uNode } source 在该参数节点前面插入
+		 * @return { UE.uNode } 返回刚插入的子节点
+		 * @example ```javascript node.parentNode.insertBefore(newNode, node); //在node节点后面插入newNode ```
+		 */
         insertBefore:function (target, source) {
             if (this.children) {
                 if(target.parentNode){
@@ -9104,16 +8603,16 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 在传入节点的后面插入一个节点
-         * @method insertAfter
-         * @param { UE.uNode } target 要插入的节点
-         * @param { UE.uNode } source 在该参数节点后面插入
-         * @return { UE.uNode } 返回刚插入的子节点
-         * @example
-         * ```javascript
-         * node.parentNode.insertAfter(newNode, node); //在node节点后面插入newNode
-         * ```
-         */
+		 * 在传入节点的后面插入一个节点
+		 * 
+		 * @method insertAfter
+		 * @param {
+		 *            UE.uNode } target 要插入的节点
+		 * @param {
+		 *            UE.uNode } source 在该参数节点后面插入
+		 * @return { UE.uNode } 返回刚插入的子节点
+		 * @example ```javascript node.parentNode.insertAfter(newNode, node); //在node节点后面插入newNode ```
+		 */
         insertAfter:function (target, source) {
             if (this.children) {
                 if(target.parentNode){
@@ -9131,16 +8630,16 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 从当前节点的子节点列表中，移除节点
-         * @method removeChild
-         * @param { UE.uNode } node 要移除的节点引用
-         * @param { Boolean } keepChildren 是否保留移除节点的子节点，若传入true，自动把移除节点的子节点插入到移除的位置
-         * @return { * } 返回刚移除的子节点
-         * @example
-         * ```javascript
-         * node.removeChild(childNode,true); //在node的子节点列表中移除child节点，并且吧child的子节点插入到移除的位置
-         * ```
-         */
+		 * 从当前节点的子节点列表中，移除节点
+		 * 
+		 * @method removeChild
+		 * @param {
+		 *            UE.uNode } node 要移除的节点引用
+		 * @param {
+		 *            Boolean } keepChildren 是否保留移除节点的子节点，若传入true，自动把移除节点的子节点插入到移除的位置
+		 * @return { * } 返回刚移除的子节点
+		 * @example ```javascript node.removeChild(childNode,true); //在node的子节点列表中移除child节点，并且吧child的子节点插入到移除的位置 ```
+		 */
         removeChild:function (node,keepChildren) {
             if (this.children) {
                 for (var i = 0, ci; ci = this.children[i]; i++) {
@@ -9161,30 +8660,29 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 获取当前节点所代表的元素属性，即获取attrs对象下的属性值
-         * @method getAttr
-         * @param { String } attrName 要获取的属性名称
-         * @return { * } 返回attrs对象下的属性值
-         * @example
-         * ```javascript
-         * node.getAttr('title');
-         * ```
-         */
+		 * 获取当前节点所代表的元素属性，即获取attrs对象下的属性值
+		 * 
+		 * @method getAttr
+		 * @param {
+		 *            String } attrName 要获取的属性名称
+		 * @return { * } 返回attrs对象下的属性值
+		 * @example ```javascript node.getAttr('title'); ```
+		 */
         getAttr:function (attrName) {
             return this.attrs && this.attrs[attrName.toLowerCase()]
         },
 
         /**
-         * 设置当前节点所代表的元素属性，即设置attrs对象下的属性值
-         * @method setAttr
-         * @param { String } attrName 要设置的属性名称
-         * @param { * } attrVal 要设置的属性值，类型视设置的属性而定
-         * @return { * } 返回attrs对象下的属性值
-         * @example
-         * ```javascript
-         * node.setAttr('title','标题');
-         * ```
-         */
+		 * 设置当前节点所代表的元素属性，即设置attrs对象下的属性值
+		 * 
+		 * @method setAttr
+		 * @param {
+		 *            String } attrName 要设置的属性名称
+		 * @param { * }
+		 *            attrVal 要设置的属性值，类型视设置的属性而定
+		 * @return { * } 返回attrs对象下的属性值
+		 * @example ```javascript node.setAttr('title','标题'); ```
+		 */
         setAttr:function (attrName, attrVal) {
             if (!attrName) {
                 delete this.attrs;
@@ -9212,14 +8710,12 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 获取当前节点在父节点下的位置索引
-         * @method getIndex
-         * @return { Number } 返回索引数值，如果没有父节点，返回-1
-         * @example
-         * ```javascript
-         * node.getIndex();
-         * ```
-         */
+		 * 获取当前节点在父节点下的位置索引
+		 * 
+		 * @method getIndex
+		 * @return { Number } 返回索引数值，如果没有父节点，返回-1
+		 * @example ```javascript node.getIndex(); ```
+		 */
         getIndex:function(){
             var parent = this.parentNode;
             for(var i= 0,ci;ci=parent.children[i];i++){
@@ -9231,15 +8727,14 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 在当前节点下，根据id查找节点
-         * @method getNodeById
-         * @param { String } id 要查找的id
-         * @return { UE.uNode } 返回找到的节点
-         * @example
-         * ```javascript
-         * node.getNodeById('textId');
-         * ```
-         */
+		 * 在当前节点下，根据id查找节点
+		 * 
+		 * @method getNodeById
+		 * @param {
+		 *            String } id 要查找的id
+		 * @return { UE.uNode } 返回找到的节点
+		 * @example ```javascript node.getNodeById('textId'); ```
+		 */
         getNodeById:function (id) {
             var node;
             if (this.children && this.children.length) {
@@ -9252,15 +8747,14 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 在当前节点下，根据元素名称查找节点列表
-         * @method getNodesByTagName
-         * @param { String } tagNames 要查找的元素名称
-         * @return { Array } 返回找到的节点列表
-         * @example
-         * ```javascript
-         * node.getNodesByTagName('span');
-         * ```
-         */
+		 * 在当前节点下，根据元素名称查找节点列表
+		 * 
+		 * @method getNodesByTagName
+		 * @param {
+		 *            String } tagNames 要查找的元素名称
+		 * @return { Array } 返回找到的节点列表
+		 * @example ```javascript node.getNodesByTagName('span'); ```
+		 */
         getNodesByTagName:function (tagNames) {
             tagNames = utils.trim(tagNames).replace(/[ ]{2,}/g, ' ').split(' ');
             var arr = [], me = this;
@@ -9275,15 +8769,14 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 根据样式名称，获取节点的样式值
-         * @method getStyle
-         * @param { String } name 要获取的样式名称
-         * @return { String } 返回样式值
-         * @example
-         * ```javascript
-         * node.getStyle('font-size');
-         * ```
-         */
+		 * 根据样式名称，获取节点的样式值
+		 * 
+		 * @method getStyle
+		 * @param {
+		 *            String } name 要获取的样式名称
+		 * @return { String } 返回样式值
+		 * @example ```javascript node.getStyle('font-size'); ```
+		 */
         getStyle:function (name) {
             var cssStyle = this.getAttr('style');
             if (!cssStyle) {
@@ -9298,15 +8791,15 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 给节点设置样式
-         * @method setStyle
-         * @param { String } name 要设置的的样式名称
-         * @param { String } val 要设置的的样值
-         * @example
-         * ```javascript
-         * node.setStyle('font-size', '12px');
-         * ```
-         */
+		 * 给节点设置样式
+		 * 
+		 * @method setStyle
+		 * @param {
+		 *            String } name 要设置的的样式名称
+		 * @param {
+		 *            String } val 要设置的的样值
+		 * @example ```javascript node.setStyle('font-size', '12px'); ```
+		 */
         setStyle:function (name, val) {
             function exec(name, val) {
                 var reg = new RegExp('(^|;)\\s*' + name + ':([^;]+;?)', 'gi');
@@ -9332,16 +8825,13 @@ var filterWord = UE.filterWord = function () {
         },
 
         /**
-         * 传入一个函数，递归遍历当前节点下的所有节点
-         * @method traversal
-         * @param { Function } fn 遍历到节点的时，传入节点作为参数，运行此函数
-         * @example
-         * ```javascript
-         * traversal(node, function(){
-         *     console.log(node.type);
-         * });
-         * ```
-         */
+		 * 传入一个函数，递归遍历当前节点下的所有节点
+		 * 
+		 * @method traversal
+		 * @param {
+		 *            Function } fn 遍历到节点的时，传入节点作为参数，运行此函数
+		 * @example ```javascript traversal(node, function(){ console.log(node.type); }); ```
+		 */
         traversal:function(fn){
             if(this.children && this.children.length){
                 nodeTraversal(this,fn);
@@ -9355,6 +8845,7 @@ var filterWord = UE.filterWord = function () {
 // core/htmlparser.js
 /**
  * html字符串转换成uNode节点
+ * 
  * @file
  * @module UE
  * @since 1.2.6.1
@@ -9362,29 +8853,33 @@ var filterWord = UE.filterWord = function () {
 
 /**
  * UEditor公用空间，UEditor所有的功能都挂载在该空间下
+ * 
  * @unfile
  * @module UE
  */
 
 /**
  * html字符串转换成uNode节点的静态方法
+ * 
  * @method htmlparser
- * @param { String } htmlstr 要转换的html代码
- * @param { Boolean } ignoreBlank 若设置为true，转换的时候忽略\n\r\t等空白字符
+ * @param {
+ *            String } htmlstr 要转换的html代码
+ * @param {
+ *            Boolean } ignoreBlank 若设置为true，转换的时候忽略\n\r\t等空白字符
  * @return { uNode } 给定的html片段转换形成的uNode对象
- * @example
- * ```javascript
- * var root = UE.htmlparser('<p><b>htmlparser</b></p>', true);
- * ```
+ * @example ```javascript var root = UE.htmlparser('
+ *          <p>
+ *          <b>htmlparser</b>
+ *          </p>', true); ```
  */
 
 var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
-    //todo 原来的方式  [^"'<>\/] 有\/就不能配对上 <TD vAlign=top background=../AAA.JPG> 这样的标签了
-    //先去掉了，加上的原因忘了，这里先记录
+    // todo 原来的方式 [^"'<>\/] 有\/就不能配对上 <TD vAlign=top background=../AAA.JPG> 这样的标签了
+    // 先去掉了，加上的原因忘了，这里先记录
     var re_tag = /<(?:(?:\/([^>]+)>)|(?:!--([\S|\s]*?)-->)|(?:([^\s\/<>]+)\s*((?:(?:"[^"]*")|(?:'[^']*')|[^"'<>])*)\/?>))/g,
         re_attr = /([\w\-:.]+)(?:(?:\s*=\s*(?:(?:"([^"]*)")|(?:'([^']*)')|([^\s>]+)))|(?=\s|$))/g;
 
-    //ie下取得的html可能会有\n存在，要去掉，在处理replace(/[\t\r\n]*/g,'');代码高量的\n不能去除
+    // ie下取得的html可能会有\n存在，要去掉，在处理replace(/[\t\r\n]*/g,'');代码高量的\n不能去除
     var allowEmptyTags = {
         b:1,code:1,i:1,u:1,strike:1,s:1,tt:1,strong:1,q:1,samp:1,em:1,span:1,
         sub:1,img:1,sup:1,font:1,big:1,small:1,iframe:1,a:1,br:1,pre:1
@@ -9392,7 +8887,7 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
     htmlstr = htmlstr.replace(new RegExp(domUtils.fillChar, 'g'), '');
     if(!ignoreBlank){
         htmlstr = htmlstr.replace(new RegExp('[\\r\\t\\n'+(ignoreBlank?'':' ')+']*<\/?(\\w+)\\s*(?:[^>]*)>[\\r\\t\\n'+(ignoreBlank?'':' ')+']*','g'), function(a,b){
-            //br暂时单独处理
+            // br暂时单独处理
             if(b && allowEmptyTags[b.toLowerCase()]){
                 return a.replace(/(^[\n\r]+)|([\n\r]+$)/g,'');
             }
@@ -9453,17 +8948,17 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
                 parent = element(parent, utils.isArray(needParentTag) ? needParentTag[0] : needParentTag)
             }
         }
-        //按dtd处理嵌套
-//        if(parent.type != 'root' && !dtd[parent.tagName][tagName])
-//            parent = parent.parentNode;
+        // 按dtd处理嵌套
+// if(parent.type != 'root' && !dtd[parent.tagName][tagName])
+// parent = parent.parentNode;
         var elm = new uNode({
             parentNode:parent,
             type:'element',
             tagName:tagName.toLowerCase(),
-            //是自闭合的处理一下
+            // 是自闭合的处理一下
             children:dtd.$empty[tagName] ? null : []
         });
-        //如果属性存在，处理属性
+        // 如果属性存在，处理属性
         if (htmlattr) {
             var attrs = {}, match;
             while (match = re_attr.exec(htmlattr)) {
@@ -9471,14 +8966,14 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
             }
             elm.attrs = attrs;
         }
-        //trace:3970
-//        //如果parent下不能放elm
-//        if(dtd.$inline[parent.tagName] && dtd.$block[elm.tagName] && !dtd[parent.tagName][elm.tagName]){
-//            parent = parent.parentNode;
-//            elm.parentNode = parent;
-//        }
+        // trace:3970
+// //如果parent下不能放elm
+// if(dtd.$inline[parent.tagName] && dtd.$block[elm.tagName] && !dtd[parent.tagName][elm.tagName]){
+// parent = parent.parentNode;
+// elm.parentNode = parent;
+// }
         parent.children.push(elm);
-        //如果是自闭合节点返回父亲节点
+        // 如果是自闭合节点返回父亲节点
         return  dtd.$empty[tagName] ? parent : elm
     }
 
@@ -9491,7 +8986,7 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
     }
 
     var match, currentIndex = 0, nextIndex = 0;
-    //设置根节点
+    // 设置根节点
     var root = new uNode({
         type:'root',
         children:[]
@@ -9502,7 +8997,7 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
         currentIndex = match.index;
         try{
             if (currentIndex > nextIndex) {
-                //text node
+                // text node
                 text(currentParent, htmlstr.slice(nextIndex, currentIndex));
             }
             if (match[3]) {
@@ -9510,7 +9005,7 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
                 if(dtd.$cdata[currentParent.tagName]){
                     text(currentParent, match[0]);
                 }else{
-                    //start tag
+                    // start tag
                     currentParent = element(currentParent, match[3].toLowerCase(), match[4]);
                 }
 
@@ -9528,14 +9023,14 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
                                 throw 'break'
                             }
                         }
-                        //end tag
+                        // end tag
                         currentParent = currentParent.parentNode;
                     }
 
                 }
 
             } else if (match[2]) {
-                //comment
+                // comment
                 comment(currentParent, match[2])
             }
         }catch(e){}
@@ -9543,8 +9038,8 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
         nextIndex = re_tag.lastIndex;
 
     }
-    //如果结束是文本，就有可能丢掉，所以这里手动判断一下
-    //例如 <li>sdfsdfsdf<li>sdfsdfsdfsdf
+    // 如果结束是文本，就有可能丢掉，所以这里手动判断一下
+    // 例如 <li>sdfsdfsdf<li>sdfsdfsdfsdf
     if (nextIndex < htmlstr.length) {
         text(currentParent, htmlstr.slice(nextIndex));
     }
@@ -9555,26 +9050,28 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
 // core/filternode.js
 /**
  * UE过滤节点的静态方法
+ * 
  * @file
  */
 
 /**
  * UEditor公用空间，UEditor所有的功能都挂载在该空间下
+ * 
  * @module UE
  */
 
 
 /**
  * 根据传入节点和过滤规则过滤相应节点
+ * 
  * @module UE
  * @since 1.2.6.1
  * @method filterNode
- * @param { Object } root 指定root节点
- * @param { Object } rules 过滤规则json对象
- * @example
- * ```javascript
- * UE.filterNode(root,editor.options.filterRules);
- * ```
+ * @param {
+ *            Object } root 指定root节点
+ * @param {
+ *            Object } rules 过滤规则json对象
+ * @example ```javascript UE.filterNode(root,editor.options.filterRules); ```
  */
 var filterNode = UE.filterNode = function () {
     function filterNode(node,rules){
@@ -9615,7 +9112,7 @@ var filterNode = UE.filterNode = function () {
                            var tmpAttrs = {},tmpVal;
                            for(var a in attrs){
                                tmpVal = node.getAttr(a);
-                               //todo 只先对style单独处理
+                               // todo 只先对style单独处理
                                if(a == 'style' && utils.isArray(attrs[a])){
                                    var tmpCssStyle = [];
                                    utils.each(attrs[a],function(v){
@@ -9643,7 +9140,7 @@ var filterNode = UE.filterNode = function () {
                        }
                    }
                 }else{
-                    //如果不在名单里扣出子节点并删除该节点,cdata除外
+                    // 如果不在名单里扣出子节点并删除该节点,cdata除外
                     if(dtd.$cdata[node.tagName]){
                         node.parentNode.removeChild(node)
                     }else{
@@ -9686,11 +9183,7 @@ var filterNode = UE.filterNode = function () {
 
 // core/plugin.js
 /**
- * Created with JetBrains PhpStorm.
- * User: campaign
- * Date: 10/8/13
- * Time: 6:15 PM
- * To change this template use File | Settings | File Templates.
+ * Created with JetBrains PhpStorm. User: campaign Date: 10/8/13 Time: 6:15 PM To change this template use File | Settings | File Templates.
  */
 UE.plugin = function(){
     var _plugins = {};
@@ -9703,7 +9196,7 @@ UE.plugin = function(){
             _plugins[pluginName] = {
                 optionName : oldOptionName || pluginName,
                 execFn : fn,
-                //当插件被禁用时执行
+                // 当插件被禁用时执行
                 afterDisabled : afterDisabled
             }
         },
@@ -9712,7 +9205,7 @@ UE.plugin = function(){
                 var _export = plugin.execFn.call(editor);
                 if(editor.options[plugin.optionName] !== false){
                     if(_export){
-                        //后边需要再做扩展
+                        // 后边需要再做扩展
                         utils.each(_export,function(v,k){
                             switch(k.toLowerCase()){
                                 case 'shortcutkey':
@@ -9753,7 +9246,7 @@ UE.plugin = function(){
                 }
 
             });
-            //向下兼容
+            // 向下兼容
             utils.each(UE.plugins,function(plugin){
                 plugin.call(editor);
             });
@@ -9805,10 +9298,10 @@ var keymap = UE.keymap  = {
 
     "b":66,
     'i':73,
-    //回退
+    // 回退
     'z':90,
     'y':89,
-    //粘贴
+    // 粘贴
     'v' : 86,
     'x' : 88,
 
@@ -9818,7 +9311,7 @@ var keymap = UE.keymap  = {
 };
 
 // core/localstorage.js
-//存储媒介封装
+// 存储媒介封装
 var LocalStorage = UE.LocalStorage = (function () {
 
     var storage = window.localStorage || getUserData() || null,
@@ -9893,17 +9386,17 @@ var LocalStorage = UE.LocalStorage = (function () {
 
             },
 
-            //// 暂时没有用到
-            //clear: function () {
+            // // 暂时没有用到
+            // clear: function () {
             //
-            //    var expiresTime = new Date();
-            //    expiresTime.setFullYear(expiresTime.getFullYear() - 1);
-            //    document.body.appendChild(container);
-            //    container.expires = expiresTime.toUTCString();
-            //    container.save(LOCAL_FILE);
-            //    document.body.removeChild(container);
+            // var expiresTime = new Date();
+            // expiresTime.setFullYear(expiresTime.getFullYear() - 1);
+            // document.body.appendChild(container);
+            // container.expires = expiresTime.toUTCString();
+            // container.save(LOCAL_FILE);
+            // document.body.removeChild(container);
             //
-            //},
+            // },
 
             removeItem: function (key) {
 
@@ -9961,8 +9454,8 @@ var LocalStorage = UE.LocalStorage = (function () {
 
 
 // plugins/defaultfilter.js
-///import core
-///plugin 编辑器默认的过滤转换机制
+// /import core
+// /plugin 编辑器默认的过滤转换机制
 
 UE.plugins['defaultfilter'] = function () {
     var me = this;
@@ -9970,8 +9463,8 @@ UE.plugins['defaultfilter'] = function () {
         'allowDivTransToP':true,
         'disabledTableInTable':true
     });
-    //默认的过滤处理
-    //进入编辑器的内容处理
+    // 默认的过滤处理
+    // 进入编辑器的内容处理
     me.addInputRule(function (root) {
         var allowDivTransToP = this.options.allowDivTransToP;
         var val;
@@ -9984,7 +9477,7 @@ UE.plugins['defaultfilter'] = function () {
             }
             return false;
         }
-        //进行默认的处理
+        // 进行默认的处理
         root.traversal(function (node) {
             if (node.type == 'element') {
                 if (!dtd.$cdata[node.tagName] && me.options.autoClearEmptyNode && dtd.$inline[node.tagName] && !dtd.$empty[node.tagName] && (!node.attrs || utils.isEmptyObject(node.attrs))) {
@@ -10011,7 +9504,7 @@ UE.plugins['defaultfilter'] = function () {
                         }
                         break;
                     case 'img':
-                        //todo base64暂时去掉，后边做远程图片上传后，干掉这个
+                        // todo base64暂时去掉，后边做远程图片上传后，干掉这个
                         if (val = node.getAttr('src')) {
                             if (/^data:/.test(val)) {
                                 node.parentNode.removeChild(node);
@@ -10039,14 +9532,14 @@ UE.plugins['defaultfilter'] = function () {
                             node.setAttr('align');
                             node.setStyle('text-align', val)
                         }
-                        //trace:3431
-//                        var cssStyle = node.getAttr('style');
-//                        if (cssStyle) {
-//                            cssStyle = cssStyle.replace(/(margin|padding)[^;]+/g, '');
-//                            node.setAttr('style', cssStyle)
+                        // trace:3431
+// var cssStyle = node.getAttr('style');
+// if (cssStyle) {
+// cssStyle = cssStyle.replace(/(margin|padding)[^;]+/g, '');
+// node.setAttr('style', cssStyle)
 //
-//                        }
-                        //p标签不允许嵌套
+// }
+                        // p标签不允许嵌套
                         utils.each(node.children,function(n){
                             if(n.type == 'element' && n.tagName == 'p'){
                                 var next = n.nextSibling();
@@ -10069,7 +9562,7 @@ UE.plugins['defaultfilter'] = function () {
                         if(node.getAttr('cdata_tag')){
                             break;
                         }
-                        //针对代码这里不处理插入代码的div
+                        // 针对代码这里不处理插入代码的div
                         val = node.getAttr('class');
                         if(val && /^line number\d+/.test(val)){
                             break;
@@ -10127,14 +9620,14 @@ UE.plugins['defaultfilter'] = function () {
                 }
 
             }
-//            if(node.type == 'comment'){
-//                node.parentNode.removeChild(node);
-//            }
+// if(node.type == 'comment'){
+// node.parentNode.removeChild(node);
+// }
         })
 
     });
 
-    //从编辑器出去的内容处理
+    // 从编辑器出去的内容处理
     me.addOutputRule(function (root) {
 
         var val;
@@ -10194,30 +9687,57 @@ UE.plugins['defaultfilter'] = function () {
 // plugins/inserthtml.js
 /**
  * 插入html字符串插件
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 插入html代码
+ * 
  * @command inserthtml
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param { String } html 插入的html字符串
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {
+ *            String } html 插入的html字符串
  * @remaind 插入的标签内容是在当前的选区位置上插入，如果当前是闭合状态，那直接插入内容， 如果当前是选中状态，将先清除当前选中内容后，再做插入
  * @warning 注意:该命令会对当前选区的位置，对插入的内容进行过滤转换处理。 过滤的规则遵循html语意化的原则。
- * @example
- * ```javascript
- * //xxx[BB]xxx 当前选区为非闭合选区，选中BB这两个文本
- * //执行命令，插入<b>CC</b>
- * //插入后的效果 xxx<b>CC</b>xxx
- * //<p>xx|xxx</p> 当前选区为闭合状态
- * //插入<p>CC</p>
- * //结果 <p>xx</p><p>CC</p><p>xxx</p>
- * //<p>xxxx</p>|</p>xxx</p> 当前选区在两个p标签之间
- * //插入 xxxx
- * //结果 <p>xxxx</p><p>xxxx</p></p>xxx</p>
- * ```
+ * @example ```javascript //xxx[BB]xxx 当前选区为非闭合选区，选中BB这两个文本 //执行命令，插入<b>CC</b> //插入后的效果 xxx<b>CC</b>xxx //
+ *          <p>
+ *          xx|xxx
+ *          </p>
+ *          当前选区为闭合状态 //插入
+ *          <p>
+ *          CC
+ *          </p>
+ *          //结果
+ *          <p>
+ *          xx
+ *          </p>
+ *          <p>
+ *          CC
+ *          </p>
+ *          <p>
+ *          xxx
+ *          </p> //
+ *          <p>
+ *          xxxx
+ *          </p>|
+ *          </p>
+ *          xxx
+ *          </p>
+ *          当前选区在两个p标签之间 //插入 xxxx //结果
+ *          <p>
+ *          xxxx
+ *          </p>
+ *          <p>
+ *          xxxx
+ *          </p>
+ *          </p>
+ *          xxx
+ *          </p>
+ *          ```
  */
 
 UE.commands['inserthtml'] = {
@@ -10237,11 +9757,11 @@ UE.commands['inserthtml'] = {
 
         if (!notNeedFilter) {
             var root = UE.htmlparser(html);
-            //如果给了过滤规则就先进行过滤
+            // 如果给了过滤规则就先进行过滤
             if(me.options.filterRules){
                 UE.filterNode(root,me.options.filterRules);
             }
-            //执行默认的处理
+            // 执行默认的处理
             me.filterInputRule(root);
             html = root.toHtml()
         }
@@ -10257,7 +9777,7 @@ UE.commands['inserthtml'] = {
                 range.setEndAfter(tmpNode)
             }
             range.txtToElmBoundary();
-            //结束边界可能放到了br的前边，要把br包含进来
+            // 结束边界可能放到了br的前边，要把br包含进来
             // x[xxx]<br/>
             if(range.endContainer && range.endContainer.nodeType == 1){
                 tmpNode = range.endContainer.childNodes[range.endOffset];
@@ -10292,7 +9812,7 @@ UE.commands['inserthtml'] = {
 
 
         var child,parent,pre,tmp,hadBreak = 0, nextNode;
-        //如果当前位置选中了fillchar要干掉，要不会产生空行
+        // 如果当前位置选中了fillchar要干掉，要不会产生空行
         if(range.inFillChar()){
             child = range.startContainer;
             if(domUtils.isFillChar(child)){
@@ -10304,12 +9824,12 @@ UE.commands['inserthtml'] = {
                 range.collapsed && range.collapse(true)
             }
         }
-        //列表单独处理
+        // 列表单独处理
         var li = domUtils.findParentByTagName(range.startContainer,'li',true);
         if(li){
             var next,last;
             while(child = div.firstChild){
-                //针对hr单独处理一下先
+                // 针对hr单独处理一下先
                 while(child && (child.nodeType == 3 || !domUtils.isBlockElm(child) || child.tagName=='HR' )){
                     next = child.nextSibling;
                     range.insertNode( child).collapse();
@@ -10378,13 +9898,13 @@ UE.commands['inserthtml'] = {
 
 
                         domUtils.breakParent( child, pre || tmp );
-                        //去掉break后前一个多余的节点  <p>|<[p> ==> <p></p><div></div><p>|</p>
+                        // 去掉break后前一个多余的节点 <p>|<[p> ==> <p></p><div></div><p>|</p>
                         var pre = child.previousSibling;
                         domUtils.trimWhiteTextNode(pre);
                         if(!pre.childNodes.length){
                             domUtils.remove(pre);
                         }
-                        //trace:2012,在非ie的情况，切开后剩下的节点有可能不能点入光标添加br占位
+                        // trace:2012,在非ie的情况，切开后剩下的节点有可能不能点入光标添加br占位
 
                         if(!browser.ie &&
                             (next = child.nextSibling) &&
@@ -10411,7 +9931,7 @@ UE.commands['inserthtml'] = {
             if(nextNode && domUtils.isBr(nextNode)){
                 domUtils.remove(nextNode)
             }
-            //用chrome可能有空白展位符
+            // 用chrome可能有空白展位符
             if(domUtils.isBlockElm(child) && domUtils.isEmptyNode(child)){
                 if(nextNode = child.nextSibling){
                     domUtils.remove(child);
@@ -10431,7 +9951,7 @@ UE.commands['inserthtml'] = {
                 }
 
             }
-            //加上true因为在删除表情等时会删两次，第一次是删的fillData
+            // 加上true因为在删除表情等时会删两次，第一次是删的fillData
             try{
                 range.select(true);
             }catch(e){}
@@ -10452,37 +9972,37 @@ UE.commands['inserthtml'] = {
 // plugins/autotypeset.js
 /**
  * 自动排版
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 对当前编辑器的内容执行自动排版， 排版的行为根据config配置文件里的“autotypeset”选项进行控制。
+ * 
  * @command autotypeset
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'autotypeset' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'autotypeset' ); ```
  */
 
 UE.plugins['autotypeset'] = function(){
 
     this.setOpt({'autotypeset': {
-        mergeEmptyline: true,           //合并空行
-        removeClass: true,              //去掉冗余的class
-        removeEmptyline: false,         //去掉空行
-        textAlign:"left",               //段落的排版方式，可以是 left,right,center,justify 去掉这个属性表示不执行排版
-        imageBlockLine: 'center',       //图片的浮动方式，独占一行剧中,左右浮动，默认: center,left,right,none 去掉这个属性表示不执行排版
-        pasteFilter: false,             //根据规则过滤没事粘贴进来的内容
-        clearFontSize: false,           //去掉所有的内嵌字号，使用编辑器默认的字号
-        clearFontFamily: false,         //去掉所有的内嵌字体，使用编辑器默认的字体
+        mergeEmptyline: true,           // 合并空行
+        removeClass: true,              // 去掉冗余的class
+        removeEmptyline: false,         // 去掉空行
+        textAlign:"left",               // 段落的排版方式，可以是 left,right,center,justify 去掉这个属性表示不执行排版
+        imageBlockLine: 'center',       // 图片的浮动方式，独占一行剧中,左右浮动，默认: center,left,right,none 去掉这个属性表示不执行排版
+        pasteFilter: false,             // 根据规则过滤没事粘贴进来的内容
+        clearFontSize: false,           // 去掉所有的内嵌字号，使用编辑器默认的字号
+        clearFontFamily: false,         // 去掉所有的内嵌字体，使用编辑器默认的字体
         removeEmptyNode: false,         // 去掉空节点
-        //可以去掉的标签
+        // 可以去掉的标签
         removeTagNames: utils.extend({div:1},dtd.$removeEmpty),
         indent: false,                  // 行首缩进
-        indentValue : '2em',            //行首缩进的大小
+        indentValue : '2em',            // 行首缩进的大小
         bdc2sb: false,
         tobdc: false
     }});
@@ -10500,12 +10020,12 @@ UE.plugins['autotypeset'] = function(){
         tags = {
             div:1,
             p:1,
-            //trace:2183 这些也认为是行
+            // trace:2183 这些也认为是行
             blockquote:1,center:1,h1:1,h2:1,h3:1,h4:1,h5:1,h6:1,
             span:1
         },
         highlightCont;
-    //升级了版本，但配置项目里没有autotypeset
+    // 升级了版本，但配置项目里没有autotypeset
     if(!opt){
         return;
     }
@@ -10558,21 +10078,21 @@ UE.plugins['autotypeset'] = function(){
             if(me.fireEvent('excludeNodeinautotype',ci) === true){
                 continue;
             }
-             //font-size
+             // font-size
             if(opt.clearFontSize && ci.style.fontSize){
                 domUtils.removeStyle(ci,'font-size');
 
                 removeNotAttributeSpan(ci);
 
             }
-            //font-family
+            // font-family
             if(opt.clearFontFamily && ci.style.fontFamily){
                 domUtils.removeStyle(ci,'font-family');
                 removeNotAttributeSpan(ci);
             }
 
             if(isLine(ci)){
-                //合并空行
+                // 合并空行
                 if(opt.mergeEmptyline ){
                     var next = ci.nextSibling,tmpNode,isBr = domUtils.isBr(ci);
                     while(isLine(next)){
@@ -10585,7 +10105,7 @@ UE.plugins['autotypeset'] = function(){
                     }
 
                 }
-                 //去掉空行，保留占位的空行
+                 // 去掉空行，保留占位的空行
                 if(opt.removeEmptyline && domUtils.inDoc(ci,cont) && !remainTag[ci.parentNode.tagName.toLowerCase()] ){
                     if(domUtils.isBr(ci)){
                         next = ci.nextSibling;
@@ -10607,11 +10127,11 @@ UE.plugins['autotypeset'] = function(){
                     ci.style.textAlign = opt.textAlign;
                 }
                 // if(opt.lineHeight)
-                //     ci.style.lineHeight = opt.lineHeight + 'cm';
+                // ci.style.lineHeight = opt.lineHeight + 'cm';
 
             }
 
-            //去掉class,保留的class不去掉
+            // 去掉class,保留的class不去掉
             if(opt.removeClass && ci.className && !remainClass[ci.className.toLowerCase()]){
 
                 if(highlightCont && highlightCont.contains(ci)){
@@ -10620,7 +10140,7 @@ UE.plugins['autotypeset'] = function(){
                 domUtils.removeAttributes(ci,['class']);
             }
 
-            //表情不处理
+            // 表情不处理
             if(opt.imageBlockLine && ci.tagName.toLowerCase() == 'img' && !ci.getAttribute('emotion')){
                 if(html){
                     var img = ci;
@@ -10686,7 +10206,7 @@ UE.plugins['autotypeset'] = function(){
 
             }
 
-            //去掉冗余的标签
+            // 去掉冗余的标签
             if(opt.removeEmptyNode){
                 if(opt.removeTagNames[ci.tagName.toLowerCase()] && domUtils.hasNoAttributes(ci) && domUtils.isEmptyBlock(ci)){
                     domUtils.remove(ci);
@@ -10722,11 +10242,11 @@ UE.plugins['autotypeset'] = function(){
     function DBC2SB(str) {
         var result = '';
         for (var i = 0; i < str.length; i++) {
-            var code = str.charCodeAt(i); //获取当前字符的unicode编码
-            if (code >= 65281 && code <= 65373)//在这个unicode编码范围中的是所有的英文字母已经各种字符
+            var code = str.charCodeAt(i); // 获取当前字符的unicode编码
+            if (code >= 65281 && code <= 65373)// 在这个unicode编码范围中的是所有的英文字母已经各种字符
             {
-                result += String.fromCharCode(str.charCodeAt(i) - 65248); //把全角字符的unicode编码转换为对应半角字符的unicode码
-            } else if (code == 12288)//空格
+                result += String.fromCharCode(str.charCodeAt(i) - 65248); // 把全角字符的unicode编码转换为对应半角字符的unicode码
+            } else if (code == 12288)// 空格
             {
                 result += String.fromCharCode(str.charCodeAt(i) - 12288 + 32);
             } else {
@@ -10738,7 +10258,7 @@ UE.plugins['autotypeset'] = function(){
     function ToDBC(txtstring) {
         txtstring = utils.html(txtstring);
         var tmp = "";
-        var mark = "";/*用于判断,如果是html尖括里的标记,则不进行全角的转换*/
+        var mark = "";/* 用于判断,如果是html尖括里的标记,则不进行全角的转换 */
         for (var i = 0; i < txtstring.length; i++) {
             if (txtstring.charCodeAt(i) == 32) {
                 tmp = tmp + String.fromCharCode(12288);
@@ -10776,25 +10296,25 @@ UE.plugins['autotypeset'] = function(){
 // plugins/autosubmit.js
 /**
  * 快捷键提交
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 提交表单
+ * 
  * @command autosubmit
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'autosubmit' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'autosubmit' ); ```
  */
 
 UE.plugin.register('autosubmit',function(){
     return {
         shortcutkey:{
-            "autosubmit":"ctrl+13" //手动提交
+            "autosubmit":"ctrl+13" // 手动提交
         },
         commands:{
             'autosubmit':{
@@ -10817,6 +10337,7 @@ UE.plugin.register('autosubmit',function(){
 // plugins/background.js
 /**
  * 背景插件，为UEditor提供设置背景功能
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -10849,7 +10370,7 @@ UE.plugin.register('background', function () {
             utils.cssRule(cssRuleId, '', me.document)
         }
     }
-    //重写editor.hasContent方法
+    // 重写editor.hasContent方法
 
     var orgFn = me.hasContents;
     me.hasContents = function(){
@@ -10926,34 +10447,34 @@ UE.plugin.register('background', function () {
 // plugins/image.js
 /**
  * 图片插入、排版插件
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 图片对齐方式
+ * 
  * @command imagefloat
  * @method execCommand
  * @remind 值center为独占一行居中
- * @param { String } cmd 命令字符串
- * @param { String } align 对齐方式，可传left、right、none、center
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {
+ *            String } align 对齐方式，可传left、right、none、center
  * @remaind center表示图片独占一行
- * @example
- * ```javascript
- * editor.execCommand( 'imagefloat', 'center' );
- * ```
+ * @example ```javascript editor.execCommand( 'imagefloat', 'center' ); ```
  */
 
 /**
  * 如果选区所在位置是图片区域
+ * 
  * @command imagefloat
  * @method queryCommandValue
- * @param { String } cmd 命令字符串
+ * @param {
+ *            String } cmd 命令字符串
  * @return { String } 返回图片对齐方式
- * @example
- * ```javascript
- * editor.queryCommandValue( 'imagefloat' );
- * ```
+ * @example ```javascript editor.queryCommandValue( 'imagefloat' ); ```
  */
 
 UE.commands['imagefloat'] = {
@@ -11024,7 +10545,7 @@ UE.commands['imagefloat'] = {
                             tmpNode.removeAttribute('id');
                             tmpNode = tmpNode.firstChild;
                             range.selectNode(tmpNode).select();
-                            //去掉后边多余的元素
+                            // 去掉后边多余的元素
                             next = tmpNode.parentNode.nextSibling;
                             if (next && domUtils.isEmptyNode(next)) {
                                 domUtils.remove(next);
@@ -11078,32 +10599,16 @@ UE.commands['imagefloat'] = {
 
 /**
  * 插入图片
+ * 
  * @command insertimage
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param { Object } opt 属性键值对，这些属性都将被复制到当前插入图片
- * @remind 该命令第二个参数可接受一个图片配置项对象的数组，可以插入多张图片，
- * 此时数组的每一个元素都是一个Object类型的图片属性集合。
- * @example
- * ```javascript
- * editor.execCommand( 'insertimage', {
- *     src:'a/b/c.jpg',
- *     width:'100',
- *     height:'100'
- * } );
- * ```
- * @example
- * ```javascript
- * editor.execCommand( 'insertimage', [{
- *     src:'a/b/c.jpg',
- *     width:'100',
- *     height:'100'
- * },{
- *     src:'a/b/d.jpg',
- *     width:'100',
- *     height:'100'
- * }] );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {
+ *            Object } opt 属性键值对，这些属性都将被复制到当前插入图片
+ * @remind 该命令第二个参数可接受一个图片配置项对象的数组，可以插入多张图片， 此时数组的每一个元素都是一个Object类型的图片属性集合。
+ * @example ```javascript editor.execCommand( 'insertimage', { src:'a/b/c.jpg', width:'100', height:'100' } ); ```
+ * @example ```javascript editor.execCommand( 'insertimage', [{ src:'a/b/c.jpg', width:'100', height:'100' },{ src:'a/b/d.jpg', width:'100', height:'100' }] ); ```
  */
 
 UE.commands['insertimage'] = {
@@ -11148,9 +10653,9 @@ UE.commands['insertimage'] = {
             var first = opt.shift();
             var floatStyle = first['floatStyle'];
             delete first['floatStyle'];
-////                img.style.border = (first.border||0) +"px solid #000";
-////                img.style.margin = (first.margin||0) +"px";
-//                img.style.cssText += ';margin:' + (first.margin||0) +"px;" + 'border:' + (first.border||0) +"px solid #000";
+// // img.style.border = (first.border||0) +"px solid #000";
+// // img.style.margin = (first.margin||0) +"px";
+// img.style.cssText += ';margin:' + (first.margin||0) +"px;" + 'border:' + (first.border||0) +"px solid #000";
             domUtils.setAttributes(img, first);
             me.execCommand('imagefloat', floatStyle);
             if (opt.length > 0) {
@@ -11202,31 +10707,31 @@ UE.commands['insertimage'] = {
 // plugins/justify.js
 /**
  * 段落格式
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 段落对齐方式
+ * 
  * @command justify
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param { String } align 对齐方式：left => 居左，right => 居右，center => 居中，justify => 两端对齐
- * @example
- * ```javascript
- * editor.execCommand( 'justify', 'center' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {
+ *            String } align 对齐方式：left => 居左，right => 居右，center => 居中，justify => 两端对齐
+ * @example ```javascript editor.execCommand( 'justify', 'center' ); ```
  */
 /**
  * 如果选区所在位置是段落区域，返回当前段落对齐方式
+ * 
  * @command justify
  * @method queryCommandValue
- * @param { String } cmd 命令字符串
+ * @param {
+ *            String } cmd 命令字符串
  * @return { String } 返回段落对齐方式
- * @example
- * ```javascript
- * editor.queryCommandValue( 'justify' );
- * ```
+ * @example ```javascript editor.queryCommandValue( 'justify' ); ```
  */
 
 UE.plugins['justify']=function(){
@@ -11284,7 +10789,7 @@ UE.plugins['justify']=function(){
             var range = this.selection.getRange(),
                 txt;
 
-            //闭合时单独处理
+            // 闭合时单独处理
             if (range.collapsed) {
                 txt = this.document.createTextNode('p');
                 range.insertNode(txt);
@@ -11319,133 +10824,127 @@ UE.plugins['justify']=function(){
 // plugins/font.js
 /**
  * 字体颜色,背景色,字号,字体,下划线,删除线
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 字体颜色
+ * 
  * @command forecolor
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param { String } value 色值(必须十六进制)
- * @example
- * ```javascript
- * editor.execCommand( 'forecolor', '#000' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {
+ *            String } value 色值(必须十六进制)
+ * @example ```javascript editor.execCommand( 'forecolor', '#000' ); ```
  */
 /**
  * 返回选区字体颜色
+ * 
  * @command forecolor
  * @method queryCommandValue
- * @param { String } cmd 命令字符串
+ * @param {
+ *            String } cmd 命令字符串
  * @return { String } 返回字体颜色
- * @example
- * ```javascript
- * editor.queryCommandValue( 'forecolor' );
- * ```
+ * @example ```javascript editor.queryCommandValue( 'forecolor' ); ```
  */
 
 /**
  * 字体背景颜色
+ * 
  * @command backcolor
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param { String } value 色值(必须十六进制)
- * @example
- * ```javascript
- * editor.execCommand( 'backcolor', '#000' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {
+ *            String } value 色值(必须十六进制)
+ * @example ```javascript editor.execCommand( 'backcolor', '#000' ); ```
  */
 /**
  * 返回选区字体颜色
+ * 
  * @command backcolor
  * @method queryCommandValue
- * @param { String } cmd 命令字符串
+ * @param {
+ *            String } cmd 命令字符串
  * @return { String } 返回字体背景颜色
- * @example
- * ```javascript
- * editor.queryCommandValue( 'backcolor' );
- * ```
+ * @example ```javascript editor.queryCommandValue( 'backcolor' ); ```
  */
 
 /**
  * 字体大小
+ * 
  * @command fontsize
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param { String } value 字体大小
- * @example
- * ```javascript
- * editor.execCommand( 'fontsize', '14px' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {
+ *            String } value 字体大小
+ * @example ```javascript editor.execCommand( 'fontsize', '14px' ); ```
  */
 /**
  * 返回选区字体大小
+ * 
  * @command fontsize
  * @method queryCommandValue
- * @param { String } cmd 命令字符串
+ * @param {
+ *            String } cmd 命令字符串
  * @return { String } 返回字体大小
- * @example
- * ```javascript
- * editor.queryCommandValue( 'fontsize' );
- * ```
+ * @example ```javascript editor.queryCommandValue( 'fontsize' ); ```
  */
 
 /**
  * 字体样式
+ * 
  * @command fontfamily
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param { String } value 字体样式
- * @example
- * ```javascript
- * editor.execCommand( 'fontfamily', '微软雅黑' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {
+ *            String } value 字体样式
+ * @example ```javascript editor.execCommand( 'fontfamily', '微软雅黑' ); ```
  */
 /**
  * 返回选区字体样式
+ * 
  * @command fontfamily
  * @method queryCommandValue
- * @param { String } cmd 命令字符串
+ * @param {
+ *            String } cmd 命令字符串
  * @return { String } 返回字体样式
- * @example
- * ```javascript
- * editor.queryCommandValue( 'fontfamily' );
- * ```
+ * @example ```javascript editor.queryCommandValue( 'fontfamily' ); ```
  */
 
 /**
  * 字体下划线,与删除线互斥
+ * 
  * @command underline
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'underline' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'underline' ); ```
  */
 
 /**
  * 字体删除线,与下划线互斥
+ * 
  * @command strikethrough
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'strikethrough' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'strikethrough' ); ```
  */
 
 /**
  * 字体边框
+ * 
  * @command fontborder
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'fontborder' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'fontborder' ); ```
  */
 
 UE.plugins['font'] = function () {
@@ -11568,7 +11067,7 @@ UE.plugins['font'] = function () {
 
             mergeWithParent(span);
             if(browser.ie && browser.version > 8 ){
-                //拷贝父亲们的特别的属性,这里只做背景颜色的处理
+                // 拷贝父亲们的特别的属性,这里只做背景颜色的处理
                 var parent = domUtils.findParent(span,function(n){return n.tagName == 'SPAN' && /background-color/.test(n.style.cssText)});
                 if(parent && !/background-color/.test(span.style.cssText)){
                     span.style.backgroundColor = parent.style.backgroundColor;
@@ -11619,56 +11118,56 @@ UE.plugins['font'] = function () {
             }
             node.tagName = 'span';
         });
-//        utils.each(root.getNodesByTagName('span'), function (node) {
-//            var val;
-//            if(val = node.getAttr('class')){
-//                if(/fontstrikethrough/.test(val)){
-//                    node.setStyle('text-decoration','line-through');
-//                    if(node.attrs['class']){
-//                        node.attrs['class'] = node.attrs['class'].replace(/fontstrikethrough/,'');
-//                    }else{
-//                        node.setAttr('class')
-//                    }
-//                }
-//                if(/fontborder/.test(val)){
-//                    node.setStyle('border','1px solid #000');
-//                    if(node.attrs['class']){
-//                        node.attrs['class'] = node.attrs['class'].replace(/fontborder/,'');
-//                    }else{
-//                        node.setAttr('class')
-//                    }
-//                }
-//            }
-//        });
+// utils.each(root.getNodesByTagName('span'), function (node) {
+// var val;
+// if(val = node.getAttr('class')){
+// if(/fontstrikethrough/.test(val)){
+// node.setStyle('text-decoration','line-through');
+// if(node.attrs['class']){
+// node.attrs['class'] = node.attrs['class'].replace(/fontstrikethrough/,'');
+// }else{
+// node.setAttr('class')
+// }
+// }
+// if(/fontborder/.test(val)){
+// node.setStyle('border','1px solid #000');
+// if(node.attrs['class']){
+// node.attrs['class'] = node.attrs['class'].replace(/fontborder/,'');
+// }else{
+// node.setAttr('class')
+// }
+// }
+// }
+// });
     });
-//    me.addOutputRule(function(root){
-//        utils.each(root.getNodesByTagName('span'), function (node) {
-//            var val;
-//            if(val = node.getStyle('text-decoration')){
-//                if(/line-through/.test(val)){
-//                    if(node.attrs['class']){
-//                        node.attrs['class'] += ' fontstrikethrough';
-//                    }else{
-//                        node.setAttr('class','fontstrikethrough')
-//                    }
-//                }
+// me.addOutputRule(function(root){
+// utils.each(root.getNodesByTagName('span'), function (node) {
+// var val;
+// if(val = node.getStyle('text-decoration')){
+// if(/line-through/.test(val)){
+// if(node.attrs['class']){
+// node.attrs['class'] += ' fontstrikethrough';
+// }else{
+// node.setAttr('class','fontstrikethrough')
+// }
+// }
 //
-//                node.setStyle('text-decoration')
-//            }
-//            if(val = node.getStyle('border')){
-//                if(/1px/.test(val) && /solid/.test(val)){
-//                    if(node.attrs['class']){
-//                        node.attrs['class'] += ' fontborder';
+// node.setStyle('text-decoration')
+// }
+// if(val = node.getStyle('border')){
+// if(/1px/.test(val) && /solid/.test(val)){
+// if(node.attrs['class']){
+// node.attrs['class'] += ' fontborder';
 //
-//                    }else{
-//                        node.setAttr('class','fontborder')
-//                    }
-//                }
-//                node.setStyle('border')
+// }else{
+// node.setAttr('class','fontborder')
+// }
+// }
+// node.setStyle('border')
 //
-//            }
-//        });
-//    });
+// }
+// });
+// });
     for (var p in fonts) {
         (function (cmd, style) {
             UE.commands[cmd] = {
@@ -11709,7 +11208,7 @@ UE.plugins['font'] = function () {
                             var span = domUtils.findParentByTagName(range.startContainer, 'span', true);
                             text = me.document.createTextNode('font');
                             if (span && !span.children.length && !span[browser.ie ? 'innerText' : 'textContent'].replace(fillCharReg, '').length) {
-                                //for ie hack when enter
+                                // for ie hack when enter
                                 range.insertNode(text);
                                 if (needCmd[cmd]) {
                                     range.selectNode(text).select();
@@ -11729,7 +11228,7 @@ UE.plugins['font'] = function () {
                                 span = range.document.createElement('span');
 
                                 if (needCmd[cmd]) {
-                                    //a标签内的不处理跳过
+                                    // a标签内的不处理跳过
                                     if (domUtils.findParentByTagName(text, 'a', true)) {
                                         range.setStartBefore(text).setCursor();
                                         domUtils.remove(text);
@@ -11742,12 +11241,12 @@ UE.plugins['font'] = function () {
 
 
                                 text.parentNode.insertBefore(span, text);
-                                //修复，span套span 但样式不继承的问题
+                                // 修复，span套span 但样式不继承的问题
                                 if (!browser.ie || browser.ie && browser.version == 9) {
                                     var spanParent = span.parentNode;
                                     while (!domUtils.isBlockElm(spanParent)) {
                                         if (spanParent.tagName == 'SPAN') {
-                                            //opera合并style不会加入";"
+                                            // opera合并style不会加入";"
                                             span.style.cssText = spanParent.style.cssText + ";" + span.style.cssText;
                                         }
                                         spanParent = spanParent.parentNode;
@@ -11767,8 +11266,8 @@ UE.plugins['font'] = function () {
                                     range.select();
                                 }
 
-                                //trace:981
-                                //domUtils.mergeToParent(span)
+                                // trace:981
+                                // domUtils.mergeToParent(span)
                             }
                             domUtils.remove(text);
                         }
@@ -11780,7 +11279,7 @@ UE.plugins['font'] = function () {
                 queryCommandValue: function (cmdName) {
                     var startNode = this.selection.getStart();
 
-                    //trace:946
+                    // trace:946
                     if (cmdName == 'underline' || cmdName == 'strikethrough') {
                         var tmpNode = startNode, value;
                         while (tmpNode && !domUtils.isBlockElm(tmpNode) && !domUtils.isBody(tmpNode)) {
@@ -11845,46 +11344,41 @@ UE.plugins['font'] = function () {
 // plugins/link.js
 /**
  * 超链接
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 插入超链接
+ * 
  * @command link
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param { Object } options   设置自定义属性，例如：url、title、target
- * @example
- * ```javascript
- * editor.execCommand( 'link', '{
- *     url:'ueditor.baidu.com',
- *     title:'ueditor',
- *     target:'_blank'
- * }' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {
+ *            Object } options 设置自定义属性，例如：url、title、target
+ * @example ```javascript editor.execCommand( 'link', '{ url:'ueditor.baidu.com', title:'ueditor', target:'_blank' }' ); ```
  */
 /**
  * 返回当前选中的第一个超链接节点
+ * 
  * @command link
  * @method queryCommandValue
- * @param { String } cmd 命令字符串
+ * @param {
+ *            String } cmd 命令字符串
  * @return { Element } 超链接节点
- * @example
- * ```javascript
- * editor.queryCommandValue( 'link' );
- * ```
+ * @example ```javascript editor.queryCommandValue( 'link' ); ```
  */
 
 /**
  * 取消超链接
+ * 
  * @command unlink
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'unlink');
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'unlink'); ```
  */
 
 UE.plugins['link'] = function(){
@@ -11964,7 +11458,7 @@ UE.plugins['link'] = function(){
             opt.href && (opt.href = utils.unhtml(opt.href,/[<">]/g));
             opt.textValue && (opt.textValue = utils.unhtml(opt.textValue,/[<">]/g));
             doLink(range=this.selection.getRange(),opt,this);
-            //闭合都不加占位符，如果加了会在a后边多个占位符节点，导致a是图片背景组成的列表，出现空白问题
+            // 闭合都不加占位符，如果加了会在a后边多个占位符节点，导致a是图片背景组成的列表，出现空白问题
             range.collapse().select(true);
 
         },
@@ -11972,8 +11466,8 @@ UE.plugins['link'] = function(){
             var range = this.selection.getRange(),
                 node;
             if ( range.collapsed ) {
-//                    node = this.selection.getStart();
-                //在ie下getstart()取值偏上了
+// node = this.selection.getStart();
+                // 在ie下getstart()取值偏上了
                 node = range.startContainer;
                 node = node.nodeType == 1 ? node : node.parentNode;
 
@@ -11982,7 +11476,7 @@ UE.plugins['link'] = function(){
                     return node;
                 }
             } else {
-                //trace:1111  如果是<p><a>xx</a></p> startContainer是p就会找不到a
+                // trace:1111 如果是<p><a>xx</a></p> startContainer是p就会找不到a
                 range.shrinkBoundary();
                 var start = range.startContainer.nodeType  == 3 || !range.startContainer.childNodes[range.startOffset] ? range.startContainer : range.startContainer.childNodes[range.startOffset],
                     end =  range.endContainer.nodeType == 3 || range.endOffset == 0 ? range.endContainer : range.endContainer.childNodes[range.endOffset-1],
@@ -12009,8 +11503,8 @@ UE.plugins['link'] = function(){
 
         },
         queryCommandState : function() {
-            //判断如果是视频的话连接不可用
-            //fix 853
+            // 判断如果是视频的话连接不可用
+            // fix 853
             var img = this.selection.getRange().getClosedNode(),
                 flag = img && (img.className == "edui-faked-video" || img.className.indexOf("edui-upload-video")!=-1);
             return flag ? -1 : 0;
@@ -12019,12 +11513,12 @@ UE.plugins['link'] = function(){
 };
 
 // plugins/iframe.js
-///import core
-///import plugins\inserthtml.js
-///commands 插入框架
-///commandsName  InsertFrame
-///commandsTitle  插入Iframe
-///commandsDialog  dialogs\insertframe
+// /import core
+// /import plugins\inserthtml.js
+// /commands 插入框架
+// /commandsName InsertFrame
+// /commandsTitle 插入Iframe
+// /commandsDialog dialogs\insertframe
 
 UE.plugins['insertframe'] = function() {
    var me =this;
@@ -12041,11 +11535,11 @@ UE.plugins['insertframe'] = function() {
 
 
 // plugins/scrawl.js
-///import core
-///commands 涂鸦
-///commandsName  Scrawl
-///commandsTitle  涂鸦
-///commandsDialog  dialogs\scrawl
+// /import core
+// /commands 涂鸦
+// /commandsName Scrawl
+// /commandsTitle 涂鸦
+// /commandsDialog dialogs\scrawl
 UE.commands['scrawl'] = {
     queryCommandState : function(){
         return ( browser.ie && browser.version  <= 8 ) ? -1 :0;
@@ -12056,22 +11550,25 @@ UE.commands['scrawl'] = {
 // plugins/removeformat.js
 /**
  * 清除格式
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 清除文字样式
+ * 
  * @command removeformat
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param   {String}   tags     以逗号隔开的标签。如：strong
- * @param   {String}   style    样式如：color
- * @param   {String}   attrs    属性如:width
- * @example
- * ```javascript
- * editor.execCommand( 'removeformat', 'strong','color','width' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {String}
+ *            tags 以逗号隔开的标签。如：strong
+ * @param {String}
+ *            style 样式如：color
+ * @param {String}
+ *            attrs 属性如:width
+ * @example ```javascript editor.execCommand( 'removeformat', 'strong','color','width' ); ```
  */
 
 UE.plugins['removeformat'] = function(){
@@ -12096,8 +11593,8 @@ UE.plugins['removeformat'] = function(){
                     return 0;
                 }
                 if (browser.ie) {
-                    //ie 下判断实效，所以只能简单用style来判断
-                    //return node.style.cssText == '' ? 1 : 0;
+                    // ie 下判断实效，所以只能简单用style来判断
+                    // return node.style.cssText == '' ? 1 : 0;
                     var attrs = node.attributes;
                     if ( attrs.length ) {
                         for ( var i = 0,l = attrs.length; i<l; i++ ) {
@@ -12117,7 +11614,7 @@ UE.plugins['removeformat'] = function(){
                     range.enlarge( true );
                 }
 
-                //不能把a标签切了
+                // 不能把a标签切了
                 if(!notIncludeA){
                     var aNode = domUtils.findParentByTagName(range.startContainer,'a',true);
                     if(aNode){
@@ -12136,21 +11633,21 @@ UE.plugins['removeformat'] = function(){
 
                 node = bookmark.start;
 
-                //切开始
+                // 切开始
                 while ( (parent = node.parentNode) && !domUtils.isBlockElm( parent ) ) {
                     domUtils.breakParent( node, parent );
 
                     domUtils.clearEmptySibling( node );
                 }
                 if ( bookmark.end ) {
-                    //切结束
+                    // 切结束
                     node = bookmark.end;
                     while ( (parent = node.parentNode) && !domUtils.isBlockElm( parent ) ) {
                         domUtils.breakParent( node, parent );
                         domUtils.clearEmptySibling( node );
                     }
 
-                    //开始去除样式
+                    // 开始去除样式
                     var current = domUtils.getNextDomNode( bookmark.start, false, filter ),
                         next;
                     while ( current ) {
@@ -12171,7 +11668,7 @@ UE.plugins['removeformat'] = function(){
                                     domUtils.remove( current, true );
                                 }
                             } else {
-                                //trace:939  不能把list上的样式去掉
+                                // trace:939 不能把list上的样式去掉
                                 if(!dtd.$tableContent[current.tagName] && !dtd.$list[current.tagName]){
                                     domUtils.removeAttributes( current, removeFormatAttributes );
                                     if ( isRedundantSpan( current ) ){
@@ -12184,8 +11681,8 @@ UE.plugins['removeformat'] = function(){
                         current = next;
                     }
                 }
-                //trace:1035
-                //trace:1096 不能把td上的样式去掉，比如边框
+                // trace:1035
+                // trace:1096 不能把td上的样式去掉，比如边框
                 var pN = bookmark.start.parentNode;
                 if(domUtils.isBlockElm(pN) && !dtd.$tableContent[pN.tagName] && !dtd.$list[pN.tagName]){
                     domUtils.removeAttributes(  pN,removeFormatAttributes );
@@ -12195,15 +11692,15 @@ UE.plugins['removeformat'] = function(){
                     domUtils.removeAttributes(  pN,removeFormatAttributes );
                 }
                 range.moveToBookmark( bookmark ).moveToBookmark(bookmark1);
-                //清除冗余的代码 <b><bookmark></b>
+                // 清除冗余的代码 <b><bookmark></b>
                 var node = range.startContainer,
                     tmp,
                     collapsed = range.collapsed;
                 while(node.nodeType == 1 && domUtils.isEmptyNode(node) && dtd.$removeEmpty[node.tagName]){
                     tmp = node.parentNode;
                     range.setStartBefore(node);
-                    //trace:937
-                    //更新结束边界
+                    // trace:937
+                    // 更新结束边界
                     if(range.startContainer === range.endContainer){
                         range.endOffset--;
                     }
@@ -12241,33 +11738,31 @@ UE.plugins['removeformat'] = function(){
 // plugins/blockquote.js
 /**
  * 添加引用
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 添加引用
+ * 
  * @command blockquote
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'blockquote' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'blockquote' ); ```
  */
 
 /**
  * 添加引用
+ * 
  * @command blockquote
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param { Object } attrs 节点属性
- * @example
- * ```javascript
- * editor.execCommand( 'blockquote',{
- *     style: "color: red;"
- * } );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {
+ *            Object } attrs 节点属性
+ * @example ```javascript editor.execCommand( 'blockquote',{ style: "color: red;" } ); ```
  */
 
 
@@ -12291,7 +11786,7 @@ UE.plugins['blockquote'] = function(){
                         end = range.endContainer,
                         endBlock = domUtils.isBlockElm(end) ? end :  domUtils.findParent(end,function(node){return domUtils.isBlockElm(node)});
 
-                    //处理一下li
+                    // 处理一下li
                     startBlock = domUtils.findParentByTagName(startBlock,'li',true) || startBlock;
                     endBlock = domUtils.findParentByTagName(endBlock,'li',true) || endBlock;
 
@@ -12333,7 +11828,7 @@ UE.plugins['blockquote'] = function(){
                     preNode = node,
                     doEnd = 1;
 
-                //调整开始
+                // 调整开始
                 while ( 1 ) {
                     if ( domUtils.isBody(node) ) {
                         if ( preNode !== node ) {
@@ -12362,7 +11857,7 @@ UE.plugins['blockquote'] = function(){
                     node = node.parentNode;
                 }
 
-                //调整结束
+                // 调整结束
                 if ( doEnd ) {
                     preNode = node =  node = tmpRange.endContainer.nodeType == 1 ? tmpRange.endContainer : tmpRange.endContainer.parentNode;
                     while ( 1 ) {
@@ -12394,7 +11889,7 @@ UE.plugins['blockquote'] = function(){
                 domUtils.setAttributes( node, attrs );
                 node.appendChild( tmpRange.extractContents() );
                 tmpRange.insertNode( node );
-                //去除重复的
+                // 去除重复的
                 var childs = domUtils.getElementsByTagName(node,'blockquote');
                 for(var i=0,ci;ci=childs[i++];){
                     if(ci.parentNode){
@@ -12416,30 +11911,29 @@ UE.plugins['blockquote'] = function(){
 // plugins/convertcase.js
 /**
  * 大小写转换
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 把选区内文本变大写，与“tolowercase”命令互斥
+ * 
  * @command touppercase
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'touppercase' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'touppercase' ); ```
  */
 
 /**
  * 把选区内文本变小写，与“touppercase”命令互斥
+ * 
  * @command tolowercase
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'tolowercase' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'tolowercase' ); ```
  */
 UE.commands['touppercase'] =
 UE.commands['tolowercase'] = {
@@ -12475,19 +11969,19 @@ UE.commands['tolowercase'] = {
 // plugins/indent.js
 /**
  * 首行缩进
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 缩进
+ * 
  * @command indent
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'indent' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'indent' ); ```
  */
 UE.commands['indent'] = {
     execCommand : function() {
@@ -12505,19 +11999,19 @@ UE.commands['indent'] = {
 // plugins/print.js
 /**
  * 打印
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 打印
+ * 
  * @command print
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'print' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'print' ); ```
  */
 UE.commands['print'] = {
     execCommand : function(){
@@ -12531,19 +12025,19 @@ UE.commands['print'] = {
 // plugins/preview.js
 /**
  * 预览
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 预览
+ * 
  * @command preview
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'preview' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'preview' ); ```
  */
 UE.commands['preview'] = {
     execCommand : function(){
@@ -12562,30 +12056,30 @@ UE.commands['preview'] = {
 // plugins/selectall.js
 /**
  * 全选
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 选中所有内容
+ * 
  * @command selectall
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'selectall' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'selectall' ); ```
  */
 UE.plugins['selectall'] = function(){
     var me = this;
     me.commands['selectall'] = {
         execCommand : function(){
-            //去掉了原生的selectAll,因为会出现报错和当内容为空时，不能出现闭合状态的光标
+            // 去掉了原生的selectAll,因为会出现报错和当内容为空时，不能出现闭合状态的光标
             var me = this,body = me.body,
                 range = me.selection.getRange();
             range.selectNodeContents(body);
             if(domUtils.isEmptyBlock(body)){
-                //opera不能自动合并到元素的里边，要手动处理一下
+                // opera不能自动合并到元素的里边，要手动处理一下
                 if(browser.opera && body.firstChild && body.firstChild.nodeType == 1){
                     range.setStartAtFirst(body.firstChild);
                 }
@@ -12597,7 +12091,7 @@ UE.plugins['selectall'] = function(){
     };
 
 
-    //快捷键
+    // 快捷键
     me.addshortcutkey({
          "selectAll" : "ctrl+65"
     });
@@ -12607,35 +12101,34 @@ UE.plugins['selectall'] = function(){
 // plugins/paragraph.js
 /**
  * 段落样式
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 段落格式
+ * 
  * @command paragraph
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param {String}   style               标签值为：'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
- * @param {Object}   attrs               标签的属性
- * @example
- * ```javascript
- * editor.execCommand( 'Paragraph','h1','{
- *     class:'test'
- * }' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {String}
+ *            style 标签值为：'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+ * @param {Object}
+ *            attrs 标签的属性
+ * @example ```javascript editor.execCommand( 'Paragraph','h1','{ class:'test' }' ); ```
  */
 
 /**
  * 返回选区内节点标签名
+ * 
  * @command paragraph
  * @method queryCommandValue
- * @param { String } cmd 命令字符串
+ * @param {
+ *            String } cmd 命令字符串
  * @return { String } 节点标签名
- * @example
- * ```javascript
- * editor.queryCommandValue( 'Paragraph' );
- * ```
+ * @example ```javascript editor.queryCommandValue( 'Paragraph' ); ```
  */
 
 UE.plugins['paragraph'] = function() {
@@ -12674,7 +12167,7 @@ UE.plugins['paragraph'] = function() {
                         }
                     }
                     para.appendChild( tmpRange.extractContents() );
-                    //需要内容占位
+                    // 需要内容占位
                     if(domUtils.isEmptyNode(para)){
                         domUtils.fillChar(range.document,para);
                         
@@ -12683,20 +12176,20 @@ UE.plugins['paragraph'] = function() {
                     tmpRange.insertNode( para );
 
                     var parent = para.parentNode;
-                    //如果para上一级是一个block元素且不是body,td就删除它
+                    // 如果para上一级是一个block元素且不是body,td就删除它
                     if ( block( parent ) && !domUtils.isBody( para.parentNode ) && utils.indexOf(notExchange,parent.tagName)==-1) {
-                        //存储dir,style
+                        // 存储dir,style
                         if(!(sourceCmdName && sourceCmdName == 'customstyle')){
                             parent.getAttribute('dir') && para.setAttribute('dir',parent.getAttribute('dir'));
-                            //trace:1070
+                            // trace:1070
                             parent.style.cssText && (para.style.cssText = parent.style.cssText + ';' + para.style.cssText);
-                            //trace:1030
+                            // trace:1030
                             parent.style.textAlign && !para.style.textAlign && (para.style.textAlign = parent.style.textAlign);
                             parent.style.textIndent && !para.style.textIndent && (para.style.textIndent = parent.style.textIndent);
                             parent.style.padding && !para.style.padding && (para.style.padding = parent.style.padding);
                         }
 
-                        //trace:1706 选择的就是h1-6要删除
+                        // trace:1706 选择的就是h1-6要删除
                         if(attrs && /h\d/i.test(parent.tagName) && !/h\d/i.test(para.tagName) ){
                             domUtils.setAttributes(parent,attrs);
                             if(sourceCmdName && sourceCmdName == 'customstyle' && attrs.style){
@@ -12727,11 +12220,11 @@ UE.plugins['paragraph'] = function() {
     me.commands['paragraph'] = {
         execCommand : function( cmdName, style,attrs,sourceCmdName ) {
             var range = this.selection.getRange();
-             //闭合时单独处理
+             // 闭合时单独处理
             if(range.collapsed){
                 var txt = this.document.createTextNode('p');
                 range.insertNode(txt);
-                //去掉冗余的fillchar
+                // 去掉冗余的fillchar
                 if(browser.ie){
                     var node = txt.previousSibling;
                     if(node && domUtils.isWhitespace(node)){
@@ -12763,7 +12256,7 @@ UE.plugins['paragraph'] = function() {
                     range.setStart(child,0).collapse(true);
                 }
             }
-            //trace:1097 原来有true，原因忘了，但去了就不能清除多余的占位符了
+            // trace:1097 原来有true，原因忘了，但去了就不能清除多余的占位符了
             range.select();
 
 
@@ -12780,23 +12273,24 @@ UE.plugins['paragraph'] = function() {
 // plugins/directionality.js
 /**
  * 设置文字输入的方向的插件
+ * 
  * @file
  * @since 1.2.6.1
  */
 (function() {
     var block = domUtils.isBlockElm ,
         getObj = function(editor){
-//            var startNode = editor.selection.getStart(),
-//                parents;
-//            if ( startNode ) {
-//                //查找所有的是block的父亲节点
-//                parents = domUtils.findParents( startNode, true, block, true );
-//                for ( var i = 0,ci; ci = parents[i++]; ) {
-//                    if ( ci.getAttribute( 'dir' ) ) {
-//                        return ci;
-//                    }
-//                }
-//            }
+// var startNode = editor.selection.getStart(),
+// parents;
+// if ( startNode ) {
+// //查找所有的是block的父亲节点
+// parents = domUtils.findParents( startNode, true, block, true );
+// for ( var i = 0,ci; ci = parents[i++]; ) {
+// if ( ci.getAttribute( 'dir' ) ) {
+// return ci;
+// }
+// }
+// }
             return domUtils.filterNodeList(editor.selection.getStartElementPath(),function(n){return n && n.nodeType == 1 && n.getAttribute('dir')});
 
         },
@@ -12831,11 +12325,11 @@ UE.plugins['paragraph'] = function() {
                     tmpRange.setEndAfter( tmpNode );
                     var common = tmpRange.getCommonAncestor();
                     if ( !domUtils.isBody( common ) && block( common ) ) {
-                        //遍历到了block节点
+                        // 遍历到了block节点
                         common.setAttribute( 'dir', forward );
                         current = common;
                     } else {
-                        //没有遍历到，添加一个block节点
+                        // 没有遍历到，添加一个block节点
                         var p = range.document.createElement( 'p' );
                         p.setAttribute( 'dir', forward );
                         var frag = tmpRange.extractContents();
@@ -12853,32 +12347,31 @@ UE.plugins['paragraph'] = function() {
         };
 
     /**
-     * 文字输入方向
-     * @command directionality
-     * @method execCommand
-     * @param { String } cmdName 命令字符串
-     * @param { String } forward 传入'ltr'表示从左向右输入，传入'rtl'表示从右向左输入
-     * @example
-     * ```javascript
-     * editor.execCommand( 'directionality', 'ltr');
-     * ```
-     */
+	 * 文字输入方向
+	 * 
+	 * @command directionality
+	 * @method execCommand
+	 * @param {
+	 *            String } cmdName 命令字符串
+	 * @param {
+	 *            String } forward 传入'ltr'表示从左向右输入，传入'rtl'表示从右向左输入
+	 * @example ```javascript editor.execCommand( 'directionality', 'ltr'); ```
+	 */
 
     /**
-     * 查询当前选区的文字输入方向
-     * @command directionality
-     * @method queryCommandValue
-     * @param { String } cmdName 命令字符串
-     * @return { String } 返回'ltr'表示从左向右输入，返回'rtl'表示从右向左输入
-     * @example
-     * ```javascript
-     * editor.queryCommandValue( 'directionality');
-     * ```
-     */
+	 * 查询当前选区的文字输入方向
+	 * 
+	 * @command directionality
+	 * @method queryCommandValue
+	 * @param {
+	 *            String } cmdName 命令字符串
+	 * @return { String } 返回'ltr'表示从左向右输入，返回'rtl'表示从右向左输入
+	 * @example ```javascript editor.queryCommandValue( 'directionality'); ```
+	 */
     UE.commands['directionality'] = {
         execCommand : function( cmdName,forward ) {
             var range = this.selection.getRange();
-            //闭合时单独处理
+            // 闭合时单独处理
             if(range.collapsed){
                 var txt = this.document.createTextNode('d');
                 range.insertNode(txt);
@@ -12904,19 +12397,19 @@ UE.plugins['paragraph'] = function() {
 // plugins/horizontal.js
 /**
  * 插入分割线插件
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 插入分割线
+ * 
  * @command horizontal
  * @method execCommand
- * @param { String } cmdName 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'horizontal' );
- * ```
+ * @param {
+ *            String } cmdName 命令字符串
+ * @example ```javascript editor.execCommand( 'horizontal' ); ```
  */
 UE.plugins['horizontal'] = function(){
     var me = this;
@@ -12950,44 +12443,44 @@ UE.plugins['horizontal'] = function(){
             }
 
         },
-        //边界在table里不能加分隔线
+        // 边界在table里不能加分隔线
         queryCommandState : function() {
             return domUtils.filterNodeList(this.selection.getStartElementPath(),'table') ? -1 : 0;
         }
     };
-//    me.addListener('delkeyup',function(){
-//        var rng = this.selection.getRange();
-//        if(browser.ie && browser.version > 8){
-//            rng.txtToElmBoundary(true);
-//            if(domUtils.isStartInblock(rng)){
-//                var tmpNode = rng.startContainer;
-//                var pre = tmpNode.previousSibling;
-//                if(pre && domUtils.isTagNode(pre,'hr')){
-//                    domUtils.remove(pre);
-//                    rng.select();
-//                    return;
-//                }
-//            }
-//        }
-//        if(domUtils.isBody(rng.startContainer)){
-//            var hr = rng.startContainer.childNodes[rng.startOffset -1];
-//            if(hr && hr.nodeName == 'HR'){
-//                var next = hr.nextSibling;
-//                if(next){
-//                    rng.setStart(next,0)
-//                }else if(hr.previousSibling){
-//                    rng.setStartAtLast(hr.previousSibling)
-//                }else{
-//                    var p = this.document.createElement('p');
-//                    hr.parentNode.insertBefore(p,hr);
-//                    domUtils.fillNode(this.document,p);
-//                    rng.setStart(p,0);
-//                }
-//                domUtils.remove(hr);
-//                rng.setCursor(false,true);
-//            }
-//        }
-//    })
+// me.addListener('delkeyup',function(){
+// var rng = this.selection.getRange();
+// if(browser.ie && browser.version > 8){
+// rng.txtToElmBoundary(true);
+// if(domUtils.isStartInblock(rng)){
+// var tmpNode = rng.startContainer;
+// var pre = tmpNode.previousSibling;
+// if(pre && domUtils.isTagNode(pre,'hr')){
+// domUtils.remove(pre);
+// rng.select();
+// return;
+// }
+// }
+// }
+// if(domUtils.isBody(rng.startContainer)){
+// var hr = rng.startContainer.childNodes[rng.startOffset -1];
+// if(hr && hr.nodeName == 'HR'){
+// var next = hr.nextSibling;
+// if(next){
+// rng.setStart(next,0)
+// }else if(hr.previousSibling){
+// rng.setStartAtLast(hr.previousSibling)
+// }else{
+// var p = this.document.createElement('p');
+// hr.parentNode.insertBefore(p,hr);
+// domUtils.fillNode(this.document,p);
+// rng.setStart(p,0);
+// }
+// domUtils.remove(hr);
+// rng.setCursor(false,true);
+// }
+// }
+// })
     me.addListener('delkeydown',function(name,evt){
         var rng = this.selection.getRange();
         rng.txtToElmBoundary(true);
@@ -13011,30 +12504,29 @@ UE.plugins['horizontal'] = function(){
 // plugins/time.js
 /**
  * 插入时间和日期
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 插入时间，默认格式：12:59:59
+ * 
  * @command time
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'time');
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'time'); ```
  */
 
 /**
  * 插入日期，默认格式：2013-08-30
+ * 
  * @command date
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'date');
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'date'); ```
  */
 UE.commands['time'] = UE.commands["date"] = {
     execCommand : function(cmd, format){
@@ -13064,21 +12556,23 @@ UE.commands['time'] = UE.commands["date"] = {
 // plugins/rowspacing.js
 /**
  * 段前段后间距插件
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 设置段间距
+ * 
  * @command rowspacing
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @param { String } value 段间距的值，以px为单位
- * @param { String } dir 间距位置，top或bottom，分别表示段前和段后
- * @example
- * ```javascript
- * editor.execCommand( 'rowspacing', '10', 'top' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @param {
+ *            String } value 段间距的值，以px为单位
+ * @param {
+ *            String } dir 间距位置，top或bottom，分别表示段前和段后
+ * @example ```javascript editor.execCommand( 'rowspacing', '10', 'top' ); ```
  */
 
 UE.plugins['rowspacing'] = function(){
@@ -13096,7 +12590,7 @@ UE.plugins['rowspacing'] = function(){
         queryCommandValue : function(cmdName,dir) {
             var pN = domUtils.filterNodeList(this.selection.getStartElementPath(),function(node){return domUtils.isBlockElm(node) }),
                 value;
-            //trace:1026
+            // trace:1026
             if(pN){
                 value = domUtils.getComputedStyle(pN,'margin-'+dir).replace(/[^\d]/g,'');
                 return !value ? 0 : value;
@@ -13113,6 +12607,7 @@ UE.plugins['rowspacing'] = function(){
 // plugins/lineheight.js
 /**
  * 设置行内间距
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -13121,27 +12616,26 @@ UE.plugins['lineheight'] = function(){
     me.setOpt({'lineheight':['1', '1.5','1.75','2', '3', '4', '5']});
 
     /**
-     * 行距
-     * @command lineheight
-     * @method execCommand
-     * @param { String } cmdName 命令字符串
-     * @param { String } value 传入的行高值， 该值是当前字体的倍数， 例如： 1.5, 1.75
-     * @example
-     * ```javascript
-     * editor.execCommand( 'lineheight', 1.5);
-     * ```
-     */
+	 * 行距
+	 * 
+	 * @command lineheight
+	 * @method execCommand
+	 * @param {
+	 *            String } cmdName 命令字符串
+	 * @param {
+	 *            String } value 传入的行高值， 该值是当前字体的倍数， 例如： 1.5, 1.75
+	 * @example ```javascript editor.execCommand( 'lineheight', 1.5); ```
+	 */
     /**
-     * 查询当前选区内容的行高大小
-     * @command lineheight
-     * @method queryCommandValue
-     * @param { String } cmd 命令字符串
-     * @return { String } 返回当前行高大小
-     * @example
-     * ```javascript
-     * editor.queryCommandValue( 'lineheight' );
-     * ```
-     */
+	 * 查询当前选区内容的行高大小
+	 * 
+	 * @command lineheight
+	 * @method queryCommandValue
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @return { String } 返回当前行高大小
+	 * @example ```javascript editor.queryCommandValue( 'lineheight' ); ```
+	 */
 
     me.commands['lineheight'] =  {
         execCommand : function( cmdName,value ) {
@@ -13164,6 +12658,7 @@ UE.plugins['lineheight'] = function(){
 // plugins/insertcode.js
 /**
  * 插入代码插件
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -13202,28 +12697,27 @@ UE.plugins['insertcode'] = function() {
     });
 
     /**
-     * 插入代码
-     * @command insertcode
-     * @method execCommand
-     * @param { String } cmd 命令字符串
-     * @param { String } lang 插入代码的语言
-     * @example
-     * ```javascript
-     * editor.execCommand( 'insertcode', 'javascript' );
-     * ```
-     */
+	 * 插入代码
+	 * 
+	 * @command insertcode
+	 * @method execCommand
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @param {
+	 *            String } lang 插入代码的语言
+	 * @example ```javascript editor.execCommand( 'insertcode', 'javascript' ); ```
+	 */
 
     /**
-     * 如果选区所在位置是插入插入代码区域，返回代码的语言
-     * @command insertcode
-     * @method queryCommandValue
-     * @param { String } cmd 命令字符串
-     * @return { String } 返回代码的语言
-     * @example
-     * ```javascript
-     * editor.queryCommandValue( 'insertcode' );
-     * ```
-     */
+	 * 如果选区所在位置是插入插入代码区域，返回代码的语言
+	 * 
+	 * @command insertcode
+	 * @method queryCommandValue
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @return { String } 返回代码的语言
+	 * @example ```javascript editor.queryCommandValue( 'insertcode' ); ```
+	 */
 
     me.commands['insertcode'] = {
         execCommand : function(cmd,lang){
@@ -13374,8 +12868,8 @@ UE.plugins['insertcode'] = function() {
             var code = '';
             utils.each(pre.children,function(n){
                if(n.type == 'text'){
-                   //在ie下文本内容有可能末尾带有\n要去掉
-                   //trace:3396
+                   // 在ie下文本内容有可能末尾带有\n要去掉
+                   // trace:3396
                    code += n.data.replace(/[ ]/g,'&nbsp;').replace(/\n$/,'');
                }else{
                    if(n.tagName == 'br'){
@@ -13391,7 +12885,7 @@ UE.plugins['insertcode'] = function() {
             pre.innerText(code.replace(/(&nbsp;|\n)+$/,''))
         })
     });
-    //不需要判断highlight的command列表
+    // 不需要判断highlight的command列表
     me.notNeedCodeQuery ={
         help:1,
         undo:1,
@@ -13407,7 +12901,7 @@ UE.plugins['insertcode'] = function() {
         inserthtml:1,
         selectall:1
     };
-    //将queyCommamndState重置
+    // 将queyCommamndState重置
     var orgQuery = me.queryCommandState;
     me.queryCommandState = function(cmd){
         var me = this;
@@ -13668,7 +13162,7 @@ UE.plugins['insertcode'] = function() {
             return true;
         }
     });
-    //方向键的处理
+    // 方向键的处理
     me.addListener('keydown',function(cmd,evt){
         var me = this,keyCode = evt.keyCode || evt.which;
         if(keyCode == 40){
@@ -13686,7 +13180,7 @@ UE.plugins['insertcode'] = function() {
             }
         }
     });
-    //trace:3395
+    // trace:3395
     me.addListener('delkeydown',function(type,evt){
         var rng = this.selection.getRange();
         rng.txtToElmBoundary(true);
@@ -13707,20 +13201,19 @@ UE.plugins['insertcode'] = function() {
 // plugins/cleardoc.js
 /**
  * 清空文档插件
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 清空文档
+ * 
  * @command cleardoc
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * //editor 是编辑器实例
- * editor.execCommand('cleardoc');
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript //editor 是编辑器实例 editor.execCommand('cleardoc'); ```
  */
 
 UE.commands['cleardoc'] = {
@@ -13747,6 +13240,7 @@ UE.commands['cleardoc'] = {
 // plugins/anchor.js
 /**
  * 锚点插件，为UEditor提供插入锚点支持
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -13792,17 +13286,16 @@ UE.plugin.register('anchor', function (){
        },
        commands:{
            /**
-            * 插入锚点
-            * @command anchor
-            * @method execCommand
-            * @param { String } cmd 命令字符串
-            * @param { String } name 锚点名称字符串
-            * @example
-            * ```javascript
-            * //editor 是编辑器实例
-            * editor.execCommand('anchor', 'anchor1');
-            * ```
-            */
+			 * 插入锚点
+			 * 
+			 * @command anchor
+			 * @method execCommand
+			 * @param {
+			 *            String } cmd 命令字符串
+			 * @param {
+			 *            String } name 锚点名称字符串
+			 * @example ```javascript //editor 是编辑器实例 editor.execCommand('anchor', 'anchor1'); ```
+			 */
            'anchor':{
                execCommand:function (cmd, name) {
                    var range = this.selection.getRange(),img = range.getClosedNode();
@@ -13815,7 +13308,7 @@ UE.plugin.register('anchor', function (){
                        }
                    } else {
                        if (name) {
-                           //只在选区的开始插入
+                           // 只在选区的开始插入
                            var anchor = this.document.createElement('img');
                            range.collapse(true);
                            domUtils.setAttributes(anchor,{
@@ -13833,16 +13326,12 @@ UE.plugin.register('anchor', function (){
 
 
 // plugins/wordcount.js
-///import core
-///commands 字数统计
-///commandsName  WordCount,wordCount
-///commandsTitle  字数统计
+// /import core
+// /commands 字数统计
+// /commandsName WordCount,wordCount
+// /commandsTitle 字数统计
 /*
- * Created by JetBrains WebStorm.
- * User: taoqili
- * Date: 11-9-7
- * Time: 下午8:18
- * To change this template use File | Settings | File Templates.
+ * Created by JetBrains WebStorm. User: taoqili Date: 11-9-7 Time: 下午8:18 To change this template use File | Settings | File Templates.
  */
 
 UE.plugins['wordcount'] = function(){
@@ -13856,7 +13345,7 @@ UE.plugins['wordcount'] = function(){
         var me = this;
         domUtils.on(me.body,"keyup",function(evt){
             var code = evt.keyCode||evt.which,
-                //忽略的按键,ctr,alt,shift,方向键
+                // 忽略的按键,ctr,alt,shift,方向键
                 ignores = {"16":1,"18":1,"20":1,"37":1,"38":1,"39":1,"40":1};
             if(code in ignores) return;
             clearTimeout(timer);
@@ -13871,6 +13360,7 @@ UE.plugins['wordcount'] = function(){
 // plugins/pagebreak.js
 /**
  * 分页功能插件
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -13891,7 +13381,7 @@ UE.plugins['pagebreak'] = function () {
             domUtils.fillNode(me.document,tmpNode);
         }
     }
-    //分页符样式添加
+    // 分页符样式添加
 
     me.ready(function(){
         utils.cssRule('pagebreak','.pagebreak{display:block;clear:both !important;cursor:default !important;width: 100% !important;margin:0;}',me.document);
@@ -13920,18 +13410,16 @@ UE.plugins['pagebreak'] = function () {
     });
 
     /**
-     * 插入分页符
-     * @command pagebreak
-     * @method execCommand
-     * @param { String } cmd 命令字符串
-     * @remind 在表格中插入分页符会把表格切分成两部分
-     * @remind 获取编辑器内的数据时， 编辑器会把分页符转换成“_ueditor_page_break_tag_”字符串，
-     *          以便于提交数据到服务器端后处理分页。
-     * @example
-     * ```javascript
-     * editor.execCommand( 'pagebreak'); //插入一个hr标签，带有样式类名pagebreak
-     * ```
-     */
+	 * 插入分页符
+	 * 
+	 * @command pagebreak
+	 * @method execCommand
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @remind 在表格中插入分页符会把表格切分成两部分
+	 * @remind 获取编辑器内的数据时， 编辑器会把分页符转换成“_ueditor_page_break_tag_”字符串， 以便于提交数据到服务器端后处理分页。
+	 * @example ```javascript editor.execCommand( 'pagebreak'); //插入一个hr标签，带有样式类名pagebreak ```
+	 */
 
     me.commands['pagebreak'] = {
         execCommand:function () {
@@ -13942,7 +13430,7 @@ UE.plugins['pagebreak'] = function () {
                 size:"5"
             });
             domUtils.unSelectable(hr);
-            //table单独处理
+            // table单独处理
             var node = domUtils.findParentByTagName(range.startContainer, notBreakTags, true),
 
                 parents = [], pN;
@@ -13952,13 +13440,13 @@ UE.plugins['pagebreak'] = function () {
                         pN = node.parentNode;
                         if (!pN.previousSibling) {
                             var table = domUtils.findParentByTagName(pN, 'table');
-//                            var tableWrapDiv = table.parentNode;
-//                            if(tableWrapDiv && tableWrapDiv.nodeType == 1
-//                                && tableWrapDiv.tagName == 'DIV'
-//                                && tableWrapDiv.getAttribute('dropdrag')
-//                                ){
-//                                domUtils.remove(tableWrapDiv,true);
-//                            }
+// var tableWrapDiv = table.parentNode;
+// if(tableWrapDiv && tableWrapDiv.nodeType == 1
+// && tableWrapDiv.tagName == 'DIV'
+// && tableWrapDiv.getAttribute('dropdrag')
+// ){
+// domUtils.remove(tableWrapDiv,true);
+// }
                             table.parentNode.insertBefore(hr, table);
                             parents = domUtils.findParents(hr, true);
 
@@ -13972,7 +13460,7 @@ UE.plugins['pagebreak'] = function () {
                             domUtils.breakParent(hr, pN);
 
                         }
-                        //table要重写绑定一下拖拽
+                        // table要重写绑定一下拖拽
                         me.fireEvent('afteradjusttable',me.document);
                 }
 
@@ -14031,11 +13519,11 @@ UE.plugins['pagebreak'] = function () {
 };
 
 // plugins/wordimage.js
-///import core
-///commands 本地图片引导上传
-///commandsName  WordImage
-///commandsTitle  本地图片引导上传
-///commandsDialog  dialogs\wordimage
+// /import core
+// /commands 本地图片引导上传
+// /commandsName WordImage
+// /commandsTitle 本地图片引导上传
+// /commandsDialog dialogs\wordimage
 
 UE.plugin.register('wordimage',function(){
     var me = this,
@@ -14147,30 +13635,29 @@ UE.plugins['dragdrop'] = function (){
 // plugins/undo.js
 /**
  * undo redo
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 撤销上一次执行的命令
+ * 
  * @command undo
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'undo' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'undo' ); ```
  */
 
 /**
  * 重做上一次执行的命令
+ * 
  * @command redo
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'redo' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'redo' ); ```
  */
 
 UE.plugins['undo'] = function () {
@@ -14242,11 +13729,11 @@ UE.plugins['undo'] = function () {
             me.options.autoClearEmptyNode = false;
             me.filterInputRule(root);
             me.options.autoClearEmptyNode = orgState;
-            //trace:873
-            //去掉展位符
+            // trace:873
+            // 去掉展位符
             me.document.body.innerHTML = root.toHtml();
             me.fireEvent('afterscencerestore');
-            //处理undo后空格不展位的问题
+            // 处理undo后空格不展位的问题
             if (browser.ie) {
                 utils.each(domUtils.getElementsByTagName(me.document,'td th caption p'),function(node){
                     if(domUtils.isEmptyNode(node)){
@@ -14262,7 +13749,7 @@ UE.plugins['undo'] = function () {
 
             this.update();
             this.clearKey();
-            //不能把自己reset了
+            // 不能把自己reset了
             me.fireEvent('reset', true);
         };
 
@@ -14276,9 +13763,9 @@ UE.plugins['undo'] = function () {
             me.filterOutputRule(root);
             me.options.autoClearEmptyNode = orgState;
             var cont = root.toHtml();
-            //trace:3461
-            //这个会引起回退时导致空格丢失的情况
-//            browser.ie && (cont = cont.replace(/>&nbsp;</g, '><').replace(/\s*</g, '<').replace(/>\s*/g, '>'));
+            // trace:3461
+            // 这个会引起回退时导致空格丢失的情况
+// browser.ie && (cont = cont.replace(/>&nbsp;</g, '><').replace(/\s*</g, '<').replace(/>\s*/g, '>'));
             me.fireEvent('aftergetscene');
 
             return {
@@ -14294,7 +13781,7 @@ UE.plugins['undo'] = function () {
             if(lastScene && lastScene.content != currentScene.content){
                 me.trigger('contentchange')
             }
-            //内容相同位置相同不存
+            // 内容相同位置相同不存
             if (lastScene && lastScene.content == currentScene.content &&
                 ( notCompareRange ? 1 : compareRangeAddress(lastScene.address, currentScene.address) )
                 ) {
@@ -14302,13 +13789,13 @@ UE.plugins['undo'] = function () {
             }
             this.list = this.list.slice(0, this.index + 1);
             this.list.push(currentScene);
-            //如果大于最大数量了，就把最前的剔除
+            // 如果大于最大数量了，就把最前的剔除
             if (this.list.length > maxUndoCount) {
                 this.list.shift();
             }
             this.index = this.list.length - 1;
             this.clearKey();
-            //跟新undo/redo状态
+            // 跟新undo/redo状态
             this.update();
 
         };
@@ -14340,8 +13827,8 @@ UE.plugins['undo'] = function () {
         this.undoManger.save.apply(this.undoManger,args);
     });
 
-//    me.addListener('beforeexeccommand', saveScene);
-//    me.addListener('afterexeccommand', saveScene);
+// me.addListener('beforeexeccommand', saveScene);
+// me.addListener('afterexeccommand', saveScene);
 
     me.addListener('reset', function (type, exclude) {
         if (!exclude) {
@@ -14359,14 +13846,14 @@ UE.plugins['undo'] = function () {
     };
 
     var keys = {
-            //  /*Backspace*/ 8:1, /*Delete*/ 46:1,
-            /*Shift*/ 16:1, /*Ctrl*/ 17:1, /*Alt*/ 18:1,
+            // /*Backspace*/ 8:1, /*Delete*/ 46:1,
+            /* Shift */ 16:1, /* Ctrl */ 17:1, /* Alt */ 18:1,
             37:1, 38:1, 39:1, 40:1
 
         },
         keycont = 0,
         lastKeyCode;
-    //输入法状态下不计算字符数
+    // 输入法状态下不计算字符数
     var inputType = false;
     me.addListener('ready', function () {
         domUtils.on(this.body, 'compositionstart', function () {
@@ -14376,10 +13863,10 @@ UE.plugins['undo'] = function () {
             inputType = false;
         })
     });
-    //快捷键
+    // 快捷键
     me.addshortcutkey({
-        "Undo":"ctrl+90", //undo
-        "Redo":"ctrl+89" //redo
+        "Undo":"ctrl+90", // undo
+        "Redo":"ctrl+89" // redo
 
     });
     var isCollapsed = true;
@@ -14435,7 +13922,7 @@ UE.plugins['undo'] = function () {
             }
         }
     });
-    //扩展实例，添加关闭和开启命令undo
+    // 扩展实例，添加关闭和开启命令undo
     me.stopCmdUndo = function(){
         me.__hasEnterExecCommand = true;
     };
@@ -14518,13 +14005,13 @@ UE.plugin.register('copy', function () {
 
 
 // plugins/paste.js
-///import core
-///import plugins/inserthtml.js
-///import plugins/undo.js
-///import plugins/serialize.js
-///commands 粘贴
-///commandsName  PastePlain
-///commandsTitle  纯文本粘贴模式
+// /import core
+// /import plugins/inserthtml.js
+// /import plugins/undo.js
+// /import plugins/serialize.js
+// /commands 粘贴
+// /commandsName PastePlain
+// /commandsTitle 纯文本粘贴模式
 /**
  * @description 粘贴
  * @author zhanyi
@@ -14537,17 +14024,17 @@ UE.plugins['paste'] = function () {
         }
         var range = this.selection.getRange(),
             bk = range.createBookmark(),
-        //创建剪贴的容器div
+        // 创建剪贴的容器div
             pastebin = doc.createElement('div');
         pastebin.id = 'baidu_pastebin';
         // Safari 要求div必须有内容，才能粘贴内容进来
         browser.webkit && pastebin.appendChild(doc.createTextNode(domUtils.fillChar + domUtils.fillChar));
         doc.body.appendChild(pastebin);
-        //trace:717 隐藏的span不能得到top
-        //bk.start.innerHTML = '&nbsp;';
+        // trace:717 隐藏的span不能得到top
+        // bk.start.innerHTML = '&nbsp;';
         bk.start.style.display = '';
         pastebin.style.cssText = "position:absolute;width:1px;height:1px;overflow:hidden;left:-1000px;white-space:nowrap;top:" +
-            //要在现在光标平行的位置加入，否则会出现跳动的问题
+            // 要在现在光标平行的位置加入，否则会出现跳动的问题
             domUtils.getXY(bk.start).y + 'px';
 
         range.selectNodeContents(pastebin).select(true);
@@ -14611,7 +14098,7 @@ UE.plugins['paste'] = function () {
     function filter(div) {
         var html;
         if (div.firstChild) {
-            //去掉cut中添加的边界值
+            // 去掉cut中添加的边界值
             var nodes = domUtils.getElementsByTagName(div, 'span');
             for (var i = 0, ni; ni = nodes[i++];) {
                 if (ni.id == '_baidu_cut_start' || ni.id == '_baidu_cut_end') {
@@ -14664,20 +14151,20 @@ UE.plugins['paste'] = function () {
                 }
             }
 
-            //ie下使用innerHTML会产生多余的\r\n字符，也会产生&nbsp;这里过滤掉
-            html = div.innerHTML;//.replace(/>(?:(\s|&nbsp;)*?)</g,'><');
+            // ie下使用innerHTML会产生多余的\r\n字符，也会产生&nbsp;这里过滤掉
+            html = div.innerHTML;// .replace(/>(?:(\s|&nbsp;)*?)</g,'><');
 
-            //过滤word粘贴过来的冗余属性
+            // 过滤word粘贴过来的冗余属性
             html = UE.filterWord(html);
-            //取消了忽略空白的第二个参数，粘贴过来的有些是有空白的，会被套上相关的标签
+            // 取消了忽略空白的第二个参数，粘贴过来的有些是有空白的，会被套上相关的标签
             var root = UE.htmlparser(html);
-            //如果给了过滤规则就先进行过滤
+            // 如果给了过滤规则就先进行过滤
             if (me.options.filterRules) {
                 UE.filterNode(root, me.options.filterRules);
             }
-            //执行默认的处理
+            // 执行默认的处理
             me.filterInputRule(root);
-            //针对chrome的处理
+            // 针对chrome的处理
             if (browser.webkit) {
                 var br = root.lastChild();
                 if (br && br.type == 'element' && br.tagName == 'br') {
@@ -14691,19 +14178,19 @@ UE.plugins['paste'] = function () {
             }
             html = {'html': root.toHtml()};
             me.fireEvent('beforepaste', html, root);
-            //抢了默认的粘贴，那后边的内容就不执行了，比如表格粘贴
+            // 抢了默认的粘贴，那后边的内容就不执行了，比如表格粘贴
             if(!html.html){
                 return;
             }
             root = UE.htmlparser(html.html,true);
-            //如果开启了纯文本模式
+            // 如果开启了纯文本模式
             if (me.queryCommandState('pasteplain') === 1) {
                 me.execCommand('insertHtml', UE.filterNode(root, me.options.filterTxtRules).toHtml(), true);
             } else {
-                //文本模式
+                // 文本模式
                 UE.filterNode(root, me.options.filterTxtRules);
                 txtContent = root.toHtml();
-                //完全模式
+                // 完全模式
                 htmlContent = html.html;
 
                 address = me.selection.getRange().createAddress(true);
@@ -14797,7 +14284,7 @@ UE.plugins['paste'] = function () {
             }
         });
 
-        //ie下beforepaste在点击右键时也会触发，所以用监控键盘才处理
+        // ie下beforepaste在点击右键时也会触发，所以用监控键盘才处理
         domUtils.on(me.body, browser.ie || browser.opera ? 'keydown' : 'paste', function (e) {
             if ((browser.ie || browser.opera) && ((!e.ctrlKey && !e.metaKey) || e.keyCode != '86')) {
                 return;
@@ -14828,6 +14315,7 @@ UE.plugins['paste'] = function () {
 // plugins/puretxtpaste.js
 /**
  * 纯文本粘贴插件
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -14845,7 +14333,7 @@ UE.plugins['pasteplain'] = function(){
                 node.parentNode.removeChild(node,true)
             }
             return {
-                //直接删除及其字节点内容
+                // 直接删除及其字节点内容
                 '-' : 'script style object iframe embed input select',
                 'p': {$:{}},
                 'br':{$:{}},
@@ -14879,7 +14367,7 @@ UE.plugins['pasteplain'] = function(){
                 'tr':transP,
                 'h1':transP,'h2':transP,'h3':transP,'h4':transP,'h5':transP,'h6':transP,
                 'td':function(node){
-                        //没有内容的td直接删掉
+                        // 没有内容的td直接删掉
                         var txt = !!node.innerText();
                         if(txt){
                          node.parentNode.insertAfter(UE.uNode.createText(' &nbsp; &nbsp;'),node);
@@ -14889,31 +14377,29 @@ UE.plugins['pasteplain'] = function(){
             }
         }()
     });
-    //暂时这里支持一下老版本的属性
+    // 暂时这里支持一下老版本的属性
     var pasteplain = me.options.pasteplain;
 
     /**
-     * 启用或取消纯文本粘贴模式
-     * @command pasteplain
-     * @method execCommand
-     * @param { String } cmd 命令字符串
-     * @example
-     * ```javascript
-     * editor.queryCommandState( 'pasteplain' );
-     * ```
-     */
+	 * 启用或取消纯文本粘贴模式
+	 * 
+	 * @command pasteplain
+	 * @method execCommand
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @example ```javascript editor.queryCommandState( 'pasteplain' ); ```
+	 */
 
     /**
-     * 查询当前是否处于纯文本粘贴模式
-     * @command pasteplain
-     * @method queryCommandState
-     * @param { String } cmd 命令字符串
-     * @return { int } 如果处于纯文本模式，返回1，否则，返回0
-     * @example
-     * ```javascript
-     * editor.queryCommandState( 'pasteplain' );
-     * ```
-     */
+	 * 查询当前是否处于纯文本粘贴模式
+	 * 
+	 * @command pasteplain
+	 * @method queryCommandState
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @return { int } 如果处于纯文本模式，返回1，否则，返回0
+	 * @example ```javascript editor.queryCommandState( 'pasteplain' ); ```
+	 */
     me.commands['pasteplain'] = {
         queryCommandState: function (){
             return pasteplain ? 1 : 0;
@@ -14928,6 +14414,7 @@ UE.plugins['pasteplain'] = function(){
 // plugins/list.js
 /**
  * 有序列表,无序列表插件
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -14974,7 +14461,7 @@ UE.plugins['list'] = function () {
         },
         listDefaultPaddingLeft : '30',
         listiconpath : 'http://bs.baidu.com/listicon/',
-        maxListLevel : -1,//-1不限制
+        maxListLevel : -1,// -1不限制
         disablePInList:false
     } );
     function listToArray(list){
@@ -14990,7 +14477,7 @@ UE.plugins['list'] = function () {
     };
     var liiconpath = me.options.listiconpath;
 
-    //根据用户配置，调整customStyle
+    // 根据用户配置，调整customStyle
     for(var s in customStyle){
         if(!me.options.insertorderedlist.hasOwnProperty(s) && !me.options.insertunorderedlist.hasOwnProperty(s)){
             delete customStyle[s];
@@ -15043,15 +14530,15 @@ UE.plugins['list'] = function () {
         customCss.push('.list-paddingleft-1{padding-left:0}');
         customCss.push('.list-paddingleft-2{padding-left:'+me.options.listDefaultPaddingLeft+'px}');
         customCss.push('.list-paddingleft-3{padding-left:'+me.options.listDefaultPaddingLeft*2+'px}');
-        //如果不给宽度会在自定应样式里出现滚动条
+        // 如果不给宽度会在自定应样式里出现滚动条
         utils.cssRule('list', 'ol,ul{margin:0;pading:0;'+(browser.ie ? '' : 'width:95%')+'}li{clear:both;}'+customCss.join('\n'), me.document);
     });
-    //单独处理剪切的问题
+    // 单独处理剪切的问题
     me.ready(function(){
         domUtils.on(me.body,'cut',function(){
             setTimeout(function(){
                 var rng = me.selection.getRange(),li;
-                //trace:3416
+                // trace:3416
                 if(!rng.collapsed){
                     if(li = domUtils.findParentByTagName(rng.startContainer,'li',true)){
                         if(!li.nextSibling && domUtils.isEmptyBlock(li)){
@@ -15127,7 +14614,7 @@ UE.plugins['list'] = function () {
 
         html.html = root.toHtml();
     });
-    //导出时，去掉p标签
+    // 导出时，去掉p标签
     me.getOpt('disablePInList') === true && me.addOutputRule(function(root){
         utils.each(root.getNodesByTagName('li'),function(li){
             var newChildrens = [],index=0;
@@ -15154,7 +14641,7 @@ UE.plugins['list'] = function () {
             }
         });
     });
-    //进入编辑器的li要套p标签
+    // 进入编辑器的li要套p标签
     me.addInputRule(function(root){
         utils.each(root.getNodesByTagName('li'),function(li){
             var tmpP = UE.uNode.createElement('p');
@@ -15175,12 +14662,12 @@ UE.plugins['list'] = function () {
             if(tmpP.firstChild() && !tmpP.parentNode || !li.firstChild()){
                 li.appendChild(tmpP);
             }
-            //trace:3357
-            //p不能为空
+            // trace:3357
+            // p不能为空
             if (!tmpP.firstChild()) {
                 tmpP.innerHTML(browser.ie ? '&nbsp;' : '<br/>')
             }
-            //去掉末尾的空白
+            // 去掉末尾的空白
             var p = li.firstChild();
             var lastChild = p.lastChild();
             if(lastChild && lastChild.type == 'text' && /^\s*$/.test(lastChild.data)){
@@ -15221,7 +14708,7 @@ UE.plugins['list'] = function () {
                     return
                 }
 
-                //word粘贴过来的会带有margin要去掉,但这样也可能会误命中一些央视
+                // word粘贴过来的会带有margin要去掉,但这样也可能会误命中一些央视
                 node.setStyle('margin','');
                 node.setStyle('margin-left','');
                 node.setAttr('class','');
@@ -15275,7 +14762,7 @@ UE.plugins['list'] = function () {
 
     });
 
-    //调整索引标签
+    // 调整索引标签
     me.addListener('contentchange',function(){
         adjustListStyle(me.document)
     });
@@ -15418,7 +14905,7 @@ UE.plugins['list'] = function () {
             return null;
         }
         var keyCode = evt.keyCode || evt.which;
-        if (keyCode == 13 && !evt.shiftKey) {//回车
+        if (keyCode == 13 && !evt.shiftKey) {// 回车
             var rng = me.selection.getRange(),
                 parent = domUtils.findParent(rng.startContainer,function(node){return domUtils.isBlockElm(node)},true),
                 li = domUtils.findParentByTagName(rng.startContainer,'li',true);
@@ -15513,7 +15000,7 @@ UE.plugins['list'] = function () {
                                 domUtils.remove(parentList);
                             }
                         }
-                        //嵌套不处理
+                        // 嵌套不处理
                         if (!dtd.$list[li.parentNode.tagName]) {
 
                             if (!domUtils.isBlockElm(li.firstChild)) {
@@ -15573,7 +15060,7 @@ UE.plugins['list'] = function () {
                         }
 
                     }
-//                        }
+// }
                     preventAndSave();
                 }
 
@@ -15583,12 +15070,12 @@ UE.plugins['list'] = function () {
 
         }
         if (keyCode == 8) {
-            //修中ie中li下的问题
+            // 修中ie中li下的问题
             range = me.selection.getRange();
             if (range.collapsed && domUtils.isStartInblock(range)) {
                 tmpRange = range.cloneRange().trimBoundary();
                 li = domUtils.findParentByTagName(range.startContainer, 'li', true);
-                //要在li的最左边，才能处理
+                // 要在li的最左边，才能处理
                 if (li && domUtils.isStartInblock(tmpRange)) {
                     start = domUtils.findParentByTagName(range.startContainer, 'p', true);
                     if (start && start !== li.firstChild) {
@@ -15606,7 +15093,7 @@ UE.plugins['list'] = function () {
                         if (keyCode == 46 && li.childNodes.length) {
                             return;
                         }
-                        //有可能上边的兄弟节点是个2级菜单，要追加到2级菜单的最后的li
+                        // 有可能上边的兄弟节点是个2级菜单，要追加到2级菜单的最后的li
                         if (dtd.$list[pre.tagName]) {
                             pre = pre.lastChild;
                         }
@@ -15614,10 +15101,10 @@ UE.plugins['list'] = function () {
                         first = li.firstChild;
                         if (domUtils.isBlockElm(first)) {
                             if (domUtils.isEmptyNode(first)) {
-//                                    range.setEnd(pre, pre.childNodes.length).shrinkBoundary().collapse().select(true);
+// range.setEnd(pre, pre.childNodes.length).shrinkBoundary().collapse().select(true);
                                 pre.appendChild(first);
                                 range.setStart(first, 0).setCursor(false, true);
-                                //first不是唯一的节点
+                                // first不是唯一的节点
                                 while (li.firstChild) {
                                     pre.appendChild(li.firstChild);
                                 }
@@ -15625,7 +15112,7 @@ UE.plugins['list'] = function () {
 
                                 span = me.document.createElement('span');
                                 range.insertNode(span);
-                                //判断pre是否是空的节点,如果是<p><br/></p>类型的空节点，干掉p标签防止它占位
+                                // 判断pre是否是空的节点,如果是<p><br/></p>类型的空节点，干掉p标签防止它占位
                                 if (domUtils.isEmptyBlock(pre)) {
                                     pre.innerHTML = '';
                                 }
@@ -15640,7 +15127,7 @@ UE.plugins['list'] = function () {
                                 var p = me.document.createElement('p');
                                 pre.appendChild(p);
                                 range.setStart(p, 0).setCursor();
-//                                    range.setEnd(pre, pre.childNodes.length).shrinkBoundary().collapse().select(true);
+// range.setEnd(pre, pre.childNodes.length).shrinkBoundary().collapse().select(true);
                             } else {
                                 range.setEnd(pre, pre.childNodes.length).collapse().select(true);
                                 while (li.firstChild) {
@@ -15655,7 +15142,7 @@ UE.plugins['list'] = function () {
                         return;
 
                     }
-                    //trace:980
+                    // trace:980
 
                     if (li && !li.previousSibling) {
                         var parentList = li.parentNode;
@@ -15703,12 +15190,12 @@ UE.plugins['list'] = function () {
             }
         }
     });
-    //处理tab键
+    // 处理tab键
     me.addListener('tabkeydown',function(){
 
         var range = me.selection.getRange();
 
-        //控制级数
+        // 控制级数
         function checkLevel(li){
             if(me.options.maxListLevel != -1){
                 var level = li.parentNode,levelNum = 0;
@@ -15721,8 +15208,8 @@ UE.plugins['list'] = function () {
                 }
             }
         }
-        //只以开始为准
-        //todo 后续改进
+        // 只以开始为准
+        // todo 后续改进
         var li = domUtils.findParentByTagName(range.startContainer, 'li', true);
         if(li){
 
@@ -15810,72 +15297,68 @@ UE.plugins['list'] = function () {
     }
 
     /**
-     * 有序列表，与“insertunorderedlist”命令互斥
-     * @command insertorderedlist
-     * @method execCommand
-     * @param { String } command 命令字符串
-     * @param { String } style 插入的有序列表类型，值为：decimal,lower-alpha,lower-roman,upper-alpha,upper-roman,cn,cn1,cn2,num,num1,num2
-     * @example
-     * ```javascript
-     * editor.execCommand( 'insertorderedlist','decimal');
-     * ```
-     */
+	 * 有序列表，与“insertunorderedlist”命令互斥
+	 * 
+	 * @command insertorderedlist
+	 * @method execCommand
+	 * @param {
+	 *            String } command 命令字符串
+	 * @param {
+	 *            String } style 插入的有序列表类型，值为：decimal,lower-alpha,lower-roman,upper-alpha,upper-roman,cn,cn1,cn2,num,num1,num2
+	 * @example ```javascript editor.execCommand( 'insertorderedlist','decimal'); ```
+	 */
     /**
-     * 查询当前选区内容是否有序列表
-     * @command insertorderedlist
-     * @method queryCommandState
-     * @param { String } cmd 命令字符串
-     * @return { int } 如果当前选区是有序列表返回1，否则返回0
-     * @example
-     * ```javascript
-     * editor.queryCommandState( 'insertorderedlist' );
-     * ```
-     */
+	 * 查询当前选区内容是否有序列表
+	 * 
+	 * @command insertorderedlist
+	 * @method queryCommandState
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @return { int } 如果当前选区是有序列表返回1，否则返回0
+	 * @example ```javascript editor.queryCommandState( 'insertorderedlist' ); ```
+	 */
     /**
-     * 查询当前选区内容是否有序列表
-     * @command insertorderedlist
-     * @method queryCommandValue
-     * @param { String } cmd 命令字符串
-     * @return { String } 返回当前有序列表的类型，值为null或decimal,lower-alpha,lower-roman,upper-alpha,upper-roman,cn,cn1,cn2,num,num1,num2
-     * @example
-     * ```javascript
-     * editor.queryCommandValue( 'insertorderedlist' );
-     * ```
-     */
+	 * 查询当前选区内容是否有序列表
+	 * 
+	 * @command insertorderedlist
+	 * @method queryCommandValue
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @return { String } 返回当前有序列表的类型，值为null或decimal,lower-alpha,lower-roman,upper-alpha,upper-roman,cn,cn1,cn2,num,num1,num2
+	 * @example ```javascript editor.queryCommandValue( 'insertorderedlist' ); ```
+	 */
 
     /**
-     * 无序列表，与“insertorderedlist”命令互斥
-     * @command insertunorderedlist
-     * @method execCommand
-     * @param { String } command 命令字符串
-     * @param { String } style 插入的无序列表类型，值为：circle,disc,square,dash,dot
-     * @example
-     * ```javascript
-     * editor.execCommand( 'insertunorderedlist','circle');
-     * ```
-     */
+	 * 无序列表，与“insertorderedlist”命令互斥
+	 * 
+	 * @command insertunorderedlist
+	 * @method execCommand
+	 * @param {
+	 *            String } command 命令字符串
+	 * @param {
+	 *            String } style 插入的无序列表类型，值为：circle,disc,square,dash,dot
+	 * @example ```javascript editor.execCommand( 'insertunorderedlist','circle'); ```
+	 */
     /**
-     * 查询当前是否有word文档粘贴进来的图片
-     * @command insertunorderedlist
-     * @method insertunorderedlist
-     * @param { String } command 命令字符串
-     * @return { int } 如果当前选区是无序列表返回1，否则返回0
-     * @example
-     * ```javascript
-     * editor.queryCommandState( 'insertunorderedlist' );
-     * ```
-     */
+	 * 查询当前是否有word文档粘贴进来的图片
+	 * 
+	 * @command insertunorderedlist
+	 * @method insertunorderedlist
+	 * @param {
+	 *            String } command 命令字符串
+	 * @return { int } 如果当前选区是无序列表返回1，否则返回0
+	 * @example ```javascript editor.queryCommandState( 'insertunorderedlist' ); ```
+	 */
     /**
-     * 查询当前选区内容是否有序列表
-     * @command insertunorderedlist
-     * @method queryCommandValue
-     * @param { String } command 命令字符串
-     * @return { String } 返回当前无序列表的类型，值为null或circle,disc,square,dash,dot
-     * @example
-     * ```javascript
-     * editor.queryCommandValue( 'insertunorderedlist' );
-     * ```
-     */
+	 * 查询当前选区内容是否有序列表
+	 * 
+	 * @command insertunorderedlist
+	 * @method queryCommandValue
+	 * @param {
+	 *            String } command 命令字符串
+	 * @return { String } 返回当前无序列表的类型，值为null或circle,disc,square,dash,dot
+	 * @example ```javascript editor.queryCommandValue( 'insertunorderedlist' ); ```
+	 */
 
     me.commands['insertorderedlist'] =
     me.commands['insertunorderedlist'] = {
@@ -15891,8 +15374,8 @@ UE.plugins['list'] = function () {
                     },
                     tag = command.toLowerCase() == 'insertorderedlist' ? 'ol' : 'ul',
                     frag = me.document.createDocumentFragment();
-                //去掉是因为会出现选到末尾，导致adjustmentBoundary缩到ol/ul的位置
-                //range.shrinkBoundary();//.adjustmentBoundary();
+                // 去掉是因为会出现选到末尾，导致adjustmentBoundary缩到ol/ul的位置
+                // range.shrinkBoundary();//.adjustmentBoundary();
                 range.adjustmentBoundary().shrinkBoundary();
                 var bko = range.createBookmark(true),
                     start = getLi(me.document.getElementById(bko.start)),
@@ -15943,13 +15426,13 @@ UE.plugins['list'] = function () {
                         if (startParent.tagName.toLowerCase() == tag && nodeStyle == style) {
                             for (var i = 0, ci, tmpFrag = me.document.createDocumentFragment(); ci = frag.firstChild;) {
                                 if(domUtils.isTagNode(ci,'ol ul')){
-//                                  删除时，子列表不处理
-//                                  utils.each(domUtils.getElementsByTagName(ci,'li'),function(li){
-//                                        while(li.firstChild){
-//                                            tmpFrag.appendChild(li.firstChild);
-//                                        }
+// 删除时，子列表不处理
+// utils.each(domUtils.getElementsByTagName(ci,'li'),function(li){
+// while(li.firstChild){
+// tmpFrag.appendChild(li.firstChild);
+// }
 //
-//                                    });
+// });
                                     tmpFrag.appendChild(ci);
                                 }else{
                                     while (ci.firstChild) {
@@ -15973,7 +15456,7 @@ UE.plugins['list'] = function () {
                         range.moveToBookmark(bko).select();
                         return;
                     }
-                    //开始
+                    // 开始
                     if (start) {
                         while (start) {
                             tmp = start.nextSibling;
@@ -16011,7 +15494,7 @@ UE.plugins['list'] = function () {
                     }
 
                     if (end && domUtils.inDoc(endParent, me.document)) {
-                        //结束
+                        // 结束
                         start = endParent.firstChild;
                         while (start && start !== end) {
                             tmp = start.nextSibling;
@@ -16128,9 +15611,9 @@ UE.plugins['list'] = function () {
                 setListStyle(list,style);
                 list.appendChild(frag);
                 range.insertNode(list);
-                //当前list上下看能否合并
+                // 当前list上下看能否合并
                 adjustList(list, tag, style);
-                //去掉冗余的tmpDiv
+                // 去掉冗余的tmpDiv
                 for (var i = 0, ci, tmpDivs = domUtils.getElementsByTagName(list, 'div'); ci = tmpDivs[i++];) {
                     if (ci.getAttribute('tmpDiv')) {
                         domUtils.remove(ci, true)
@@ -16177,6 +15660,7 @@ UE.plugins['list'] = function () {
 // plugins/source.js
 /**
  * 源码编辑插件
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -16210,7 +15694,7 @@ UE.plugins['list'] = function () {
                         range.collapse(true);
                         range.select();
                     } else {
-                        //todo: chrome下无法设置焦点
+                        // todo: chrome下无法设置焦点
                         textarea.setSelectionRange(0, 0);
                         textarea.focus();
                     }
@@ -16274,32 +15758,30 @@ UE.plugins['list'] = function () {
         }
 
         var bakCssText;
-        //解决在源码模式下getContent不能得到最新的内容问题
+        // 解决在源码模式下getContent不能得到最新的内容问题
         var oldGetContent,
             bakAddress;
 
         /**
-         * 切换源码模式和编辑模式
-         * @command source
-         * @method execCommand
-         * @param { String } cmd 命令字符串
-         * @example
-         * ```javascript
-         * editor.execCommand( 'source');
-         * ```
-         */
+		 * 切换源码模式和编辑模式
+		 * 
+		 * @command source
+		 * @method execCommand
+		 * @param {
+		 *            String } cmd 命令字符串
+		 * @example ```javascript editor.execCommand( 'source'); ```
+		 */
 
         /**
-         * 查询当前编辑区域的状态是源码模式还是可视化模式
-         * @command source
-         * @method queryCommandState
-         * @param { String } cmd 命令字符串
-         * @return { int } 如果当前是源码编辑模式，返回1，否则返回0
-         * @example
-         * ```javascript
-         * editor.queryCommandState( 'source' );
-         * ```
-         */
+		 * 查询当前编辑区域的状态是源码模式还是可视化模式
+		 * 
+		 * @command source
+		 * @method queryCommandState
+		 * @param {
+		 *            String } cmd 命令字符串
+		 * @return { int } 如果当前是源码编辑模式，返回1，否则返回0
+		 * @example ```javascript editor.queryCommandState( 'source' ); ```
+		 */
 
         me.commands['source'] = {
             execCommand: function (){
@@ -16349,7 +15831,7 @@ UE.plugins['list'] = function () {
                     orgSetContent = me.setContent;
 
                     me.setContent = function(html){
-                        //这里暂时不触发事件，防止报错
+                        // 这里暂时不触发事件，防止报错
                         var root = UE.htmlparser(html);
                         me.filterInputRule(root);
                         html = root.toHtml();
@@ -16365,7 +15847,7 @@ UE.plugins['list'] = function () {
                         });
                     });
 
-                    //重置getContent，源码模式下取值也能是最新的数据
+                    // 重置getContent，源码模式下取值也能是最新的数据
                     oldGetContent = me.getContent;
                     me.getContent = function (){
                         return sourceEditor.getContent() || '<p>' + (browser.ie ? '' : '<br/>')+'</p>';
@@ -16373,7 +15855,7 @@ UE.plugins['list'] = function () {
                 } else {
                     me.iframe.style.cssText = bakCssText;
                     var cont = sourceEditor.getContent() || '<p>' + (browser.ie ? '' : '<br/>')+'</p>';
-                    //处理掉block节点前后的空格,有可能会误命中，暂时不考虑
+                    // 处理掉block节点前后的空格,有可能会误命中，暂时不考虑
                     cont = cont.replace(new RegExp('[\\r\\t\\n ]*<\/?(\\w+)\\s*(?:[^>]*)>','g'), function(a,b){
                         if(b && !dtd.$inlineWithA[b.toLowerCase()]){
                             return a.replace(/(^[\n\r\t ]*)|([\n\r\t ]*$)/g,'');
@@ -16386,18 +15868,18 @@ UE.plugins['list'] = function () {
                     me.setContent(cont);
                     sourceEditor.dispose();
                     sourceEditor = null;
-                    //还原getContent方法
+                    // 还原getContent方法
                     me.getContent = oldGetContent;
                     var first = me.body.firstChild;
-                    //trace:1106 都删除空了，下边会报错，所以补充一个p占位
+                    // trace:1106 都删除空了，下边会报错，所以补充一个p占位
                     if(!first){
                         me.body.innerHTML = '<p>'+(browser.ie?'':'<br/>')+'</p>';
                         first = me.body.firstChild;
                     }
 
 
-                    //要在ifm为显示时ff才能取到selection,否则报错
-                    //这里不能比较位置了
+                    // 要在ifm为显示时ff才能取到selection,否则报错
+                    // 这里不能比较位置了
                     me.undoManger && me.undoManger.save(true);
 
                     if(browser.gecko){
@@ -16419,7 +15901,7 @@ UE.plugins['list'] = function () {
 
                         });
                     }else{
-                        //ie下有可能报错，比如在代码顶头的情况
+                        // ie下有可能报错，比如在代码顶头的情况
                         try{
                             me.selection.getRange().moveToAddress(bakAddress).select(true);
                         }catch(e){}
@@ -16438,7 +15920,7 @@ UE.plugins['list'] = function () {
         me.queryCommandState = function (cmdName){
             cmdName = cmdName.toLowerCase();
             if (sourceMode) {
-                //源码模式下可以开启的命令
+                // 源码模式下可以开启的命令
                 return cmdName in {
                     'source' : 1,
                     'fullscreen' : 1
@@ -16477,11 +15959,11 @@ UE.plugins['list'] = function () {
 })();
 
 // plugins/enterkey.js
-///import core
-///import plugins/undo.js
-///commands 设置回车标签p或br
-///commandsName  EnterKey
-///commandsTitle  设置回车标签p或br
+// /import core
+// /import plugins/undo.js
+// /commands 设置回车标签p或br
+// /commandsName EnterKey
+// /commandsTitle 设置回车标签p或br
 /**
  * @description 处理回车
  * @author zhanyi
@@ -16498,7 +15980,7 @@ UE.plugins['enterkey'] = function() {
                 start = range.startContainer,
                 doSave;
 
-            //修正在h1-h6里边回车后不能嵌套p的问题
+            // 修正在h1-h6里边回车后不能嵌套p的问题
             if (!browser.ie) {
 
                 if (/h\d/i.test(hTag)) {
@@ -16509,7 +15991,7 @@ UE.plugins['enterkey'] = function() {
                             doSave = 1;
                         }
                     } else {
-                        //chrome remove div
+                        // chrome remove div
                         if (start.nodeType == 1) {
                             var tmp = me.document.createTextNode(''),div;
                             range.insertNode(tmp);
@@ -16533,7 +16015,7 @@ UE.plugins['enterkey'] = function() {
                         me.undoManger.save();
                     }
                 }
-                //没有站位符，会出现多行的问题
+                // 没有站位符，会出现多行的问题
                 browser.opera &&  range.select();
             }else{
                 me.fireEvent('saveScene',true,true)
@@ -16543,7 +16025,7 @@ UE.plugins['enterkey'] = function() {
 
     me.addListener('keydown', function(type, evt) {
         var keyCode = evt.keyCode || evt.which;
-        if (keyCode == 13) {//回车
+        if (keyCode == 13) {// 回车
             if(me.fireEvent('beforeenterkeydown')){
                 domUtils.preventDefault(evt);
                 return;
@@ -16555,7 +16037,7 @@ UE.plugins['enterkey'] = function() {
             var range = me.selection.getRange();
 
             if (!range.collapsed) {
-                //跨td不能删
+                // 跨td不能删
                 var start = range.startContainer,
                     end = range.endContainer,
                     startTd = domUtils.findParentByTagName(start, 'td', true),
@@ -16572,8 +16054,8 @@ UE.plugins['enterkey'] = function() {
 
                     start = domUtils.findParentByTagName(range.startContainer, ['ol','ul','p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6','blockquote','caption'], true);
 
-                    //opera下执行formatblock会在table的场景下有问题，回车在opera原生支持很好，所以暂时在opera去掉调用这个原生的command
-                    //trace:2431
+                    // opera下执行formatblock会在table的场景下有问题，回车在opera原生支持很好，所以暂时在opera去掉调用这个原生的command
+                    // trace:2431
                     if (!start && !browser.opera) {
 
                         me.document.execCommand('formatBlock', false, '<p>');
@@ -16663,7 +16145,7 @@ UE.plugins['keystrokes'] = function() {
         var keyCode = evt.keyCode || evt.which,
             rng = me.selection.getRange();
 
-        //处理全选的情况
+        // 处理全选的情况
         if(!rng.collapsed && !(evt.ctrlKey || evt.shiftKey || evt.altKey || evt.metaKey) && (keyCode >= 65 && keyCode <=90
             || keyCode >= 48 && keyCode <= 57 ||
             keyCode >= 96 && keyCode <= 111 || {
@@ -16682,7 +16164,7 @@ UE.plugins['keystrokes'] = function() {
                 rng.setEndAfter(tmpNode)
             }
             rng.txtToElmBoundary();
-            //结束边界可能放到了br的前边，要把br包含进来
+            // 结束边界可能放到了br的前边，要把br包含进来
             // x[xxx]<br/>
             if(rng.endContainer && rng.endContainer.nodeType == 1){
                 tmpNode = rng.endContainer.childNodes[rng.endOffset];
@@ -16705,7 +16187,7 @@ UE.plugins['keystrokes'] = function() {
             }
         }
 
-        //处理backspace
+        // 处理backspace
         if (keyCode == keymap.Backspace) {
             rng = me.selection.getRange();
             collapsed = rng.collapsed;
@@ -16713,7 +16195,7 @@ UE.plugins['keystrokes'] = function() {
                 return;
             }
             var start,end;
-            //避免按两次删除才能生效的问题
+            // 避免按两次删除才能生效的问题
             if(rng.collapsed && rng.inFillChar()){
                 start = rng.startContainer;
 
@@ -16727,7 +16209,7 @@ UE.plugins['keystrokes'] = function() {
                 }
             }
 
-            //解决选中control元素不能删除的问题
+            // 解决选中control元素不能删除的问题
             if (start = rng.getClosedNode()) {
                 me.fireEvent('saveScene');
                 rng.setStartBefore(start);
@@ -16737,7 +16219,7 @@ UE.plugins['keystrokes'] = function() {
                 domUtils.preventDefault(evt);
                 return;
             }
-            //阻止在table上的删除
+            // 阻止在table上的删除
             if (!browser.ie) {
                 start = domUtils.findParentByTagName(rng.startContainer, 'table', true);
                 end = domUtils.findParentByTagName(rng.endContainer, 'table', true);
@@ -16748,15 +16230,15 @@ UE.plugins['keystrokes'] = function() {
             }
 
         }
-        //处理tab键的逻辑
+        // 处理tab键的逻辑
         if (keyCode == keymap.Tab) {
-            //不处理以下标签
+            // 不处理以下标签
             var excludeTagNameForTabKey = {
                 'ol' : 1,
                 'ul' : 1,
                 'table':1
             };
-            //处理组件里的tab按下事件
+            // 处理组件里的tab按下事件
             if(me.fireEvent('tabkeydown',evt)){
                 domUtils.preventDefault(evt);
                 return;
@@ -16775,7 +16257,7 @@ UE.plugins['keystrokes'] = function() {
                     return domUtils.isBlockElm(node) && !excludeTagNameForTabKey[node.tagName.toLowerCase()]
 
                 };
-                //普通的情况
+                // 普通的情况
                 start = domUtils.findParent(range.startContainer, filterFn,true);
                 end = domUtils.findParent(range.endContainer, filterFn,true);
                 if (start && end && start === end) {
@@ -16795,8 +16277,8 @@ UE.plugins['keystrokes'] = function() {
             }
             domUtils.preventDefault(evt)
         }
-        //trace:1634
-        //ff的del键在容器空的时候，也会删除
+        // trace:1634
+        // ff的del键在容器空的时候，也会删除
         if(browser.gecko && keyCode == 46){
             range = me.selection.getRange();
             if(range.collapsed){
@@ -16842,7 +16324,7 @@ UE.plugins['keystrokes'] = function() {
                         }
                     }
                 }
-                //处理当删除到body时，要重新给p标签展位
+                // 处理当删除到body时，要重新给p标签展位
                 if(domUtils.isBody(rng.startContainer)){
                     var tmpNode = domUtils.createElement(me.document,'p',{
                         'innerHTML' : browser.ie ? domUtils.fillChar : '<br/>'
@@ -16852,7 +16334,7 @@ UE.plugins['keystrokes'] = function() {
             }
 
 
-            //chrome下如果删除了inline标签，浏览器会有记忆，在输入文字还是会套上刚才删除的标签，所以这里再选一次就不会了
+            // chrome下如果删除了inline标签，浏览器会有记忆，在输入文字还是会套上刚才删除的标签，所以这里再选一次就不会了
             if( !collapsed && (rng.startContainer.nodeType == 3 || rng.startContainer.nodeType == 1 && domUtils.isEmptyBlock(rng.startContainer))){
                 if(browser.ie){
                     var span = rng.document.createElement('span');
@@ -16871,11 +16353,11 @@ UE.plugins['keystrokes'] = function() {
 };
 
 // plugins/fiximgclick.js
-///import core
-///commands 修复chrome下图片不能点击的问题，出现八个角可改变大小
-///commandsName  FixImgClick
-///commandsTitle  修复chrome下图片不能点击的问题，出现八个角可改变大小
-//修复chrome下图片不能点击的问题，出现八个角可改变大小
+// /import core
+// /commands 修复chrome下图片不能点击的问题，出现八个角可改变大小
+// /commandsName FixImgClick
+// /commandsTitle 修复chrome下图片不能点击的问题，出现八个角可改变大小
+// 修复chrome下图片不能点击的问题，出现八个角可改变大小
 
 UE.plugins['fiximgclick'] = (function () {
 
@@ -16891,7 +16373,7 @@ UE.plugins['fiximgclick'] = (function () {
 
     (function () {
         var rect = [
-            //[left, top, width, height]
+            // [left, top, width, height]
             [0, 0, -1, -1],
             [0, 0, 0, -1],
             [0, 0, 1, -1],
@@ -16981,7 +16463,7 @@ UE.plugins['fiximgclick'] = (function () {
                             me.dragId = -1;
                         }
                         domUtils.un(me.doc,'mousemove', me.proxy(me._eventHandler, me));
-                        //修复只是点击挪动点，但没有改变大小，不应该触发contentchange
+                        // 修复只是点击挪动点，但没有改变大小，不应该触发contentchange
                         if(elementUpdated){
                             elementUpdated = false;
                             me.editor.fireEvent('contentchange');
@@ -17151,7 +16633,7 @@ UE.plugins['fiximgclick'] = (function () {
                                 me.selection.getRange().selectNode(target).select();
                             }
                         });
-                        //TODO 有iframe的情况，mousedown不能往下传。。
+                        // TODO 有iframe的情况，mousedown不能往下传。。
                         domUtils.on(imageScale.resizer, 'mousedown', function (e) {
                             me.selection.getNative().removeAllRanges();
                             var ele = e.target || e.srcElement;
@@ -17188,10 +16670,10 @@ UE.plugins['fiximgclick'] = (function () {
 })();
 
 // plugins/autolink.js
-///import core
-///commands 为非ie浏览器自动添加a标签
-///commandsName  AutoLink
-///commandsTitle  自动增加链接
+// /import core
+// /commands 为非ie浏览器自动添加a标签
+// /commandsName AutoLink
+// /commandsTitle 自动增加链接
 /**
  * @description 为非ie浏览器自动添加a标签
  * @author zhanyi
@@ -17255,7 +16737,7 @@ UE.plugin.register('autolink',function(){
                                 try{
                                     range.setStart(range.startContainer,range.startOffset+1);
                                 }catch(e){
-                                    //trace:2121
+                                    // trace:2121
                                     var start = range.startContainer;
                                     while(!(next = start.nextSibling)){
                                         if(domUtils.isBody(start)){
@@ -17269,7 +16751,7 @@ UE.plugin.register('autolink',function(){
                                 }
 
                             }
-                            //range的开始边界已经在a标签里的不再处理
+                            // range的开始边界已经在a标签里的不再处理
                             if(domUtils.findParentByTagName(range.startContainer,'a',true)){
                                 return;
                             }
@@ -17367,17 +16849,17 @@ UE.plugin.register('autolink',function(){
 );
 
 // plugins/autoheight.js
-///import core
-///commands 当输入内容超过编辑器高度时，编辑器自动增高
-///commandsName  AutoHeight,autoHeightEnabled
-///commandsTitle  自动增高
+// /import core
+// /commands 当输入内容超过编辑器高度时，编辑器自动增高
+// /commandsName AutoHeight,autoHeightEnabled
+// /commandsTitle 自动增高
 /**
  * @description 自动伸展
  * @author zhanyi
  */
 UE.plugins['autoheight'] = function () {
     var me = this;
-    //提供开关，就算加载也可以关闭
+    // 提供开关，就算加载也可以关闭
     me.autoHeightEnabled = me.options.autoHeightEnabled !== false;
     if (!me.autoHeightEnabled) {
         return;
@@ -17434,7 +16916,7 @@ UE.plugins['autoheight'] = function () {
         bakOverflow = doc.body.style.overflowY;
         doc.body.style.overflowY = 'hidden';
         me.addListener('contentchange afterinserthtml keyup mouseup',adjustHeight);
-        //ff不给事件算得不对
+        // ff不给事件算得不对
 
         setTimeout(function () {
             adjustHeight.call(me);
@@ -17457,17 +16939,17 @@ UE.plugins['autoheight'] = function () {
     });
     me.addListener('ready', function () {
         me.enableAutoHeight();
-        //trace:1764
+        // trace:1764
         var timer;
         domUtils.on(browser.ie ? me.body : me.document, browser.webkit ? 'dragover' : 'drop', function () {
             clearTimeout(timer);
             timer = setTimeout(function () {
-                //trace:3681
+                // trace:3681
                 adjustHeight.call(me);
             }, 100);
 
         });
-        //修复内容过多时，回到顶部，顶部内容被工具栏遮挡问题
+        // 修复内容过多时，回到顶部，顶部内容被工具栏遮挡问题
         var lastScrollY;
         window.onscroll = function(){
             if(lastScrollY === null){
@@ -17485,13 +16967,12 @@ UE.plugins['autoheight'] = function () {
 
 
 // plugins/autofloat.js
-///import core
-///commands 悬浮工具栏
-///commandsName  AutoFloat,autoFloatEnabled
-///commandsTitle  悬浮工具栏
+// /import core
+// /commands 悬浮工具栏
+// /commandsName AutoFloat,autoFloatEnabled
+// /commandsTitle 悬浮工具栏
 /**
- *  modified by chengchao01
- *  注意： 引入此功能后，在IE6下会将body的背景图片覆盖掉！
+ * modified by chengchao01 注意： 引入此功能后，在IE6下会将body的背景图片覆盖掉！
  */
 UE.plugins['autofloat'] = function() {
     var me = this,
@@ -17503,7 +16984,7 @@ UE.plugins['autofloat'] = function() {
         topOffset = me.options.topOffset;
 
 
-    //如果不固定toolbar的位置，则直接退出
+    // 如果不固定toolbar的位置，则直接退出
     if(!optsAutoFloatEnabled){
         return;
     }
@@ -17527,7 +17008,7 @@ UE.plugins['autofloat'] = function() {
         placeHolder = document.createElement('div'),
         toolbarBox,orgTop,
         getPosition,
-        flag =true;   //ie7模式下需要偏移
+        flag =true;   // ie7模式下需要偏移
     function setFloating(){
         var toobarBoxPos = domUtils.getXY(toolbarBox),
             origalFloat = domUtils.getComputedStyle(toolbarBox,'position'),
@@ -17581,7 +17062,7 @@ UE.plugins['autofloat'] = function() {
 
     me.addListener('ready', function(){
         if(checkHasUI(me)){
-            //加载了ui组件，但在new时，没有加载ui，导致编辑器实例上没有ui类，所以这里做判断
+            // 加载了ui组件，但在new时，没有加载ui，导致编辑器实例上没有ui类，所以这里做判断
             if(!me.ui){
                 return;
             }
@@ -17625,6 +17106,7 @@ UE.plugins['autofloat'] = function() {
 // plugins/video.js
 /**
  * video插件， 为UEditor提供视频插入支持
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -17633,14 +17115,21 @@ UE.plugins['video'] = function (){
     var me =this;
 
     /**
-     * 创建插入视频字符窜
-     * @param url 视频地址
-     * @param width 视频宽度
-     * @param height 视频高度
-     * @param align 视频对齐
-     * @param toEmbed 是否以flash代替显示
-     * @param addParagraph  是否需要添加P 标签
-     */
+	 * 创建插入视频字符窜
+	 * 
+	 * @param url
+	 *            视频地址
+	 * @param width
+	 *            视频宽度
+	 * @param height
+	 *            视频高度
+	 * @param align
+	 *            视频对齐
+	 * @param toEmbed
+	 *            是否以flash代替显示
+	 * @param addParagraph
+	 *            是否需要添加P 标签
+	 */
     function creatInsertStr(url,width,height,id,align,classname,type){
 
         url = utils.unhtmlForUrl(url);
@@ -17694,71 +17183,50 @@ UE.plugins['video'] = function (){
     });
 
     /**
-     * 插入视频
-     * @command insertvideo
-     * @method execCommand
-     * @param { String } cmd 命令字符串
-     * @param { Object } videoAttr 键值对对象， 描述一个视频的所有属性
-     * @example
-     * ```javascript
-     *
-     * var videoAttr = {
-     *      //视频地址
-     *      url: 'http://www.youku.com/xxx',
-     *      //视频宽高值， 单位px
-     *      width: 200,
-     *      height: 100
-     * };
-     *
-     * //editor 是编辑器实例
-     * //向编辑器插入单个视频
-     * editor.execCommand( 'insertvideo', videoAttr );
-     * ```
-     */
+	 * 插入视频
+	 * 
+	 * @command insertvideo
+	 * @method execCommand
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @param {
+	 *            Object } videoAttr 键值对对象， 描述一个视频的所有属性
+	 * @example ```javascript
+	 * 
+	 * var videoAttr = { //视频地址 url: 'http://www.youku.com/xxx', //视频宽高值， 单位px width: 200, height: 100 };
+	 * 
+	 * //editor 是编辑器实例 //向编辑器插入单个视频 editor.execCommand( 'insertvideo', videoAttr ); ```
+	 */
 
     /**
-     * 插入视频
-     * @command insertvideo
-     * @method execCommand
-     * @param { String } cmd 命令字符串
-     * @param { Array } videoArr 需要插入的视频的数组， 其中的每一个元素都是一个键值对对象， 描述了一个视频的所有属性
-     * @example
-     * ```javascript
-     *
-     * var videoAttr1 = {
-     *      //视频地址
-     *      url: 'http://www.youku.com/xxx',
-     *      //视频宽高值， 单位px
-     *      width: 200,
-     *      height: 100
-     * },
-     * videoAttr2 = {
-     *      //视频地址
-     *      url: 'http://www.youku.com/xxx',
-     *      //视频宽高值， 单位px
-     *      width: 200,
-     *      height: 100
-     * }
-     *
-     * //editor 是编辑器实例
-     * //该方法将会向编辑器内插入两个视频
-     * editor.execCommand( 'insertvideo', [ videoAttr1, videoAttr2 ] );
-     * ```
-     */
+	 * 插入视频
+	 * 
+	 * @command insertvideo
+	 * @method execCommand
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @param {
+	 *            Array } videoArr 需要插入的视频的数组， 其中的每一个元素都是一个键值对对象， 描述了一个视频的所有属性
+	 * @example ```javascript
+	 * 
+	 * var videoAttr1 = { //视频地址 url: 'http://www.youku.com/xxx', //视频宽高值， 单位px width: 200, height: 100 }, videoAttr2 = { //视频地址 url: 'http://www.youku.com/xxx', //视频宽高值， 单位px
+	 * width: 200, height: 100 }
+	 * 
+	 * //editor 是编辑器实例 //该方法将会向编辑器内插入两个视频 editor.execCommand( 'insertvideo', [ videoAttr1, videoAttr2 ] ); ```
+	 */
 
     /**
-     * 查询当前光标所在处是否是一个视频
-     * @command insertvideo
-     * @method queryCommandState
-     * @param { String } cmd 需要查询的命令字符串
-     * @return { int } 如果当前光标所在处的元素是一个视频对象， 则返回1，否则返回0
-     * @example
-     * ```javascript
-     *
-     * //editor 是编辑器实例
-     * editor.queryCommandState( 'insertvideo' );
-     * ```
-     */
+	 * 查询当前光标所在处是否是一个视频
+	 * 
+	 * @command insertvideo
+	 * @method queryCommandState
+	 * @param {
+	 *            String } cmd 需要查询的命令字符串
+	 * @return { int } 如果当前光标所在处的元素是一个视频对象， 则返回1，否则返回0
+	 * @example ```javascript
+	 * 
+	 * //editor 是编辑器实例 editor.queryCommandState( 'insertvideo' ); ```
+	 */
     me.commands["insertvideo"] = {
         execCommand: function (cmd, videoObjs, type){
             videoObjs = utils.isArray(videoObjs)?videoObjs:[videoObjs];
@@ -17788,14 +17256,11 @@ UE.plugins['video'] = function (){
 
 // plugins/table.core.js
 /**
- * Created with JetBrains WebStorm.
- * User: taoqili
- * Date: 13-1-18
- * Time: 上午11:09
- * To change this template use File | Settings | File Templates.
+ * Created with JetBrains WebStorm. User: taoqili Date: 13-1-18 Time: 上午11:09 To change this template use File | Settings | File Templates.
  */
 /**
  * UE表格操作类
+ * 
  * @param table
  * @constructor
  */
@@ -17808,7 +17273,7 @@ UE.plugins['video'] = function (){
         this.update(table);
     };
 
-    //===以下为静态工具方法===
+    // ===以下为静态工具方法===
     UETable.removeSelectedClass = function (cells) {
         utils.each(cells, function (cell) {
             domUtils.removeClasses(cell, "selectTdClass");
@@ -17837,11 +17302,12 @@ UE.plugins['video'] = function (){
     };
 
     /**
-     * 获取单元格或者单元格组的“对齐”状态。 如果当前的检测对象是一个单元格组， 只有在满足所有单元格的 水平和竖直 对齐属性都相同的
-     * 条件时才会返回其状态值，否则将返回null； 如果当前只检测了一个单元格， 则直接返回当前单元格的对齐状态；
-     * @param table cell or table cells , 支持单个单元格dom对象 或者 单元格dom对象数组
-     * @return { align: 'left' || 'right' || 'center', valign: 'top' || 'middle' || 'bottom' } 或者 null
-     */
+	 * 获取单元格或者单元格组的“对齐”状态。 如果当前的检测对象是一个单元格组， 只有在满足所有单元格的 水平和竖直 对齐属性都相同的 条件时才会返回其状态值，否则将返回null； 如果当前只检测了一个单元格， 则直接返回当前单元格的对齐状态；
+	 * 
+	 * @param table
+	 *            cell or table cells , 支持单个单元格dom对象 或者 单元格dom对象数组
+	 * @return { align: 'left' || 'right' || 'center', valign: 'top' || 'middle' || 'bottom' } 或者 null
+	 */
     UETable.getTableCellAlignState = function ( cells ) {
 
         !utils.isArray( cells ) && ( cells = [cells] );
@@ -17849,7 +17315,7 @@ UE.plugins['video'] = function (){
         var result = {},
             status = ['align', 'valign'],
             tempStatus = null,
-            isSame = true;//状态是否相同
+            isSame = true;// 状态是否相同
 
         utils.each( cells, function( cellNode ){
 
@@ -17875,18 +17341,19 @@ UE.plugins['video'] = function (){
     };
 
     /**
-     * 根据当前选区获取相关的table信息
-     * @return {Object}
-     */
+	 * 根据当前选区获取相关的table信息
+	 * 
+	 * @return {Object}
+	 */
     UETable.getTableItemsByRange = function (editor) {
         var start = editor.selection.getStart();
 
-        //ff下会选中bookmark
+        // ff下会选中bookmark
         if( start && start.id && start.id.indexOf('_baidu_bookmark_start_') === 0 && start.nextSibling) {
             start = start.nextSibling;
         }
 
-        //在table或者td边缘有可能存在选中tr的情况
+        // 在table或者td边缘有可能存在选中tr的情况
         var cell = start && domUtils.findParentByTagName(start, ["td", "th"], true),
             tr = cell && cell.parentNode,
             caption = start && domUtils.findParentByTagName(start, 'caption', true),
@@ -17947,9 +17414,10 @@ UE.plugins['video'] = function (){
         }
     };
     /**
-     * 根据当前点击的td或者table获取索引对象
-     * @param tdOrTable
-     */
+	 * 根据当前点击的td或者table获取索引对象
+	 * 
+	 * @param tdOrTable
+	 */
     UETable.getUETable = function (tdOrTable) {
         var tag = tdOrTable.tagName.toLowerCase();
         tdOrTable = (tag == "td" || tag == "th" || tag == 'caption') ? domUtils.findParentByTagName(tdOrTable, "table", true) : tdOrTable;
@@ -17969,7 +17437,7 @@ UE.plugins['video'] = function (){
         if (ignoreMerge) {
             tmpCell.rowSpan = tmpCell.colSpan = 1;
         }
-        //去掉宽高
+        // 去掉宽高
         !keepPro && domUtils.removeAttributes(tmpCell,'width height');
         !keepPro && domUtils.removeAttributes(tmpCell,'style');
 
@@ -17996,8 +17464,8 @@ UE.plugins['video'] = function (){
             return maxLen;
         },
         /**
-         * 获取当前表格的最大列数
-         */
+		 * 获取当前表格的最大列数
+		 */
         getMaxCols:function () {
             var rows = this.table.rows, maxLen = 0, cellRows = {};
             for (var i = 0, row; row = rows[i]; i++) {
@@ -18024,17 +17492,18 @@ UE.plugins['video'] = function (){
 
         },
         /**
-         * 获取当前cell旁边的单元格，
-         * @param cell
-         * @param right
-         */
+		 * 获取当前cell旁边的单元格，
+		 * 
+		 * @param cell
+		 * @param right
+		 */
         getHSideCell:function (cell, right) {
             try {
                 var cellInfo = this.getCellInfo(cell),
                     previewRowIndex, previewColIndex;
                 var len = this.selectedTds.length,
                     range = this.cellsRange;
-                //首行或者首列没有前置单元格
+                // 首行或者首列没有前置单元格
                 if ((!right && (!len ? !cellInfo.colIndex : !range.beginColIndex)) || (right && (!len ? (cellInfo.colIndex == (this.colsNum - 1)) : (range.endColIndex == this.colsNum - 1)))) return null;
 
                 previewRowIndex = !len ? cellInfo.rowIndex : range.beginRowIndex;
@@ -18064,17 +17533,18 @@ UE.plugins['video'] = function (){
 
         },
         /**
-         * 获取视觉上的后置单元格
-         * @param cell
-         * @param bottom
-         */
+		 * 获取视觉上的后置单元格
+		 * 
+		 * @param cell
+		 * @param bottom
+		 */
         getVSideCell:function (cell, bottom, ignoreRange) {
             try {
                 var cellInfo = this.getCellInfo(cell),
                     nextRowIndex, nextColIndex;
                 var len = this.selectedTds.length && !ignoreRange,
                     range = this.cellsRange;
-                //末行或者末列没有后置单元格
+                // 末行或者末列没有后置单元格
                 if ((!bottom && (cellInfo.rowIndex == 0)) || (bottom && (!len ? (cellInfo.rowIndex + cellInfo.rowSpan > this.rowsNum - 1) : (range.endRowIndex == this.rowsNum - 1)))) return null;
 
                 nextRowIndex = !bottom ? ( !len ? cellInfo.rowIndex - 1 : range.beginRowIndex - 1)
@@ -18086,8 +17556,8 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 获取相同结束位置的单元格，xOrY指代了是获取x轴相同还是y轴相同
-         */
+		 * 获取相同结束位置的单元格，xOrY指代了是获取x轴相同还是y轴相同
+		 */
         getSameEndPosCells:function (cell, xOrY) {
             try {
                 var flag = (xOrY.toLowerCase() === "x"),
@@ -18098,11 +17568,11 @@ UE.plugins['video'] = function (){
                     cells = rows[i].cells;
                     for (var j = 0, tmpCell; tmpCell = cells[j++];) {
                         var tmpEnd = domUtils.getXY(tmpCell)[flag ? 'x' : 'y'] + tmpCell["offset" + (flag ? 'Width' : 'Height')];
-                        //对应行的td已经被上面行rowSpan了
+                        // 对应行的td已经被上面行rowSpan了
                         if (tmpEnd > end && flag) break;
                         if (cell == tmpCell || end == tmpEnd) {
-                            //只获取单一的单元格
-                            //todo 仅获取单一单元格在特定情况下会造成returns为空，从而影响后续的拖拽实现，修正这个。需考虑性能
+                            // 只获取单一的单元格
+                            // todo 仅获取单一单元格在特定情况下会造成returns为空，从而影响后续的拖拽实现，修正这个。需考虑性能
                             if (tmpCell[flag ? "colSpan" : "rowSpan"] == 1) {
                                 returns.push(tmpCell);
                             }
@@ -18120,8 +17590,8 @@ UE.plugins['video'] = function (){
         },
         cloneCell:UETable.cloneCell,
         /**
-         * 获取跟当前单元格的右边竖线为左边的所有未合并单元格
-         */
+		 * 获取跟当前单元格的右边竖线为左边的所有未合并单元格
+		 */
         getSameStartPosXCells:function (cell) {
             try {
                 var start = domUtils.getXY(cell).x + cell.offsetWidth,
@@ -18143,8 +17613,8 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 更新table对应的索引表
-         */
+		 * 更新table对应的索引表
+		 */
         update:function (table) {
             this.table = table || this.table;
             this.selectedTds = [];
@@ -18162,17 +17632,17 @@ UE.plugins['video'] = function (){
             for (var i = 0, len = rows.length; i < len; i++) {
                 this.indexTable[i] = new Array(colsNum);
             }
-            //填充索引表
+            // 填充索引表
             for (var rowIndex = 0, row; row = rows[rowIndex]; rowIndex++) {
                 for (var cellIndex = 0, cell, cells = row.cells; cell = cells[cellIndex]; cellIndex++) {
-                    //修正整行被rowSpan时导致的行数计算错误
+                    // 修正整行被rowSpan时导致的行数计算错误
                     if (cell.rowSpan > rowsNum) {
                         cell.rowSpan = rowsNum;
                     }
                     var colIndex = cellIndex,
                         rowSpan = cell.rowSpan || 1,
                         colSpan = cell.colSpan || 1;
-                    //当已经被上一行rowSpan或者被前一列colSpan了，则跳到下一个单元格进行
+                    // 当已经被上一行rowSpan或者被前一列colSpan了，则跳到下一个单元格进行
                     while (this.indexTable[rowIndex][colIndex]) colIndex++;
                     for (var j = 0; j < rowSpan; j++) {
                         for (var k = 0; k < colSpan; k++) {
@@ -18187,7 +17657,7 @@ UE.plugins['video'] = function (){
                     }
                 }
             }
-            //修复残缺td
+            // 修复残缺td
             for (j = 0; j < rowsNum; j++) {
                 for (k = 0; k < colsNum; k++) {
                     if (this.indexTable[j][k] === undefined) {
@@ -18208,7 +17678,7 @@ UE.plugins['video'] = function (){
                     }
                 }
             }
-            //当框选后删除行或者列后撤销，需要重建选区。
+            // 当框选后删除行或者列后撤销，需要重建选区。
             var tds = domUtils.getElementsByTagName(this.table, "td"),
                 selectTds = [];
             utils.each(tds, function (td) {
@@ -18229,7 +17699,7 @@ UE.plugins['video'] = function (){
                     endColIndex:endInfo.colIndex + endInfo.colSpan - 1
                 };
             }
-            //给第一行设置firstRow的样式名称,在排序图标的样式上使用到
+            // 给第一行设置firstRow的样式名称,在排序图标的样式上使用到
             if(!domUtils.hasClass(this.table.rows[0], "firstRow")) {
                 domUtils.addClass(this.table.rows[0], "firstRow");
                 for(var i = 1; i< this.table.rows.length; i++) {
@@ -18238,8 +17708,8 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 获取单元格的索引信息
-         */
+		 * 获取单元格的索引信息
+		 */
         getCellInfo:function (cell) {
             if (!cell) return;
             var cellIndex = cell.cellIndex,
@@ -18254,22 +17724,22 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 根据行列号获取单元格
-         */
+		 * 根据行列号获取单元格
+		 */
         getCell:function (rowIndex, cellIndex) {
             return rowIndex < this.rowsNum && this.table.rows[rowIndex].cells[cellIndex] || null;
         },
         /**
-         * 删除单元格
-         */
+		 * 删除单元格
+		 */
         deleteCell:function (cell, rowIndex) {
             rowIndex = typeof rowIndex == 'number' ? rowIndex : cell.parentNode.rowIndex;
             var row = this.table.rows[rowIndex];
             row.deleteCell(cell.cellIndex);
         },
         /**
-         * 根据始末两个单元格获取被框选的所有单元格范围
-         */
+		 * 根据始末两个单元格获取被框选的所有单元格范围
+		 */
         getCellsRange:function (cellA, cellB) {
             function checkRange(beginRowIndex, beginColIndex, endRowIndex, endColIndex) {
                 var tmpBeginRowIndex = beginRowIndex,
@@ -18317,7 +17787,7 @@ UE.plugins['video'] = function (){
                         }
                     }
                 }
-                //递归调用直至所有完成所有框选单元格的扩展
+                // 递归调用直至所有完成所有框选单元格的扩展
                 if (tmpBeginRowIndex != beginRowIndex || tmpBeginColIndex != beginColIndex || tmpEndRowIndex != endRowIndex || tmpEndColIndex != endColIndex) {
                     return checkRange(tmpBeginRowIndex, tmpBeginColIndex, tmpEndRowIndex, tmpEndColIndex);
                 } else {
@@ -18351,14 +17821,14 @@ UE.plugins['video'] = function (){
 
                 return checkRange(beginRowIndex, beginColIndex, endRowIndex, endColIndex);
             } catch (e) {
-                //throw e;
+                // throw e;
             }
         },
         /**
-         * 依据cellsRange获取对应的单元格集合
-         */
+		 * 依据cellsRange获取对应的单元格集合
+		 */
         getCells:function (range) {
-            //每次获取cells之前必须先清除上次的选择，否则会对后续获取操作造成影响
+            // 每次获取cells之前必须先清除上次的选择，否则会对后续获取操作造成影响
             this.clearSelected();
             var beginRowIndex = range.beginRowIndex,
                 beginColIndex = range.beginColIndex,
@@ -18383,16 +17853,16 @@ UE.plugins['video'] = function (){
             return returnTds;
         },
         /**
-         * 清理已经选中的单元格
-         */
+		 * 清理已经选中的单元格
+		 */
         clearSelected:function () {
             UETable.removeSelectedClass(this.selectedTds);
             this.selectedTds = [];
             this.cellsRange = {};
         },
         /**
-         * 根据range设置已经选中的单元格
-         */
+		 * 根据range设置已经选中的单元格
+		 */
         setSelected:function (range) {
             var cells = this.getCells(range);
             UETable.addSelectedClass(cells);
@@ -18412,17 +17882,18 @@ UE.plugins['video'] = function (){
 
         },
         /**
-         * 获取视觉上的前置单元格，默认是左边，top传入时
-         * @param cell
-         * @param top
-         */
+		 * 获取视觉上的前置单元格，默认是左边，top传入时
+		 * 
+		 * @param cell
+		 * @param top
+		 */
         getNextCell:function (cell, bottom, ignoreRange) {
             try {
                 var cellInfo = this.getCellInfo(cell),
                     nextRowIndex, nextColIndex;
                 var len = this.selectedTds.length && !ignoreRange,
                     range = this.cellsRange;
-                //末行或者末列没有后置单元格
+                // 末行或者末列没有后置单元格
                 if ((!bottom && (cellInfo.rowIndex == 0)) || (bottom && (!len ? (cellInfo.rowIndex + cellInfo.rowSpan > this.rowsNum - 1) : (range.endRowIndex == this.rowsNum - 1)))) return null;
 
                 nextRowIndex = !bottom ? ( !len ? cellInfo.rowIndex - 1 : range.beginRowIndex - 1)
@@ -18439,7 +17910,7 @@ UE.plugins['video'] = function (){
                     previewRowIndex, previewColIndex;
                 var len = this.selectedTds.length,
                     range = this.cellsRange;
-                //首行或者首列没有前置单元格
+                // 首行或者首列没有前置单元格
                 if ((!top && (!len ? !cellInfo.colIndex : !range.beginColIndex)) || (top && (!len ? (cellInfo.rowIndex > (this.colsNum - 1)) : (range.endColIndex == this.colsNum - 1)))) return null;
 
                 previewRowIndex = !top ? ( !len ? cellInfo.rowIndex : range.beginRowIndex )
@@ -18452,8 +17923,8 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 移动单元格中的内容
-         */
+		 * 移动单元格中的内容
+		 */
         moveContent:function (cellTo, cellFrom) {
             if (UETable.isEmptyBlock(cellFrom)) return;
             if (UETable.isEmptyBlock(cellTo)) {
@@ -18469,26 +17940,26 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 向右合并单元格
-         */
+		 * 向右合并单元格
+		 */
         mergeRight:function (cell) {
             var cellInfo = this.getCellInfo(cell),
                 rightColIndex = cellInfo.colIndex + cellInfo.colSpan,
                 rightCellInfo = this.indexTable[cellInfo.rowIndex][rightColIndex],
                 rightCell = this.getCell(rightCellInfo.rowIndex, rightCellInfo.cellIndex);
-            //合并
+            // 合并
             cell.colSpan = cellInfo.colSpan + rightCellInfo.colSpan;
-            //被合并的单元格不应存在宽度属性
+            // 被合并的单元格不应存在宽度属性
             cell.removeAttribute("width");
-            //移动内容
+            // 移动内容
             this.moveContent(cell, rightCell);
-            //删掉被合并的Cell
+            // 删掉被合并的Cell
             this.deleteCell(rightCell, rightCellInfo.rowIndex);
             this.update();
         },
         /**
-         * 向下合并单元格
-         */
+		 * 向下合并单元格
+		 */
         mergeDown:function (cell) {
             var cellInfo = this.getCellInfo(cell),
                 downRowIndex = cellInfo.rowIndex + cellInfo.rowSpan,
@@ -18501,10 +17972,10 @@ UE.plugins['video'] = function (){
             this.update();
         },
         /**
-         * 合并整个range中的内容
-         */
+		 * 合并整个range中的内容
+		 */
         mergeRange:function () {
-            //由于合并操作可以在任意时刻进行，所以无法通过鼠标位置等信息实时生成range，只能通过缓存实例中的cellsRange对象来访问
+            // 由于合并操作可以在任意时刻进行，所以无法通过鼠标位置等信息实时生成range，只能通过缓存实例中的cellsRange对象来访问
             var range = this.cellsRange,
                 leftTopCell = this.getCell(range.beginRowIndex, this.indexTable[range.beginRowIndex][range.beginColIndex].cellIndex);
 
@@ -18534,7 +18005,7 @@ UE.plugins['video'] = function (){
 
             if (leftTopCell.colSpan == this.colsNum && leftTopCell.rowSpan != 1) {
                 var rowIndex = leftTopCell.parentNode.rowIndex;
-                //解决IE下的表格操作问题
+                // 解决IE下的表格操作问题
                 if( this.table.deleteRow ) {
                     for (var i = rowIndex+ 1, curIndex=rowIndex+ 1, len=leftTopCell.rowSpan; i < len; i++) {
                         this.table.deleteRow(curIndex);
@@ -18550,8 +18021,8 @@ UE.plugins['video'] = function (){
             this.update();
         },
         /**
-         * 插入一行单元格
-         */
+		 * 插入一行单元格
+		 */
         insertRow:function (rowIndex, sourceCell) {
             var numCols = this.colsNum,
                 table = this.table,
@@ -18578,7 +18049,7 @@ UE.plugins['video'] = function (){
                 }
             }
 
-            //首行直接插入,无需考虑部分单元格被rowspan的情况
+            // 首行直接插入,无需考虑部分单元格被rowspan的情况
             if (rowIndex == 0 || rowIndex == this.rowsNum) {
                 for (var colIndex = 0; colIndex < numCols; colIndex++) {
                     cell = this.cloneCell(sourceCell, true);
@@ -18592,7 +18063,7 @@ UE.plugins['video'] = function (){
                     cellIndex = 0;
                 for (colIndex = 0; colIndex < numCols; colIndex++) {
                     var cellInfo = infoRow[colIndex];
-                    //如果存在某个单元格的rowspan穿过待插入行的位置，则修改该单元格的rowspan即可，无需插入单元格
+                    // 如果存在某个单元格的rowspan穿过待插入行的位置，则修改该单元格的rowspan即可，无需插入单元格
                     if (cellInfo.rowIndex < rowIndex) {
                         cell = this.getCell(cellInfo.rowIndex, cellInfo.cellIndex);
                         cell.rowSpan = cellInfo.rowSpan + 1;
@@ -18604,19 +18075,20 @@ UE.plugins['video'] = function (){
                     if(!isInsertTitle) replaceTdToTh(colIndex, cell, row);
                 }
             }
-            //框选时插入不触发contentchange，需要手动更新索引。
+            // 框选时插入不触发contentchange，需要手动更新索引。
             this.update();
             return row;
         },
         /**
-         * 删除一行单元格
-         * @param rowIndex
-         */
+		 * 删除一行单元格
+		 * 
+		 * @param rowIndex
+		 */
         deleteRow:function (rowIndex) {
             var row = this.table.rows[rowIndex],
                 infoRow = this.indexTable[rowIndex],
                 colsNum = this.colsNum,
-                count = 0;     //处理计数
+                count = 0;     // 处理计数
             for (var colIndex = 0; colIndex < colsNum;) {
                 var cellInfo = infoRow[colIndex],
                     cell = this.getCell(cellInfo.rowIndex, cellInfo.cellIndex);
@@ -18632,13 +18104,13 @@ UE.plugins['video'] = function (){
                             preMerged = this.getPreviewMergedCellsNum(nextRowIndex, colIndex) - count;
                         if (preMerged < colIndex) {
                             insertCellIndex = colIndex - preMerged - 1;
-                            //nextRow.insertCell(insertCellIndex);
+                            // nextRow.insertCell(insertCellIndex);
                             domUtils.insertAfter(nextRow.cells[insertCellIndex], clone);
                         } else {
                             if (nextRow.cells.length) nextRow.insertBefore(clone, nextRow.cells[0])
                         }
                         count += 1;
-                        //cell.parentNode.removeChild(cell);
+                        // cell.parentNode.removeChild(cell);
                     }
                 }
                 colIndex += cell.colSpan || 1;
@@ -18665,8 +18137,8 @@ UE.plugins['video'] = function (){
                 td.rowSpan--;
             });
             row.parentNode.removeChild(row);
-            //浏览器方法本身存在bug,采用自定义方法删除
-            //this.table.deleteRow(rowIndex);
+            // 浏览器方法本身存在bug,采用自定义方法删除
+            // this.table.deleteRow(rowIndex);
             this.update();
         },
         insertCol:function (colIndex, sourceCell, defaultValue) {
@@ -18700,7 +18172,7 @@ UE.plugins['video'] = function (){
                 for (; rowIndex < rowsNum; rowIndex++) {
                     tableRow = this.table.rows[rowIndex];
                     preCell = tableRow.cells[colIndex == 0 ? colIndex : tableRow.cells.length];
-                    cell = this.cloneCell(sourceCell, true); //tableRow.insertCell(colIndex == 0 ? colIndex : tableRow.cells.length);
+                    cell = this.cloneCell(sourceCell, true); // tableRow.insertCell(colIndex == 0 ? colIndex : tableRow.cells.length);
                     this.setCellContent(cell);
                     cell.setAttribute('vAlign', cell.getAttribute('vAlign'));
                     preCell && cell.setAttribute('width', preCell.getAttribute('width'));
@@ -18721,17 +18193,17 @@ UE.plugins['video'] = function (){
                         tableRow = this.table.rows[rowIndex];
                         preCell = tableRow.cells[cellInfo.cellIndex];
 
-                        cell = this.cloneCell(sourceCell, true);//tableRow.insertCell(cellInfo.cellIndex);
+                        cell = this.cloneCell(sourceCell, true);// tableRow.insertCell(cellInfo.cellIndex);
                         this.setCellContent(cell);
                         cell.setAttribute('vAlign', cell.getAttribute('vAlign'));
                         preCell && cell.setAttribute('width', preCell.getAttribute('width'));
-                        //防止IE下报错
+                        // 防止IE下报错
                         preCell ? tableRow.insertBefore(cell, preCell) : tableRow.appendChild(cell);
                     }
                     if(!isInsertTitleCol) replaceTdToTh(rowIndex, cell, tableRow);
                 }
             }
-            //框选时插入不触发contentchange，需要手动更新索引
+            // 框选时插入不触发contentchange，需要手动更新索引
             this.update();
             this.updateWidth(backWidth, defaultValue || {tdPadding:10, tdBorder:1});
         },
@@ -18841,7 +18313,7 @@ UE.plugins['video'] = function (){
                 if (cell.style.cssText) {
                     tmpCell.style.cssText = cell.style.cssText;
                 }
-                //处理th的情况
+                // 处理th的情况
                 if (cell.tagName == 'TH') {
                     var th = cell.ownerDocument.createElement('th');
                     th.appendChild(tmpCell.firstChild);
@@ -18930,11 +18402,7 @@ UE.plugins['video'] = function (){
 
 // plugins/table.cmds.js
 /**
- * Created with JetBrains PhpStorm.
- * User: taoqili
- * Date: 13-2-20
- * Time: 下午6:25
- * To change this template use File | Settings | File Templates.
+ * Created with JetBrains PhpStorm. User: taoqili Date: 13-2-20 Time: 下午6:25 To change this template use File | Settings | File Templates.
  */
 ;
 (function () {
@@ -18969,7 +18437,7 @@ UE.plugins['video'] = function (){
                     }
                     html.push('</tr>')
                 }
-                //禁止指定table-width
+                // 禁止指定table-width
                 return '<table><tbody>' + html.join('') + '</tbody></table>'
             }
 
@@ -18991,7 +18459,7 @@ UE.plugins['video'] = function (){
                 tableWidth = firstParentBlock.offsetWidth,
                 tdWidth = Math.floor(tableWidth / opt.numCols - defaultValue.tdPadding * 2 - defaultValue.tdBorder);
 
-            //todo其他属性
+            // todo其他属性
             !opt.tdvalign && (opt.tdvalign = me.options.tdvalign);
             me.execCommand("inserthtml", createTable(opt, tdWidth));
         }
@@ -19281,7 +18749,7 @@ UE.plugins['video'] = function (){
                 table = tableItems.table,
                 ut = getUETable(table),
                 cellInfo = ut.getCellInfo(cell);
-            //ut.insertRow(!ut.selectedTds.length ? cellInfo.rowIndex:ut.cellsRange.beginRowIndex,'');
+            // ut.insertRow(!ut.selectedTds.length ? cellInfo.rowIndex:ut.cellsRange.beginRowIndex,'');
             if (!ut.selectedTds.length) {
                 ut.insertRow(cellInfo.rowIndex, cell);
             } else {
@@ -19294,7 +18762,7 @@ UE.plugins['video'] = function (){
             if (table.getAttribute("interlaced") === "enabled")this.fireEvent("interlacetable", table);
         }
     };
-    //后插入行
+    // 后插入行
     UE.commands["insertrownext"] = {
         queryCommandState: function () {
             var tableItems = getTableItemsByRange(this),
@@ -19309,7 +18777,7 @@ UE.plugins['video'] = function (){
                 table = tableItems.table,
                 ut = getUETable(table),
                 cellInfo = ut.getCellInfo(cell);
-            //ut.insertRow(!ut.selectedTds.length? cellInfo.rowIndex + cellInfo.rowSpan : ut.cellsRange.endRowIndex + 1,'');
+            // ut.insertRow(!ut.selectedTds.length? cellInfo.rowIndex + cellInfo.rowSpan : ut.cellsRange.endRowIndex + 1,'');
             if (!ut.selectedTds.length) {
                 ut.insertRow(cellInfo.rowIndex + cellInfo.rowSpan, cell);
             } else {
@@ -19375,7 +18843,7 @@ UE.plugins['video'] = function (){
                 ut = getUETable(cell),
                 cellInfo = ut.getCellInfo(cell);
 
-            //ut.insertCol(!ut.selectedTds.length ? cellInfo.colIndex:ut.cellsRange.beginColIndex);
+            // ut.insertCol(!ut.selectedTds.length ? cellInfo.colIndex:ut.cellsRange.beginColIndex);
             if (!ut.selectedTds.length) {
                 ut.insertCol(cellInfo.colIndex, cell);
             } else {
@@ -19399,7 +18867,7 @@ UE.plugins['video'] = function (){
             var cell = getTableItemsByRange(this).cell,
                 ut = getUETable(cell),
                 cellInfo = ut.getCellInfo(cell);
-            //ut.insertCol(!ut.selectedTds.length ? cellInfo.colIndex + cellInfo.colSpan:ut.cellsRange.endColIndex +1);
+            // ut.insertCol(!ut.selectedTds.length ? cellInfo.colIndex + cellInfo.colSpan:ut.cellsRange.endColIndex +1);
             if (!ut.selectedTds.length) {
                 ut.insertCol(cellInfo.colIndex + cellInfo.colSpan, cell);
             } else {
@@ -19533,7 +19001,7 @@ UE.plugins['video'] = function (){
             }
         };
 
-    //平均分配各列
+    // 平均分配各列
     UE.commands['averagedistributecol'] = {
         queryCommandState: function () {
             var ut = getUETableBySelected(this);
@@ -19585,7 +19053,7 @@ UE.plugins['video'] = function (){
             }
         }
     };
-    //平均分配各行
+    // 平均分配各行
     UE.commands['averagedistributerow'] = {
         queryCommandState: function () {
             var ut = getUETableBySelected(this);
@@ -19628,7 +19096,7 @@ UE.plugins['video'] = function (){
                     }
                     rowNum = count;
                 }
-                //ie8下是混杂模式
+                // ie8下是混杂模式
                 if (browser.ie && browser.version < 9) {
                     averageHeight = Math.ceil(sumHeight / rowNum);
                 } else {
@@ -19652,7 +19120,7 @@ UE.plugins['video'] = function (){
         }
     };
 
-    //单元格对齐方式
+    // 单元格对齐方式
     UE.commands['cellalignment'] = {
         queryCommandState: function () {
             return getTableItemsByRange(this).table ? 0 : -1
@@ -19678,9 +19146,10 @@ UE.plugins['video'] = function (){
             }
         },
         /**
-         * 查询当前点击的单元格的对齐状态， 如果当前已经选择了多个单元格， 则会返回所有单元格经过统一协调过后的状态
-         * @see UE.UETable.getTableCellAlignState
-         */
+		 * 查询当前点击的单元格的对齐状态， 如果当前已经选择了多个单元格， 则会返回所有单元格经过统一协调过后的状态
+		 * 
+		 * @see UE.UETable.getTableCellAlignState
+		 */
         queryCommandValue: function (cmd) {
 
             var activeMenuCell = getTableItemsByRange( this).cell;
@@ -19695,7 +19164,7 @@ UE.plugins['video'] = function (){
 
             } else {
 
-                //获取同时选中的其他单元格
+                // 获取同时选中的其他单元格
                 var cells = UE.UETable.getUETable(activeMenuCell).selectedTds;
 
                 !cells.length && ( cells = activeMenuCell );
@@ -19706,7 +19175,7 @@ UE.plugins['video'] = function (){
 
         }
     };
-    //表格对齐方式
+    // 表格对齐方式
     UE.commands['tablealignment'] = {
         queryCommandState: function () {
             if (browser.ie && browser.version < 8) {
@@ -19725,7 +19194,7 @@ UE.plugins['video'] = function (){
         }
     };
 
-    //表格属性
+    // 表格属性
     UE.commands['edittable'] = {
         queryCommandState: function () {
             return getTableItemsByRange(this).table ? 0 : -1
@@ -19744,7 +19213,7 @@ UE.plugins['video'] = function (){
             }
         }
     };
-    //单元格属性
+    // 单元格属性
     UE.commands['edittd'] = {
         queryCommandState: function () {
             return getTableItemsByRange(this).table ? 0 : -1
@@ -19801,8 +19270,8 @@ UE.plugins['video'] = function (){
             if (!table) return -1;
             var interlaced = table.getAttribute("interlaced");
             if (cmd == "interlacetable") {
-                //TODO 待定
-                //是否需要待定，如果设置，则命令只能单次执行成功，但反射具备toggle效果；否则可以覆盖前次命令，但反射将不存在toggle效果
+                // TODO 待定
+                // 是否需要待定，如果设置，则命令只能单次执行成功，但反射具备toggle效果；否则可以覆盖前次命令，但反射将不存在toggle效果
                 return (interlaced === "enabled") ? -1 : 0;
             } else {
                 return (!interlaced || interlaced === "disabled") ? -1 : 0;
@@ -19869,30 +19338,26 @@ UE.plugins['video'] = function (){
 
 // plugins/table.action.js
 /**
- * Created with JetBrains PhpStorm.
- * User: taoqili
- * Date: 12-10-12
- * Time: 上午10:05
- * To change this template use File | Settings | File Templates.
+ * Created with JetBrains PhpStorm. User: taoqili Date: 12-10-12 Time: 上午10:05 To change this template use File | Settings | File Templates.
  */
 UE.plugins['table'] = function () {
     var me = this,
         tabTimer = null,
-        //拖动计时器
+        // 拖动计时器
         tableDragTimer = null,
-        //双击计时器
+        // 双击计时器
         tableResizeTimer = null,
-        //单元格最小宽度
+        // 单元格最小宽度
         cellMinWidth = 5,
         isInResizeBuffer = false,
-        //单元格边框大小
+        // 单元格边框大小
         cellBorderWidth = 5,
-        //鼠标偏移距离
+        // 鼠标偏移距离
         offsetOfTableCell = 10,
-        //记录在有限时间内的点击状态， 共有3个取值， 0, 1, 2。 0代表未初始化， 1代表单击了1次，2代表2次
+        // 记录在有限时间内的点击状态， 共有3个取值， 0, 1, 2。 0代表未初始化， 1代表单击了1次，2代表2次
         singleClickState = 0,
         userActionStatus = null,
-        //双击允许的时间范围
+        // 双击允许的时间范围
         dblclickTime = 360,
         UT = UE.UETable,
         getUETable = function (tdOrTable) {
@@ -19909,7 +19374,7 @@ UE.plugins['table'] = function () {
         };
 
     function showError(e) {
-//        throw e;
+// throw e;
     }
     me.ready(function(){
         var me = this;
@@ -19929,18 +19394,18 @@ UE.plugins['table'] = function () {
         }
     })
 
-    //处理拖动及框选相关方法
-    var startTd = null, //鼠标按下时的锚点td
-        currentTd = null, //当前鼠标经过时的td
-        onDrag = "", //指示当前拖动状态，其值可为"","h","v" ,分别表示未拖动状态，横向拖动状态，纵向拖动状态，用于鼠标移动过程中的判断
-        onBorder = false, //检测鼠标按下时是否处在单元格边缘位置
+    // 处理拖动及框选相关方法
+    var startTd = null, // 鼠标按下时的锚点td
+        currentTd = null, // 当前鼠标经过时的td
+        onDrag = "", // 指示当前拖动状态，其值可为"","h","v" ,分别表示未拖动状态，横向拖动状态，纵向拖动状态，用于鼠标移动过程中的判断
+        onBorder = false, // 检测鼠标按下时是否处在单元格边缘位置
         dragButton = null,
         dragOver = false,
-        dragLine = null, //模拟的拖动线
-        dragTd = null;    //发生拖动的目标td
+        dragLine = null, // 模拟的拖动线
+        dragTd = null;    // 发生拖动的目标td
 
     var mousedown = false,
-    //todo 判断混乱模式
+    // todo 判断混乱模式
         needIEHack = true;
 
     me.setOpt({
@@ -19984,10 +19449,10 @@ UE.plugins['table'] = function () {
     };
     me.ready(function () {
         utils.cssRule('table',
-            //选中的td上的样式
+            // 选中的td上的样式
             '.selectTdClass{background-color:#edf5fa !important}' +
                 'table.noBorderTable td,table.noBorderTable th,table.noBorderTable caption{border:1px dashed #ddd !important}' +
-                //插入的表格的默认样式
+                // 插入的表格的默认样式
                 'table{margin-bottom:10px;border-collapse:collapse;display:table;}' +
                 'td,th{padding: 5px 10px;border: 1px solid #DDD;}' +
                 'caption{border:1px dashed #DDD;border-bottom:0;padding:3px;text-align:center;}' +
@@ -19997,7 +19462,7 @@ UE.plugins['table'] = function () {
                 'td p{margin:0;padding:0;}', me.document);
 
         var tableCopyList, isFullCol, isFullRow;
-        //注册del/backspace事件
+        // 注册del/backspace事件
         me.addListener('keydown', function (cmd, evt) {
             var me = this;
             var keyCode = evt.keyCode || evt.which;
@@ -20113,7 +19578,7 @@ UE.plugins['table'] = function () {
             if (domUtils.findParentByTagName(rng.startContainer, 'caption', true)) {
                 var div = me.document.createElement("div");
                 div.innerHTML = html.html;
-                //trace:3729
+                // trace:3729
                 html.html = div[browser.ie9below ? 'innerText' : 'textContent'];
                 return;
             }
@@ -20174,7 +19639,7 @@ UE.plugins['table'] = function () {
                             for (var j = 0, cj; cj = ci[j++];) {
                                 if (td) {
                                     td.innerHTML = cj.innerHTML;
-                                    //todo 定制处理
+                                    // todo 定制处理
                                     cj.getAttribute('width') && td.setAttribute('width', cj.getAttribute('width'));
                                     cj.getAttribute('vAlign') && td.setAttribute('vAlign', cj.getAttribute('vAlign'));
                                     cj.getAttribute('align') && td.setAttribute('align', cj.getAttribute('align'));
@@ -20245,7 +19710,7 @@ UE.plugins['table'] = function () {
                                 domUtils.fillNode(me.document, td);
                             }
                             removeStyleSize(td, true);
-//                            domUtils.removeAttributes(td, ['style'])
+// domUtils.removeAttributes(td, ['style'])
                         });
                     });
                 }
@@ -20284,11 +19749,11 @@ UE.plugins['table'] = function () {
         });
 
 
-        //内容变化时触发索引更新
-        //todo 可否考虑标记检测，如果不涉及表格的变化就不进行索引重建和更新
+        // 内容变化时触发索引更新
+        // todo 可否考虑标记检测，如果不涉及表格的变化就不进行索引重建和更新
         me.addListener("contentchange", function () {
             var me = this;
-            //尽可能排除一些不需要更新的状况
+            // 尽可能排除一些不需要更新的状况
             hideDragLine(me);
             if (getUETableBySelected(me))return;
             var rng = me.selection.getRange();
@@ -20297,24 +19762,24 @@ UE.plugins['table'] = function () {
             utils.each(domUtils.getElementsByTagName(me.document, 'table'), function (table) {
                 if (me.fireEvent("excludetable", table) === true) return;
                 table.ueTable = new UT(table);
-                //trace:3742
-//                utils.each(domUtils.getElementsByTagName(me.document, 'td'), function (td) {
+                // trace:3742
+// utils.each(domUtils.getElementsByTagName(me.document, 'td'), function (td) {
 //
-//                    if (domUtils.isEmptyBlock(td) && td !== start) {
-//                        domUtils.fillNode(me.document, td);
-//                        if (browser.ie && browser.version == 6) {
-//                            td.innerHTML = '&nbsp;'
-//                        }
-//                    }
-//                });
-//                utils.each(domUtils.getElementsByTagName(me.document, 'th'), function (th) {
-//                    if (domUtils.isEmptyBlock(th) && th !== start) {
-//                        domUtils.fillNode(me.document, th);
-//                        if (browser.ie && browser.version == 6) {
-//                            th.innerHTML = '&nbsp;'
-//                        }
-//                    }
-//                });
+// if (domUtils.isEmptyBlock(td) && td !== start) {
+// domUtils.fillNode(me.document, td);
+// if (browser.ie && browser.version == 6) {
+// td.innerHTML = '&nbsp;'
+// }
+// }
+// });
+// utils.each(domUtils.getElementsByTagName(me.document, 'th'), function (th) {
+// if (domUtils.isEmptyBlock(th) && th !== start) {
+// domUtils.fillNode(me.document, th);
+// if (browser.ie && browser.version == 6) {
+// th.innerHTML = '&nbsp;'
+// }
+// }
+// });
                 table.onmouseover = function () {
                     me.fireEvent('tablemouseover', table);
                 };
@@ -20339,15 +19804,15 @@ UE.plugins['table'] = function () {
                         cellInfo = ut.getCellInfo(target),
                         cellsRange,
                         rng = me.selection.getRange();
-//                    if ("topLeft" == inPosition(table, mouseCoords(evt))) {
-//                        cellsRange = ut.getCellsRange(ut.table.rows[0].cells[0], ut.getLastCell());
-//                        ut.setSelected(cellsRange);
-//                        return;
-//                    }
-//                    if ("bottomRight" == inPosition(table, mouseCoords(evt))) {
+// if ("topLeft" == inPosition(table, mouseCoords(evt))) {
+// cellsRange = ut.getCellsRange(ut.table.rows[0].cells[0], ut.getLastCell());
+// ut.setSelected(cellsRange);
+// return;
+// }
+// if ("bottomRight" == inPosition(table, mouseCoords(evt))) {
 //
-//                        return;
-//                    }
+// return;
+// }
                     if (inTableSide(table, target, evt, true)) {
                         var endTdCol = ut.getCell(ut.indexTable[ut.rowsNum - 1][cellInfo.colIndex].rowIndex, ut.indexTable[ut.rowsNum - 1][cellInfo.colIndex].cellIndex);
                         if (evt.shiftKey && ut.selectedTds.length) {
@@ -20400,8 +19865,8 @@ UE.plugins['table'] = function () {
             }
         });
         /**
-         * 表格隔行变色
-         */
+		 * 表格隔行变色
+		 */
         me.addListener("interlacetable",function(type,table,classList){
             if(!table) return;
             var me = this,
@@ -20427,7 +19892,7 @@ UE.plugins['table'] = function () {
 
         me.addListener("mousedown", mouseDownEvent);
         me.addListener("mouseup", mouseUpEvent);
-        //拖动的时候触发mouseup
+        // 拖动的时候触发mouseup
         domUtils.on( me.body, 'dragstart', function( evt ){
             mouseUpEvent.call( me, 'dragstart', evt );
         });
@@ -20483,7 +19948,7 @@ UE.plugins['table'] = function () {
         });
         me.addListener("keydown", function (type, evt) {
             var me = this;
-            //处理在表格的最后一个输入tab产生新的表格
+            // 处理在表格的最后一个输入tab产生新的表格
             var keyCode = evt.keyCode || evt.which;
             if (keyCode == 8 || keyCode == 46) {
                 return;
@@ -20509,7 +19974,7 @@ UE.plugins['table'] = function () {
         me.addListener("getAllHtml", function () {
             removeSelectedClass(me.document.getElementsByTagName("td"));
         });
-        //修正全屏状态下插入的表格宽度在非全屏状态下撑开编辑器的情况
+        // 修正全屏状态下插入的表格宽度在非全屏状态下撑开编辑器的情况
         me.addListener("fullscreenchanged", function (type, fullscreen) {
             if (!fullscreen) {
                 var ratio = this.body.offsetWidth / document.body.offsetWidth,
@@ -20529,7 +19994,7 @@ UE.plugins['table'] = function () {
             }
         });
 
-        //重写execCommand命令，用于处理框选时的处理
+        // 重写execCommand命令，用于处理框选时的处理
         var oldExecCommand = me.execCommand;
         me.execCommand = function (cmd, datatat) {
 
@@ -20583,10 +20048,11 @@ UE.plugins['table'] = function () {
 
     });
     /**
-     * 删除obj的宽高style，改成属性宽高
-     * @param obj
-     * @param replaceToProperty
-     */
+	 * 删除obj的宽高style，改成属性宽高
+	 * 
+	 * @param obj
+	 * @param replaceToProperty
+	 */
     function removeStyleSize(obj, replaceToProperty) {
         removeStyle(obj, "width", true);
         removeStyle(obj, "height", true);
@@ -20638,11 +20104,11 @@ UE.plugins['table'] = function () {
 
         try {
 
-            //普通状态下鼠标移动
+            // 普通状态下鼠标移动
             var target = getParentTdOrTh(evt.target || evt.srcElement),
                 pos;
 
-            //区分用户的行为是拖动还是双击
+            // 区分用户的行为是拖动还是双击
             if( isInResizeBuffer  ) {
 
                 me.body.style.webkitUserSelect = 'none';
@@ -20651,12 +20117,12 @@ UE.plugins['table'] = function () {
                     clearTableDragTimer();
                     isInResizeBuffer = false;
                     singleClickState = 0;
-                    //drag action
+                    // drag action
                     tableBorderDrag(evt);
                 }
             }
 
-            //修改单元格大小时的鼠标移动
+            // 修改单元格大小时的鼠标移动
             if (onDrag && dragTd) {
                 singleClickState = 0;
                 me.body.style.webkitUserSelect = 'none';
@@ -20670,9 +20136,9 @@ UE.plugins['table'] = function () {
                 }
                 return;
             }
-            //当鼠标处于table上时，修改移动过程中的光标状态
+            // 当鼠标处于table上时，修改移动过程中的光标状态
             if (target) {
-                //针对使用table作为容器的组件不触发拖拽效果
+                // 针对使用table作为容器的组件不触发拖拽效果
                 if (me.fireEvent('excludetable', target) === true)
                     return;
                 pos = mouseCoords(evt);
@@ -20692,7 +20158,7 @@ UE.plugins['table'] = function () {
                         state = state.replace(/\d/, '');
                         target = getUETable(target).getPreviewCell(target, state == "v");
                     }
-                    //位于第一行的顶部或者第一列的左边时不可拖动
+                    // 位于第一行的顶部或者第一列的左边时不可拖动
                     toggleDraggableState(me, target ? !!state : false, target ? state : '', pos, target);
 
                 }
@@ -20766,16 +20232,16 @@ UE.plugins['table'] = function () {
     }
 
 
-//    function inPosition(table, pos) {
-//        var tablePos = domUtils.getXY(table),
-//            width = table.offsetWidth,
-//            height = table.offsetHeight;
-//        if (pos.x - tablePos.x < 5 && pos.y - tablePos.y < 5) {
-//            return "topLeft";
-//        } else if (tablePos.x + width - pos.x < 5 && tablePos.y + height - pos.y < 5) {
-//            return "bottomRight";
-//        }
-//    }
+// function inPosition(table, pos) {
+// var tablePos = domUtils.getXY(table),
+// width = table.offsetWidth,
+// height = table.offsetHeight;
+// if (pos.x - tablePos.x < 5 && pos.y - tablePos.y < 5) {
+// return "topLeft";
+// } else if (tablePos.x + width - pos.x < 5 && tablePos.y + height - pos.y < 5) {
+// return "bottomRight";
+// }
+// }
 
     function inTableSide(table, cell, evt, top) {
         var pos = mouseCoords(evt),
@@ -20791,10 +20257,11 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 获取拖动时允许的X轴坐标
-     * @param dragTd
-     * @param evt
-     */
+	 * 获取拖动时允许的X轴坐标
+	 * 
+	 * @param dragTd
+	 * @param evt
+	 */
     function getPermissionX(dragTd, evt) {
         var ut = getUETable(dragTd);
         if (ut) {
@@ -20812,8 +20279,8 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 获取拖动时允许的Y轴坐标
-     */
+	 * 获取拖动时允许的Y轴坐标
+	 */
     function getPermissionY(dragTd, evt) {
         try {
             var top = domUtils.getXY(dragTd).y,
@@ -20825,8 +20292,8 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 移动状态切换
-     */
+	 * 移动状态切换
+	 */
     function toggleDraggableState(editor, draggable, dir, mousePos, cell) {
         try {
             editor.body.style.cursor = dir == "h" ? "col-resize" : dir == "v" ? "row-resize" : "text";
@@ -20845,9 +20312,11 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 获取与UETable相关的resize line
-     * @param uetable UETable对象
-     */
+	 * 获取与UETable相关的resize line
+	 * 
+	 * @param uetable
+	 *            UETable对象
+	 */
     function getResizeLineByUETable() {
 
         var lineId = '_UETableResizeLine',
@@ -20868,7 +20337,7 @@ UE.plugins['table'] = function () {
                 display: 'none'
             };
 
-            //切换状态
+            // 切换状态
             line.onmouseout = function(){
                 this.style.display = 'none';
             };
@@ -20884,8 +20353,8 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 更新resize-line
-     */
+	 * 更新resize-line
+	 */
     function updateResizeLine( cell, uetable ) {
 
         var line = getResizeLineByUETable.call( this ),
@@ -20902,8 +20371,8 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 显示resize-line
-     */
+	 * 显示resize-line
+	 */
     function showResizeLine( cell ) {
 
         var uetable = getUETable( cell );
@@ -20913,10 +20382,11 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 获取鼠标与当前单元格的相对位置
-     * @param ele
-     * @param mousePos
-     */
+	 * 获取鼠标与当前单元格的相对位置
+	 * 
+	 * @param ele
+	 * @param mousePos
+	 */
     function getRelation(ele, mousePos) {
         var elePos = domUtils.getXY(ele);
 
@@ -20950,7 +20420,7 @@ UE.plugins['table'] = function () {
             y: evt.clientY
         };
 
-        //右键菜单单独处理
+        // 右键菜单单独处理
         if (evt.button == 2) {
             var ut = getUETableBySelected(me),
                 flag = false;
@@ -20979,13 +20449,13 @@ UE.plugins['table'] = function () {
 
     }
 
-    //清除表格的计时器
+    // 清除表格的计时器
     function clearTableTimer() {
         tabTimer && clearTimeout( tabTimer );
         tabTimer = null;
     }
 
-    //双击收缩
+    // 双击收缩
     function tableDbclickHandler(evt) {
         singleClickState = 0;
         evt = evt || me.window.event;
@@ -21034,7 +20504,7 @@ UE.plugins['table'] = function () {
 
                     window.setTimeout( function(){
 
-                        //是否允许改变
+                        // 是否允许改变
                         var changeable = true;
 
                         utils.each( cells, function( cell, index ){
@@ -21061,13 +20531,13 @@ UE.plugins['table'] = function () {
 
                     }, 0 );
 
-//                    minWidth -= cellMinWidth;
+// minWidth -= cellMinWidth;
 //
-//                    table.removeAttribute("width");
-//                    utils.each(cells, function (cell) {
-//                        cell.style.width = "";
-//                        cell.width -= minWidth;
-//                    });
+// table.removeAttribute("width");
+// utils.each(cells, function (cell) {
+// cell.style.width = "";
+// cell.width -= minWidth;
+// });
 
                 }
             }
@@ -21077,8 +20547,8 @@ UE.plugins['table'] = function () {
     function tableClickHander( evt ) {
 
         removeSelectedClass(domUtils.getElementsByTagName(me.body, "td th"));
-        //trace:3113
-        //选中单元格，点击table外部，不会清掉table上挂的ueTable,会引起getUETableBySelected方法返回值
+        // trace:3113
+        // 选中单元格，点击table外部，不会清掉table上挂的ueTable,会引起getUETableBySelected方法返回值
         utils.each(me.document.getElementsByTagName('table'), function (t) {
             t.ueTable = null;
         });
@@ -21088,20 +20558,20 @@ UE.plugins['table'] = function () {
         ut = getUETable(table);
         ut && ut.clearSelected();
 
-        //判断当前鼠标状态
+        // 判断当前鼠标状态
         if (!onBorder) {
             me.document.body.style.webkitUserSelect = '';
             mousedown = true;
             me.addListener('mouseover', mouseOverEvent);
         } else {
-            //边框上的动作处理
+            // 边框上的动作处理
             borderActionHandler( evt );
         }
 
 
     }
 
-    //处理表格边框上的动作, 这里做延时处理，避免两种动作互相影响
+    // 处理表格边框上的动作, 这里做延时处理，避免两种动作互相影响
     function borderActionHandler( evt ) {
 
         if ( browser.ie ) {
@@ -21110,7 +20580,7 @@ UE.plugins['table'] = function () {
 
         clearTableDragTimer();
 
-        //是否正在等待resize的缓冲中
+        // 是否正在等待resize的缓冲中
         isInResizeBuffer = true;
 
         tableDragTimer = setTimeout(function(){
@@ -21161,7 +20631,7 @@ UE.plugins['table'] = function () {
 
     }
 
-    //边框拖动
+    // 边框拖动
     function tableBorderDrag( evt ) {
 
         isInResizeBuffer = false;
@@ -21178,7 +20648,7 @@ UE.plugins['table'] = function () {
         me.fireEvent('saveScene');
         showDragLineAt(state, startTd);
         mousedown = true;
-        //拖动开始
+        // 拖动开始
         onDrag = state;
         dragTd = startTd;
     }
@@ -21217,7 +20687,7 @@ UE.plugins['table'] = function () {
 
         if (evt.button == 2)return;
         var me = this;
-        //清除表格上原生跨选问题
+        // 清除表格上原生跨选问题
         var range = me.selection.getRange(),
             start = domUtils.findParentByTagName(range.startContainer, 'table', true),
             end = domUtils.findParentByTagName(range.endContainer, 'table', true);
@@ -21235,7 +20705,7 @@ UE.plugins['table'] = function () {
         }
         mousedown = false;
         me.document.body.style.webkitUserSelect = '';
-        //拖拽状态下的mouseUP
+        // 拖拽状态下的mouseUP
         if ( onDrag && dragTd ) {
 
             me.selection.getNative()[browser.ie9below ? 'empty' : 'removeAllRanges']();
@@ -21265,7 +20735,7 @@ UE.plugins['table'] = function () {
                 return;
             }
         }
-        //正常状态下的mouseup
+        // 正常状态下的mouseup
         if (!startTd) {
             var target = domUtils.findParentByTagName(evt.target || evt.srcElement, "td", true);
             if (!target) target = domUtils.findParentByTagName(evt.target || evt.srcElement, "th", true);
@@ -21289,7 +20759,7 @@ UE.plugins['table'] = function () {
                 if (!range.collapsed) {
                     var start = domUtils.findParentByTagName(range.startContainer, ['td', 'th'], true),
                         end = domUtils.findParentByTagName(range.endContainer, ['td', 'th'], true);
-                    //在table里边的不能清除
+                    // 在table里边的不能清除
                     if (start && !end || !start && end || start && end && start !== end) {
                         range.setCursor(false, true);
                     }
@@ -21310,7 +20780,7 @@ UE.plugins['table'] = function () {
         var me = this,
             tar = evt.target || evt.srcElement;
         currentTd = domUtils.findParentByTagName(tar, "td", true) || domUtils.findParentByTagName(tar, "th", true);
-        //需要判断两个TD是否位于同一个表格内
+        // 需要判断两个TD是否位于同一个表格内
         if (startTd && currentTd &&
             ((startTd.tagName == "TD" && currentTd.tagName == "TD") || (startTd.tagName == "TH" && currentTd.tagName == "TH")) &&
             domUtils.findParentByTagName(startTd, 'table') == domUtils.findParentByTagName(currentTd, 'table')) {
@@ -21347,14 +20817,14 @@ UE.plugins['table'] = function () {
         var ut = getUETable(cell);
         if (ut) {
 
-            //根据当前移动的边框获取相关的单元格
+            // 根据当前移动的边框获取相关的单元格
             var table = ut.table,
                 cells = getCellsByMoveBorder( cell, table );
 
             table.style.width = "";
             table.removeAttribute("width");
 
-            //修正改变量
+            // 修正改变量
             changeValue = correctChangeValue( changeValue, cell, cells );
 
             if (cell.nextSibling) {
@@ -21388,7 +20858,7 @@ UE.plugins['table'] = function () {
         var ut = getUETable(td);
         if (ut) {
             var cells = ut.getSameEndPosCells(td, "y"),
-            //备份需要连带变化的td的原始高度，否则后期无法获取正确的值
+            // 备份需要连带变化的td的原始高度，否则后期无法获取正确的值
                 backHeight = cells[0] ? cells[0].offsetHeight : 0;
             for (var i = 0, cell; cell = cells[i++];) {
                 setCellHeight(cell, changeValue, backHeight);
@@ -21398,9 +20868,10 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 获取调整单元格大小的相关单元格
-     * @isContainMergeCell 返回的结果中是否包含发生合并后的单元格
-     */
+	 * 获取调整单元格大小的相关单元格
+	 * 
+	 * @isContainMergeCell 返回的结果中是否包含发生合并后的单元格
+	 */
     function getCellsByMoveBorder( cell, table, isContainMergeCell ) {
 
         if( !table ) {
@@ -21411,14 +20882,14 @@ UE.plugins['table'] = function () {
             return null;
         }
 
-        //获取到该单元格所在行的序列号
+        // 获取到该单元格所在行的序列号
         var index = domUtils.getNodeIndex( cell ),
             temp = cell,
             rows = table.rows,
             colIndex = 0;
 
         while( temp ) {
-            //获取到当前单元格在未发生单元格合并时的序列
+            // 获取到当前单元格在未发生单元格合并时的序列
             if( temp.nodeType === 1 ) {
                 colIndex += (temp.colSpan || 1);
             }
@@ -21427,7 +20898,7 @@ UE.plugins['table'] = function () {
 
         temp = null;
 
-        //记录想关的单元格
+        // 记录想关的单元格
         var borderCells = [];
 
         utils.each(rows, function( tabRow ){
@@ -21470,8 +20941,8 @@ UE.plugins['table'] = function () {
 
 
     /**
-     * 通过给定的单元格集合获取最小的单元格width
-     */
+	 * 通过给定的单元格集合获取最小的单元格width
+	 */
     function getMinWidthByTableCells( cells ) {
 
         var minWidth = Number.MAX_VALUE;
@@ -21488,7 +20959,7 @@ UE.plugins['table'] = function () {
 
     function correctChangeValue( changeValue, relatedCell, cells ) {
 
-        //为单元格的paading预留空间
+        // 为单元格的paading预留空间
         changeValue -= getTabcellSpace();
 
         if( changeValue < 0 ) {
@@ -21497,17 +20968,17 @@ UE.plugins['table'] = function () {
 
         changeValue -= getTableCellWidth( relatedCell );
 
-        //确定方向
+        // 确定方向
         var direction = changeValue < 0 ? 'left':'right';
 
         changeValue = Math.abs(changeValue);
 
-        //只关心非最后一个单元格就可以
+        // 只关心非最后一个单元格就可以
         utils.each( cells, function( cellGroup ){
 
             var curCell = cellGroup[direction];
 
-            //为单元格保留最小空间
+            // 为单元格保留最小空间
             if( curCell ) {
                 changeValue = Math.min( changeValue, getTableCellWidth( curCell )-cellMinWidth );
             }
@@ -21516,7 +20987,7 @@ UE.plugins['table'] = function () {
         } );
 
 
-        //修正越界
+        // 修正越界
         changeValue = changeValue < 0 ? 0 : changeValue;
 
         return direction === 'left' ? -changeValue : changeValue;
@@ -21526,11 +20997,11 @@ UE.plugins['table'] = function () {
     function getTableCellWidth( cell ) {
 
         var width = 0,
-            //偏移纠正量
+            // 偏移纠正量
             offset = 0,
             width = cell.offsetWidth - getTabcellSpace();
 
-        //最后一个节点纠正一下
+        // 最后一个节点纠正一下
         if( !cell.nextSibling ) {
 
             width -= getTableCellOffset( cell );
@@ -21549,8 +21020,8 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 获取单元格所在表格的最末单元格的偏移量
-     */
+	 * 获取单元格所在表格的最末单元格的偏移量
+	 */
     function getTableCellOffset( cell ) {
 
         tab = domUtils.findParentByTagName( cell, "table", false);
@@ -21561,7 +21032,7 @@ UE.plugins['table'] = function () {
 
             if( prev ) {
 
-                //最后一个单元格和前一个单元格的width diff结果 如果恰好为一个border width， 则条件成立
+                // 最后一个单元格和前一个单元格的width diff结果 如果恰好为一个border width， 则条件成立
                 tab.offsetVal = cell.offsetWidth - prev.offsetWidth === UT.borderWidth ? UT.borderWidth : 0;
 
             } else {
@@ -21644,10 +21115,11 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 依据state（v|h）在cell位置显示横线
-     * @param state
-     * @param cell
-     */
+	 * 依据state（v|h）在cell位置显示横线
+	 * 
+	 * @param state
+	 * @param cell
+	 */
     function showDragLineAt(state, cell) {
         if (!cell) return;
         var table = domUtils.findParentByTagName(cell, "table"),
@@ -21663,7 +21135,7 @@ UE.plugins['table'] = function () {
                 break;
             case "v":
                 css = 'width:' + width + 'px;left:' + tablePos.x + 'px;top:' + (cellPos.y + cell.offsetHeight );
-                //必须加上border:0和color:blue，否则低版ie不支持背景色显示
+                // 必须加上border:0和color:blue，否则低版ie不支持背景色显示
                 dragLine.style.cssText = css + 'px;overflow:hidden;position: absolute;display:block;background-color:blue;height:1px;border:0;color:blue;opacity:.2;filter:alpha(opacity=20)';
                 break;
             default:
@@ -21671,10 +21143,11 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 当表格边框颜色为白色时设置为虚线,true为添加虚线
-     * @param editor
-     * @param flag
-     */
+	 * 当表格边框颜色为白色时设置为虚线,true为添加虚线
+	 * 
+	 * @param editor
+	 * @param flag
+	 */
     function switchBorderColor(editor, flag) {
         var tableArr = domUtils.getElementsByTagName(editor.body, "table"), color;
         for (var i = 0, node; node = tableArr[i++];) {
@@ -21698,8 +21171,8 @@ UE.plugins['table'] = function () {
     }
 
     /**
-     * 获取当前拖动的单元格
-     */
+	 * 获取当前拖动的单元格
+	 */
     function getTargetTd(editor, evt) {
 
         var target = domUtils.findParentByTagName(evt.target || evt.srcElement, ["td", "th"], true),
@@ -21711,7 +21184,7 @@ UE.plugins['table'] = function () {
 
         dir = getRelation( target, mouseCoords( evt ) );
 
-        //如果有前一个节点， 需要做一个修正， 否则可能会得到一个错误的td
+        // 如果有前一个节点， 需要做一个修正， 否则可能会得到一个错误的td
 
         if( !target ) {
             return null;
@@ -21738,7 +21211,7 @@ UE.plugins['table'] = function () {
         }
 
 
-        //排除了非td内部以及用于代码高亮部分的td
+        // 排除了非td内部以及用于代码高亮部分的td
         return target && !(editor.fireEvent("excludetable", target) === true) ? target : null;
     }
 
@@ -21747,11 +21220,7 @@ UE.plugins['table'] = function () {
 
 // plugins/table.sort.js
 /**
- * Created with JetBrains PhpStorm.
- * User: Jinqn
- * Date: 13-10-12
- * Time: 上午10:20
- * To change this template use File | Settings | File Templates.
+ * Created with JetBrains PhpStorm. User: Jinqn Date: 13-10-12 Time: 上午10:20 To change this template use File | Settings | File Templates.
  */
 
 UE.UETable.prototype.sortTable = function (sortByCellIndex, compareFn) {
@@ -21804,10 +21273,10 @@ UE.UETable.prototype.sortTable = function (sortByCellIndex, compareFn) {
         }
     };
 
-    //对表格设置排序的标记data-sort-type
+    // 对表格设置排序的标记data-sort-type
     table.setAttribute('data-sort-type', compareFn && typeof compareFn === "string" && Fn[compareFn] ? compareFn:'');
 
-    //th不参与排序
+    // th不参与排序
     flag && trArray.splice(0, 1);
     trArray = utils.sort(trArray,function (tr1, tr2) {
         var result;
@@ -21846,13 +21315,13 @@ UE.plugins['tablesort'] = function () {
 
 
     me.ready(function () {
-        //添加表格可排序的样式
+        // 添加表格可排序的样式
         utils.cssRule('tablesort',
             'table.sortEnabled tr.firstRow th,table.sortEnabled tr.firstRow td{padding-right:20px;background-repeat: no-repeat;background-position: center right;' +
                 '   background-image:url(' + me.options.themePath + me.options.theme + '/images/sortable.png);}',
             me.document);
 
-        //做单元格合并操作时,清除可排序标识
+        // 做单元格合并操作时,清除可排序标识
         me.addListener("afterexeccommand", function (type, cmd) {
             if( cmd == 'mergeright' || cmd == 'mergedown' || cmd == 'mergecells') {
                 this.execCommand('disablesort');
@@ -21862,7 +21331,7 @@ UE.plugins['tablesort'] = function () {
 
 
 
-    //表格排序
+    // 表格排序
     UE.commands['sorttable'] = {
         queryCommandState: function () {
             var me = this,
@@ -21891,7 +21360,7 @@ UE.plugins['tablesort'] = function () {
         }
     };
 
-    //设置表格可排序,清除表格可排序
+    // 设置表格可排序,清除表格可排序
     UE.commands["enablesort"] = UE.commands["disablesort"] = {
         queryCommandState: function (cmd) {
             var table = getTableItemsByRange(this).table;
@@ -21914,12 +21383,13 @@ UE.plugins['tablesort'] = function () {
 
 
 // plugins/contextmenu.js
-///import core
-///commands 右键菜单
-///commandsName  ContextMenu
-///commandsTitle  右键菜单
+// /import core
+// /commands 右键菜单
+// /commandsName ContextMenu
+// /commandsTitle 右键菜单
 /**
  * 右键菜单
+ * 
  * @function
  * @name baidu.editor.plugins.contextmenu
  * @author zhanyi
@@ -22338,7 +21808,7 @@ UE.plugins['contextmenu'] = function () {
                             }
                         }
                         contextItems.push( {
-                            //todo 修正成自动获取方式
+                            // todo 修正成自动获取方式
                             'label':getLabel(),
                             className:'edui-for-' + item.icon,
                             'subMenu':{
@@ -22349,7 +21819,7 @@ UE.plugins['contextmenu'] = function () {
                     }
 
                 } else {
-                    //有可能commmand没有加载右键不能出来，或者没有command也想能展示出来添加query方法
+                    // 有可能commmand没有加载右键不能出来，或者没有command也想能展示出来添加query方法
                     if ( (me.commands[item.cmdName] || UE.commands[item.cmdName] || item.query) &&
                             (item.query ? item.query.call(me) : me.queryCommandState( item.cmdName )) > -1 ) {
 
@@ -22413,12 +21883,13 @@ UE.plugins['contextmenu'] = function () {
 
 
 // plugins/shortcutmenu.js
-///import core
-///commands       弹出菜单
-// commandsName  popupmenu
-///commandsTitle  弹出菜单
+// /import core
+// /commands 弹出菜单
+// commandsName popupmenu
+// /commandsTitle 弹出菜单
 /**
  * 弹出菜单
+ * 
  * @function
  * @name baidu.editor.plugins.popupmenu
  * @author xuheng
@@ -22497,6 +21968,7 @@ UE.plugins['shortcutmenu'] = function () {
 // plugins/basestyle.js
 /**
  * B、I、sub、super命令支持
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -22504,77 +21976,57 @@ UE.plugins['shortcutmenu'] = function () {
 UE.plugins['basestyle'] = function(){
 
     /**
-     * 字体加粗
-     * @command bold
-     * @param { String } cmd 命令字符串
-     * @remind 对已加粗的文本内容执行该命令， 将取消加粗
-     * @method execCommand
-     * @example
-     * ```javascript
-     * //editor是编辑器实例
-     * //对当前选中的文本内容执行加粗操作
-     * //第一次执行， 文本内容加粗
-     * editor.execCommand( 'bold' );
-     *
-     * //第二次执行， 文本内容取消加粗
-     * editor.execCommand( 'bold' );
-     * ```
-     */
+	 * 字体加粗
+	 * 
+	 * @command bold
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @remind 对已加粗的文本内容执行该命令， 将取消加粗
+	 * @method execCommand
+	 * @example ```javascript //editor是编辑器实例 //对当前选中的文本内容执行加粗操作 //第一次执行， 文本内容加粗 editor.execCommand( 'bold' );
+	 * 
+	 * //第二次执行， 文本内容取消加粗 editor.execCommand( 'bold' ); ```
+	 */
 
 
     /**
-     * 字体倾斜
-     * @command italic
-     * @method execCommand
-     * @param { String } cmd 命令字符串
-     * @remind 对已倾斜的文本内容执行该命令， 将取消倾斜
-     * @example
-     * ```javascript
-     * //editor是编辑器实例
-     * //对当前选中的文本内容执行斜体操作
-     * //第一次操作， 文本内容将变成斜体
-     * editor.execCommand( 'italic' );
-     *
-     * //再次对同一文本内容执行， 则文本内容将恢复正常
-     * editor.execCommand( 'italic' );
-     * ```
-     */
+	 * 字体倾斜
+	 * 
+	 * @command italic
+	 * @method execCommand
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @remind 对已倾斜的文本内容执行该命令， 将取消倾斜
+	 * @example ```javascript //editor是编辑器实例 //对当前选中的文本内容执行斜体操作 //第一次操作， 文本内容将变成斜体 editor.execCommand( 'italic' );
+	 * 
+	 * //再次对同一文本内容执行， 则文本内容将恢复正常 editor.execCommand( 'italic' ); ```
+	 */
 
     /**
-     * 下标文本，与“superscript”命令互斥
-     * @command subscript
-     * @method execCommand
-     * @remind  把选中的文本内容切换成下标文本， 如果当前选中的文本已经是下标， 则该操作会把文本内容还原成正常文本
-     * @param { String } cmd 命令字符串
-     * @example
-     * ```javascript
-     * //editor是编辑器实例
-     * //对当前选中的文本内容执行下标操作
-     * //第一次操作， 文本内容将变成下标文本
-     * editor.execCommand( 'subscript' );
-     *
-     * //再次对同一文本内容执行， 则文本内容将恢复正常
-     * editor.execCommand( 'subscript' );
-     * ```
-     */
+	 * 下标文本，与“superscript”命令互斥
+	 * 
+	 * @command subscript
+	 * @method execCommand
+	 * @remind 把选中的文本内容切换成下标文本， 如果当前选中的文本已经是下标， 则该操作会把文本内容还原成正常文本
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @example ```javascript //editor是编辑器实例 //对当前选中的文本内容执行下标操作 //第一次操作， 文本内容将变成下标文本 editor.execCommand( 'subscript' );
+	 * 
+	 * //再次对同一文本内容执行， 则文本内容将恢复正常 editor.execCommand( 'subscript' ); ```
+	 */
 
     /**
-     * 上标文本，与“subscript”命令互斥
-     * @command superscript
-     * @method execCommand
-     * @remind 把选中的文本内容切换成上标文本， 如果当前选中的文本已经是上标， 则该操作会把文本内容还原成正常文本
-     * @param { String } cmd 命令字符串
-     * @example
-     * ```javascript
-     * //editor是编辑器实例
-     * //对当前选中的文本内容执行上标操作
-     * //第一次操作， 文本内容将变成上标文本
-     * editor.execCommand( 'superscript' );
-     *
-     * //再次对同一文本内容执行， 则文本内容将恢复正常
-     * editor.execCommand( 'superscript' );
-     * ```
-     */
+	 * 上标文本，与“subscript”命令互斥
+	 * 
+	 * @command superscript
+	 * @method execCommand
+	 * @remind 把选中的文本内容切换成上标文本， 如果当前选中的文本已经是上标， 则该操作会把文本内容还原成正常文本
+	 * @param {
+	 *            String } cmd 命令字符串
+	 * @example ```javascript //editor是编辑器实例 //对当前选中的文本内容执行上标操作 //第一次操作， 文本内容将变成上标文本 editor.execCommand( 'superscript' );
+	 * 
+	 * //再次对同一文本内容执行， 则文本内容将恢复正常 editor.execCommand( 'superscript' ); ```
+	 */
     var basestyles = {
             'bold':['strong','b'],
             'italic':['em','i'],
@@ -22585,11 +22037,11 @@ UE.plugins['basestyle'] = function(){
             return domUtils.filterNodeList(editor.selection.getStartElementPath(),tagNames);
         },
         me = this;
-    //添加快捷键
+    // 添加快捷键
     me.addshortcutkey({
-        "Bold" : "ctrl+66",//^B
-        "Italic" : "ctrl+73", //^I
-        "Underline" : "ctrl+85"//^U
+        "Bold" : "ctrl+66",// ^B
+        "Italic" : "ctrl+73", // ^I
+        "Underline" : "ctrl+85"// ^U
     });
     me.addInputRule(function(root){
         utils.each(root.getNodesByTagName('b i'),function(node){
@@ -22648,6 +22100,7 @@ UE.plugins['basestyle'] = function(){
 // plugins/elementpath.js
 /**
  * 选取路径命令
+ * 
  * @file
  */
 UE.plugins['elementpath'] = function(){
@@ -22666,7 +22119,7 @@ UE.plugins['elementpath'] = function(){
             range.selectNode(start).select();
         },
         queryCommandValue : function() {
-            //产生一个副本，不能修改原来的startElementPath;
+            // 产生一个副本，不能修改原来的startElementPath;
             var parents = [].concat(this.selection.getStartElementPath()).reverse(),
                 names = [];
             tagNames = parents;
@@ -22694,22 +22147,20 @@ UE.plugins['elementpath'] = function(){
 // plugins/formatmatch.js
 /**
  * 格式刷，只格式inline的
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 格式刷
+ * 
  * @command formatmatch
  * @method execCommand
  * @remind 该操作不能复制段落格式
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * //editor是编辑器实例
- * //获取格式刷
- * editor.execCommand( 'formatmatch' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript //editor是编辑器实例 //获取格式刷 editor.execCommand( 'formatmatch' ); ```
  */
 UE.plugins['formatmatch'] = function(){
 
@@ -22742,7 +22193,7 @@ UE.plugins['formatmatch'] = function(){
         var range = me.selection.getRange(),
             imgT = target || range.getClosedNode();
         if(img && imgT && imgT.tagName == 'IMG'){
-            //trace:964
+            // trace:964
 
             imgT.style.cssText += ';float:' + (img.style.cssFloat || img.style.styleFloat ||'none') + ';display:' + (img.style.display||'inline');
 
@@ -22757,14 +22208,14 @@ UE.plugins['formatmatch'] = function(){
 
                 }
                 me.__hasEnterExecCommand = true;
-                //不能把block上的属性干掉
-                //trace:1553
+                // 不能把block上的属性干掉
+                // trace:1553
                 var removeFormatAttributes = me.options.removeFormatAttributes;
                 me.options.removeFormatAttributes = '';
                 me.execCommand('removeformat');
                 me.options.removeFormatAttributes = removeFormatAttributes;
                 me.__hasEnterExecCommand = false;
-                //trace:969
+                // trace:969
                 range = me.selection.getRange();
                 if(list.length){
                     addFormat(range);
@@ -22807,7 +22258,7 @@ UE.plugins['formatmatch'] = function(){
                list = domUtils.findParents(start,true,function(node){
                    return !domUtils.isBlockElm(node) && node.nodeType == 1;
                });
-               //a不能加入格式刷, 并且克隆节点
+               // a不能加入格式刷, 并且克隆节点
                for(var i=0,ci;ci=list[i];i++){
                    if(ci.tagName == 'A'){
                        list.splice(i,1);
@@ -22832,11 +22283,11 @@ UE.plugins['formatmatch'] = function(){
 
 
 // plugins/searchreplace.js
-///import core
-///commands 查找替换
-///commandsName  SearchReplace
-///commandsTitle  查询替换
-///commandsDialog  dialogs\searchreplace
+// /import core
+// /commands 查找替换
+// /commandsName SearchReplace
+// /commandsTitle 查询替换
+// /commandsDialog dialogs\searchreplace
 /**
  * @description 查找替换
  * @author zhanyi
@@ -22930,7 +22381,7 @@ UE.plugin.register('searchreplace',function(){
 
         rng.shrinkBoundary(true);
 
-        //判断是不是第一次选中
+        // 判断是不是第一次选中
         if(!rng.collapsed){
             rng.select();
             var rngText = me.selection.getText();
@@ -23029,19 +22480,19 @@ UE.plugin.register('searchreplace',function(){
 // plugins/customstyle.js
 /**
  * 自定义样式
+ * 
  * @file
  * @since 1.2.6.1
  */
 
 /**
  * 根据config配置文件里“customstyle”选项的值对匹配的标签执行样式替换。
+ * 
  * @command customstyle
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * editor.execCommand( 'customstyle' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript editor.execCommand( 'customstyle' ); ```
  */
 UE.plugins['customstyle'] = function() {
     var me = this;
@@ -23068,7 +22519,7 @@ UE.plugins['customstyle'] = function() {
                 range = this.selection.getRange();
                 bk = range.createBookmark();
                 if (range.collapsed) {
-                    //trace:1732 删掉自定义标签，要有p来回填站位
+                    // trace:1732 删掉自定义标签，要有p来回填站位
                     if(dtd.$block[node.tagName]){
                         var fillNode = me.document.createElement('p');
                         domUtils.moveChild(node, fillNode);
@@ -23150,7 +22601,7 @@ UE.plugins['customstyle'] = function() {
             return  parent ? parent.getAttribute('label') : '';
         }
     };
-    //当去掉customstyle是，如果是块元素，用p代替
+    // 当去掉customstyle是，如果是块元素，用p代替
     me.addListener('keyup', function(type, evt) {
         var keyCode = evt.keyCode || evt.which;
 
@@ -23175,10 +22626,10 @@ UE.plugins['customstyle'] = function() {
 };
 
 // plugins/catchremoteimage.js
-///import core
-///commands 远程图片抓取
-///commandsName  catchRemoteImage,catchremoteimageenable
-///commandsTitle  远程图片抓取
+// /import core
+// /commands 远程图片抓取
+// /commandsName catchRemoteImage,catchremoteimageenable
+// /commandsTitle 远程图片抓取
 /**
  * 远程图片抓取,当开启本插件时所有不符合本地域名的图片都将被抓取成为本地服务器上的图片
  */
@@ -23231,7 +22682,7 @@ UE.plugins['catchremoteimage'] = function () {
 
         if (remoteImages.length) {
             catchremoteimage(remoteImages, {
-                //成功抓取
+                // 成功抓取
                 success: function (r) {
                     try {
                         var info = r.state !== undefined ? r:eval("(" + r.responseText + ")");
@@ -23245,7 +22696,7 @@ UE.plugins['catchremoteimage'] = function () {
                     for (i = 0; ci = imgs[i++];) {
                         oldSrc = ci.getAttribute("_src") || ci.src || "";
                         for (j = 0; cj = list[j++];) {
-                            if (oldSrc == cj.source && cj.state == "SUCCESS") {  //抓取失败时不做替换处理
+                            if (oldSrc == cj.source && cj.state == "SUCCESS") {  // 抓取失败时不做替换处理
                                 newSrc = catcherUrlPrefix + cj.url;
                                 domUtils.setAttributes(ci, {
                                     "src": newSrc,
@@ -23257,7 +22708,7 @@ UE.plugins['catchremoteimage'] = function () {
                     }
                     me.fireEvent('catchremotesuccess')
                 },
-                //回调失败，本次请求超时
+                // 回调失败，本次请求超时
                 error: function () {
                     me.fireEvent("catchremoteerror");
                 }
@@ -23271,7 +22722,7 @@ UE.plugins['catchremoteimage'] = function () {
                 opt = {
                     'method': 'POST',
                     'dataType': isJsonp ? 'jsonp':'',
-                    'timeout': 60000, //单位：毫秒，回调请求超时设置。目标用户如果网速不是很快的话此处建议设置一个较大的数值
+                    'timeout': 60000, // 单位：毫秒，回调请求超时设置。目标用户如果网速不是很快的话此处建议设置一个较大的数值
                     'onsuccess': callbacks["success"],
                     'onerror': callbacks["error"]
                 };
@@ -23285,6 +22736,7 @@ UE.plugins['catchremoteimage'] = function () {
 // plugins/snapscreen.js
 /**
  * 截屏插件，为UEditor提供插入支持
+ * 
  * @file
  * @since 1.4.2
  */
@@ -23319,15 +22771,14 @@ UE.plugin.register('snapscreen', function (){
     return {
         commands:{
             /**
-             * 字体背景颜色
-             * @command snapscreen
-             * @method execCommand
-             * @param { String } cmd 命令字符串
-             * @example
-             * ```javascript
-             * editor.execCommand('snapscreen');
-             * ```
-             */
+			 * 字体背景颜色
+			 * 
+			 * @command snapscreen
+			 * @method execCommand
+			 * @param {
+			 *            String } cmd 命令字符串
+			 * @example ```javascript editor.execCommand('snapscreen'); ```
+			 */
             'snapscreen':{
                 execCommand:function (cmd) {
                     var url, local, res;
@@ -23389,6 +22840,7 @@ UE.plugin.register('snapscreen', function (){
 // plugins/insertparagraph.js
 /**
  * 插入段落
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -23396,14 +22848,12 @@ UE.plugin.register('snapscreen', function (){
 
 /**
  * 插入段落
+ * 
  * @command insertparagraph
  * @method execCommand
- * @param { String } cmd 命令字符串
- * @example
- * ```javascript
- * //editor是编辑器实例
- * editor.execCommand( 'insertparagraph' );
- * ```
+ * @param {
+ *            String } cmd 命令字符串
+ * @example ```javascript //editor是编辑器实例 editor.execCommand( 'insertparagraph' ); ```
  */
 
 UE.commands['insertparagraph'] = {
@@ -23436,6 +22886,7 @@ UE.commands['insertparagraph'] = {
 // plugins/webapp.js
 /**
  * 百度应用
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -23443,69 +22894,63 @@ UE.commands['insertparagraph'] = {
 
 /**
  * 插入百度应用
+ * 
  * @command webapp
  * @method execCommand
  * @remind 需要百度APPKey
  * @remind 百度应用主页： <a href="http://app.baidu.com/" target="_blank">http://app.baidu.com/</a>
- * @param { Object } appOptions 应用所需的参数项， 支持的key有： title=>应用标题， width=>应用容器宽度，
- * height=>应用容器高度，logo=>应用logo，url=>应用地址
- * @example
- * ```javascript
- * //editor是编辑器实例
- * //在编辑器里插入一个“植物大战僵尸”的APP
- * editor.execCommand( 'webapp' , {
- *     title: '植物大战僵尸',
- *     width: 560,
- *     height: 465,
- *     logo: '应用展示的图片',
- *     url: '百度应用的地址'
- * } );
- * ```
+ * @param {
+ *            Object } appOptions 应用所需的参数项， 支持的key有： title=>应用标题， width=>应用容器宽度， height=>应用容器高度，logo=>应用logo，url=>应用地址
+ * @example ```javascript //editor是编辑器实例 //在编辑器里插入一个“植物大战僵尸”的APP editor.execCommand( 'webapp' , { title: '植物大战僵尸', width: 560, height: 465, logo: '应用展示的图片', url: '百度应用的地址' } ); ```
  */
 
-//UE.plugins['webapp'] = function () {
-//    var me = this;
-//    function createInsertStr( obj, toIframe, addParagraph ) {
-//        return !toIframe ?
-//                (addParagraph ? '<p>' : '') + '<img title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"' +
-//                        ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif" style="background:url(' + obj.logo+') no-repeat center center; border:1px solid gray;" class="edui-faked-webapp" _url="' + obj.url + '" />' +
-//                        (addParagraph ? '</p>' : '')
-//                :
-//                '<iframe class="edui-faked-webapp" title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"  scrolling="no" frameborder="0" src="' + obj.url + '" logo_url = '+obj.logo+'></iframe>';
-//    }
+// UE.plugins['webapp'] = function () {
+// var me = this;
+// function createInsertStr( obj, toIframe, addParagraph ) {
+// return !toIframe ?
+// (addParagraph ? '<p>' : '') + '<img title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '"' +
+// ' src="' + me.options.UEDITOR_HOME_URL + 'themes/default/images/spacer.gif" style="background:url(' + obj.logo+') no-repeat center center; border:1px solid gray;"
+// class="edui-faked-webapp" _url="' + obj.url + '" />' +
+// (addParagraph ? '</p>' : '')
+// :
+// '<iframe class="edui-faked-webapp" title="'+obj.title+'" width="' + obj.width + '" height="' + obj.height + '" scrolling="no" frameborder="0" src="' + obj.url + '" logo_url =
+// '+obj.logo+'></iframe>';
+// }
 //
-//    function switchImgAndIframe( img2frame ) {
-//        var tmpdiv,
-//                nodes = domUtils.getElementsByTagName( me.document, !img2frame ? "iframe" : "img" );
-//        for ( var i = 0, node; node = nodes[i++]; ) {
-//            if ( node.className != "edui-faked-webapp" ){
-//                continue;
-//            }
-//            tmpdiv = me.document.createElement( "div" );
-//            tmpdiv.innerHTML = createInsertStr( img2frame ? {url:node.getAttribute( "_url" ), width:node.width, height:node.height,title:node.title,logo:node.style.backgroundImage.replace("url(","").replace(")","")} : {url:node.getAttribute( "src", 2 ),title:node.title, width:node.width, height:node.height,logo:node.getAttribute("logo_url")}, img2frame ? true : false,false );
-//            node.parentNode.replaceChild( tmpdiv.firstChild, node );
-//        }
-//    }
+// function switchImgAndIframe( img2frame ) {
+// var tmpdiv,
+// nodes = domUtils.getElementsByTagName( me.document, !img2frame ? "iframe" : "img" );
+// for ( var i = 0, node; node = nodes[i++]; ) {
+// if ( node.className != "edui-faked-webapp" ){
+// continue;
+// }
+// tmpdiv = me.document.createElement( "div" );
+// tmpdiv.innerHTML = createInsertStr( img2frame ? {url:node.getAttribute( "_url" ), width:node.width,
+// height:node.height,title:node.title,logo:node.style.backgroundImage.replace("url(","").replace(")","")} : {url:node.getAttribute( "src", 2 ),title:node.title, width:node.width,
+// height:node.height,logo:node.getAttribute("logo_url")}, img2frame ? true : false,false );
+// node.parentNode.replaceChild( tmpdiv.firstChild, node );
+// }
+// }
 //
-//    me.addListener( "beforegetcontent", function () {
-//        switchImgAndIframe( true );
-//    } );
-//    me.addListener( 'aftersetcontent', function () {
-//        switchImgAndIframe( false );
-//    } );
-//    me.addListener( 'aftergetcontent', function ( cmdName ) {
-//        if ( cmdName == 'aftergetcontent' && me.queryCommandState( 'source' ) ){
-//            return;
-//        }
-//        switchImgAndIframe( false );
-//    } );
+// me.addListener( "beforegetcontent", function () {
+// switchImgAndIframe( true );
+// } );
+// me.addListener( 'aftersetcontent', function () {
+// switchImgAndIframe( false );
+// } );
+// me.addListener( 'aftergetcontent', function ( cmdName ) {
+// if ( cmdName == 'aftergetcontent' && me.queryCommandState( 'source' ) ){
+// return;
+// }
+// switchImgAndIframe( false );
+// } );
 //
-//    me.commands['webapp'] = {
-//        execCommand:function ( cmd, obj ) {
-//            me.execCommand( "inserthtml", createInsertStr( obj, false,true ) );
-//        }
-//    };
-//};
+// me.commands['webapp'] = {
+// execCommand:function ( cmd, obj ) {
+// me.execCommand( "inserthtml", createInsertStr( obj, false,true ) );
+// }
+// };
+// };
 
 UE.plugin.register('webapp', function (){
     var me = this;
@@ -23562,26 +23007,17 @@ UE.plugin.register('webapp', function (){
         },
         commands:{
             /**
-             * 插入百度应用
-             * @command webapp
-             * @method execCommand
-             * @remind 需要百度APPKey
-             * @remind 百度应用主页： <a href="http://app.baidu.com/" target="_blank">http://app.baidu.com/</a>
-             * @param { Object } appOptions 应用所需的参数项， 支持的key有： title=>应用标题， width=>应用容器宽度，
-             * height=>应用容器高度，logo=>应用logo，url=>应用地址
-             * @example
-             * ```javascript
-             * //editor是编辑器实例
-             * //在编辑器里插入一个“植物大战僵尸”的APP
-             * editor.execCommand( 'webapp' , {
-             *     title: '植物大战僵尸',
-             *     width: 560,
-             *     height: 465,
-             *     logo: '应用展示的图片',
-             *     url: '百度应用的地址'
-             * } );
-             * ```
-             */
+			 * 插入百度应用
+			 * 
+			 * @command webapp
+			 * @method execCommand
+			 * @remind 需要百度APPKey
+			 * @remind 百度应用主页： <a href="http://app.baidu.com/" target="_blank">http://app.baidu.com/</a>
+			 * @param {
+			 *            Object } appOptions 应用所需的参数项， 支持的key有： title=>应用标题， width=>应用容器宽度， height=>应用容器高度，logo=>应用logo，url=>应用地址
+			 * @example ```javascript //editor是编辑器实例 //在编辑器里插入一个“植物大战僵尸”的APP editor.execCommand( 'webapp' , { title: '植物大战僵尸', width: 560, height: 465, logo: '应用展示的图片', url:
+			 *          '百度应用的地址' } ); ```
+			 */
             'webapp':{
                 execCommand:function (cmd, obj) {
 
@@ -23603,13 +23039,13 @@ UE.plugin.register('webapp', function (){
 });
 
 // plugins/template.js
-///import core
-///import plugins\inserthtml.js
-///import plugins\cleardoc.js
-///commands 模板
-///commandsName  template
-///commandsTitle  模板
-///commandsDialog  dialogs\template
+// /import core
+// /import plugins\inserthtml.js
+// /import plugins\cleardoc.js
+// /commands 模板
+// /commandsName template
+// /commandsTitle 模板
+// /commandsDialog dialogs\template
 UE.plugins['template'] = function () {
     UE.commands['template'] = {
         execCommand:function (cmd, obj) {
@@ -23647,6 +23083,7 @@ UE.plugins['template'] = function () {
 // plugins/music.js
 /**
  * 插入音乐命令
+ * 
  * @file
  */
 UE.plugin.register('music', function (){
@@ -23691,23 +23128,14 @@ UE.plugin.register('music', function (){
         },
         commands:{
             /**
-             * 插入音乐
-             * @command music
-             * @method execCommand
-             * @param { Object } musicOptions 插入音乐的参数项， 支持的key有： url=>音乐地址；
-             * width=>音乐容器宽度；height=>音乐容器高度；align=>音乐文件的对齐方式， 可选值有: left, center, right, none
-             * @example
-             * ```javascript
-             * //editor是编辑器实例
-             * //在编辑器里插入一个“植物大战僵尸”的APP
-             * editor.execCommand( 'music' , {
-             *     width: 400,
-             *     height: 95,
-             *     align: "center",
-             *     url: "音乐地址"
-             * } );
-             * ```
-             */
+			 * 插入音乐
+			 * 
+			 * @command music
+			 * @method execCommand
+			 * @param {
+			 *            Object } musicOptions 插入音乐的参数项， 支持的key有： url=>音乐地址； width=>音乐容器宽度；height=>音乐容器高度；align=>音乐文件的对齐方式， 可选值有: left, center, right, none
+			 * @example ```javascript //editor是编辑器实例 //在编辑器里插入一个“植物大战僵尸”的APP editor.execCommand( 'music' , { width: 400, height: 95, align: "center", url: "音乐地址" } ); ```
+			 */
             'music':{
                 execCommand:function (cmd, musicObj) {
                     var me = this,
@@ -23727,9 +23155,7 @@ UE.plugin.register('music', function (){
 
 // plugins/autoupload.js
 /**
- * @description
- * 1.拖放文件到编辑区域，自动上传并插入到选区
- * 2.插入粘贴板的图片，自动上传并插入到选区
+ * @description 1.拖放文件到编辑区域，自动上传并插入到选区 2.插入粘贴板的图片，自动上传并插入到选区
  * @author Jinqn
  * @date 2013-10-14
  */
@@ -23737,7 +23163,7 @@ UE.plugin.register('autoupload', function (){
 
     function sendAndInsertFile(file, editor) {
         var me  = editor;
-        //模拟数据
+        // 模拟数据
         var fieldName, urlPrefix, maxSize, allowFiles, actionUrl,
             loadingHtml, errorHandler, successHandler,
             filetype = /image\/\w+/i.test(file.type) ? 'image':'file',
@@ -23859,14 +23285,14 @@ UE.plugin.register('autoupload', function (){
             });
         },
         bindEvents:{
-            //插入粘贴板的图片，拖放插入图片
+            // 插入粘贴板的图片，拖放插入图片
             'ready':function(e){
                 var me = this;
                 if(window.FormData && window.FileReader) {
                     domUtils.on(me.body, 'paste drop', function(e){
                         var hasImg = false,
                             items;
-                        //获取粘贴板文件列表或者拖放文件列表
+                        // 获取粘贴板文件列表或者拖放文件列表
                         items = e.type == 'paste' ? getPasteImage(e):getDropImage(e);
                         if(items){
                             var len = items.length,
@@ -23883,14 +23309,14 @@ UE.plugin.register('autoupload', function (){
                         }
 
                     });
-                    //取消拖放图片时出现的文字光标位置提示
+                    // 取消拖放图片时出现的文字光标位置提示
                     domUtils.on(me.body, 'dragover', function (e) {
                         if(e.dataTransfer.types[0] == 'Files') {
                             e.preventDefault();
                         }
                     });
 
-                    //设置loading的样式
+                    // 设置loading的样式
                     utils.cssRule('loading',
                         '.loadingclass{display:inline-block;cursor:default;background: url(\''
                             + this.options.themePath
@@ -23910,11 +23336,11 @@ UE.plugin.register('autoupload', function (){
 UE.plugin.register('autosave', function (){
 
     var me = this,
-        //无限循环保护
+        // 无限循环保护
         lastSaveTime = new Date(),
-        //最小保存间隔时间
+        // 最小保存间隔时间
         MIN_TIME = 20,
-        //auto save key
+        // auto save key
         saveKey = null;
 
     function save ( editor ) {
@@ -23926,7 +23352,7 @@ UE.plugin.register('autosave', function (){
         }
 
         if ( !editor.hasContents() ) {
-            //这里不能调用命令来删除， 会造成事件死循环
+            // 这里不能调用命令来删除， 会造成事件死循环
             saveKey && me.removePreferences( saveKey );
             return;
         }
@@ -23953,7 +23379,7 @@ UE.plugin.register('autosave', function (){
 
     return {
         defaultOptions: {
-            //默认间隔时间
+            // 默认间隔时间
             saveInterval: 500
         },
         bindEvents:{
@@ -23968,7 +23394,7 @@ UE.plugin.register('autosave', function (){
                     key = ( me.container.parentNode.id || 'ue-common' ) + _suffix;
                 }
 
-                //页面地址+编辑器ID 保持唯一
+                // 页面地址+编辑器ID 保持唯一
                 saveKey = ( location.protocol + location.host + location.pathname ).replace( /[.:\/]/g, '_' ) + key;
 
             },
@@ -24070,9 +23496,9 @@ UE.plugin.register('charts', function (){
                     config.yTitle = data.yTitle || '';
                     config.suffix = data.suffix || '';
                     config.tip = data.tip || '';
-                    //数据对齐方式
+                    // 数据对齐方式
                     config.dataFormat = data.tableDataFormat || '';
-                    //图表类型
+                    // 图表类型
                     config.chartType = data.chartType || 0;
 
                     for ( var key in config ) {
@@ -24126,17 +23552,17 @@ UE.plugin.register('charts', function (){
         var firstRows = null,
             cellCount = 0;
 
-        //行数不够
+        // 行数不够
         if ( table.rows.length < 2 ) {
             return false;
         }
 
-        //列数不够
+        // 列数不够
         if ( table.rows[0].cells.length < 2 ) {
             return false;
         }
 
-        //第一行所有cell必须是th
+        // 第一行所有cell必须是th
         firstRows = table.rows[ 0 ].cells;
         cellCount = firstRows.length;
 
@@ -24150,12 +23576,12 @@ UE.plugin.register('charts', function (){
 
         for ( var i = 1, row; row = table.rows[ i ]; i++ ) {
 
-            //每行单元格数不匹配， 返回false
+            // 每行单元格数不匹配， 返回false
             if ( row.cells.length != cellCount ) {
                 return false;
             }
 
-            //第一列不是th也返回false
+            // 第一列不是th也返回false
             if ( row.cells[0].tagName.toLowerCase() !== 'th' ) {
                 return false;
             }
@@ -24166,7 +23592,7 @@ UE.plugin.register('charts', function (){
 
                 value = value.replace( new RegExp( UE.dom.domUtils.fillChar, 'g' ), '' ).replace( /^\s+|\s+$/g, '' );
 
-                //必须是数字
+                // 必须是数字
                 if ( !/^\d*\.?\d+$/.test( value ) ) {
                     return false;
                 }
@@ -24184,6 +23610,7 @@ UE.plugin.register('charts', function (){
 // plugins/section.js
 /**
  * 目录大纲支持插件
+ * 
  * @file
  * @since 1.3.0
  */
@@ -24454,8 +23881,7 @@ UE.plugin.register('section', function (){
 
 // plugins/simpleupload.js
 /**
- * @description
- * 简单上传:点击按钮,直接选择文件上传
+ * @description 简单上传:点击按钮,直接选择文件上传
  * @author Jinqn
  * @date 2014-03-31
  */
@@ -24526,8 +23952,26 @@ UE.plugin.register('simpleupload', function (){
                             loader = me.document.getElementById(loadingId);
                             loader.setAttribute('src', link);
                             loader.setAttribute('_src', link);
+                            /* ==================自己添加的代码==================== */
+// var width='';
+// var height='';
+// // 创建对象
+// var img = new Image();
+// // 设置图片的src
+// img.src = link;
+// // console.log("link:"+link);
+// img.onload = function(){
+// console.log('width:'+img.width+',height:'+img.height);
+// width=img.width;
+// height=img.height;
+// loader.setAttribute('width',"100%");
+// loader.setAttribute('height',"100%");
+// };
+                            /* ===================结束======================== */
                             loader.setAttribute('title', json.title || '');
                             loader.setAttribute('alt', json.original || '');
+                            // 解决图片过大问题
+// loader.setAttribute('style','max-width:650px');
                             loader.removeAttribute('id');
                             domUtils.removeClasses(loader, 'loadingclass');
                         } else {
@@ -24592,7 +24036,7 @@ UE.plugin.register('simpleupload', function (){
     return {
         bindEvents:{
             'ready': function() {
-                //设置loading的样式
+                // 设置loading的样式
                 utils.cssRule('loading',
                     '.loadingclass{display:inline-block;cursor:default;background: url(\''
                     + this.options.themePath
@@ -24629,6 +24073,7 @@ UE.plugin.register('simpleupload', function (){
 // plugins/serverparam.js
 /**
  * 服务器提交的额外参数列表设置插件
+ * 
  * @file
  * @since 1.2.6.1
  */
@@ -24640,90 +24085,84 @@ UE.plugin.register('serverparam', function (){
     return {
         commands:{
             /**
-             * 修改服务器提交的额外参数列表,清除所有项
-             * @command serverparam
-             * @method execCommand
-             * @param { String } cmd 命令字符串
-             * @example
-             * ```javascript
-             * editor.execCommand('serverparam');
-             * editor.queryCommandValue('serverparam'); //返回空
-             * ```
-             */
+			 * 修改服务器提交的额外参数列表,清除所有项
+			 * 
+			 * @command serverparam
+			 * @method execCommand
+			 * @param {
+			 *            String } cmd 命令字符串
+			 * @example ```javascript editor.execCommand('serverparam'); editor.queryCommandValue('serverparam'); //返回空 ```
+			 */
             /**
-             * 修改服务器提交的额外参数列表,删除指定项
-             * @command serverparam
-             * @method execCommand
-             * @param { String } cmd 命令字符串
-             * @param { String } key 要清除的属性
-             * @example
-             * ```javascript
-             * editor.execCommand('serverparam', 'name'); //删除属性name
-             * ```
-             */
+			 * 修改服务器提交的额外参数列表,删除指定项
+			 * 
+			 * @command serverparam
+			 * @method execCommand
+			 * @param {
+			 *            String } cmd 命令字符串
+			 * @param {
+			 *            String } key 要清除的属性
+			 * @example ```javascript editor.execCommand('serverparam', 'name'); //删除属性name ```
+			 */
             /**
-             * 修改服务器提交的额外参数列表,使用键值添加项
-             * @command serverparam
-             * @method execCommand
-             * @param { String } cmd 命令字符串
-             * @param { String } key 要添加的属性
-             * @param { String } value 要添加属性的值
-             * @example
-             * ```javascript
-             * editor.execCommand('serverparam', 'name', 'hello');
-             * editor.queryCommandValue('serverparam'); //返回对象 {'name': 'hello'}
-             * ```
-             */
+			 * 修改服务器提交的额外参数列表,使用键值添加项
+			 * 
+			 * @command serverparam
+			 * @method execCommand
+			 * @param {
+			 *            String } cmd 命令字符串
+			 * @param {
+			 *            String } key 要添加的属性
+			 * @param {
+			 *            String } value 要添加属性的值
+			 * @example ```javascript editor.execCommand('serverparam', 'name', 'hello'); editor.queryCommandValue('serverparam'); //返回对象 {'name': 'hello'} ```
+			 */
             /**
-             * 修改服务器提交的额外参数列表,传入键值对对象添加多项
-             * @command serverparam
-             * @method execCommand
-             * @param { String } cmd 命令字符串
-             * @param { Object } key 传入的键值对对象
-             * @example
-             * ```javascript
-             * editor.execCommand('serverparam', {'name': 'hello'});
-             * editor.queryCommandValue('serverparam'); //返回对象 {'name': 'hello'}
-             * ```
-             */
+			 * 修改服务器提交的额外参数列表,传入键值对对象添加多项
+			 * 
+			 * @command serverparam
+			 * @method execCommand
+			 * @param {
+			 *            String } cmd 命令字符串
+			 * @param {
+			 *            Object } key 传入的键值对对象
+			 * @example ```javascript editor.execCommand('serverparam', {'name': 'hello'}); editor.queryCommandValue('serverparam'); //返回对象 {'name': 'hello'} ```
+			 */
             /**
-             * 修改服务器提交的额外参数列表,使用自定义函数添加多项
-             * @command serverparam
-             * @method execCommand
-             * @param { String } cmd 命令字符串
-             * @param { Function } key 自定义获取参数的函数
-             * @example
-             * ```javascript
-             * editor.execCommand('serverparam', function(editor){
-             *     return {'key': 'value'};
-             * });
-             * editor.queryCommandValue('serverparam'); //返回对象 {'key': 'value'}
-             * ```
-             */
+			 * 修改服务器提交的额外参数列表,使用自定义函数添加多项
+			 * 
+			 * @command serverparam
+			 * @method execCommand
+			 * @param {
+			 *            String } cmd 命令字符串
+			 * @param {
+			 *            Function } key 自定义获取参数的函数
+			 * @example ```javascript editor.execCommand('serverparam', function(editor){ return {'key': 'value'}; }); editor.queryCommandValue('serverparam'); //返回对象 {'key':
+			 *          'value'} ```
+			 */
 
             /**
-             * 获取服务器提交的额外参数列表
-             * @command serverparam
-             * @method queryCommandValue
-             * @param { String } cmd 命令字符串
-             * @example
-             * ```javascript
-             * editor.queryCommandValue( 'serverparam' ); //返回对象 {'key': 'value'}
-             * ```
-             */
+			 * 获取服务器提交的额外参数列表
+			 * 
+			 * @command serverparam
+			 * @method queryCommandValue
+			 * @param {
+			 *            String } cmd 命令字符串
+			 * @example ```javascript editor.queryCommandValue( 'serverparam' ); //返回对象 {'key': 'value'} ```
+			 */
             'serverparam':{
                 execCommand:function (cmd, key, value) {
-                    if (key === undefined || key === null) { //不传参数,清空列表
+                    if (key === undefined || key === null) { // 不传参数,清空列表
                         serverParam = {};
-                    } else if (utils.isString(key)) { //传入键值
+                    } else if (utils.isString(key)) { // 传入键值
                         if(value === undefined || value === null) {
                             delete serverParam[key];
                         } else {
                             serverParam[key] = value;
                         }
-                    } else if (utils.isObject(key)) { //传入对象,覆盖列表项
+                    } else if (utils.isObject(key)) { // 传入对象,覆盖列表项
                         utils.extend(serverParam, key, true);
-                    } else if (utils.isFunction(key)){ //传入函数,添加列表项
+                    } else if (utils.isFunction(key)){ // 传入函数,添加列表项
                         utils.extend(serverParam, key(), true);
                     }
                 },
@@ -24947,7 +24386,7 @@ UE.ui = baidu.editor.ui = {};
         },
         getClientRect: function (element){
             var bcr;
-            //trace  IE6下在控制编辑器显隐时可能会报错，catch一下
+            // trace IE6下在控制编辑器显隐时可能会报错，catch一下
             try{
                 bcr = element.getBoundingClientRect();
             }catch(e){
@@ -25142,11 +24581,11 @@ UE.ui = baidu.editor.ui = {};
             left: 0,
             top: 0
         });
-//        layer.style.display = 'none';
-//        layer.style.display = 'block';
+// layer.style.display = 'none';
+// layer.style.display = 'block';
 
-        //#trace: 1354
-//        setTimeout(updateFixedOffset);
+        // #trace: 1354
+// setTimeout(updateFixedOffset);
     }
     function bindFixedLayer(adjOffset){
         domUtils.on(window, 'scroll', updateFixedOffset);
@@ -25180,7 +24619,7 @@ UE.ui = baidu.editor.ui = {};
             var html = this.renderHtml();
             var el = uiUtils.createElementByHtml(html);
 
-            //by xuheng 给每个node添加class
+            // by xuheng 给每个node添加class
             var list = domUtils.getElementsByTagName(el, "*");
             var theme = "edui-" + (this.theme || this.editor.options.theme);
             var layer = document.getElementById('edui_fixedlayer');
@@ -25264,8 +24703,8 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/mask.js
-///import core
-///import uicore
+// /import core
+// /import uicore
 (function (){
     var utils = baidu.editor.utils,
         domUtils = baidu.editor.dom.domUtils,
@@ -25320,8 +24759,8 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/popup.js
-///import core
-///import uicore
+// /import core
+// /import uicore
 (function () {
     var utils = baidu.editor.utils,
         uiUtils = baidu.editor.ui.uiUtils,
@@ -25393,7 +24832,7 @@ UE.ui = baidu.editor.ui = {};
                 this.content.postRender();
             }
 
-            //捕获鼠标滚轮
+            // 捕获鼠标滚轮
             if( this.captureWheel && !this.captured ) {
 
                 this.captured = true;
@@ -25411,10 +24850,10 @@ UE.ui = baidu.editor.ui = {};
                     _height -= 30;
                 }
                 content.style.height = _height + 'px';
-                //同步更改iframe高度
+                // 同步更改iframe高度
                 ifr && ( ifr.style.height = _height + 'px' );
 
-                //阻止在combox上的鼠标滚轮事件, 防止用户的正常操作被误解
+                // 阻止在combox上的鼠标滚轮事件, 防止用户的正常操作被误解
                 if( window.XMLHttpRequest ) {
 
                     domUtils.on( content, ( 'onmousewheel' in document.body ) ? 'mousewheel' :'DOMMouseScroll' , function(e){
@@ -25439,7 +24878,7 @@ UE.ui = baidu.editor.ui = {};
 
                 } else {
 
-                    //ie6
+                    // ie6
                     domUtils.on( this.getDom(), 'mousewheel' , function(e){
 
                         e.returnValue = false;
@@ -25540,9 +24979,9 @@ UE.ui = baidu.editor.ui = {};
                 var box = this.getDom();
                 box.style.display = '';
                 this._hidden = false;
-//                if (box.setActive) {
-//                    box.setActive();
-//                }
+// if (box.setActive) {
+// box.setActive();
+// }
                 this.fireEvent('show');
             }
         },
@@ -25580,8 +25019,8 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/colorpicker.js
-///import core
-///import uicore
+// /import core
+// /import uicore
 (function (){
     var utils = baidu.editor.utils,
         UIBase = baidu.editor.ui.UIBase,
@@ -25657,8 +25096,8 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/tablepicker.js
-///import core
-///import uicore
+// /import core
+// /import uicore
 (function (){
     var utils = baidu.editor.utils,
         uiUtils = baidu.editor.ui.uiUtils,
@@ -25759,7 +25198,7 @@ UE.ui = baidu.editor.ui = {};
     
     baidu.editor.ui.Stateful = {
         alwalysHoverable: false,
-        target:null,//目标元素和this指向dom不一样
+        target:null,// 目标元素和this指向dom不一样
         Stateful_init: function (){
             this._Stateful_dGetHtmlTpl = this.getHtmlTpl;
             this.getHtmlTpl = this.Stateful_getHtmlTpl;
@@ -25854,9 +25293,9 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/button.js
-///import core
-///import uicore
-///import ui/stateful.js
+// /import core
+// /import uicore
+// /import ui/stateful.js
 (function (){
     var utils = baidu.editor.utils,
         UIBase = baidu.editor.ui.UIBase,
@@ -25926,9 +25365,9 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/splitbutton.js
-///import core
-///import uicore
-///import ui/stateful.js
+// /import core
+// /import uicore
+// /import ui/stateful.js
 (function (){
     var utils = baidu.editor.utils,
         uiUtils = baidu.editor.ui.uiUtils,
@@ -26016,11 +25455,11 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/colorbutton.js
-///import core
-///import uicore
-///import ui/colorpicker.js
-///import ui/popup.js
-///import ui/splitbutton.js
+// /import core
+// /import uicore
+// /import ui/colorpicker.js
+// /import ui/popup.js
+// /import ui/splitbutton.js
 (function (){
     var utils = baidu.editor.utils,
         uiUtils = baidu.editor.ui.uiUtils,
@@ -26079,11 +25518,11 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/tablebutton.js
-///import core
-///import uicore
-///import ui/popup.js
-///import ui/tablepicker.js
-///import ui/splitbutton.js
+// /import core
+// /import uicore
+// /import ui/popup.js
+// /import ui/tablepicker.js
+// /import ui/splitbutton.js
 (function (){
     var utils = baidu.editor.utils,
         Popup = baidu.editor.ui.Popup,
@@ -26119,8 +25558,8 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/autotypesetpicker.js
-///import core
-///import uicore
+// /import core
+// /import uicore
 (function () {
     var utils = baidu.editor.utils,
         UIBase = baidu.editor.ui.UIBase;
@@ -26188,11 +25627,11 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/autotypesetbutton.js
-///import core
-///import uicore
-///import ui/popup.js
-///import ui/autotypesetpicker.js
-///import ui/splitbutton.js
+// /import core
+// /import uicore
+// /import ui/popup.js
+// /import ui/autotypesetpicker.js
+// /import ui/splitbutton.js
 (function (){
     var utils = baidu.editor.utils,
         Popup = baidu.editor.ui.Popup,
@@ -26257,7 +25696,7 @@ UE.ui = baidu.editor.ui = {};
 
             var me = this;
             this.popup = new Popup({
-                //传入配置参数
+                // 传入配置参数
                 content: new AutoTypeSetPicker({editor:me.editor}),
                 'editor':me.editor,
                 hide : function(){
@@ -26329,8 +25768,8 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/cellalignpicker.js
-///import core
-///import uicore
+// /import core
+// /import uicore
 (function () {
     var utils = baidu.editor.utils,
         Popup = baidu.editor.ui.Popup,
@@ -26338,17 +25777,18 @@ UE.ui = baidu.editor.ui = {};
         UIBase = baidu.editor.ui.UIBase;
 
     /**
-     * 该参数将新增一个参数： selected， 参数类型为一个Object， 形如{ 'align': 'center', 'valign': 'top' }， 表示单元格的初始
-     * 对齐状态为： 竖直居上，水平居中; 其中 align的取值为：'center', 'left', 'right'; valign的取值为: 'top', 'middle', 'bottom'
-     * @update 2013/4/2 hancong03@baidu.com
-     */
+	 * 该参数将新增一个参数： selected， 参数类型为一个Object， 形如{ 'align': 'center', 'valign': 'top' }， 表示单元格的初始 对齐状态为： 竖直居上，水平居中; 其中 align的取值为：'center', 'left', 'right'; valign的取值为: 'top',
+	 * 'middle', 'bottom'
+	 * 
+	 * @update 2013/4/2 hancong03@baidu.com
+	 */
     var CellAlignPicker = baidu.editor.ui.CellAlignPicker = function (options) {
         this.initOptions(options);
         this.initSelected();
         this.initCellAlignPicker();
     };
     CellAlignPicker.prototype = {
-        //初始化选中状态， 该方法将根据传递进来的参数获取到应该选中的对齐方式图标的索引
+        // 初始化选中状态， 该方法将根据传递进来的参数获取到应该选中的对齐方式图标的索引
         initSelected: function(){
 
             var status = {
@@ -26428,8 +25868,8 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/pastepicker.js
-///import core
-///import uicore
+// /import core
+// /import uicore
 (function () {
     var utils = baidu.editor.utils,
         Stateful = baidu.editor.ui.Stateful,
@@ -26549,10 +25989,10 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/menu.js
-///import core
-///import uicore
-///import ui\popup.js
-///import ui\stateful.js
+// /import core
+// /import uicore
+// /import ui\popup.js
+// /import ui\stateful.js
 (function () {
     var utils = baidu.editor.utils,
         domUtils = baidu.editor.dom.domUtils,
@@ -26601,7 +26041,7 @@ UE.ui = baidu.editor.ui = {};
             return menuSeparator;
         },
         createItem:function (item) {
-            //新增一个参数menu, 该参数存储了menuItem所对应的menu引用
+            // 新增一个参数menu, 该参数存储了menuItem所对应的menu引用
             item.menu = this;
             return new MenuItem(item);
         },
@@ -26672,9 +26112,9 @@ UE.ui = baidu.editor.ui = {};
     utils.inherits(Menu, Popup);
 
     /**
-     * @update 2013/04/03 hancong03 新增一个参数menu, 该参数存储了menuItem所对应的menu引用
-     * @type {Function}
-     */
+	 * @update 2013/04/03 hancong03 新增一个参数menu, 该参数存储了menuItem所对应的menu引用
+	 * @type {Function}
+	 */
     var MenuItem = baidu.editor.ui.MenuItem = function (options) {
         this.initOptions(options);
         this.initUIBase();
@@ -26683,7 +26123,7 @@ UE.ui = baidu.editor.ui = {};
             if (options.className && options.className.indexOf("aligntd") != -1) {
                 var me = this;
 
-                //获取单元格对齐初始状态
+                // 获取单元格对齐初始状态
                 this.subMenu.selected = this.editor.queryCommandValue( 'cellalignment' );
 
                 this.subMenu = new Popup({
@@ -26828,10 +26268,10 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/combox.js
-///import core
-///import uicore
-///import ui/menu.js
-///import ui/splitbutton.js
+// /import core
+// /import uicore
+// /import ui/menu.js
+// /import ui/splitbutton.js
 (function (){
     // todo: menu和item提成通用list
     var utils = baidu.editor.utils,
@@ -26927,10 +26367,10 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/dialog.js
-///import core
-///import uicore
-///import ui/mask.js
-///import ui/button.js
+// /import core
+// /import uicore
+// /import ui/mask.js
+// /import ui/button.js
 (function (){
     var utils = baidu.editor.utils,
         domUtils = baidu.editor.dom.domUtils,
@@ -26957,7 +26397,7 @@ UE.ui = baidu.editor.ui = {};
                 onclose: function (t, ok){
                     return ok ? this.onok() : this.oncancel();
                 },
-                //是否控制dialog中的scroll事件， 默认为不阻止
+                // 是否控制dialog中的scroll事件， 默认为不阻止
                 holdScroll: false
             },options));
             this.initDialog();
@@ -27046,10 +26486,10 @@ UE.ui = baidu.editor.ui = {};
         },
         fitSize: function (){
             var popBodyEl = this.getDom('body');
-//            if (!(baidu.editor.browser.ie && baidu.editor.browser.version == 7)) {
-//                uiUtils.removeStyle(popBodyEl, 'width');
-//                uiUtils.removeStyle(popBodyEl, 'height');
-//            }
+// if (!(baidu.editor.browser.ie && baidu.editor.browser.version == 7)) {
+// uiUtils.removeStyle(popBodyEl, 'width');
+// uiUtils.removeStyle(popBodyEl, 'height');
+// }
             var size = this.mesureSize();
             popBodyEl.style.width = size.width + 'px';
             popBodyEl.style.height = size.height + 'px';
@@ -27106,7 +26546,7 @@ UE.ui = baidu.editor.ui = {};
                 dialogWrapNode.style.height = vpRect.height + "px";
                 dialogWrapNode.style.left = 0;
 
-                //保存环境的overflow值
+                // 保存环境的overflow值
                 this._originalContext = {
                     html: {
                         overflowX: document.documentElement.style.overflowX,
@@ -27192,43 +26632,43 @@ UE.ui = baidu.editor.ui = {};
                 });
             });
 
-            //hold住scroll事件，防止dialog的滚动影响页面
-//            if( this.holdScroll ) {
+            // hold住scroll事件，防止dialog的滚动影响页面
+// if( this.holdScroll ) {
 //
-//                if( !me.iframeUrl ) {
-//                    domUtils.on( document.getElementById( me.id + "_iframe"), !browser.gecko ? "mousewheel" : "DOMMouseScroll", function(e){
-//                        domUtils.preventDefault(e);
-//                    } );
-//                } else {
-//                    me.addListener('dialogafterreset', function(){
-//                        window.setTimeout(function(){
-//                            var iframeWindow = document.getElementById( me.id + "_iframe").contentWindow;
+// if( !me.iframeUrl ) {
+// domUtils.on( document.getElementById( me.id + "_iframe"), !browser.gecko ? "mousewheel" : "DOMMouseScroll", function(e){
+// domUtils.preventDefault(e);
+// } );
+// } else {
+// me.addListener('dialogafterreset', function(){
+// window.setTimeout(function(){
+// var iframeWindow = document.getElementById( me.id + "_iframe").contentWindow;
 //
-//                            if( browser.ie ) {
+// if( browser.ie ) {
 //
-//                                var timer = window.setInterval(function(){
+// var timer = window.setInterval(function(){
 //
-//                                    if( iframeWindow.document && iframeWindow.document.body ) {
-//                                        window.clearInterval( timer );
-//                                        timer = null;
-//                                        domUtils.on( iframeWindow.document.body, !browser.gecko ? "mousewheel" : "DOMMouseScroll", function(e){
-//                                            domUtils.preventDefault(e);
-//                                        } );
-//                                    }
+// if( iframeWindow.document && iframeWindow.document.body ) {
+// window.clearInterval( timer );
+// timer = null;
+// domUtils.on( iframeWindow.document.body, !browser.gecko ? "mousewheel" : "DOMMouseScroll", function(e){
+// domUtils.preventDefault(e);
+// } );
+// }
 //
-//                                }, 100);
+// }, 100);
 //
-//                            } else {
-//                                domUtils.on( iframeWindow, !browser.gecko ? "mousewheel" : "DOMMouseScroll", function(e){
-//                                    domUtils.preventDefault(e);
-//                                } );
-//                            }
+// } else {
+// domUtils.on( iframeWindow, !browser.gecko ? "mousewheel" : "DOMMouseScroll", function(e){
+// domUtils.preventDefault(e);
+// } );
+// }
 //
-//                        }, 1);
-//                    });
-//                }
+// }, 1);
+// });
+// }
 //
-//            }
+// }
             this._hide();
         },
         mesureSize: function (){
@@ -27273,7 +26713,7 @@ UE.ui = baidu.editor.ui = {};
             if (this._hidden) {
                 this.getDom().style.display = '';
 
-                //要高过编辑器的zindxe
+                // 要高过编辑器的zindxe
                 this.editor.container.style.zIndex && (this.getDom().style.zIndex = this.editor.container.style.zIndex * 1 + 10);
                 this._hidden = false;
                 this.fireEvent('show');
@@ -27296,7 +26736,7 @@ UE.ui = baidu.editor.ui = {};
         },
         open: function (){
             if (this.autoReset) {
-                //有可能还没有渲染
+                // 有可能还没有渲染
                 try{
                     this.reset();
                 }catch(e){
@@ -27317,7 +26757,7 @@ UE.ui = baidu.editor.ui = {};
         },
         close: function (ok){
             if (this.fireEvent('close', ok) !== false) {
-                //还原环境
+                // 还原环境
                 if ( this.fullscreen ) {
 
                     document.documentElement.style.overflowX = this._originalContext.html.overflowX;
@@ -27329,7 +26769,7 @@ UE.ui = baidu.editor.ui = {};
                 }
                 this._hide();
 
-                //销毁content
+                // 销毁content
                 var content = this.getDom('content');
                 var iframe = this.getDom('iframe');
                 if (content && iframe) {
@@ -27345,10 +26785,10 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/menubutton.js
-///import core
-///import uicore
-///import ui/menu.js
-///import ui/splitbutton.js
+// /import core
+// /import uicore
+// /import ui/menu.js
+// /import ui/splitbutton.js
 (function (){
     var utils = baidu.editor.utils,
         Menu = baidu.editor.ui.Menu,
@@ -27387,9 +26827,9 @@ UE.ui = baidu.editor.ui = {};
 })();
 
 // ui/multiMenu.js
-///import core
-///import uicore
- ///commands 表情
+// /import core
+// /import uicore
+ // /commands 表情
 (function(){
     var utils = baidu.editor.utils,
         Popup = baidu.editor.ui.Popup,
@@ -27436,9 +26876,9 @@ UE.ui = baidu.editor.ui = {};
         utils = baidu.editor.utils,
         domUtils = baidu.editor.dom.domUtils;
 
-    var allMenus = [],//存储所有快捷菜单
+    var allMenus = [],// 存储所有快捷菜单
         timeID,
-        isSubMenuShow = false;//是否有子pop显示
+        isSubMenuShow = false;// 是否有子pop显示
 
     var ShortCutMenu = UI.ShortCutMenu = function (options) {
         this.initOptions (options);
@@ -27463,7 +26903,7 @@ UE.ui = baidu.editor.ui = {};
 
             domUtils.on (doc , "mousemove" , function (e) {
                 if (me.isHidden === false) {
-                    //有pop显示就不隐藏快捷菜单
+                    // 有pop显示就不隐藏快捷菜单
                     if (me.getSubMenuMark () || me.eventType == "contextmenu")   return;
 
 
@@ -27471,10 +26911,10 @@ UE.ui = baidu.editor.ui = {};
                         el = me.getDom (),
                         wt = el.offsetWidth,
                         ht = el.offsetHeight,
-                        distanceX = wt / 2 + me.SPACE,//距离中心X标准
-                        distanceY = ht / 2,//距离中心Y标准
-                        x = Math.abs (e.screenX - me.left),//离中心距离横坐标
-                        y = Math.abs (e.screenY - me.top);//离中心距离纵坐标
+                        distanceX = wt / 2 + me.SPACE,// 距离中心X标准
+                        distanceY = ht / 2,// 距离中心Y标准
+                        x = Math.abs (e.screenX - me.left),// 离中心距离横坐标
+                        y = Math.abs (e.screenY - me.top);// 离中心距离纵坐标
 
                     clearTimeout (timeID);
                     timeID = setTimeout (function () {
@@ -27498,7 +26938,7 @@ UE.ui = baidu.editor.ui = {};
                 }
             });
 
-            //ie\ff下 mouseout不准
+            // ie\ff下 mouseout不准
             if (browser.chrome) {
                 domUtils.on (doc , "mouseout" , function (e) {
                     var relatedTgt = e.relatedTarget || e.toElement;
@@ -27686,8 +27126,8 @@ UE.ui = baidu.editor.ui = {};
 
 
 // ui/message.js
-///import core
-///import uicore
+// /import core
+// /import uicore
 (function () {
     var utils = baidu.editor.utils,
         domUtils = baidu.editor.dom.domUtils,
@@ -27766,9 +27206,9 @@ UE.ui = baidu.editor.ui = {};
 
 
 // adapter/editorui.js
-//ui跟编辑器的适配層
-//那个按钮弹出是dialog，是下拉筐等都是在这个js中配置
-//自己写的ui也要在这里配置，放到baidu.editor.ui下边，当编辑器实例化的时候会根据ueditor.config中的toolbars找到相应的进行实例化
+// ui跟编辑器的适配層
+// 那个按钮弹出是dialog，是下拉筐等都是在这个js中配置
+// 自己写的ui也要在这里配置，放到baidu.editor.ui下边，当编辑器实例化的时候会根据ueditor.config中的toolbars找到相应的进行实例化
 (function () {
     var utils = baidu.editor.utils;
     var editorui = baidu.editor.ui;
@@ -27825,7 +27265,7 @@ UE.ui = baidu.editor.ui = {};
         'background':'~/dialogs/background/background.html',
         'charts': '~/dialogs/charts/charts.html'
     };
-    //为工具栏添加按钮，以下都是统一的按钮触发命令，所以写在一起
+    // 为工具栏添加按钮，以下都是统一的按钮触发命令，所以写在一起
     var btnCmds = ['undo', 'redo', 'formatmatch',
         'bold', 'italic', 'underline', 'fontborder', 'touppercase', 'tolowercase',
         'strikethrough', 'subscript', 'superscript', 'source', 'indent', 'outdent',
@@ -27865,7 +27305,7 @@ UE.ui = baidu.editor.ui = {};
         }(ci);
     }
 
-    //清除文档
+    // 清除文档
     editorui.cleardoc = function (editor) {
         var ui = new editorui.Button({
             className:'edui-for-cleardoc',
@@ -27884,7 +27324,7 @@ UE.ui = baidu.editor.ui = {};
         return ui;
     };
 
-    //排版，图片排版，文字方向
+    // 排版，图片排版，文字方向
     var typeset = {
         'justify':['left', 'right', 'center', 'justify'],
         'imagefloat':['none', 'left', 'center', 'right'],
@@ -27917,7 +27357,7 @@ UE.ui = baidu.editor.ui = {};
         })(p, typeset[p])
     }
 
-    //字体颜色和背景颜色
+    // 字体颜色和背景颜色
     for (var i = 0, ci; ci = ['backcolor', 'forecolor'][i++];) {
         editorui[ci] = function (cmd) {
             return function (editor) {
@@ -27957,7 +27397,7 @@ UE.ui = baidu.editor.ui = {};
     for (var p in dialogBtns) {
         (function (type, vals) {
             for (var i = 0, ci; ci = vals[i++];) {
-                //todo opera下存在问题
+                // todo opera下存在问题
                 if (browser.opera && ci === "searchreplace") {
                     continue;
                 }
@@ -27967,7 +27407,7 @@ UE.ui = baidu.editor.ui = {};
                         title = editor.options.labelMap[cmd] || editor.getLang("labelMap." + cmd) || '';
 
                         var dialog;
-                        //没有iframeUrl不创建dialog
+                        // 没有iframeUrl不创建dialog
                         if (iframeUrl) {
                             dialog = new editorui.Dialog(utils.extend({
                                 iframeUrl:editor.ui.mapUrl(iframeUrl),
@@ -28032,7 +27472,7 @@ UE.ui = baidu.editor.ui = {};
                         });
                         editorui.buttons[cmd] = ui;
                         editor.addListener('selectionchange', function () {
-                            //只存在于右键菜单而无工具栏按钮的ui不需要检测状态
+                            // 只存在于右键菜单而无工具栏按钮的ui不需要检测状态
                             var unNeedCheckState = {'edittable':1};
                             if (cmd in unNeedCheckState)return;
 
@@ -28151,7 +27591,7 @@ UE.ui = baidu.editor.ui = {};
                         ui.setValue(title);
                         return;
                     }
-                    //trace:1871 ie下从源码模式切换回来时，字体会带单引号，而且会有逗号
+                    // trace:1871 ie下从源码模式切换回来时，字体会带单引号，而且会有逗号
                     value && (value = value.replace(/['"]/g, '').split(',')[0]);
                     ui.setValue(value);
 
@@ -28212,7 +27652,7 @@ UE.ui = baidu.editor.ui = {};
                 } else {
                     ui.setDisabled(false);
                     var value = editor.queryCommandValue('FontFamily');
-                    //trace:1871 ie下从源码模式切换回来时，字体会带单引号，而且会有逗号
+                    // trace:1871 ie下从源码模式切换回来时，字体会带单引号，而且会有逗号
                     value && (value = value.replace(/['"]/g, '').split(',')[0]);
                     ui.setValue(value);
 
@@ -28320,7 +27760,7 @@ UE.ui = baidu.editor.ui = {};
     };
 
 
-    //自定义标题
+    // 自定义标题
     editorui.customstyle = function (editor) {
         var list = editor.options['customstyle'] || [],
             title = editor.options.labelMap['customstyle'] || editor.getLang("labelMap.customstyle") || '';
@@ -28413,7 +27853,7 @@ UE.ui = baidu.editor.ui = {};
         if (!val.length)return;
         for (var i = 0, ci, items = []; ci = val[i++];) {
             items.push({
-                //todo:写死了
+                // todo:写死了
                 label:ci,
                 value:ci,
                 theme:editor.options.theme,
@@ -28489,7 +27929,7 @@ UE.ui = baidu.editor.ui = {};
             }
         })(ri)
     }
-    //有序，无序列表
+    // 有序，无序列表
     var lists = ['insertorderedlist', 'insertunorderedlist'];
     for (var l = 0, cl; cl = lists[l++];) {
         (function (cmd) {
@@ -28623,10 +28063,10 @@ UE.ui = baidu.editor.ui = {};
 
 
 // adapter/editor.js
-///import core
-///commands 全屏
-///commandsName FullScreen
-///commandsTitle  全屏
+// /import core
+// /commands 全屏
+// /commandsName FullScreen
+// /commandsTitle 全屏
 (function () {
     var utils = baidu.editor.utils,
         uiUtils = baidu.editor.ui.uiUtils,
@@ -28650,19 +28090,19 @@ UE.ui = baidu.editor.ui = {};
                 me = this;
 
             editor.addListener('ready', function () {
-                //提供getDialog方法
+                // 提供getDialog方法
                 editor.getDialog = function (name) {
                     return editor.ui._dialogs[name + "Dialog"];
                 };
                 domUtils.on(editor.window, 'scroll', function (evt) {
                     baidu.editor.ui.Popup.postHide(evt);
                 });
-                //提供编辑器实时宽高(全屏时宽高不变化)
+                // 提供编辑器实时宽高(全屏时宽高不变化)
                 editor.ui._actualFrameWidth = editor.options.initialFrameWidth;
 
                 UE.browser.ie && UE.browser.version === 6 && editor.container.ownerDocument.execCommand("BackgroundImageCache", false, true);
 
-                //display bottom-bar label based on config
+                // display bottom-bar label based on config
                 if (editor.options.elementPathEnabled) {
                     editor.ui.getDom('elementpath').innerHTML = '<div class="edui-editor-breadcrumb">' + editor.getLang("elementPathTip") + ':</div>';
                 }
@@ -28899,7 +28339,7 @@ UE.ui = baidu.editor.ui = {};
                                     '<span onclick=$$._onRemoveButtonClick(\'anchor\') class="edui-clickable">' + editor.getLang("delete") + '</span></nobr>');
                         }
                         if (img.getAttribute("word_img")) {
-                            //todo 放到dialog去做查询
+                            // todo 放到dialog去做查询
                             editor.word_img = [img.getAttribute("word_img")];
                             dialogName = "wordimageDialog"
                         }
@@ -28971,7 +28411,7 @@ UE.ui = baidu.editor.ui = {};
                             toolbarItemUi = new baidu.editor.ui[toolbarItem](editor);
                         }
 
-                        //fullscreen这里单独处理一下，放到首行去
+                        // fullscreen这里单独处理一下，放到首行去
                         if (toolbarItem == 'fullscreen') {
                             if (toolbarUis && toolbarUis[0]) {
                                 toolbarUis[0].items.splice(0, 0, toolbarItemUi);
@@ -28994,7 +28434,7 @@ UE.ui = baidu.editor.ui = {};
                 toolbarUis[i] = toolbarUi;
             }
 
-            //接受外部定制的UI
+            // 接受外部定制的UI
 
             utils.each(UE._customizeUI,function(obj,key){
                 var itemUI,index;
@@ -29030,7 +28470,7 @@ UE.ui = baidu.editor.ui = {};
                 '</div>' +
                 '<div id="##_iframeholder" class="%%-iframeholder">' +
                 '</div>' +
-                //modify wdcount by matao
+                // modify wdcount by matao
                 '<div id="##_bottombar" class="%%-bottomContainer"><table><tr>' +
                 '<td id="##_elementpath" class="%%-bottombar"></td>' +
                 '<td id="##_wordcount" class="%%-wordcount"></td>' +
@@ -29073,13 +28513,13 @@ UE.ui = baidu.editor.ui = {};
 
                     this._bakEditorContaninerWidth = editor.iframe.parentNode.offsetWidth;
                     if (this._bakAutoHeight) {
-                        //当全屏时不能执行自动长高
+                        // 当全屏时不能执行自动长高
                         editor.autoHeightEnabled = false;
                         this.editor.disableAutoHeight();
                     }
 
                     document.documentElement.style.overflow = 'hidden';
-                    //修复，滚动条不收起的问题
+                    // 修复，滚动条不收起的问题
 
                     window.scrollTo(0,window.scrollY);
                     this._bakCssText = this.getDom().style.cssText;
@@ -29132,7 +28572,7 @@ UE.ui = baidu.editor.ui = {};
                 this.getDom().style.cssText = 'border:0;position:absolute;left:0;top:' + (this.editor.options.topOffset || 0) + 'px;width:' + vpRect.width + 'px;height:' + vpRect.height + 'px;z-index:' + (this.getDom().style.zIndex * 1 + 100);
                 uiUtils.setViewportOffset(this.getDom(), { left:0, top:this.editor.options.topOffset || 0 });
                 this.editor.setHeight(vpRect.height - this.getDom('toolbarbox').offsetHeight - this.getDom('bottombar').offsetHeight - (this.editor.options.topOffset || 0),true);
-                //不手动调一下，会导致全屏失效
+                // 不手动调一下，会导致全屏失效
                 if(browser.gecko){
                     try{
                         window.onresize();
@@ -29205,7 +28645,7 @@ UE.ui = baidu.editor.ui = {};
             }
 
             var me = this;
-            //by xuheng 全屏时关掉缩放
+            // by xuheng 全屏时关掉缩放
             this.editor.addListener('fullscreenchanged', function (e, fullScreen) {
                 if (fullScreen) {
                     me.disableScale();
@@ -29263,7 +28703,7 @@ UE.ui = baidu.editor.ui = {};
             }
 
             this.enableScale = function () {
-                //trace:2868
+                // trace:2868
                 if (editor.queryCommandState("source") == 1)    return;
                 scale.style.display = "";
                 this.scaleEnabled = true;
@@ -29389,7 +28829,7 @@ UE.ui = baidu.editor.ui = {};
                     domUtils.addClass(holder, "edui-" + editor.options.theme);
                     editor.ui.render(holder);
                     var opt = editor.options;
-                    //给实例添加一个编辑器的容器引用
+                    // 给实例添加一个编辑器的容器引用
                     editor.container = editor.ui.getDom();
                     var parents = domUtils.findParents(holder,true);
                     var displays = [];
@@ -29414,8 +28854,8 @@ UE.ui = baidu.editor.ui = {};
                     for(var i = 0 ,ci;ci=parents[i];i++){
                         ci.style.display =  displays[i]
                     }
-                    //编辑器最外容器设置了高度，会导致，编辑器不占位
-                    //todo 先去掉，没有找到原因
+                    // 编辑器最外容器设置了高度，会导致，编辑器不占位
+                    // todo 先去掉，没有找到原因
                     if(holder.style.height){
                         holder.style.height = ''
                     }
@@ -29431,26 +28871,19 @@ UE.ui = baidu.editor.ui = {};
 
 
     /**
-     * @file
-     * @name UE
-     * @short UE
-     * @desc UEditor的顶部命名空间
-     */
+	 * @file
+	 * @name UE
+	 * @short UE
+	 * @desc UEditor的顶部命名空间
+	 */
     /**
-     * @name getEditor
-     * @since 1.2.4+
-     * @grammar UE.getEditor(id,[opt])  =>  Editor实例
-     * @desc 提供一个全局的方法得到编辑器实例
-     *
-     * * ''id''  放置编辑器的容器id, 如果容器下的编辑器已经存在，就直接返回
-     * * ''opt'' 编辑器的可选参数
-     * @example
-     *  UE.getEditor('containerId',{onready:function(){//创建一个编辑器实例
-     *      this.setContent('hello')
-     *  }});
-     *  UE.getEditor('containerId'); //返回刚创建的实例
-     *
-     */
+	 * @name getEditor
+	 * @since 1.2.4+
+	 * @grammar UE.getEditor(id,[opt]) => Editor实例
+	 * @desc 提供一个全局的方法得到编辑器实例 * ''id'' 放置编辑器的容器id, 如果容器下的编辑器已经存在，就直接返回 * ''opt'' 编辑器的可选参数
+	 * @example UE.getEditor('containerId',{onready:function(){//创建一个编辑器实例 this.setContent('hello') }}); UE.getEditor('containerId'); //返回刚创建的实例
+	 * 
+	 */
     UE.getEditor = function (id, opt) {
         var editor = instances[id];
         if (!editor) {
